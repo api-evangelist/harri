@@ -1,0 +1,153 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/harri-employee-openapi.yml, openapi/harri-employer-openapi.json
+format: http-status
+notes:
+- Harri does not publish RFC 9457 application/problem+json responses. Every 4xx response in both published
+  OpenAPI documents carries a plain-text description only — no error schema, no error code registry, and
+  no response content object. The titles below are the descriptions verbatim from the spec.
+- The Harri Employee OpenAPI info.description documents rate limiting as HTTP 403 with an explanatory
+  body, changing to HTTP 429 after 4 June 2026. Neither 403-rate-limit nor 429 is modeled as a response
+  on any operation in the spec.
+- The Harri Employer OpenAPI info.description documents a 422 returned when a corporate ID is not associated
+  with the calling API credentials. 422 is not modeled as a response on any operation.
+- The authentication doc documents HTTP 401 Unauthorized for bad/expired credentials. 401 is not modeled
+  as a response on any operation in either spec.
+documented_but_unmodeled:
+- status: 403
+  title: Rate limit exceeded
+  source: openapi/harri-employee-openapi.yml#info.description
+  note: 400 requests per minute; body explains the limit was exceeded. Superseded by 429 after 2026-06-04.
+- status: 429
+  title: Rate limit exceeded
+  source: openapi/harri-employee-openapi.yml#info.description
+  note: Replaces the 403 rate-limit response after 4 June 2026.
+- status: 422
+  title: Corporate ID not associated with these API credentials
+  source: openapi/harri-employer-openapi.json#info.description
+  note: Contact Harri Support to associate the corporate ID with the API credentials.
+- status: 401
+  title: Unauthorized
+  source: https://developer.harri.com/authentication/
+  note: Bad client_id/client_secret, malformed Authorization header, or expired token.
+problems:
+- status: 400
+  title: Invalid ID supplied
+  occurrences: 32
+  sources:
+  - openapi/harri-employee-openapi.yml
+  example_operations:
+  - openapi/harri-employee-openapi.yml#DeprecatedGetEmployeeByIdV3
+  - openapi/harri-employee-openapi.yml#GetEmployeeById
+  - openapi/harri-employee-openapi.yml#GetEmployeeByIdV5
+- status: 400
+  title: Invalid employee or Invalid job title
+  occurrences: 6
+  sources:
+  - openapi/harri-employee-openapi.yml
+  example_operations:
+  - openapi/harri-employee-openapi.yml#AttachJobTitleToEmployee
+  - openapi/harri-employee-openapi.yml#UpdateEmployeeJobTitle
+  - openapi/harri-employee-openapi.yml#DeleteEmployeeJobTitle
+- status: 400
+  title: Problem with the request body or related user/brands/roles
+  occurrences: 6
+  sources:
+  - openapi/harri-employer-openapi.json
+  example_operations:
+  - openapi/harri-employer-openapi.json#createUser
+  - openapi/harri-employer-openapi.json#updateUser
+  - openapi/harri-employer-openapi.json#deleteUser
+- status: 400
+  title: Problem with the related user/brands
+  occurrences: 4
+  sources:
+  - openapi/harri-employer-openapi.json
+  example_operations:
+  - openapi/harri-employer-openapi.json#retrieveUsersByBusinessId
+  - openapi/harri-employer-openapi.json#retrieveUser
+  - openapi/harri-employer-openapi.json#franshiseeRetrieveUsersByBusinessId
+- status: 400
+  title: Validation error or missing required fields
+  occurrences: 2
+  sources:
+  - openapi/harri-employer-openapi.json
+  example_operations:
+  - openapi/harri-employer-openapi.json#createEmployerV2
+  - openapi/harri-employer-openapi.json#createFranchiseeEmployerV2
+- status: 400
+  title: Validation error
+  occurrences: 2
+  sources:
+  - openapi/harri-employer-openapi.json
+  example_operations:
+  - openapi/harri-employer-openapi.json#updateEmployerV2
+  - openapi/harri-employer-openapi.json#updateFranchiseeEmployerV2
+- status: 403
+  title: Unauthorized
+  occurrences: 10
+  sources:
+  - openapi/harri-employer-openapi.json
+  example_operations:
+  - openapi/harri-employer-openapi.json#createEmployerV2
+  - openapi/harri-employer-openapi.json#listEmployersV2
+  - openapi/harri-employer-openapi.json#getEmployerV2
+- status: 403
+  title: Unauthorized due to missing permissions
+  occurrences: 10
+  sources:
+  - openapi/harri-employer-openapi.json
+  example_operations:
+  - openapi/harri-employer-openapi.json#createUser
+  - openapi/harri-employer-openapi.json#retrieveUsersByBusinessId
+  - openapi/harri-employer-openapi.json#updateUser
+- status: 403
+  title: Unauthorized access
+  occurrences: 2
+  sources:
+  - openapi/harri-employee-openapi.yml
+  example_operations:
+  - openapi/harri-employee-openapi.yml#ListClientSubscriptions
+  - openapi/harri-employee-openapi.yml#ListFranchiseeSubscriptions
+- status: 404
+  title: employee not found
+  occurrences: 32
+  sources:
+  - openapi/harri-employee-openapi.yml
+  example_operations:
+  - openapi/harri-employee-openapi.yml#DeprecatedGetEmployeeByIdV3
+  - openapi/harri-employee-openapi.yml#GetEmployeeById
+  - openapi/harri-employee-openapi.yml#GetEmployeeByIdV5
+- status: 404
+  title: employee not found, or job title not found
+  occurrences: 6
+  sources:
+  - openapi/harri-employee-openapi.yml
+  example_operations:
+  - openapi/harri-employee-openapi.yml#AttachJobTitleToEmployee
+  - openapi/harri-employee-openapi.yml#UpdateEmployeeJobTitle
+  - openapi/harri-employee-openapi.yml#DeleteEmployeeJobTitle
+- status: 404
+  title: Employer not found
+  occurrences: 6
+  sources:
+  - openapi/harri-employer-openapi.json
+  example_operations:
+  - openapi/harri-employer-openapi.json#getEmployerV2
+  - openapi/harri-employer-openapi.json#updateEmployerV2
+  - openapi/harri-employer-openapi.json#deleteEmployerV2
+- status: 404
+  title: User not found
+  occurrences: 2
+  sources:
+  - openapi/harri-employer-openapi.json
+  example_operations:
+  - openapi/harri-employer-openapi.json#retrieveUser
+  - openapi/harri-employer-openapi.json#franshiseeRetrieveUser
+- status: 404
+  title: Franchisee not found
+  occurrences: 1
+  sources:
+  - openapi/harri-employee-openapi.yml
+  example_operations:
+  - openapi/harri-employee-openapi.yml#ListFranchiseeSubscriptions

@@ -1,0 +1,26 @@
+generated: '2026-08-04'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: harri.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 15 23:59:59 2026 GMT
+  hsts: null
+- host: developer.harri.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 29 08:21:56 2026 GMT
+  hsts: null
+- host: gateway.harri.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  8 23:59:59 2026 GMT
+  hsts: null
+domains:
+- domain: harri.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

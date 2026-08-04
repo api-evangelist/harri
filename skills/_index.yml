@@ -1,0 +1,97 @@
+generated: '2026-08-04'
+method: generated
+source: openapi/harri-employee-openapi.yml, openapi/harri-employer-openapi.json, conventions/harri-conventions.yml,
+  errors/harri-problem-types.yml, https://developer.harri.com/authentication/
+note: Harri publishes no AGENTS.md or skill files of its own (searched developer.harri.com, harri.com
+  and github.com/HarriLLC on 2026-08-04). These are API Evangelist-authored operating instructions. Every
+  operationId cited is verified verbatim against the published OpenAPI documents, and deprecated operations
+  are deliberately routed around — 150 of the 363 Employee API operations are flagged deprecated, so an
+  agent that picks an operation by name alone will very often pick a dead one.
+skills:
+- file: harri-manage-employers-and-admins.md
+  name: Manage Harri employers, brands and above-store admin users
+  description: Create and maintain employer/brand records and the above-store admin users attached to
+    them, and reconcile employer identifiers with an external system.
+  api: openapi/harri-employer-openapi.json
+  operations:
+  - listEmployersV2
+  - getEmployerV2
+  - createEmployerV2
+  - updateEmployerV2
+  - deleteEmployerV2
+  - createUser
+  - retrieveUsersByBusinessId
+  - retrieveUser
+  - updateUser
+  - deleteUser
+  - api_v1_employers_mappings_list
+  - ListCorporateUsers
+  - CreateCorporateUser
+- file: harri-monitor-events.md
+  name: Monitor Harri platform events and webhook delivery
+  description: Poll the Harri events log for platform activity, filter by event code, location and published
+    window, check delivery status, and list the webhook subscriptions configured for your client.
+  api: openapi/harri-employee-openapi.yml
+  operations:
+  - v2_events_list
+  - GetEventById
+  - ListClientSubscriptions
+  - ListFranchiseeEvents
+  - franchisees_v2_events_list
+  - FranchiseesGetEventById
+  - ListFranchiseeSubscriptions
+- file: harri-onboard-new-hire.md
+  name: Onboard a new hire into Harri
+  description: Create an employee in Harri, attach them to a location, assign a job title and position,
+    set their pay type and hourly rate, and stamp the payroll and POS identifiers your downstream systems
+    need.
+  api: openapi/harri-employee-openapi.yml
+  operations:
+  - GetAllLocations
+  - GetAllJobTitles
+  - GetAllPositions
+  - CreateEmployeeV7
+  - AttachEmployeeToLocation
+  - AttachJobTitleToEmployee
+  - AttachEmployeePosition
+  - SetPrimaryEmployeePosition
+  - GetEmployeePayTypes
+  - CreateEmployeePayRate
+  - EditEmployeeLocationInfo
+  - GetEmployeeByIdV6
+- file: harri-reconcile-payroll-ids.md
+  name: Reconcile Harri records with an external payroll or POS system
+  description: Use Harri's mappings endpoints and the payroll_id / pos_id fields to line Harri employees,
+    locations and positions up with the identifiers your payroll or point-of-sale system uses, and to
+    find the records that are not mapped yet.
+  api: openapi/harri-employee-openapi.yml
+  operations:
+  - api_v2_employees_mappings_list
+  - api_v1_employees_mappings_create
+  - api_v1_employees_mappings_updateV2
+  - api_v1_locations_mappings_list
+  - api_v1_locations_mappings_create
+  - api_v1_locations_mappings_update
+  - api_v1_positions_mappings_list
+  - api_v1_positions_mappings_create
+  - api_v1_positions_mappings_update
+  - EditEmployeeLocationInfo
+  - GetAllLocations
+  - GetAllPositions
+- file: harri-terminate-and-rehire.md
+  name: Terminate or rehire an employee in Harri
+  description: Terminate an employee with the correct reason code, correct a termination that was entered
+    in error, and rehire someone who is returning — keeping location periods and schedule inclusion consistent.
+  api: openapi/harri-employee-openapi.yml
+  operations:
+  - ListEmployeesV4
+  - GetEmployeeByIdV6
+  - GetTerminationReasonGroups
+  - GetTerminationReasonsV2
+  - TerminateEmployeeV3
+  - UndoTermination
+  - RehireEmployeeV5
+  - EditHireDate
+  - IncludeInSchedule
+  - UpdateEmployeeLocationPeriod
+  - DetachEmployeeToLocation

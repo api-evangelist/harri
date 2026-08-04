@@ -1,0 +1,19 @@
+generated: '2026-08-04'
+method: searched
+source: https://developer.harri.com/api-release-notes/
+url: https://developer.harri.com/api-release-notes/
+http_status: 200
+access: member-gated
+scheme: dated release-notes page on the Harri developer portal
+published: '2026-08-04'
+last_updated_published: '2026-03-25'
+first_published: '2025-05-06'
+current_version: per-resource URI versions v1-v7 (Employee API), v1-v2 (Employer API)
+entries: []
+note: Harri maintains a dated API Release Notes page on its developer portal. The page itself is publicly
+  reachable (HTTP 200) and carries a public "Last updated on Mar 25, 2026" stamp, but the body is gated
+  to developer-portal members, so no structured entries could be captured without credentials. Recorded
+  as a real changelog surface with an empty entries[] rather than fabricated history. Only three of the
+  57 developer-portal documents are public — Employees, Employer and Authentication; the remaining 54,
+  including this one, Clocks, Pay Sheets and Tips, Export Templates and Webhook Event Notifications, are
+  members-only.

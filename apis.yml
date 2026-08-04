@@ -1,23 +1,156 @@
 aid: harri
 name: Harri
-description: 'Harri is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Harri is a hospitality-first human capital management (HCM) and workforce
+  management platform used by enterprise restaurants, hotels, retailers, grocers and
+  care operators to run the full employee lifecycle — talent acquisition and onboarding,
+  scheduling and demand forecasting, time and attendance, labor compliance, payroll
+  data export and workforce analytics. Harri exposes a public Open API Hub through
+  its developer portal at developer.harri.com, secured with OAuth 2.0 client credentials
+  and fronted by an API gateway at gateway.harri.com. The published surface covers
+  employee records, locations, positions, job titles, pay types, hourly and annual
+  rates, tronc and tip distribution, employment periods, absences, max weekly hours
+  and working patterns, external-system ID mappings, platform events and webhook
+  subscriptions, plus an employer/brand-management surface for above-store admin
+  users. A parallel franchisee-scoped path set mirrors the corporate endpoints for
+  multi-brand and franchise operators.'
+image: https://cdn.harri.com/10c3cd15-ec51-41c0-ba18-3227e664ad83/images/icons/apple-touch-icon.png
 url: https://raw.githubusercontent.com/api-evangelist/harri/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
-- Company
-apis: []
+- Human Resources
+- Workforce Management
+- Hospitality
+- Restaurants
+- Scheduling
+- Time and Attendance
+- Payroll
+- Talent Acquisition
+- Labor Compliance
+- HCM
+apis:
+- aid: harri:employee-api
+  name: Harri Employee API
+  description: 'The Harri Employee API is the core of the Harri Open API Hub. It manages
+    and retrieves employee data across the Harri platform: employee create/read/update,
+    employee profiles, location attachment and location periods, job titles, positions
+    and primary positions, pay types, hourly rates, annual rates, tipped statuses,
+    tronc points and amounts, bank accounts, employment periods, absences, max weekly
+    hours and working patterns, minor details, cost centers, external ID mappings,
+    platform events and client subscriptions. Every corporate resource is mirrored
+    under a /franchisees/{franchiseeId}/ path set for franchise operators. The spec
+    is heavily versioned in the URI path (v1 through v6) with 150 of its 363 operations
+    explicitly flagged deprecated.'
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Employees
+  - Workforce Management
+  - Human Resources
+  - Scheduling
+  - Payroll
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-employee-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Overlay
+    url: overlays/harri-employee-overlay.yaml
+- aid: harri:employer-api
+  name: Harri External Brand Management API
+  description: 'The Harri Employer (External Brand Management) API creates and manages
+    Harri above-store admin users and employer/brand records. It provides v1 user
+    CRUD keyed on an external user id, v2 employer CRUD, a mappings listing that
+    reconciles Harri identifiers with external system identifiers, and a mirrored
+    franchisee-scoped path set. Corporate IDs must be associated with the calling
+    API credentials by Harri Support before the endpoints resolve, otherwise a 422
+    is returned.'
+  humanURL: https://developer.harri.com/employer/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Employers
+  - Brand Management
+  - User Management
+  - Human Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-employer-openapi.json
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+  - type: Overlay
+    url: overlays/harri-employer-overlay.yaml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/harri-agentic-access.yml
+- type: DomainSecurity
+  url: security/harri-domain-security.yml
+- type: OAuthScopes
+  url: scopes/harri-scopes.yml
 - type: Website
-  url: https://forgeglobal.com/harri_stock/
+  url: https://harri.com/
+- type: DeveloperPortal
+  url: https://developer.harri.com/
+- type: Documentation
+  url: https://developer.harri.com/about-api/
+- type: APIReference
+  url: https://developer.harri.com/employees/
+- type: GettingStarted
+  url: https://developer.harri.com/authentication/
+- type: Authentication
+  url: authentication/harri-authentication.yml
+- type: SignUp
+  url: https://developer.harri.com/sign-up/
+- type: Support
+  url: https://harri.com/request-a-demo/
+- type: Blog
+  url: https://resources.harri.com/blog
+- type: GitHubOrganization
+  url: https://github.com/HarriLLC
+- type: TermsOfService
+  url: https://harri.com/terms/
+- type: PrivacyPolicy
+  url: https://harri.com/privacy/
+- type: StatusPage
+  url: https://status.harri.com/
+- type: ChangeLog
+  url: https://developer.harri.com/api-release-notes/
+- type: Lifecycle
+  url: lifecycle/harri-lifecycle.yml
+- type: ChangeLog
+  url: changelog/harri-changelog.yml
+- type: Webhooks
+  url: asyncapi/harri-webhooks.yml
+- type: RateLimits
+  url: rate-limits/harri-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/harri-problem-types.yml
+- type: Conventions
+  url: conventions/harri-conventions.yml
+- type: Conformance
+  url: conformance/harri-conformance.yml
+- type: DataModel
+  url: data-model/harri-data-model.yml
+- type: Packages
+  url: packages/harri-packages.yml
+- type: WellKnown
+  url: well-known/harri-well-known.yml
+- type: MCPServer
+  url: mcp/harri-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/harri-llms.txt
+
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 24
+  pass: local-v1

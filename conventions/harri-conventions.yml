@@ -1,0 +1,87 @@
+generated: '2026-08-04'
+method: searched
+source: https://developer.harri.com/authentication/ plus the two published OpenAPI documents. Cross-cutting
+  request/response semantics that apply across the Harri Open API Hub.
+description: 'How Harri''s Open API Hub behaves across every operation: authentication style, versioning,
+  pagination, franchisee scoping, external-ID mapping, error envelope and rate-limit signaling. Harri
+  publishes no idempotency contract, no request-id tracing header and no field-expansion or sparse-fieldset
+  mechanism — those sections record the honest absence.'
+base_url: https://gateway.harri.com/open-api-hub
+api_style: REST over HTTPS, JSON request and response bodies
+authentication:
+  scheme: OAuth 2.0 client credentials; Bearer access token in the Authorization header
+  token_endpoint: https://oauth.harri.com/oauth2/token
+  grant_type: client_credentials
+  credentials: client_id + client_secret issued by Harri
+  token_lifetime_seconds: 1800
+  guidance: Harri explicitly asks callers to reuse one token for its whole expiry window rather than minting
+    a token per request.
+  docs: https://developer.harri.com/authentication/
+  detail: authentication/harri-authentication.yml
+idempotency:
+  supported: false
+  note: No Idempotency-Key header, no idempotency parameter and no idempotency documentation exists on
+    the Harri developer portal or in either published OpenAPI. Retrying a POST re-executes it. This is
+    a recorded absence, not an omission of the harvest.
+pagination:
+  style: page-number offset
+  request_params:
+    limit: integer, minimum 1 — number of rows to return (default 10 on the events endpoints)
+    page: integer, minimum 0 — page number / rows to skip (default 1 on the events endpoints)
+  response_fields: None declared. List operations return a bare JSON array; no envelope, total count,
+    or has_more flag.
+  note: Only a subset of list operations declare limit/page; most list operations declare no pagination
+    at all.
+field_expansion:
+  supported: false
+  note: No expand[] / include / fields mechanism is declared or documented.
+metadata:
+  supported: false
+  note: No free-form metadata bag. Harri instead exposes first-class external-identifier fields — payroll_id,
+    pos_id, geid and the /mappings endpoints — for reconciling Harri records with external systems.
+external_id_mapping:
+  supported: true
+  mechanism: Dedicated Mapping endpoints translate between Harri internal ids and external system ids,
+    with internal_values / external_values / mode=UNMAPPED query parameters.
+  per_record_fields:
+  - payroll_id
+  - pos_id
+  - geid
+  - user_external_id
+  source: 'openapi/harri-employee-openapi.yml (tag: Mapping), openapi/harri-employer-openapi.json'
+request_tracing:
+  supported: false
+  note: No request-id or correlation-id header is declared in either spec or documented on the portal.
+versioning:
+  scheme: uri-path
+  form: /api/v{n}/... on the Employee API; /v{n}/... on the Employer API
+  versions_in_use:
+    employee:
+    - v1
+    - v2
+    - v3
+    - v4
+    - v5
+    - v6
+    - v7
+    employer:
+    - v1
+    - v2
+  note: 'Versions are per-resource, not per-API: a single deployment serves v1 through v7 side by side,
+    and superseded versions stay live and reachable but are flagged deprecated in the spec.'
+  detail: lifecycle/harri-lifecycle.yml
+franchisee_scoping:
+  mechanism: Every corporate resource is mirrored at /api/v{n}/franchisees/{franchiseeId}/...
+  note: Franchisee operationIds are prefixed Franchisees/Franshisees (Harri spells both ways in the spec).
+error_envelope:
+  format: none declared
+  note: 4xx responses in the spec carry a description only — no schema, no error code, no application/problem+json.
+    The Employer API declares a warnings[] array with code + message inside its 200 success envelope for
+    partial-success conditions.
+  detail: errors/harri-problem-types.yml
+rate_limit_signaling:
+  limit: 400 requests per minute
+  status: 403 historically; 429 after 4 June 2026
+  headers: None declared — callers must detect the status code, not a header.
+  detail: rate-limits/harri-rate-limits.yml
+content_type: application/json (the only media type declared in either spec)

@@ -1,0 +1,250 @@
+generated: '2026-08-04'
+method: probed
+source: live GET of every /.well-known/ discovery path on every Harri host
+probed: '2026-08-04'
+hosts:
+- harri.com
+- www.harri.com
+- developer.harri.com
+- gateway.harri.com
+- oauth.harri.com
+result: none — Harri publishes no /.well-known/ discovery documents on any host
+host_behaviour:
+  harri.com: 410 Gone with an HTML body for every unknown path (WordPress front end); no 404
+  www.harri.com: 410 Gone, same as apex
+  developer.harri.com: 404 (Ghost developer portal)
+  gateway.harri.com: 403 with a JSON body for every unauthenticated path (API gateway)
+  oauth.harri.com: 404 with a JSON body (OAuth token service)
+notes:
+- No security.txt, so no machine-readable vulnerability-disclosure contact.
+- No OAuth 2.0 authorization-server or protected-resource metadata, even though the API is OAuth-secured
+  — the token endpoint is documented only in prose at https://developer.harri.com/authentication/.
+- No agent card at either the canonical /.well-known/agent-card.json or the legacy /.well-known/agent.json
+  path on any host. Nothing was written to a2a/ — an agent card is search-only and must never be authored
+  on a provider's behalf.
+documents:
+- host: harri.com
+  path: /.well-known/security.txt
+  spec: RFC 9116
+  status: 410
+  file: null
+- host: harri.com
+  path: /.well-known/openid-configuration
+  spec: OIDC discovery
+  status: 410
+  file: null
+- host: harri.com
+  path: /.well-known/oauth-authorization-server
+  spec: RFC 8414
+  status: 410
+  file: null
+- host: harri.com
+  path: /.well-known/oauth-protected-resource
+  spec: RFC 9728
+  status: 410
+  file: null
+- host: harri.com
+  path: /.well-known/api-catalog
+  spec: RFC 9615
+  status: 410
+  file: null
+- host: harri.com
+  path: /.well-known/ai-plugin.json
+  spec: OpenAI plugin manifest
+  status: 410
+  file: null
+- host: harri.com
+  path: /.well-known/agent-card.json
+  spec: A2A 1.0.0 agent card
+  status: 410
+  file: null
+- host: harri.com
+  path: /.well-known/agent.json
+  spec: A2A pre-0.3 agent card
+  status: 410
+  file: null
+- host: harri.com
+  path: /security.txt
+  spec: RFC 9116 legacy location
+  status: 410
+  file: null
+- host: www.harri.com
+  path: /.well-known/security.txt
+  spec: RFC 9116
+  status: 410
+  file: null
+- host: www.harri.com
+  path: /.well-known/openid-configuration
+  spec: OIDC discovery
+  status: 410
+  file: null
+- host: www.harri.com
+  path: /.well-known/oauth-authorization-server
+  spec: RFC 8414
+  status: 410
+  file: null
+- host: www.harri.com
+  path: /.well-known/oauth-protected-resource
+  spec: RFC 9728
+  status: 410
+  file: null
+- host: www.harri.com
+  path: /.well-known/api-catalog
+  spec: RFC 9615
+  status: 410
+  file: null
+- host: www.harri.com
+  path: /.well-known/ai-plugin.json
+  spec: OpenAI plugin manifest
+  status: 410
+  file: null
+- host: www.harri.com
+  path: /.well-known/agent-card.json
+  spec: A2A 1.0.0 agent card
+  status: 410
+  file: null
+- host: www.harri.com
+  path: /.well-known/agent.json
+  spec: A2A pre-0.3 agent card
+  status: 410
+  file: null
+- host: www.harri.com
+  path: /security.txt
+  spec: RFC 9116 legacy location
+  status: 410
+  file: null
+- host: developer.harri.com
+  path: /.well-known/security.txt
+  spec: RFC 9116
+  status: 404
+  file: null
+- host: developer.harri.com
+  path: /.well-known/openid-configuration
+  spec: OIDC discovery
+  status: 404
+  file: null
+- host: developer.harri.com
+  path: /.well-known/oauth-authorization-server
+  spec: RFC 8414
+  status: 404
+  file: null
+- host: developer.harri.com
+  path: /.well-known/oauth-protected-resource
+  spec: RFC 9728
+  status: 404
+  file: null
+- host: developer.harri.com
+  path: /.well-known/api-catalog
+  spec: RFC 9615
+  status: 404
+  file: null
+- host: developer.harri.com
+  path: /.well-known/ai-plugin.json
+  spec: OpenAI plugin manifest
+  status: 404
+  file: null
+- host: developer.harri.com
+  path: /.well-known/agent-card.json
+  spec: A2A 1.0.0 agent card
+  status: 404
+  file: null
+- host: developer.harri.com
+  path: /.well-known/agent.json
+  spec: A2A pre-0.3 agent card
+  status: 404
+  file: null
+- host: developer.harri.com
+  path: /security.txt
+  spec: RFC 9116 legacy location
+  status: 404
+  file: null
+- host: gateway.harri.com
+  path: /.well-known/security.txt
+  spec: RFC 9116
+  status: 403
+  file: null
+- host: gateway.harri.com
+  path: /.well-known/openid-configuration
+  spec: OIDC discovery
+  status: 403
+  file: null
+- host: gateway.harri.com
+  path: /.well-known/oauth-authorization-server
+  spec: RFC 8414
+  status: 403
+  file: null
+- host: gateway.harri.com
+  path: /.well-known/oauth-protected-resource
+  spec: RFC 9728
+  status: 403
+  file: null
+- host: gateway.harri.com
+  path: /.well-known/api-catalog
+  spec: RFC 9615
+  status: 403
+  file: null
+- host: gateway.harri.com
+  path: /.well-known/ai-plugin.json
+  spec: OpenAI plugin manifest
+  status: 403
+  file: null
+- host: gateway.harri.com
+  path: /.well-known/agent-card.json
+  spec: A2A 1.0.0 agent card
+  status: 403
+  file: null
+- host: gateway.harri.com
+  path: /.well-known/agent.json
+  spec: A2A pre-0.3 agent card
+  status: 403
+  file: null
+- host: gateway.harri.com
+  path: /security.txt
+  spec: RFC 9116 legacy location
+  status: 403
+  file: null
+- host: oauth.harri.com
+  path: /.well-known/security.txt
+  spec: RFC 9116
+  status: 404
+  file: null
+- host: oauth.harri.com
+  path: /.well-known/openid-configuration
+  spec: OIDC discovery
+  status: 404
+  file: null
+- host: oauth.harri.com
+  path: /.well-known/oauth-authorization-server
+  spec: RFC 8414
+  status: 404
+  file: null
+- host: oauth.harri.com
+  path: /.well-known/oauth-protected-resource
+  spec: RFC 9728
+  status: 404
+  file: null
+- host: oauth.harri.com
+  path: /.well-known/api-catalog
+  spec: RFC 9615
+  status: 404
+  file: null
+- host: oauth.harri.com
+  path: /.well-known/ai-plugin.json
+  spec: OpenAI plugin manifest
+  status: 404
+  file: null
+- host: oauth.harri.com
+  path: /.well-known/agent-card.json
+  spec: A2A 1.0.0 agent card
+  status: 404
+  file: null
+- host: oauth.harri.com
+  path: /.well-known/agent.json
+  spec: A2A pre-0.3 agent card
+  status: 404
+  file: null
+- host: oauth.harri.com
+  path: /security.txt
+  spec: RFC 9116 legacy location
+  status: 404
+  file: null

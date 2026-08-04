@@ -1,0 +1,5503 @@
+generated: '2026-08-04'
+method: generated
+source: openapi/harri-employee-openapi.yml, openapi/harri-employer-openapi.json
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 385
+  by_action_class:
+    connected: 129
+    acting: 256
+  by_consequence:
+    read: 129
+    write: 250
+    safety-critical: 6
+  human_in_the_loop_required: 6
+operations:
+- path: /api/v1/positions
+  method: get
+  operationId: GetAllPositions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/locations
+  method: get
+  operationId: GetAllLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/locations/{location_id}/cost_centers
+  method: get
+  operationId: GetLocationCostCenters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/job_titles
+  method: get
+  operationId: GetAllJobTitles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/employees
+  method: post
+  operationId: DeprecatedCreateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/employees
+  method: get
+  operationId: DeprecactedgetEmployees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/employees
+  method: post
+  operationId: DeprecatedCreateEmployeeV4
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v5/employees
+  method: post
+  operationId: DeprecatedCreateEmployeeV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v6/employees
+  method: post
+  operationId: CreateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees
+  method: get
+  operationId: DeprecactedgetEmployeesV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/employees/{employeeId}
+  method: get
+  operationId: DeprecatedGetEmployeeByIdV3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/employees/{employeeId}
+  method: get
+  operationId: GetEmployeeById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v5/employees/{employeeId}
+  method: get
+  operationId: GetEmployeeByIdV5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/profile
+  method: get
+  operationId: DeprecatedGetEmployeeProfile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/{employeeId}/profile
+  method: get
+  operationId: DeprecatredGetEmployeeProfileV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/employees/{employeeId}/profile
+  method: get
+  operationId: DeprecatedGetEmployeeProfileV3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/employees/{employeeId}/profile
+  method: get
+  operationId: GetEmployeeProfile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/{employeeId}/basic_info
+  method: put
+  operationId: DeprecatedUpdateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/employees/{employeeId}/basic_info
+  method: put
+  operationId: UpdateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/locations/{locationId}
+  method: post
+  operationId: DeprecatedAttachEmployeeToLocation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/locations/{locationId}
+  method: delete
+  operationId: DeprecatedDetachEmployeeToLocation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/locations/{locationId}
+  method: post
+  operationId: AttachEmployeeToLocation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/locations/{locationId}
+  method: delete
+  operationId: DetachEmployeeToLocation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/locations/{locationId}/info
+  method: put
+  operationId: DeprecatedEditEmployeeLocationInfo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/locations/{locationId}/info
+  method: put
+  operationId: EditEmployeeLocationInfo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/locations/{locationId}/unshare
+  method: post
+  operationId: DeprecatedSetShareEndDate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/locations/{locationId}/location_periods
+  method: put
+  operationId: DeprecatedUpdateEmployeeLocationPeriod
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/locations/{locationId}/location_periods
+  method: put
+  operationId: UpdateEmployeeLocationPeriod
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/bank_accounts
+  method: get
+  operationId: DeprecatedGetBankAccountsByEmployeeId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/bank_accounts
+  method: put
+  operationId: DeprecatedUpdateEmployeeBankAccount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/bank_accounts
+  method: get
+  operationId: GetEmployeeBankAccounts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/{employeeId}/bank_accounts
+  method: put
+  operationId: UpdateEmployeeBankAccount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/job_titles
+  method: get
+  operationId: GetJobTitlesByEmployeeId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/job_titles/{jobTitleId}
+  method: post
+  operationId: AttachJobTitleToEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/job_titles/{jobTitleId}
+  method: put
+  operationId: UpdateEmployeeJobTitle
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/job_titles/{jobTitleId}
+  method: delete
+  operationId: DeleteEmployeeJobTitle
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types
+  method: get
+  operationId: GetEmployeePayTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types
+  method: post
+  operationId: DeprecatedCreateEmployeePayTypes
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}
+  method: put
+  operationId: DeprecatedUpdateEmployeePayType
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}
+  method: delete
+  operationId: DeprecatedDeleteEmployeePayTypes
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}
+  method: put
+  operationId: UpdateEmployeePayType
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}
+  method: delete
+  operationId: DeleteEmployeePayTypes
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types
+  method: post
+  operationId: DeprecatedCreateEmployeePayTypesV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/employees/{employeeId}/pay_types
+  method: post
+  operationId: CreateEmployeePayTypesV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_type
+  method: get
+  operationId: DeprecatedGetEmployeePayType
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/{employeeId}/pay_type
+  method: put
+  operationId: DeprecatedUpdateEmployeePayTypeV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_type
+  method: post
+  operationId: DeprecatedCreateEmployeePayType
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/employees/{employeeId}/positions
+  method: get
+  operationId: GetEmployeePositions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: put
+  operationId: DeprecatedUpdateEmployeePositionV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: post
+  operationId: AttachEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: put
+  operationId: UpdateEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: post
+  operationId: DeprecatedAttachEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: delete
+  operationId: DeprecatedDeleteEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/positions/{positionCode}/set_primary
+  method: post
+  operationId: DeprecatedSetPrimaryEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/positions/{positionCode}/set_primary
+  method: post
+  operationId: SetPrimaryEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: put
+  operationId: DeprecatedUpdateLocationEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: post
+  operationId: DeprecatedAttachEmployeePositionV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: delete
+  operationId: DeleteEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/positions/{positionCode}
+  method: put
+  operationId: DeprecatedUpdateEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/positions/{positionCode}
+  method: post
+  operationId: DeprecatedAttachPositionToEmployees
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/positions/{positionCode}
+  method: delete
+  operationId: DeprecatedDeleteEmployeePositionForFixedPayType
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/positions
+  method: get
+  operationId: DeprecatedGetEmployeePositions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: get
+  operationId: DeprecatedGetEmployeePayRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: post
+  operationId: DeprecatedCreateEmployeePayRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: put
+  operationId: DeprecatedUpdateEmployeePayRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: delete
+  operationId: DeprecatedDeleteEmployeePayRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: get
+  operationId: DeprecatedGetEmployeePayRatesV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: post
+  operationId: DeprecatedCreateEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: put
+  operationId: DeprecatedUpdateEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: delete
+  operationId: DeprecatedDeleteEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: get
+  operationId: GetEmployeePayRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: post
+  operationId: CreateEmployeePayRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: put
+  operationId: UpdateEmployeePayRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: delete
+  operationId: DeleteEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses
+  method: get
+  operationId: DeprecatedGetEmployeeTippedStatuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses
+  method: post
+  operationId: DeprecatedCreateEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses/{tippedStatusId}
+  method: put
+  operationId: DeprecatedUpdateEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses/{tippedStatusId}
+  method: delete
+  operationId: DeprecatedDeleteEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses
+  method: get
+  operationId: GetEmployeeTippedStatuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses
+  method: post
+  operationId: CreateEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses/{tippedStatusId}
+  method: put
+  operationId: UpdateEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses/{tippedStatusId}
+  method: delete
+  operationId: DeleteEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/annual_rates
+  method: get
+  operationId: GetEmployeeAnnualRate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/annual_rates
+  method: post
+  operationId: DeprecatedCreateEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/annual_rates/{annualRateId}
+  method: put
+  operationId: DeprecatedUpdateEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/annual_rates/{annualRateId}
+  method: delete
+  operationId: DeprecatedDeleteEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/annual_rates
+  method: post
+  operationId: CreateEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/annual_rates/{annualRateId}
+  method: put
+  operationId: UpdateEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/annual_rates/{annualRateId}
+  method: delete
+  operationId: DeleteEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/troncs
+  method: get
+  operationId: GetEmployeeTronc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/troncs
+  method: post
+  operationId: CreateEmployeeTronc
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/troncs/{troncId}
+  method: put
+  operationId: UpdateEmployeeTronc
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/troncs/{troncId}
+  method: delete
+  operationId: DeleteEmployeeTronc
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/tronc_points
+  method: get
+  operationId: GetEmployeeTroncPoints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/tronc_points
+  method: post
+  operationId: DeprecatedCreateEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/tronc_points/{troncPointId}
+  method: put
+  operationId: DeprecatedUpdateEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/tronc_points/{troncPointId}
+  method: delete
+  operationId: DeprecatedDeleteEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/tronc_points
+  method: post
+  operationId: CreateEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/tronc_points/{troncPointId}
+  method: put
+  operationId: UpdateEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/tronc_points/{troncPointId}
+  method: delete
+  operationId: DeleteEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts
+  method: get
+  operationId: GetEmployeeTroncAmounts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts
+  method: post
+  operationId: DeprecatedCreateEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts/{troncAmountId}
+  method: put
+  operationId: DeprecatedUpdateEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts/{troncAmountId}
+  method: delete
+  operationId: DeprecatedDeleteEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts
+  method: post
+  operationId: CreateEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts/{troncAmountId}
+  method: put
+  operationId: UpdateEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts/{troncAmountId}
+  method: delete
+  operationId: DeleteEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours
+  method: get
+  operationId: DeprecatedGetEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours
+  method: post
+  operationId: DeprecatedCreateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: put
+  operationId: DeprecatedUpdateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: delete
+  operationId: DeprecatedDeleteEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours
+  method: get
+  operationId: GetEmployeeLocationMaxWeeklyHours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours
+  method: post
+  operationId: CreateEmployeeLocationMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: put
+  operationId: UpdateEmployeeLocationMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: delete
+  operationId: DeleteEmployeeLocationMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours
+  method: get
+  operationId: GetEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours
+  method: post
+  operationId: CreateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: put
+  operationId: UpdateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: delete
+  operationId: DeleteEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/termination_reasons
+  method: get
+  operationId: GetTerminationReasons
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/termination_reasons
+  method: get
+  operationId: GetTerminationReasonsV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/termination_reason_groups
+  method: get
+  operationId: GetTerminationReasonGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/terminate
+  method: post
+  operationId: DeprecatedTerminateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v2/employees/{employeeId}/terminate
+  method: post
+  operationId: TerminateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v3/employees/{employeeId}/terminate
+  method: post
+  operationId: TerminateEmployeeV3
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/employees/{employeeId}/rehire
+  method: post
+  operationId: DeprecatedRehireEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/rehire
+  method: post
+  operationId: DeprecatedRehireEmployeeV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/employees/{employeeId}/rehire
+  method: post
+  operationId: RehireEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/hire_date
+  method: put
+  operationId: DeprecatedEditHireDate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/hire_date
+  method: put
+  operationId: EditHireDate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/undo_termination
+  method: post
+  operationId: UndoTermination
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/include_in_schedule
+  method: put
+  operationId: DeprecatedIncludeInSchedule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/include_in_schedule
+  method: put
+  operationId: IncludeInSchedule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/absences/requests
+  method: get
+  operationId: api_v1_employees_absences_requests_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/absences/requests
+  method: post
+  operationId: api_v1_employees_absences_requests_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/absences/requests/{id}
+  method: put
+  operationId: api_v1_employees_absences_requests_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/absences/requests/{id}
+  method: delete
+  operationId: api_v1_employees_absences_requests_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/absences/requests
+  method: get
+  operationId: api_v1_absences_requests_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/absences/reason_options
+  method: get
+  operationId: api_v1_absences_reason_options_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/mappings
+  method: get
+  operationId: api_v1_employees_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/mappings
+  method: post
+  operationId: api_v1_employees_mappings_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/mappings
+  method: get
+  operationId: api_v2_employees_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/mappings/{id}
+  method: put
+  operationId: api_v1_employees_mappings_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/locations/mappings
+  method: get
+  operationId: api_v1_locations_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/locations/mappings
+  method: post
+  operationId: api_v1_locations_mappings_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/locations/mappings/{id}
+  method: put
+  operationId: api_v1_locations_mappings_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/positions/mappings
+  method: get
+  operationId: api_v1_positions_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/positions/mappings
+  method: post
+  operationId: api_v1_positions_mappings_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/positions/mappings/{id}
+  method: put
+  operationId: api_v1_positions_mappings_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employers/mappings
+  method: get
+  operationId: api_v1_employers_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employers/mappings
+  method: post
+  operationId: api_v1_employers_mappings_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employers/mappings/{pk}
+  method: put
+  operationId: api_v1_employers_mappings_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/events
+  method: get
+  operationId: GetEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/events/{eventId}
+  method: get
+  operationId: GetEventById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/events
+  method: get
+  operationId: v2_events_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees
+  method: get
+  operationId: FranshiseesGetAllFranchisees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/positions
+  method: get
+  operationId: FranshiseesGetAllPositions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/locations
+  method: get
+  operationId: FranshiseesGetAllLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/locations/{location_id}/cost_centers
+  method: get
+  operationId: FranchiseesGetLocationCostCenters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/job_titles
+  method: get
+  operationId: FranshiseesGetAllJobTitles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/franchisees/{franchiseeId}/employees
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v5/franchisees/{franchiseeId}/employees
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeeV5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v6/franchisees/{franchiseeId}/employees
+  method: post
+  operationId: FranshiseesCreateEmployeeV5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/franchisees/{franchiseeId}/employees
+  method: get
+  operationId: FranshiseesGetEmployees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/franchisees/{franchiseeId}/employees/{employeeId}
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeeById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v5/franchisees/{franchiseeId}/employees/{employeeId}
+  method: get
+  operationId: FranshiseesGetEmployeeById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/profile
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeeProfile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/profile
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeeProfileV3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/franchisees/{franchiseeId}/employees/{employeeId}/profile
+  method: get
+  operationId: FranshiseesGetEmployeeProfile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/basic_info
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/basic_info
+  method: put
+  operationId: FranshiseesUpdateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}
+  method: post
+  operationId: DeprecatedFranshiseesAttachEmployeeToLocation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}
+  method: delete
+  operationId: DeprecatedFranshiseesDetachEmployeeToLocation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}
+  method: post
+  operationId: FranshiseesAttachEmployeeToLocation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}
+  method: delete
+  operationId: FranshiseesDetachEmployeeToLocation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/info
+  method: put
+  operationId: DeprecatedFranshiseesEditEmployeeLocationInfo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/info
+  method: put
+  operationId: FranshiseesEditEmployeeLocationInfo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/location_periods
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeeLocationPeriod
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/location_periods
+  method: put
+  operationId: FranshiseesUpdateEmployeeLocationPeriod
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/bank_accounts
+  method: get
+  operationId: FranshiseesGetEmployeeBankAccounts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/bank_accounts
+  method: put
+  operationId: FranshiseesUpdateEmployeeBankAccount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/job_titles
+  method: get
+  operationId: FranshiseesGetJobTitlesByEmployeeId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/job_titles/{jobTitleId}
+  method: post
+  operationId: FranshiseesAttachJobTitleToEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/job_titles/{jobTitleId}
+  method: put
+  operationId: FranshiseesUpdateEmployeeJobTitle
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/job_titles/{jobTitleId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeeJobTitle
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types
+  method: get
+  operationId: FranshiseesGetEmployeePayTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeePayTypes
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeePayTypesV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/pay_types
+  method: post
+  operationId: FranshiseesCreateEmployeePayTypes
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}
+  method: put
+  operationId: FranshiseesUpdateEmployeePayType
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeePayTypes
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/positions
+  method: get
+  operationId: FranshiseesGetEmployeePositions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: post
+  operationId: DeprecatedFranshiseesAttachEmployeePositionV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: delete
+  operationId: FranshiseesDeleteEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: post
+  operationId: FranshiseesAttachEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: put
+  operationId: FranshiseesUpdateEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: post
+  operationId: DeprecatedFranshiseesAttachEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}
+  method: delete
+  operationId: DeprecatedFranshiseesDeleteEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/positions/{positionCode}/set_primary
+  method: post
+  operationId: DeprecatedFranshiseesSetPrimaryEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/positions/{positionCode}/set_primary
+  method: post
+  operationId: FranshiseesSetPrimaryEmployeePosition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeePayRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeePayRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeePayRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeePayRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeePayRatesV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: delete
+  operationId: DeprecatedFranshiseesDeleteEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: get
+  operationId: FranshiseesGetEmployeePayRatesV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  method: post
+  operationId: FranshiseesCreateEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: put
+  operationId: FranshiseesUpdateEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeePayRateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeeTippedStatuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses/{tippedStatusId}
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses/{tippedStatusId}
+  method: delete
+  operationId: DeprecatedFranshiseesDeleteEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses
+  method: get
+  operationId: FranshiseesGetEmployeeTippedStatuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses
+  method: post
+  operationId: FranshiseesCreateEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses/{tippedStatusId}
+  method: put
+  operationId: FranshiseesUpdateEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses/{tippedStatusId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeeTippedStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/annual_rates
+  method: get
+  operationId: FranshiseesGetEmployeeAnnualRate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/annual_rates
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/annual_rates/{annualRateId}
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/annual_rates/{annualRateId}
+  method: delete
+  operationId: DeprecatedFranshiseesDeleteEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/annual_rates
+  method: post
+  operationId: FranshiseesCreateEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/annual_rates/{annualRateId}
+  method: put
+  operationId: FranshiseesUpdateEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/annual_rates/{annualRateId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeeAnnualRate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/troncs
+  method: get
+  operationId: FranshiseesGetEmployeeTronc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/troncs
+  method: post
+  operationId: FranshiseesCreateEmployeeTronc
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/troncs/{troncId}
+  method: put
+  operationId: FranshiseesUpdateEmployeeTronc
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/troncs/{troncId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeeTronc
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_points
+  method: get
+  operationId: FranshiseesGetEmployeeTroncPoints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_points
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_points/{troncPointId}
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_points/{troncPointId}
+  method: delete
+  operationId: DeprecatedFranshiseesDeleteEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts
+  method: get
+  operationId: FranshiseesGetEmployeeTroncAmounts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts/{troncAmountId}
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts/{troncAmountId}
+  method: delete
+  operationId: DeprecatedFranshiseesDeleteEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_points
+  method: post
+  operationId: FranshiseesCreateEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_points/{troncPointId}
+  method: put
+  operationId: FranshiseesUpdateEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_points/{troncPointId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeeTroncPoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts
+  method: post
+  operationId: FranshiseesCreateEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts/{troncAmountId}
+  method: put
+  operationId: FranshiseesUpdateEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts/{troncAmountId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeeTroncAmount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: delete
+  operationId: DeprecatedFranshiseesDeleteEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours
+  method: get
+  operationId: FranshiseesGetEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours
+  method: post
+  operationId: FranshiseesCreateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: put
+  operationId: FranshiseesUpdateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/termination_reasons
+  method: get
+  operationId: FranshiseesGetTerminationReasons
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/termination_reasons
+  method: get
+  operationId: FranchiseesGetTerminationReasonsV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/termination_reason_groups
+  method: get
+  operationId: FranchiseesGetTerminationReasonGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/terminate
+  method: post
+  operationId: DeprecatedFranshiseesTerminateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/terminate
+  method: post
+  operationId: FranshiseesTerminateEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/terminate
+  method: post
+  operationId: FranshiseesTerminateEmployeeV3
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/rehire
+  method: post
+  operationId: FranshiseesDeprecatedRehireEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/rehire
+  method: post
+  operationId: DeprecatedFranshiseesRehireEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/rehire
+  method: post
+  operationId: FranshiseesRehireEmployee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/hire_date
+  method: put
+  operationId: DeprecatedFranshiseesEditHireDate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/hire_date
+  method: put
+  operationId: FranshiseesEditHireDate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/undo_termination
+  method: post
+  operationId: FranshiseesUndoTermination
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/include_in_schedule
+  method: put
+  operationId: DeprecatedFranshiseesIncludeInSchedule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/include_in_schedule
+  method: put
+  operationId: FranshiseesIncludeInSchedule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests
+  method: get
+  operationId: franchisees_api_v1_employees_absences_requests_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests
+  method: post
+  operationId: franchisees_api_v1_employees_absences_requests_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests/{id}
+  method: put
+  operationId: franchisees_api_v1_employees_absences_requests_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests/{id}
+  method: delete
+  operationId: franchisees_api_v1_employees_absences_requests_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/absences/requests
+  method: get
+  operationId: franchisees_api_v1_absences_requests_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/absences/reason_options
+  method: get
+  operationId: franchisees_api_v1_absences_reason_options_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/mappings
+  method: get
+  operationId: franshisees_api_v1_employees_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/mappings
+  method: post
+  operationId: franchisees_api_v1_employees_mappings_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/mappings/{id}
+  method: put
+  operationId: franchisees_api_v1_employees_mappings_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/locations/mappings
+  method: get
+  operationId: franchisees_api_v1_locations_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/locations/mappings
+  method: post
+  operationId: franchisees_api_v1_locations_mappings_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/locations/mappings/{id}
+  method: put
+  operationId: franchisees_api_v1_locations_mappings_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/positions/mappings
+  method: get
+  operationId: franchisees_api_v1_positions_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/positions/mappings
+  method: post
+  operationId: franchisees_api_v1_positions_mappings_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/positions/mappings/{id}
+  method: put
+  operationId: franchisees_api_v1_positions_mappings_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employers/mappings
+  method: get
+  operationId: franchisees_api_v1_employers_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employers/mappings
+  method: post
+  operationId: franchisees_api_v1_employers_mappings_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employers/mappings/{pk}
+  method: put
+  operationId: franchisees_api_v1_employers_mappings_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/events/{eventId}
+  method: get
+  operationId: FranchiseesGetEventById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/events
+  method: get
+  operationId: franchisees_v2_events_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/absences/requests/{absenceRequestId}
+  method: get
+  operationId: api_v1_employees_absences_requests_get_by_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests/{absenceRequestId}
+  method: get
+  operationId: api_v1_franchisees_employees_absences_requests_get_by_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/locations/{location_id}/school_templates
+  method: get
+  operationId: GetLocationSchoolTemplates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/locations/{location_id}/minor_types
+  method: get
+  operationId: GetLocationMinorTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/unshare
+  method: post
+  operationId: DeprecatedFranshiseesSetShareEndDateV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/bank_accounts
+  method: get
+  operationId: DeprecatedFranshiseesGetBankAccountsByEmployeeIdV1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/bank_accounts
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeeBankAccountV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_type
+  method: post
+  operationId: DeprecatedFranshiseesCreateEmployeePayTypeV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours
+  method: get
+  operationId: FranshiseesGetEmployeeMaxWeeklyHoursV1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours
+  method: post
+  operationId: FranshiseesCreateEmployeeMaxWeeklyHoursV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: put
+  operationId: FranshiseesUpdateEmployeeMaxWeeklyHoursV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours/{maxWeeklyHoursId}
+  method: delete
+  operationId: FranshiseesDeleteEmployeeMaxWeeklyHoursV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/positions/{positionCode}
+  method: delete
+  operationId: DeprecatedFranshiseesDeleteEmployeePositionForFixedPayTypeV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/profile
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeeProfileV1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees
+  method: get
+  operationId: DeprecatedGetEmployeesV1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}
+  method: get
+  operationId: DeprecatedGetEmployeeByIdV3V1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/basic_info
+  method: put
+  operationId: DeprecatedUpdateEmployeeV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/positions
+  method: get
+  operationId: DeprecatedGetEmployeePositionsV1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeesV1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeeByIdV1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/basic_info
+  method: put
+  operationId: DeprecatedFranshiseesUpdateEmployeeV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/positions
+  method: get
+  operationId: FranshiseesGetEmployeePositionsV1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/mappings/{id}
+  method: put
+  operationId: api_v1_employees_mappings_updateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}
+  method: get
+  operationId: DeprecatedGetEmployeeByIdV3V2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/{employeeId}/absences/requests
+  method: get
+  operationId: api_v1_employees_absences_requests_listV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/employees/{employeeId}/absences/requests
+  method: post
+  operationId: api_v1_employees_absences_requests_createV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/absences/requests/{id}
+  method: put
+  operationId: api_v1_employees_absences_requests_updateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/employees/{employeeId}/absences/requests/{id}
+  method: delete
+  operationId: api_v1_employees_absences_requests_deleteV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/mappings
+  method: get
+  operationId: franshisees_api_v1_employees_mappings_listV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/mappings
+  method: post
+  operationId: franchisees_api_v1_employees_mappings_createV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/mappings/{id}
+  method: put
+  operationId: franchisees_api_v1_employees_mappings_updateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeeByIdV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests
+  method: get
+  operationId: franchisees_api_v1_employees_absences_requests_listV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests
+  method: post
+  operationId: franchisees_api_v1_employees_absences_requests_createV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests/{id}
+  method: put
+  operationId: franchisees_api_v1_employees_absences_requests_updateV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests/{id}
+  method: delete
+  operationId: franchisees_api_v1_employees_absences_requests_deleteV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_type
+  method: get
+  operationId: DeprecatedGetEmployeePayTypeFranchisee
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_type
+  method: put
+  operationId: DeprecatedUpdateEmployeePayTypeV2Franchisee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}
+  method: put
+  operationId: UpdateEmployeePayTypeFranchisee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}
+  method: delete
+  operationId: DeleteEmployeePayTypesFranchisee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/positions
+  method: get
+  operationId: DeprecatedGetEmployeePositionsFranchisee
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/positions/{positionCode}
+  method: put
+  operationId: DeprecatedUpdateEmployeePositionFranchisee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/positions/{positionCode}
+  method: post
+  operationId: DeprecatedAttachPositionToEmployeesFranchisee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/franchisees/{franchiseeId}/employees/{employeeId}
+  method: get
+  operationId: DeprecatedFranshiseesGetEmployeeByIdV3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/employees/{employeeId}/rehire
+  method: post
+  operationId: RehireEmployeeV4
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/franchisees/{franchiseeId}/employees/{employeeId}/rehire
+  method: post
+  operationId: FranshiseesRehireEmployeeV4
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/subscriptions
+  method: get
+  operationId: ListClientSubscriptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/subscriptions
+  method: get
+  operationId: ListFranchiseeSubscriptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/events
+  method: get
+  operationId: ListFranchiseeEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/employees/
+  method: get
+  operationId: ListEmployeesV4
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/franchisees/{franchiseeId}/employees/
+  method: get
+  operationId: FranchiseesListEmployeesV4
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/employees/{employeeId}/pay_types
+  method: post
+  operationId: CreatePayTypeV4
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/franchisees/{franchiseeId}/employees/{employeeId}/pay_types
+  method: post
+  operationId: FranchiseesCreatePayTypeV4
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v5/employees/{employeeId}/profile
+  method: get
+  operationId: GetEmployeeProfileV5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v5/franchisees/{franchiseeId}/employees/{employeeId}/profile
+  method: get
+  operationId: FranchiseesGetEmployeeProfileV5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v5/employees/{employeeId}/rehire
+  method: post
+  operationId: RehireEmployeeV5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v5/franchisees/{franchiseeId}/employees/{employeeId}/rehire
+  method: post
+  operationId: FranchiseesRehireEmployeeV5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v6/employees/{employeeId}
+  method: get
+  operationId: GetEmployeeByIdV6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v6/franchisees/{franchiseeId}/employees/{employeeId}
+  method: get
+  operationId: FranchiseesGetEmployeeByIdV6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v7/employees
+  method: post
+  operationId: CreateEmployeeV7
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v7/franchisees/{franchiseeId}/employees
+  method: post
+  operationId: FranchiseesCreateEmployeeV7
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/max_weekly_hours
+  method: get
+  operationId: RetrieveEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/employees/{employeeId}/max_weekly_hours
+  method: post
+  operationId: CreateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/max_weekly_hours/{max_weekly_hours_id}
+  method: put
+  operationId: UpdateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/employees/{employeeId}/max_weekly_hours/{max_weekly_hours_id}
+  method: delete
+  operationId: DeleteEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/max_weekly_hours
+  method: get
+  operationId: FranchiseesRetrieveEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/max_weekly_hours
+  method: post
+  operationId: FranchiseesCreateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/max_weekly_hours/{max_weekly_hours_id}
+  method: put
+  operationId: FranchiseesUpdateEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/max_weekly_hours/{max_weekly_hours_id}
+  method: delete
+  operationId: FranchiseesDeleteEmployeeMaxWeeklyHours
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/corporates/users
+  method: get
+  operationId: ListCorporateUsers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/corporates/users
+  method: post
+  operationId: CreateCorporateUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/corporates/users/{pk}
+  method: get
+  operationId: RetrieveCorporateUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/corporates/users/{pk}
+  method: put
+  operationId: UpdateCorporateUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/corporates/users/{pk}
+  method: delete
+  operationId: DeleteCorporateUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/employers
+  method: post
+  operationId: createEmployerV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/employers
+  method: get
+  operationId: listEmployersV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/employers/{id}
+  method: get
+  operationId: getEmployerV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/employers/{id}
+  method: put
+  operationId: updateEmployerV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/employers/{id}
+  method: delete
+  operationId: deleteEmployerV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/franchisees/{franchiseeId}/employers
+  method: post
+  operationId: createFranchiseeEmployerV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/franchisees/{franchiseeId}/employers
+  method: get
+  operationId: listFranchiseeEmployersV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/franchisees/{franchiseeId}/employers/{id}
+  method: get
+  operationId: getFranchiseeEmployerV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/franchisees/{franchiseeId}/employers/{id}
+  method: put
+  operationId: updateFranchiseeEmployerV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/franchisees/{franchiseeId}/employers/{id}
+  method: delete
+  operationId: deleteFranchiseeEmployerV2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/employers
+  method: post
+  operationId: createUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/employers
+  method: get
+  operationId: retrieveUsersByBusinessId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/employers/{user_external_id}
+  method: put
+  operationId: updateUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/employers/{user_external_id}
+  method: delete
+  operationId: deleteUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/employers/{user_external_id}
+  method: get
+  operationId: retrieveUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/franchisees/{franchiseeId}/employers
+  method: post
+  operationId: franshiseeCreateUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/franchisees/{franchiseeId}/employers
+  method: get
+  operationId: franshiseeRetrieveUsersByBusinessId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/franchisees/{franchiseeId}/employers/{user_external_id}
+  method: put
+  operationId: franshiseeUpdateUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/franchisees/{franchiseeId}/employers/{user_external_id}
+  method: delete
+  operationId: franshiseeDeleteUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/franchisees/{franchiseeId}/employers/{user_external_id}
+  method: get
+  operationId: franshiseeRetrieveUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/employers/mappings
+  method: get
+  operationId: api_v1_employers_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/franchisees/{franchiseeId}/employers/mappings
+  method: get
+  operationId: api_v1_franchisee_employers_mappings_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

@@ -1,0 +1,25 @@
+generated: '2026-08-04'
+method: searched
+source: npm registry search, PyPI, RubyGems, GitHub org github.com/HarriLLC, developer.harri.com
+packages: []
+result: none — Harri publishes no first-party client libraries or SDKs in any public package registry
+registries_probed:
+- registry: npm
+  query: harri
+  result: no first-party package (only unrelated third-party names)
+- registry: pypi
+  query: harri, harri-api, harri-sdk, pyharri
+  result: 404 on all
+- registry: rubygems
+  query: harri
+  result: no first-party package
+- registry: github
+  query: github.com/HarriLLC
+  result: The Harri GitHub organization is public but contains only forks of third-party infrastructure
+    — aws-amplify (android/swift), aws-sdk-ios, aws-sdk-swift, terraform-aws-* modules, redis-rdb-tools,
+    Flask-SuperAdmin, grunt-google-translate. No Harri API client, no OpenAPI, no .proto.
+- registry: developer.harri.com
+  query: developer portal
+  result: no SDK or client-library page
+note: Integration with Harri is raw HTTP against gateway.harri.com with an OAuth 2.0 bearer token. No
+  SDKs pointer is emitted — there is no official client library to point at.

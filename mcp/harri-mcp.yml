@@ -1,0 +1,114 @@
+generated: '2026-08-04'
+method: derived
+status: candidate
+source: openapi/harri-employee-openapi.yml, openapi/harri-employer-openapi.json
+search_result: 'No official or community Harri MCP server exists. Searched the Harri developer portal,
+  harri.com (including the /agentic-ai/ product page), the HarriLLC GitHub org, npm and the public MCP
+  registries on 2026-08-04 — nothing. Harri does ship agentic AI products (Salli, plus Talent Gap, Compliance,
+  Overtime Cost and Labor Insight agents) but exposes no developer-facing agent protocol surface: no MCP
+  endpoint, no tools/list, no agent card.'
+server:
+  name: harri
+  transport: null
+  url: null
+note: The tools below are a CANDIDATE tool surface derived from Harri's published OpenAPI operations.
+  They are a proposal for what a Harri MCP server would expose, not something Harri publishes. Every tool
+  names the real operationId it would wrap, so each inherits that operation's parameters and requestBody
+  as its input schema. Deprecated operations are deliberately excluded.
+tools:
+- name: list_locations
+  description: Retrieve all locations for the account
+  source_operation: openapi/harri-employee-openapi.yml#GetAllLocations
+- name: list_location_cost_centers
+  description: List cost centers for a location
+  source_operation: openapi/harri-employee-openapi.yml#GetLocationCostCenters
+- name: list_positions
+  description: Retrieve all positions
+  source_operation: openapi/harri-employee-openapi.yml#GetAllPositions
+- name: list_job_titles
+  description: Retrieve all job titles
+  source_operation: openapi/harri-employee-openapi.yml#GetAllJobTitles
+- name: list_employees
+  description: List employees, filterable by status
+  source_operation: openapi/harri-employee-openapi.yml#ListEmployeesV4
+- name: create_employee
+  description: Create an employee
+  source_operation: openapi/harri-employee-openapi.yml#CreateEmployeeV7
+- name: get_employee
+  description: Get an employee by id
+  source_operation: openapi/harri-employee-openapi.yml#GetEmployeeByIdV6
+- name: get_employee_profile
+  description: Get an employee profile
+  source_operation: openapi/harri-employee-openapi.yml#GetEmployeeProfileV5
+- name: update_employee
+  description: Update an employee basic info
+  source_operation: openapi/harri-employee-openapi.yml#UpdateEmployee
+- name: attach_employee_to_location
+  description: Attach an existing employee to a location
+  source_operation: openapi/harri-employee-openapi.yml#AttachEmployeeToLocation
+- name: detach_employee_from_location
+  description: Detach an employee from a location
+  source_operation: openapi/harri-employee-openapi.yml#DetachEmployeeToLocation
+- name: set_employee_location_ids
+  description: Set an employee payroll id and POS id at a location
+  source_operation: openapi/harri-employee-openapi.yml#EditEmployeeLocationInfo
+- name: get_employee_job_titles
+  description: Get an employee's job titles
+  source_operation: openapi/harri-employee-openapi.yml#GetJobTitlesByEmployeeId
+- name: get_employee_pay_types
+  description: Retrieve an employee's pay types
+  source_operation: openapi/harri-employee-openapi.yml#GetEmployeePayTypes
+- name: get_employee_positions
+  description: Retrieve an employee's positions
+  source_operation: openapi/harri-employee-openapi.yml#GetEmployeePositions
+- name: get_employee_pay_rates
+  description: Retrieve hourly pay rates for an employee position
+  source_operation: openapi/harri-employee-openapi.yml#GetEmployeePayRates
+- name: terminate_employee
+  description: Terminate an employee
+  source_operation: openapi/harri-employee-openapi.yml#TerminateEmployeeV3
+- name: rehire_employee
+  description: Rehire a terminated employee
+  source_operation: openapi/harri-employee-openapi.yml#RehireEmployeeV5
+- name: list_termination_reasons
+  description: List termination reasons
+  source_operation: openapi/harri-employee-openapi.yml#GetTerminationReasonsV2
+- name: list_absence_requests
+  description: List absence requests across the account
+  source_operation: openapi/harri-employee-openapi.yml#api_v1_absences_requests_list
+- name: create_absence_request
+  description: Create an absence request for an employee
+  source_operation: openapi/harri-employee-openapi.yml#api_v1_employees_absences_requests_createV2
+- name: list_absence_reasons
+  description: List absence reason options
+  source_operation: openapi/harri-employee-openapi.yml#api_v1_absences_reason_options_list
+- name: list_employee_mappings
+  description: List Harri-to-external employee id mappings
+  source_operation: openapi/harri-employee-openapi.yml#api_v2_employees_mappings_list
+- name: list_location_mappings
+  description: List Harri-to-external location id mappings
+  source_operation: openapi/harri-employee-openapi.yml#api_v1_locations_mappings_list
+- name: list_events
+  description: Retrieve platform events by code, location, status and published window
+  source_operation: openapi/harri-employee-openapi.yml#v2_events_list
+- name: get_event
+  description: Retrieve a single event by id
+  source_operation: openapi/harri-employee-openapi.yml#GetEventById
+- name: list_subscriptions
+  description: List client webhook/event subscriptions
+  source_operation: openapi/harri-employee-openapi.yml#ListClientSubscriptions
+- name: list_corporate_users
+  description: List corporate users
+  source_operation: openapi/harri-employee-openapi.yml#ListCorporateUsers
+- name: list_employers
+  description: List employer/brand records
+  source_operation: openapi/harri-employer-openapi.json#listEmployersV2
+- name: get_employer
+  description: Get employer details
+  source_operation: openapi/harri-employer-openapi.json#getEmployerV2
+- name: list_employer_users
+  description: Retrieve above-store admin users
+  source_operation: openapi/harri-employer-openapi.json#retrieveUsersByBusinessId
+- name: list_employer_mappings
+  description: List Harri-to-external employer identifier mappings
+  source_operation: openapi/harri-employer-openapi.json#api_v1_employers_mappings_list

@@ -1,0 +1,69 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/harri-employee-openapi.yml, openapi/harri-employer-openapi.json, https://developer.harri.com/authentication/,
+  https://harri.com/compliance/
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: 'Two published documents: OpenAPI 3.0.1 (Employee) and 3.0.3 (Employer)'
+- id: oauth2
+  conforms: true
+  evidence: components.securitySchemes.oAuth2ClientCredentials, type oauth2, clientCredentials flow
+- id: oauth2-client-credentials-rfc6749
+  conforms: true
+  evidence: POST https://oauth.harri.com/oauth2/token with grant_type=client_credentials
+- id: oauth2-scopes
+  conforms: false
+  evidence: The clientCredentials flow declares an empty scopes map; no scope surface is published
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server returns 404 on oauth.harri.com (probed 2026-08-04)
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: false
+  evidence: /.well-known/oauth-protected-resource returns 404/403 on every Harri host (probed 2026-08-04)
+- id: oidc
+  conforms: false
+  evidence: No openIdConnect scheme; /.well-known/openid-configuration 404 (probed 2026-08-04)
+- id: bearer-token-rfc6750
+  conforms: true
+  evidence: 'Authorization: Bearer <access_token>, token_type Bearer in the token response'
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json media type in either spec; 4xx responses carry a description only
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 410/404/403 on every Harri host (probed 2026-08-04)
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation response header declared in either spec
+- id: rfc9615-api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returns 410/404/403 on every Harri host (probed 2026-08-04)
+- id: idempotency-key
+  conforms: false
+  evidence: No idempotency header or parameter in either spec or on the developer portal
+- id: pagination
+  conforms: true
+  evidence: limit + page query parameters on list operations (page-number offset style); not applied uniformly
+- id: asyncapi
+  conforms: false
+  evidence: No AsyncAPI document published; webhook notifications documented behind a member gate
+- id: json-api
+  conforms: false
+  evidence: Responses are bare arrays/objects with no JSON:API document structure
+- id: scim2
+  conforms: false
+  evidence: Employee/user management uses Harri-native paths, not /scim/v2 resources
+- id: hr-open-standards
+  conforms: false
+  evidence: No HR Open Standards (HR-XML) conformance claim found
+- id: https-tls13
+  conforms: true
+  evidence: security/harri-domain-security.yml — TLSv1.3 on harri.com, developer.harri.com and gateway.harri.com
+compliance_program:
+  published: false
+  note: Harri markets labor-compliance features to its customers at https://harri.com/compliance/, but
+    that is a product page about wage-and-hour compliance for hospitality employers — not a security or
+    certification posture for Harri itself. No trust center, SOC 2, ISO 27001, PCI DSS or HIPAA attestation
+    page was found (trust.harri.com does not resolve; harri.com/security returns 410, probed 2026-08-04).
+    No Compliance pointer is emitted on this basis.

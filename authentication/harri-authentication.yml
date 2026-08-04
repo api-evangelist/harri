@@ -1,0 +1,61 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/harri-employee-openapi.yml, openapi/harri-employer-openapi.json
+docs: https://developer.harri.com/authentication/
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+  api_key_in: []
+  token_transport: 'Authorization: Bearer <access_token>'
+schemes:
+- name: oAuth2ClientCredentials
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://oauth.harri.com/oauth2/token
+    scopes: 0
+  sources:
+  - openapi/harri-employee-openapi.yml
+  - openapi/harri-employer-openapi.json
+flow_detail:
+  grant_type: client_credentials
+  token_endpoint: https://oauth.harri.com/oauth2/token
+  method: POST
+  content_type: application/x-www-form-urlencoded
+  request_parameters:
+  - client_id
+  - client_secret
+  - grant_type
+  credential_issuance: client_id and client_secret are issued by Harri; there is no self-service key page
+  response_fields:
+  - access_token
+  - expires_in
+  - token_type
+  token_type: Bearer
+  token_format: JWT
+  token_lifetime_seconds: 1800
+  usage: 'Authorization: Bearer <access_token> on every request to https://gateway.harri.com/open-api-hub'
+  reuse_guidance: Harri explicitly instructs callers to mint one token per expiry window and reuse it;
+    generating a token per request is discouraged.
+  failure: HTTP 401 Unauthorized on a bad client_id/client_secret, malformed Authorization header, or
+    expired token
+  refresh: None — the client-credentials grant issues no refresh token; re-request from the token endpoint.
+scoping:
+  mechanism: Authorization is bound to the credential, not to a scope string. A set of corporate IDs is
+    associated with each API credential by Harri Support; calling with an unassociated corporate ID returns
+    422 on the Employer API. Franchisee access is expressed in the URI path (/franchisees/{franchiseeId}/...),
+    not in the token.
+  detail: scopes/harri-scopes.yml
+deviations:
+- id: employer-spec-staging-token-url
+  note: openapi/harri-employer-openapi.json declares tokenUrl https://oauth.harristaging.com/oauth2/token
+    — a staging host — while the production token endpoint documented at https://developer.harri.com/authentication/
+    is https://oauth.harri.com/oauth2/token. The Employee spec declares the production URL correctly.
+- id: no-authorization-server-metadata
+  note: oauth.harri.com serves no RFC 8414 /.well-known/oauth-authorization-server document (404, probed
+    2026-08-04).
+- id: no-security-applied-per-operation
+  note: The security scheme is declared in components but the specs apply it globally rather than per
+    operation.

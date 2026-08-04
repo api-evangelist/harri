@@ -1,0 +1,24 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/harri-employee-openapi.yml, openapi/harri-employer-openapi.json
+docs: https://developer.harri.com/authentication/
+schemes:
+- name: oAuth2ClientCredentials
+  source: openapi/harri-employee-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://oauth.harri.com/oauth2/token
+- name: oAuth2ClientCredentials
+  source: openapi/harri-employer-openapi.json
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://oauth.harristaging.com/oauth2/token
+    note: staging host as published; production is oauth.harri.com
+scopes: []
+result: none — Harri operates OAuth 2.0 without a scope surface
+note: 'Both published OpenAPI documents declare the clientCredentials flow with an EMPTY scopes map, the
+  token request documented at https://developer.harri.com/authentication/ sends only client_id, client_secret
+  and grant_type with no scope parameter, and the token response returns only access_token, expires_in
+  and token_type. Authorization is therefore credential-bound rather than scope-bound: what a credential
+  can reach is decided by the corporate IDs Harri Support associates with it, and franchisee reach is
+  expressed in the URI path. Recorded as an empty scopes[] rather than invented scope strings.'

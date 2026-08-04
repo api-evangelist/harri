@@ -1,0 +1,80 @@
+generated: '2026-08-04'
+method: searched
+source: https://developer.harri.com/webhook-event-notifications/ (member-gated) plus the Event and Subscriptions
+  operations in openapi/harri-employee-openapi.yml
+spec_type: Webhooks
+asyncapi:
+  published: false
+  note: No AsyncAPI document is published anywhere on the Harri surface. Probed /asyncapi.yaml, the developer
+    portal and the HarriLLC GitHub org on 2026-08-04.
+event_surface:
+  exists: true
+  documentation:
+    url: https://developer.harri.com/webhook-event-notifications/
+    title: Webhook Event Notifications
+    http_status: 200
+    access: member-gated
+    published: '2025-06-25'
+    note: The page is publicly reachable and publicly titled, but its body requires a developer-portal
+      account, so the event-type catalog could not be captured without credentials.
+  delivery: webhook event notifications (per the documentation title) with a queryable event log via the
+    REST API
+rest_event_operations:
+- operationId: v2_events_list
+  method: GET
+  path: /api/v2/events
+  description: Retrieve a list of events, filterable by event_code, location_id, status and a published_gte/published_lte
+    window
+  parameters:
+  - event_code
+  - location_id
+  - status
+  - published_gte
+  - published_lte
+  - limit
+  - page
+- operationId: GetEventById
+  method: GET
+  path: /api/v1/events/{eventId}
+  description: Retrieve a single event
+- operationId: ListFranchiseeEvents
+  method: GET
+  path: /api/v1/franchisees/{franchiseeId}/events
+  description: List events for a franchisee
+  parameters:
+  - status
+  - event_code
+  - published_gte
+  - published_lte
+- operationId: franchisees_v2_events_list
+  method: GET
+  path: /api/v2/franchisees/{franchiseeId}/events
+  description: List franchisee events (v2)
+- operationId: FranchiseesGetEventById
+  method: GET
+  path: /api/v1/franchisees/{franchiseeId}/events/{eventId}
+  description: Retrieve a single franchisee event
+- operationId: GetEvents
+  method: GET
+  path: /api/v1/events
+  description: Retrieve events (deprecated)
+  deprecated: true
+subscription_operations:
+- operationId: ListClientSubscriptions
+  method: GET
+  path: /api/v1/subscriptions
+  description: Retrieve all subscriptions for the authenticated client
+- operationId: ListFranchiseeSubscriptions
+  method: GET
+  path: /api/v1/franchisees/{franchiseeId}/subscriptions
+  description: Retrieve all subscriptions for a specific franchisee
+event_delivery_status_values:
+- SUCCESS
+- FAILED
+- IN_PROGRESS
+event_types: []
+note: 'The event-type catalog (the values event_code takes) is not published publicly — the spec types
+  event_code as a free-form string and the Webhook Event Notifications doc is member-gated. Recorded as
+  an empty event_types[] rather than guessed. Subscriptions are read-only over the API: there are no create,
+  update or delete subscription operations in the published spec, so webhook endpoints are provisioned
+  out of band.'

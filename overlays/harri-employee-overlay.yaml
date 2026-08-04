@@ -1,0 +1,31 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Harri (employee)
+  version: 1.0.0
+extends: openapi/harri-employee-openapi.yml
+x-generated: '2026-08-04'
+x-method: generated
+x-source: https://developer.harri.com/employees/
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/providers/harri/
+    x-apievangelist-harvested: '2026-08-04'
+    x-apievangelist-source: https://developer.harri.com/employees/
+    x-apievangelist-notes: Harvested verbatim from the Harri developer portal. 363 operations, 150 explicitly
+      deprecated.
+- target: $.info.contact
+  update:
+    name: Harri Support
+    email: support@harri.com
+    url: https://developer.harri.com/
+- target: $.externalDocs
+  update:
+    description: Harri Developer Portal
+    url: https://developer.harri.com/
+- target: $.info
+  update:
+    x-apievangelist-authentication: authentication/harri-authentication.yml
+    x-apievangelist-conventions: conventions/harri-conventions.yml
+    x-apievangelist-rate-limits: rate-limits/harri-rate-limits.yml
+    x-apievangelist-errors: errors/harri-problem-types.yml

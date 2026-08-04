@@ -1,0 +1,196 @@
+generated: '2026-08-04'
+method: searched
+source: https://developer.harri.com/api-release-notes/ , https://status.harri.com/ , and the deprecated
+  flags in openapi/harri-employee-openapi.yml
+versioning:
+  scheme: uri-path
+  form: /api/v{n}/
+  current: varies by resource (v1 through v7)
+  docs: https://developer.harri.com/about-api/
+  note: Harri versions each resource independently and keeps superseded versions live.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  signal: 'OpenAPI operation-level `deprecated: true` plus a "Deprecated" tag prefix and a Deprecated*
+    operationId prefix'
+  note: Harri publishes no written deprecation or sunset policy, and declares no RFC 8594 Sunset or Deprecation
+    response headers. Deprecation is communicated only inside the OpenAPI document. 150 of the 363 operations
+    in the Employee API — 41% — are flagged deprecated, which is the single largest lifecycle signal on
+    this provider.
+  deprecated_operation_count: 150
+sla:
+  url: null
+  uptime_target: null
+  note: No public SLA or uptime target is published.
+status_page: https://status.harri.com/
+status_page_detail:
+  platform: hosted status page with e-mail, RSS, Atom, JSON, webhook and Slack subscriptions
+  components:
+  - Login & SSO
+  - Talent Acquisition
+  - Workforce Management
+  - CoreHR
+  - Carri
+  - TeamHub
+  - HarriIQ
+  feeds:
+    rss: https://status.harri.com/history.rss
+    atom: https://status.harri.com/history.atom
+    json: https://status.harri.com/api/v2/summary.json
+  probed: '2026-08-04'
+release_notes:
+  url: https://developer.harri.com/api-release-notes/
+  http_status: 200
+  access: member-gated — the page is public but its body requires a developer-portal account
+  last_updated_published: '2026-03-25'
+deprecated_operations:
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployee
+- openapi/harri-employee-openapi.yml#DeprecactedgetEmployees
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeeV4
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeeV2
+- openapi/harri-employee-openapi.yml#CreateEmployee
+- openapi/harri-employee-openapi.yml#DeprecactedgetEmployeesV2
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeeByIdV3
+- openapi/harri-employee-openapi.yml#GetEmployeeById
+- openapi/harri-employee-openapi.yml#GetEmployeeByIdV5
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeeProfile
+- openapi/harri-employee-openapi.yml#DeprecatredGetEmployeeProfileV2
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeeProfileV3
+- openapi/harri-employee-openapi.yml#GetEmployeeProfile
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployee
+- openapi/harri-employee-openapi.yml#DeprecatedAttachEmployeeToLocation
+- openapi/harri-employee-openapi.yml#DeprecatedDetachEmployeeToLocation
+- openapi/harri-employee-openapi.yml#DeprecatedEditEmployeeLocationInfo
+- openapi/harri-employee-openapi.yml#DeprecatedSetShareEndDate
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeeLocationPeriod
+- openapi/harri-employee-openapi.yml#DeprecatedGetBankAccountsByEmployeeId
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeeBankAccount
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeePayTypes
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeePayType
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeePayTypes
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeePayTypesV2
+- openapi/harri-employee-openapi.yml#CreateEmployeePayTypesV2
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeePayType
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeePayTypeV2
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeePayType
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeePositionV2
+- openapi/harri-employee-openapi.yml#DeprecatedAttachEmployeePosition
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeePosition
+- openapi/harri-employee-openapi.yml#DeprecatedSetPrimaryEmployeePosition
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateLocationEmployeePosition
+- openapi/harri-employee-openapi.yml#DeprecatedAttachEmployeePositionV2
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeePosition
+- openapi/harri-employee-openapi.yml#DeprecatedAttachPositionToEmployees
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeePositionForFixedPayType
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeePositions
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeePayRates
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeePayRate
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeePayRate
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeePayRate
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeePayRatesV2
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeePayRateV2
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeePayRateV2
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeePayRateV2
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeeTippedStatuses
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeeTippedStatus
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeeTippedStatus
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeeTippedStatus
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeeAnnualRate
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeeAnnualRate
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeeAnnualRate
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeeTroncPoint
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeeTroncPoint
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeeTroncPoint
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeeTroncAmount
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeeTroncAmount
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeeTroncAmount
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeeMaxWeeklyHours
+- openapi/harri-employee-openapi.yml#DeprecatedCreateEmployeeMaxWeeklyHours
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeeMaxWeeklyHours
+- openapi/harri-employee-openapi.yml#DeprecatedDeleteEmployeeMaxWeeklyHours
+- openapi/harri-employee-openapi.yml#GetTerminationReasons
+- openapi/harri-employee-openapi.yml#DeprecatedTerminateEmployee
+- openapi/harri-employee-openapi.yml#TerminateEmployee
+- openapi/harri-employee-openapi.yml#DeprecatedRehireEmployee
+- openapi/harri-employee-openapi.yml#DeprecatedRehireEmployeeV2
+- openapi/harri-employee-openapi.yml#DeprecatedEditHireDate
+- openapi/harri-employee-openapi.yml#DeprecatedIncludeInSchedule
+- openapi/harri-employee-openapi.yml#GetEvents
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployee
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeeV5
+- openapi/harri-employee-openapi.yml#FranshiseesCreateEmployeeV5
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployees
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeeById
+- openapi/harri-employee-openapi.yml#FranshiseesGetEmployeeById
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeeProfile
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeeProfileV3
+- openapi/harri-employee-openapi.yml#FranshiseesGetEmployeeProfile
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployee
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesAttachEmployeeToLocation
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesDetachEmployeeToLocation
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesEditEmployeeLocationInfo
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeeLocationPeriod
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeePayTypes
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeePayTypesV2
+- openapi/harri-employee-openapi.yml#FranshiseesCreateEmployeePayTypes
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesAttachEmployeePositionV2
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeePosition
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesAttachEmployeePosition
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesDeleteEmployeePosition
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesSetPrimaryEmployeePosition
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeePayRates
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeePayRate
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeePayRate
+- openapi/harri-employee-openapi.yml#FranshiseesDeleteEmployeePayRate
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeePayRatesV2
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeePayRateV2
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeePayRateV2
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesDeleteEmployeePayRateV2
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeeTippedStatuses
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeeTippedStatus
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeeTippedStatus
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesDeleteEmployeeTippedStatus
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeeAnnualRate
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeeAnnualRate
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesDeleteEmployeeAnnualRate
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeeTroncPoint
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeeTroncPoint
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesDeleteEmployeeTroncPoint
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeeTroncAmount
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeeTroncAmount
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesDeleteEmployeeTroncAmount
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeeMaxWeeklyHours
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeeMaxWeeklyHours
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeeMaxWeeklyHours
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesDeleteEmployeeMaxWeeklyHours
+- openapi/harri-employee-openapi.yml#FranshiseesGetTerminationReasons
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesTerminateEmployee
+- openapi/harri-employee-openapi.yml#FranshiseesTerminateEmployee
+- openapi/harri-employee-openapi.yml#FranshiseesDeprecatedRehireEmployee
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesRehireEmployee
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesEditHireDate
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesIncludeInSchedule
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesSetShareEndDateV1
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetBankAccountsByEmployeeIdV1
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeeBankAccountV1
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesCreateEmployeePayTypeV1
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesDeleteEmployeePositionForFixedPayTypeV1
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeeProfileV1
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeesV1
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeeByIdV3V1
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeeV1
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeePositionsV1
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeesV1
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeeByIdV1
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesUpdateEmployeeV1
+- openapi/harri-employee-openapi.yml#FranshiseesGetEmployeePositionsV1
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeeByIdV3V2
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeeByIdV2
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeePayTypeFranchisee
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeePayTypeV2Franchisee
+- openapi/harri-employee-openapi.yml#DeprecatedGetEmployeePositionsFranchisee
+- openapi/harri-employee-openapi.yml#DeprecatedUpdateEmployeePositionFranchisee
+- openapi/harri-employee-openapi.yml#DeprecatedAttachPositionToEmployeesFranchisee
+- openapi/harri-employee-openapi.yml#DeprecatedFranshiseesGetEmployeeByIdV3
+- openapi/harri-employee-openapi.yml#RehireEmployeeV4
+- openapi/harri-employee-openapi.yml#FranshiseesRehireEmployeeV4

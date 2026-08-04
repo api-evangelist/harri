@@ -1,0 +1,41 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Harri
+providerId: harri
+created: '2026-08-04'
+modified: '2026-08-04'
+generated: '2026-08-04'
+method: searched
+source: openapi/harri-employee-openapi.yml#info.description (published at https://developer.harri.com/employees/)
+tags:
+- Rate Limiting
+- Workforce Management
+- Human Resources
+description: 'Harri publishes a single flat rate limit for the Open API Hub in the info.description of
+  its Employee OpenAPI: 400 requests per minute. Exceeding it returned HTTP 403 with an explanatory body;
+  Harri announced in the same notice that the rate-limiting status changes from 403 to 429 after 4 June
+  2026. No per-plan or per-endpoint limits are published, and no rate-limit response headers (X-RateLimit-*,
+  RateLimit-*, Retry-After) are declared anywhere in either OpenAPI document.'
+sources:
+- https://developer.harri.com/employees/
+- https://developer.harri.com/about-api/
+headers:
+  requestId: null
+  rateLimit: null
+  remaining: null
+  reset: null
+  retryAfter: null
+responseCodes:
+  throttled: 429
+  throttledLegacy: 403
+limits:
+- name: All Open API Hub requests
+  scope: api-credential
+  metric: requests_per_minute
+  limit: 400
+  limit_count: 400
+  timeFrame: minute
+  source: openapi/harri-employee-openapi.yml#info.description
+notes:
+- 'Announced change: "After 4 June, 2026, the rate limiting error will change from 403 to 429."'
+- No published mechanism to request a higher limit; contact Harri Support.
