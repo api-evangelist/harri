@@ -32,62 +32,1135 @@ tags:
 - Labor Compliance
 - HCM
 apis:
-- aid: harri:employee-api
-  name: Harri Employee API
-  description: 'The Harri Employee API is the core of the Harri Open API Hub. It manages
-    and retrieves employee data across the Harri platform: employee create/read/update,
-    employee profiles, location attachment and location periods, job titles, positions
-    and primary positions, pay types, hourly rates, annual rates, tipped statuses,
-    tronc points and amounts, bank accounts, employment periods, absences, max weekly
-    hours and working patterns, minor details, cost centers, external ID mappings,
-    platform events and client subscriptions. Every corporate resource is mirrored
-    under a /franchisees/{franchiseeId}/ path set for franchise operators. The spec
-    is heavily versioned in the URI path (v1 through v6) with 150 of its 363 operations
-    explicitly flagged deprecated.'
+- aid: harri:harri-absences-api
+  name: Harri Absences API
+  description: The Absences API from Harri — 7 operation(s) for absences.
   humanURL: https://developer.harri.com/employees/
   baseURL: https://gateway.harri.com/open-api-hub
   tags:
-  - Employees
-  - Workforce Management
-  - Human Resources
-  - Scheduling
-  - Payroll
+  - Absences
   properties:
   - type: OpenAPI
-    url: openapi/harri-employee-openapi.yml
+    url: openapi/harri-absences-api-openapi.yml
   - type: Documentation
     url: https://developer.harri.com/employees/
-  - type: Overlay
-    url: overlays/harri-employee-overlay.yaml
-- aid: harri:employer-api
-  name: Harri External Brand Management API
-  description: 'The Harri Employer (External Brand Management) API creates and manages
-    Harri above-store admin users and employer/brand records. It provides v1 user
-    CRUD keyed on an external user id, v2 employer CRUD, a mappings listing that
-    reconciles Harri identifiers with external system identifiers, and a mirrored
-    franchisee-scoped path set. Corporate IDs must be associated with the calling
-    API credentials by Harri Support before the endpoints resolve, otherwise a 422
-    is returned.'
-  humanURL: https://developer.harri.com/employer/
-  baseURL: https://gateway.harri.com/open-api-hub
-  tags:
-  - Employers
-  - Brand Management
-  - User Management
-  - Human Resources
-  properties:
-  - type: OpenAPI
-    url: openapi/harri-employer-openapi.json
   - type: Documentation
     url: https://developer.harri.com/employer/
-  - type: Overlay
-    url: overlays/harri-employer-overlay.yaml
+- aid: harri:harri-annualrates-api
+  name: Harri Annual Rates API
+  description: The AnnualRates API from Harri — 3 operation(s) for annualrates.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - AnnualRates
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-annualrates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-bankaccounts-api
+  name: Harri Bank Accounts API
+  description: The BankAccounts API from Harri — 1 operation(s) for bankaccounts.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - BankAccounts
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-bankaccounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-corporate-users-api
+  name: Harri Corporate Users API
+  description: The Corporate Users API from Harri — 2 operation(s) for corporate users.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Corporate Users
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-corporate-users-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-costcenters-api
+  name: Harri Cost Centers API
+  description: The CostCenters API from Harri — 1 operation(s) for costcenters.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - CostCenters
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-costcenters-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-annualrates-api
+  name: Harri Deprecated AnnualRates API
+  description: The Deprecated AnnualRates API from Harri — 2 operation(s) for deprecated annualrates.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated AnnualRates
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-annualrates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-bankaccounts-api
+  name: Harri Deprecated BankAccounts API
+  description: The Deprecated BankAccounts API from Harri — 1 operation(s) for deprecated bankaccounts.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated BankAccounts
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-bankaccounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-employee-api
+  name: Harri Deprecated Employee API
+  description: The Deprecated Employee API from Harri — 17 operation(s) for deprecated employee.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Employee
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-employee-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-employeelocation-api
+  name: Harri Deprecated EmployeeLocation API
+  description: >-
+    The Deprecated EmployeeLocation API from Harri — 4 operation(s) for deprecated employeelocation.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated EmployeeLocation
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-employeelocation-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-employeepositions-api
+  name: Harri Deprecated EmployeePositions API
+  description: >-
+    The Deprecated EmployeePositions API from Harri — 8 operation(s) for deprecated employeepositions.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated EmployeePositions
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-employeepositions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-employment-api
+  name: Harri Deprecated Employment API
+  description: The Deprecated Employment API from Harri — 8 operation(s) for deprecated employment.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Employment
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-employment-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-event-api
+  name: Harri Deprecated Event API
+  description: The Deprecated Event API from Harri — 1 operation(s) for deprecated event.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Event
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-event-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-financial-api
+  name: Harri Deprecated Financial API
+  description: The Deprecated Financial API from Harri — 4 operation(s) for deprecated financial.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Financial
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-financial-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-annualrates-api
+  name: Harri Deprecated Franchisee AnnualRates API
+  description: >-
+    The Deprecated Franchisee AnnualRates API from Harri — 2 operation(s) for deprecated franchisee annualrates.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee AnnualRates
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-annualrates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-bankaccounts-api
+  name: Harri Deprecated Franchisee BankAccounts API
+  description: >-
+    The Deprecated Franchisee BankAccounts API from Harri — 1 operation(s) for deprecated franchisee bankaccounts.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee BankAccounts
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-bankaccounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-employee-api
+  name: Harri Deprecated Franchisee Employee API
+  description: >-
+    The Deprecated Franchisee Employee API from Harri — 16 operation(s) for deprecated franchisee employee.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee Employee
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-employee-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-employeelocation-api
+  name: Harri Deprecated Franchisee EmployeeLocation API
+  description: >-
+    The Deprecated Franchisee EmployeeLocation API from Harri — 4 operation(s) for deprecated franchisee
+    employeelocation.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee EmployeeLocation
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-employeelocation-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-employeepositions-api
+  name: Harri Deprecated Franchisee EmployeePositions API
+  description: >-
+    The Deprecated Franchisee EmployeePositions API from Harri — 8 operation(s) for deprecated franchisee
+    employeepositions.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee EmployeePositions
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-employeepositions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-employment-api
+  name: Harri Deprecated Franchisee Employment API
+  description: >-
+    The Deprecated Franchisee Employment API from Harri — 8 operation(s) for deprecated franchisee employment.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee Employment
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-employment-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-financial-api
+  name: Harri Deprecated Franchisee Financial API
+  description: >-
+    The Deprecated Franchisee Financial API from Harri — 3 operation(s) for deprecated franchisee financial.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee Financial
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-financial-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-hourlyrates-api
+  name: Harri Deprecated Franchisee HourlyRates API
+  description: >-
+    The Deprecated Franchisee HourlyRates API from Harri — 4 operation(s) for deprecated franchisee hourlyrates.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee HourlyRates
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-hourlyrates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-maxweeklyhours-api
+  name: Harri Deprecated Franchisee MaxWeeklyHours API
+  description: >-
+    The Deprecated Franchisee MaxWeeklyHours API from Harri — 2 operation(s) for deprecated franchisee
+    maxweeklyhours.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee MaxWeeklyHours
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-maxweeklyhours-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-paytypes-api
+  name: Harri Deprecated Franchisee PayTypes API
+  description: >-
+    The Deprecated Franchisee PayTypes API from Harri — 3 operation(s) for deprecated franchisee paytypes.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee PayTypes
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-paytypes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-tippedstatuses-api
+  name: Harri Deprecated Franchisee TippedStatuses API
+  description: >-
+    The Deprecated Franchisee TippedStatuses API from Harri — 2 operation(s) for deprecated franchisee
+    tippedstatuses.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee TippedStatuses
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-tippedstatuses-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-troncamounts-api
+  name: Harri Deprecated Franchisee TroncAmounts API
+  description: >-
+    The Deprecated Franchisee TroncAmounts API from Harri — 2 operation(s) for deprecated franchisee troncamounts.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee TroncAmounts
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-troncamounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-franchisee-troncpoints-api
+  name: Harri Deprecated Franchisee TroncPoints API
+  description: >-
+    The Deprecated Franchisee TroncPoints API from Harri — 2 operation(s) for deprecated franchisee troncpoints.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated Franchisee TroncPoints
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-franchisee-troncpoints-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-hourlyrates-api
+  name: Harri Deprecated HourlyRates API
+  description: The Deprecated HourlyRates API from Harri — 4 operation(s) for deprecated hourlyrates.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated HourlyRates
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-hourlyrates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-maxweeklyhours-api
+  name: Harri Deprecated MaxWeeklyHours API
+  description: >-
+    The Deprecated MaxWeeklyHours API from Harri — 2 operation(s) for deprecated maxweeklyhours.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated MaxWeeklyHours
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-maxweeklyhours-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-paytypes-api
+  name: Harri Deprecated PayTypes API
+  description: The Deprecated PayTypes API from Harri — 4 operation(s) for deprecated paytypes.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated PayTypes
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-paytypes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-tippedstatuses-api
+  name: Harri Deprecated TippedStatuses API
+  description: >-
+    The Deprecated TippedStatuses API from Harri — 2 operation(s) for deprecated tippedstatuses.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated TippedStatuses
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-tippedstatuses-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-troncamounts-api
+  name: Harri Deprecated TroncAmounts API
+  description: The Deprecated TroncAmounts API from Harri — 2 operation(s) for deprecated troncamounts.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated TroncAmounts
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-troncamounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-deprecated-troncpoints-api
+  name: Harri Deprecated TroncPoints API
+  description: The Deprecated TroncPoints API from Harri — 2 operation(s) for deprecated troncpoints.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Deprecated TroncPoints
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-deprecated-troncpoints-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-employee-api
+  name: Harri Employee API
+  description: The Employee API from Harri — 5 operation(s) for employee.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Employee
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-employee-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-employeejobtitle-api
+  name: Harri Employee Job Title API
+  description: The EmployeeJobTitle API from Harri — 2 operation(s) for employeejobtitle.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - EmployeeJobTitle
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-employeejobtitle-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-employeelocation-api
+  name: Harri Employee Location API
+  description: The EmployeeLocation API from Harri — 3 operation(s) for employeelocation.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - EmployeeLocation
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-employeelocation-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-employeepositions-api
+  name: Harri Employee Positions API
+  description: The EmployeePositions API from Harri — 5 operation(s) for employeepositions.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - EmployeePositions
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-employeepositions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-employer-apis-api
+  name: Harri Employer APIs API
+  description: The Employer APIs API from Harri — 2 operation(s) for employer apis.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Employer APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-employer-apis-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-employer-apis-v2-api
+  name: Harri Employer APIs V2 API
+  description: The Employer APIs V2 API from Harri — 2 operation(s) for employer apis v2.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Employer APIs V2
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-employer-apis-v2-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-employment-api
+  name: Harri Employment API
+  description: The Employment API from Harri — 8 operation(s) for employment.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Employment
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-employment-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-event-api
+  name: Harri Event API
+  description: The Event API from Harri — 2 operation(s) for event.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Event
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-event-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-absences-api
+  name: Harri Franchisee Absences API
+  description: The Franchisee Absences API from Harri — 7 operation(s) for franchisee absences.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Absences
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-absences-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-annualrates-api
+  name: Harri Franchisee AnnualRates API
+  description: The Franchisee AnnualRates API from Harri — 3 operation(s) for franchisee annualrates.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee AnnualRates
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-annualrates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-bankaccounts-api
+  name: Harri Franchisee BankAccounts API
+  description: The Franchisee BankAccounts API from Harri — 1 operation(s) for franchisee bankaccounts.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee BankAccounts
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-bankaccounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-costcenters-api
+  name: Harri Franchisee CostCenters API
+  description: The Franchisee CostCenters API from Harri — 1 operation(s) for franchisee costcenters.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee CostCenters
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-costcenters-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-employee-api
+  name: Harri Franchisee Employee API
+  description: The Franchisee Employee API from Harri — 6 operation(s) for franchisee employee.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Employee
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-employee-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-employeejobtitle-api
+  name: Harri Franchisee EmployeeJobTitle API
+  description: >-
+    The Franchisee EmployeeJobTitle API from Harri — 2 operation(s) for franchisee employeejobtitle.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee EmployeeJobTitle
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-employeejobtitle-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-employeelocation-api
+  name: Harri Franchisee EmployeeLocation API
+  description: >-
+    The Franchisee EmployeeLocation API from Harri — 3 operation(s) for franchisee employeelocation.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee EmployeeLocation
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-employeelocation-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-employeepositions-api
+  name: Harri Franchisee EmployeePositions API
+  description: >-
+    The Franchisee EmployeePositions API from Harri — 5 operation(s) for franchisee employeepositions.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee EmployeePositions
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-employeepositions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-employer-apis-api
+  name: Harri Franchisee Employer APIs API
+  description: >-
+    The Franchisee Employer APIs API from Harri — 2 operation(s) for franchisee employer apis.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Employer APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-employer-apis-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-employer-apis-v2-api
+  name: Harri Franchisee Employer APIs V2 API
+  description: >-
+    The Franchisee Employer APIs V2 API from Harri — 2 operation(s) for franchisee employer apis v2.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Employer APIs V2
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-employer-apis-v2-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-employment-api
+  name: Harri Franchisee Employment API
+  description: The Franchisee Employment API from Harri — 8 operation(s) for franchisee employment.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Employment
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-employment-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-event-api
+  name: Harri Franchisee Event API
+  description: The Franchisee Event API from Harri — 3 operation(s) for franchisee event.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Event
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-event-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-hourlyrates-api
+  name: Harri Franchisee HourlyRates API
+  description: The Franchisee HourlyRates API from Harri — 2 operation(s) for franchisee hourlyrates.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee HourlyRates
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-hourlyrates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-jobtitle-api
+  name: Harri Franchisee JobTitle API
+  description: The Franchisee JobTitle API from Harri — 1 operation(s) for franchisee jobtitle.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee JobTitle
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-jobtitle-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-location-api
+  name: Harri Franchisee Location API
+  description: The Franchisee Location API from Harri — 1 operation(s) for franchisee location.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Location
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-location-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-mapping-api
+  name: Harri Franchisee Mapping API
+  description: The Franchisee Mapping API from Harri — 11 operation(s) for franchisee mapping.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Mapping
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-mapping-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-maxweeklyhours-api
+  name: Harri Franchisee MaxWeeklyHours API
+  description: >-
+    The Franchisee MaxWeeklyHours API from Harri — 6 operation(s) for franchisee maxweeklyhours.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee MaxWeeklyHours
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-maxweeklyhours-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-paytypes-api
+  name: Harri Franchisee PayTypes API
+  description: The Franchisee PayTypes API from Harri — 4 operation(s) for franchisee paytypes.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee PayTypes
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-paytypes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-position-api
+  name: Harri Franchisee Position API
+  description: The Franchisee Position API from Harri — 1 operation(s) for franchisee position.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Position
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-position-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-subscriptions-api
+  name: Harri Franchisee Subscriptions API
+  description: >-
+    The Franchisee Subscriptions API from Harri — 1 operation(s) for franchisee subscriptions.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-tippedstatuses-api
+  name: Harri Franchisee TippedStatuses API
+  description: >-
+    The Franchisee TippedStatuses API from Harri — 2 operation(s) for franchisee tippedstatuses.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee TippedStatuses
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-tippedstatuses-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-troncamounts-api
+  name: Harri Franchisee TroncAmounts API
+  description: The Franchisee TroncAmounts API from Harri — 3 operation(s) for franchisee troncamounts.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee TroncAmounts
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-troncamounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-troncpoints-api
+  name: Harri Franchisee TroncPoints API
+  description: The Franchisee TroncPoints API from Harri — 3 operation(s) for franchisee troncpoints.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee TroncPoints
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-troncpoints-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisee-troncs-api
+  name: Harri Franchisee Troncs API
+  description: The Franchisee Troncs API from Harri — 2 operation(s) for franchisee troncs.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisee Troncs
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisee-troncs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-franchisees-api
+  name: Harri Franchisees API
+  description: The Franchisees API from Harri — 1 operation(s) for franchisees.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Franchisees
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-franchisees-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-hourlyrates-api
+  name: Harri Hourly Rates API
+  description: The HourlyRates API from Harri — 2 operation(s) for hourlyrates.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - HourlyRates
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-hourlyrates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-jobtitle-api
+  name: Harri Job Title API
+  description: The JobTitle API from Harri — 1 operation(s) for jobtitle.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - JobTitle
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-jobtitle-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-location-api
+  name: Harri Location API
+  description: The Location API from Harri — 1 operation(s) for location.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Location
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-location-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-mapping-api
+  name: Harri Mapping API
+  description: The Mapping API from Harri — 11 operation(s) for mapping.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Mapping
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-mapping-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-maxweeklyhours-api
+  name: Harri Max Weekly Hours API
+  description: The MaxWeeklyHours API from Harri — 6 operation(s) for maxweeklyhours.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - MaxWeeklyHours
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-maxweeklyhours-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-minor-details-api
+  name: Harri Minor Details API
+  description: The Minor Details API from Harri — 2 operation(s) for minor details.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Minor Details
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-minor-details-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-paytypes-api
+  name: Harri Pay Types API
+  description: The PayTypes API from Harri — 3 operation(s) for paytypes.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - PayTypes
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-paytypes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-position-api
+  name: Harri Position API
+  description: The Position API from Harri — 1 operation(s) for position.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Position
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-position-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-subscriptions-api
+  name: Harri Subscriptions API
+  description: The Subscriptions API from Harri — 1 operation(s) for subscriptions.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-tippedstatuses-api
+  name: Harri Tipped Statuses API
+  description: The TippedStatuses API from Harri — 2 operation(s) for tippedstatuses.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - TippedStatuses
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-tippedstatuses-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-troncamounts-api
+  name: Harri Tronc Amounts API
+  description: The TroncAmounts API from Harri — 3 operation(s) for troncamounts.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - TroncAmounts
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-troncamounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-troncpoints-api
+  name: Harri Tronc Points API
+  description: The TroncPoints API from Harri — 3 operation(s) for troncpoints.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - TroncPoints
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-troncpoints-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-troncs-api
+  name: Harri Troncs API
+  description: The Troncs API from Harri — 2 operation(s) for troncs.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Troncs
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-troncs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/harri-employee-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/harri-agentic-access.yml
 - type: DomainSecurity
