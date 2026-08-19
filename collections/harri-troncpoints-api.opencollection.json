@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Tronc Points API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TroncPoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee tronc points API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/pay_types/:payTypeId/tronc_points",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              }
+            ]
+          },
+          "docs": "Retrieve employee tronc points"
+        },
+        {
+          "info": {
+            "name": "Define new employee tronc point API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_types/:payTypeId/tronc_points",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "use this api when u want to define new employee tronc point\n"
+        },
+        {
+          "info": {
+            "name": "Update employee tronc point API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_types/:payTypeId/tronc_points/:troncPointId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "troncPointId",
+                "value": "",
+                "type": "path",
+                "description": "tronc point id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update employee tronc point by id"
+        },
+        {
+          "info": {
+            "name": "Delete employee tronc point API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_types/:payTypeId/tronc_points/:troncPointId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "troncPointId",
+                "value": "",
+                "type": "path",
+                "description": "tronc point id"
+              }
+            ]
+          },
+          "docs": "Delete employee tronc point by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

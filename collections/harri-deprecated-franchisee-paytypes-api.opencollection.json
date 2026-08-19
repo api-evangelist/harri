@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Deprecated Franchisee PayTypes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deprecated Franchisee PayTypes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Define new employee pay type API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/pay_types",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this api when u want to create the employee paytype with other financials information. positions\n"
+        },
+        {
+          "info": {
+            "name": "Define new employee pay type API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/pay_types",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this api when u want to create the employee paytype with other financials information\n"
+        },
+        {
+          "info": {
+            "name": "Define new employee pay type API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/franchisees/:franchiseeId/employees/:employeeId/pay_types",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this api when u want to create the employee paytype with other financials information\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

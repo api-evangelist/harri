@@ -1,0 +1,816 @@
+openapi: 3.2.0
+info:
+  title: Harri Franchisee Mapping API
+  termsOfService: https://harri.com/terms
+  version: '1.0'
+  description: 'Operations tagged Franchisee Mapping across 2 of this provider''s published API definitions: harri-employee-openapi.yml, harri-employer-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Franchisee Mapping
+paths:
+  /api/v1/franchisees/{franchiseeId}/employees/mappings:
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    get:
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: internal_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: external_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - UNMAPPED
+      - name: unmapped_employees_limit
+        in: query
+        description: Specifies the maximum number of unmapped employees to return. Must be between 1 and 1000. Defaults to 1000 if not specified.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          default: 1000
+      operationId: franshisees_api_v1_employees_mappings_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - id
+                  - internal_value
+                  - external_value
+                  properties:
+                    id:
+                      type: number
+                    internal_value:
+                      type: string
+                      description: Mapper internal code
+                    external_value:
+                      type: string
+                      description: Mapper external code
+                    meta:
+                      type: object
+                      description: this is an optinal object returned for UNMAPPED mode
+                      properties:
+                        first_name:
+                          type: string
+                          description: employee first name
+                        last_name:
+                          type: string
+                          description: employee last name
+                        ssn:
+                          type: string
+                          description: ssn
+                        phone:
+                          type: string
+                          format: phone
+                          description: employee phone number
+                        email:
+                          type: string
+                          format: email
+                          description: employee email
+                        external_middleware_id:
+                          type: string
+                          description: external middleware id
+      tags:
+      - Franchisee Mapping
+    post:
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      operationId: franchisees_api_v1_employees_mappings_create
+      description: ''
+      requestBody:
+        description: Create Mapping
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mappings:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      internal_value:
+                        type: string
+                        description: must be valid employee id
+                      external_value:
+                        type: string
+                    required:
+                    - internal_value
+                    - external_value
+        required: true
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapperData'
+      tags:
+      - Franchisee Mapping
+  /api/v1/franchisees/{franchiseeId}/employees/mappings/{id}:
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    put:
+      operationId: franchisees_api_v1_employees_mappings_update
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: id
+        in: path
+        schema:
+          type: integer
+          format: int64
+        required: true
+      description: ''
+      requestBody:
+        description: Update Mapping
+        content:
+          application/json:
+            schema:
+              properties:
+                internal_value:
+                  type: string
+                  description: must be valid employee id
+                external_value:
+                  type: string
+              required:
+              - internal_value
+              - external_value
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateMapper'
+      tags:
+      - Franchisee Mapping
+  /api/v1/franchisees/{franchiseeId}/locations/mappings:
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    get:
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: internal_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: external_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - UNMAPPED
+      operationId: franchisees_api_v1_locations_mappings_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapperData'
+      tags:
+      - Franchisee Mapping
+    post:
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      operationId: franchisees_api_v1_locations_mappings_create
+      description: ''
+      requestBody:
+        description: Create Mapping
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mappings:
+                  type: array
+                  items:
+                    properties:
+                      internal_value:
+                        type: string
+                        description: must be valid Location id
+                      external_value:
+                        type: string
+                    required:
+                    - internal_value
+                    - external_value
+        required: true
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapperData'
+      tags:
+      - Franchisee Mapping
+  /api/v1/franchisees/{franchiseeId}/locations/mappings/{id}:
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    put:
+      operationId: franchisees_api_v1_locations_mappings_update
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      description: ''
+      requestBody:
+        description: Update Mapping
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+              - $ref: '#/components/schemas/Mapping'
+              - type: object
+                required:
+                - internal_value
+                - external_value
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateMapper'
+      tags:
+      - Franchisee Mapping
+  /api/v1/franchisees/{franchiseeId}/positions/mappings:
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    get:
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: internal_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: external_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - UNMAPPED
+      operationId: franchisees_api_v1_positions_mappings_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapperData'
+      tags:
+      - Franchisee Mapping
+    post:
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      operationId: franchisees_api_v1_positions_mappings_create
+      description: ''
+      requestBody:
+        description: Create Mapping
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mappings:
+                  type: array
+                  items:
+                    properties:
+                      internal_value:
+                        type: string
+                        description: must be valid position code
+                      external_value:
+                        type: string
+                    required:
+                    - internal_value
+                    - external_value
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapperData'
+      tags:
+      - Franchisee Mapping
+  /api/v1/franchisees/{franchiseeId}/positions/mappings/{id}:
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    put:
+      operationId: franchisees_api_v1_positions_mappings_update
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      description: ''
+      requestBody:
+        description: Update Mapping
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+              - $ref: '#/components/schemas/Mapping'
+              - type: object
+                required:
+                - internal_value
+                - external_value
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateMapper'
+      tags:
+      - Franchisee Mapping
+  /api/v1/franchisees/{franchiseeId}/employers/mappings:
+    parameters:
+    - name: franchiseeId
+      in: path
+      required: true
+      schema:
+        type: number
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    get:
+      parameters:
+      - name: internal_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: external_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - UNMAPPED
+      operationId: franchisees_api_v1_employers_mappings_list
+      description: List franchisee employer mappings or filter by criteria
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - id
+                  - internal_value
+                  - external_value
+                  properties:
+                    id:
+                      type: number
+                    internal_value:
+                      type: string
+                      description: Mapper internal code
+                    external_value:
+                      type: string
+                      description: Mapper external code
+      tags:
+      - Franchisee Mapping
+    post:
+      operationId: franchisees_api_v1_employers_mappings_create
+      description: Create franchisee employer mappings
+      requestBody:
+        description: Create Mapping
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mappings:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      internal_value:
+                        type: string
+                        description: must be valid employer id
+                      external_value:
+                        type: string
+                    required:
+                    - internal_value
+                    - external_value
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    internal_value:
+                      type: string
+                    external_value:
+                      type: string
+      tags:
+      - Franchisee Mapping
+  /api/v1/franchisees/{franchiseeId}/employers/mappings/{pk}:
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    put:
+      operationId: franchisees_api_v1_employers_mappings_update
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      description: Update a franchisee employer mapping
+      requestBody:
+        description: Update Mapping
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                internal_value:
+                  type: string
+                  description: must be valid employer id
+                external_value:
+                  type: string
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+      - Franchisee Mapping
+  /api/v2/franchisees/{franchiseeId}/employees/mappings:
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    get:
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: internal_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: external_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - UNMAPPED
+      - name: unmapped_employees_limit
+        in: query
+        description: Specifies the maximum number of unmapped employees to return. Must be between 1 and 1000. Defaults to 1000 if not specified.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          default: 1000
+      operationId: franshisees_api_v1_employees_mappings_listV2
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - id
+                  - internal_value
+                  - external_value
+                  properties:
+                    id:
+                      type: number
+                    internal_value:
+                      type: string
+                      description: Mapper internal code
+                    external_value:
+                      type: string
+                      description: Mapper external code
+                    meta:
+                      type: object
+                      description: this is an optinal object returned for UNMAPPED mode
+                      properties:
+                        first_name:
+                          type: string
+                          description: employee first name
+                        last_name:
+                          type: string
+                          description: employee last name
+                        ssn:
+                          type: string
+                          description: ssn
+                        phone:
+                          type: string
+                          format: phone
+                          description: employee phone number
+                        email:
+                          type: string
+                          format: email
+                          description: employee email
+                        external_middleware_id:
+                          type: string
+                          description: external middleware id
+      tags:
+      - Franchisee Mapping
+    post:
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      operationId: franchisees_api_v1_employees_mappings_createV2
+      description: ''
+      requestBody:
+        description: Create Mapping
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mappings:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      internal_value:
+                        type: string
+                        description: must be valid employee id
+                      external_value:
+                        type: string
+                    required:
+                    - internal_value
+                    - external_value
+        required: true
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapperData'
+      tags:
+      - Franchisee Mapping
+  /api/v2/franchisees/{franchiseeId}/employees/mappings/{id}:
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    put:
+      operationId: franchisees_api_v1_employees_mappings_updateV2
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: id
+        in: path
+        schema:
+          type: integer
+          format: int64
+        required: true
+      description: ''
+      requestBody:
+        description: Update Mapping
+        content:
+          application/json:
+            schema:
+              properties:
+                internal_value:
+                  type: string
+                  description: must be valid employee id
+                external_value:
+                  type: string
+              required:
+              - internal_value
+              - external_value
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateMapper'
+      tags:
+      - Franchisee Mapping
+  /v1/franchisees/{franchiseeId}/employers/mappings:
+    parameters:
+    - name: franchiseeId
+      in: path
+      required: true
+      schema:
+        type: number
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
+    get:
+      parameters:
+      - name: internal_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: external_values
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - UNMAPPED
+      operationId: api_v1_franchisee_employers_mappings_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - id
+                  - internal_value
+                  - external_value
+                  properties:
+                    id:
+                      type: number
+                    internal_value:
+                      type: string
+                      description: Mapper internal code
+                    external_value:
+                      type: string
+                      description: Mapper external code
+      tags:
+      - Franchisee Mapping
+      security:
+      - oAuth2ClientCredentials: []
+components:
+  schemas:
+    MapperData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              internal_value:
+                type: string
+                description: Mapper internal code
+              external_value:
+                type: string
+                description: Mapper external code
+    Mapping:
+      type: object
+      properties:
+        internal_value:
+          type: string
+        external_value:
+          type: string
+    UpdateMapper:
+      type: object
+      properties:
+        data:
+          type: string
+          enum:
+          - Success
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}
+externalDocs:
+  description: Find out more about Harri
+  url: http://harri.com
+x-refined-from:
+- harri-employee-openapi.yml
+- harri-employer-openapi.json

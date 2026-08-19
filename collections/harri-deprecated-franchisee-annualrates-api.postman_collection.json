@@ -1,0 +1,474 @@
+{
+  "item": [
+    {
+      "id": "fa0b0aef-b7ba-42d7-b67d-9d22b3830ac1",
+      "name": "Deprecated Franchisee AnnualRates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ddf1794f-31c6-454f-86b5-8962345a2d34",
+          "name": "Define new employee annual rate API",
+          "request": {
+            "name": "Define new employee annual rate API",
+            "description": {
+              "content": "use this api when u want to define employee annual rate\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "annual_rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"annual_rate\": {\n    \"value\": \"<number>\",\n    \"start_date\": \"<date>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "960e4238-90b9-4ca3-97c6-35ab1c3c4a0b",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "annual_rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"annual_rate\": {\n    \"value\": \"<number>\",\n    \"start_date\": \"<date>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"annual_rate\": {\n    \"id\": 8645.52818451955,\n    \"value\": 9587.473143718484,\n    \"start_date\": \"2000-02-24\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "590c093f-690a-494a-917b-c8b98c1f7aeb",
+          "name": "Update employee annual rate API",
+          "request": {
+            "name": "Update employee annual rate API",
+            "description": {
+              "content": "Update employee annual rate by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "annual_rates",
+                ":annualRateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "annualRateId",
+                  "description": "(Required) annual rate id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<number>\",\n  \"start_date\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "55d472d9-87d0-401a-97fe-fd47aaf3654b",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "annual_rates",
+                    ":annualRateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "annualRateId",
+                      "description": "(Required) annual rate id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"<number>\",\n  \"start_date\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73c11f7c-01bf-428d-84b6-6284b3368f2e",
+          "name": "Delete employee annual rate API",
+          "request": {
+            "name": "Delete employee annual rate API",
+            "description": {
+              "content": "Delete employee annual rate by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "annual_rates",
+                ":annualRateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "annualRateId",
+                  "description": "(Required) annual rate id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb0f87a0-b360-4f56-9c2b-5c1603c87065",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "annual_rates",
+                    ":annualRateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "annualRateId",
+                      "description": "(Required) annual rate id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e12a4200-3d63-4b11-a420-adf0695a970d",
+    "name": "Harri Employee Open Deprecated Franchisee AnnualRates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,748 @@
+{
+  "item": [
+    {
+      "id": "9205b5a8-6605-4fe9-9bd5-31eb5afa9ec6",
+      "name": "Deprecated Franchisee TippedStatuses",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9e5cf5b-5073-4ab8-85d0-10415be9c735",
+          "name": "Retrieve employee tipped status API",
+          "request": {
+            "name": "Retrieve employee tipped status API",
+            "description": {
+              "content": "Retrieve employee tipped status on specific positoin",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "locations",
+                ":locationId",
+                "positions",
+                ":positionCode",
+                "tipped_statuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be primary location id for employees with fixed pay type"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) positoin code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f4c6d79-49a7-40b0-8a8e-8b92144f0f64",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "locations",
+                    ":locationId",
+                    "positions",
+                    ":positionCode",
+                    "tipped_statuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be primary location id for employees with fixed pay type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) positoin code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tipped_statuses\": [\n    {\n      \"id\": 8467.594967937677,\n      \"is_tipped\": false,\n      \"start_date\": \"2014-10-31\"\n    },\n    {\n      \"id\": 6294.0023320330365,\n      \"is_tipped\": true,\n      \"start_date\": \"1996-12-12\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45821cd2-8dab-4df8-a4b7-a8f81971247c",
+          "name": "Define new employee tipped status API",
+          "request": {
+            "name": "Define new employee tipped status API",
+            "description": {
+              "content": "use this api when u want to define new tipped status for an employee on specific position\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "locations",
+                ":locationId",
+                "positions",
+                ":positionCode",
+                "tipped_statuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be primary location id for employees with fixed pay type"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) position code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipped_status\": {\n    \"is_tipped\": \"<boolean>\",\n    \"start_date\": \"<date>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "197381ca-496a-49f0-97cb-7d84dfc7e045",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "locations",
+                    ":locationId",
+                    "positions",
+                    ":positionCode",
+                    "tipped_statuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be primary location id for employees with fixed pay type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) position code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tipped_status\": {\n    \"is_tipped\": \"<boolean>\",\n    \"start_date\": \"<date>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tipped_status\": {\n    \"id\": 2749.964556500175,\n    \"is_tipped\": false,\n    \"start_date\": \"2014-07-26\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ec96a62-c0dc-43a0-9b25-3b4cb8a6ae5d",
+          "name": "Update employee tipped status API",
+          "request": {
+            "name": "Update employee tipped status API",
+            "description": {
+              "content": "Update employee tipped status for specific position",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "locations",
+                ":locationId",
+                "positions",
+                ":positionCode",
+                "tipped_statuses",
+                ":tippedStatusId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be primary location id for employees with fixed pay type"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) positoin code"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "tippedStatusId",
+                  "description": "(Required) tipped status id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"is_tipped\": \"<boolean>\",\n  \"start_date\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e16574e-cc61-4aa7-9ab5-531d32a0131e",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "locations",
+                    ":locationId",
+                    "positions",
+                    ":positionCode",
+                    "tipped_statuses",
+                    ":tippedStatusId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be primary location id for employees with fixed pay type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) positoin code"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "tippedStatusId",
+                      "description": "(Required) tipped status id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"is_tipped\": \"<boolean>\",\n  \"start_date\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76daafbc-4136-444a-87e9-7b322618132f",
+          "name": "Delete employee tipped status API",
+          "request": {
+            "name": "Delete employee tipped status API",
+            "description": {
+              "content": "Delete employee tipped status by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "locations",
+                ":locationId",
+                "positions",
+                ":positionCode",
+                "tipped_statuses",
+                ":tippedStatusId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be primary location id for employees with fixed pay type"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) positoin code"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "tippedStatusId",
+                  "description": "(Required) tipped status id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9646cacb-2dc3-47df-82e0-ce2fbfabd171",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "locations",
+                    ":locationId",
+                    "positions",
+                    ":positionCode",
+                    "tipped_statuses",
+                    ":tippedStatusId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be primary location id for employees with fixed pay type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) positoin code"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "tippedStatusId",
+                      "description": "(Required) tipped status id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b62387f1-73f6-4e53-9308-3059d77b14a0",
+    "name": "Harri Employee Open Deprecated Franchisee TippedStatuses API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

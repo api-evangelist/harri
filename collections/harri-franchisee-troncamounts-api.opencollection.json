@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Franchisee TroncAmounts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee TroncAmounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee tronc amounts API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/tronc_amounts",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              }
+            ]
+          },
+          "docs": "Retrieve employee tronc amounts"
+        },
+        {
+          "info": {
+            "name": "Define new employee tronc amount API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/tronc_amounts",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "use this api when u want to define new employee tronc amount\n"
+        },
+        {
+          "info": {
+            "name": "Update employee tronc amount API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/tronc_amounts/:troncAmountId",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "troncAmountId",
+                "value": "",
+                "type": "path",
+                "description": "tronc amount id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update employee tronc amount by id"
+        },
+        {
+          "info": {
+            "name": "Delete employee tronc amount API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/tronc_amounts/:troncAmountId",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "troncAmountId",
+                "value": "",
+                "type": "path",
+                "description": "tronc amount id"
+              }
+            ]
+          },
+          "docs": "Delete employee tronc amount by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

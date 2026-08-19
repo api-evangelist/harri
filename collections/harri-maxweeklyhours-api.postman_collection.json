@@ -1,0 +1,1634 @@
+{
+  "item": [
+    {
+      "id": "a78dd45f-cacd-417f-a658-bfcb4afaddcb",
+      "name": "MaxWeeklyHours",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b35cb344-de3a-4f60-a49e-fa5deca00293",
+          "name": "Retrieve employee Max Weekly Hours API",
+          "request": {
+            "name": "Retrieve employee Max Weekly Hours API",
+            "description": {
+              "content": "Retrieve employee Max Weekly Hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "locations",
+                ":locationId",
+                "max_weekly_hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, can be both primary and secondry"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5dc6168a-87fd-4c82-a48c-5d3ce734a6a9",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "locations",
+                    ":locationId",
+                    "max_weekly_hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, can be both primary and secondry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"max_weekly_hours\": [\n    {\n      \"id\": 3797.0789985224164,\n      \"value\": 9947.299839596119,\n      \"start_date\": \"2005-05-15\",\n      \"working_pattern\": {\n        \"id\": 6267.164497038193,\n        \"days_count\": 6,\n        \"working_pattern_days\": [\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          },\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          }\n        ]\n      }\n    },\n    {\n      \"id\": 8742.372203140241,\n      \"value\": 6618.986998006616,\n      \"start_date\": \"2014-04-28\",\n      \"working_pattern\": {\n        \"id\": 3657.212212950165,\n        \"days_count\": 5,\n        \"working_pattern_days\": [\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          },\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8db27703-5041-4816-baf2-ea923db756bd",
+          "name": "Define new employee Max Weekly Hours API",
+          "request": {
+            "name": "Define new employee Max Weekly Hours API",
+            "description": {
+              "content": "use this api when u want to define new employee Max Weekly Hours\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "locations",
+                ":locationId",
+                "max_weekly_hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be primary location id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "49c8956a-f48c-43b4-8e9f-472a1df9306b",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "locations",
+                    ":locationId",
+                    "max_weekly_hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be primary location id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"max_weekly_hours\": {\n    \"id\": 8908.267147921852,\n    \"value\": 5088.222788120921,\n    \"start_date\": \"2001-07-12\",\n    \"working_pattern\": {\n      \"id\": 3591.1825553187505,\n      \"days_count\": 7,\n      \"working_pattern_days\": [\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        },\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99aac863-805a-4a16-a74a-cea11a42238a",
+          "name": "Update Max Weekly Hours API",
+          "request": {
+            "name": "Update Max Weekly Hours API",
+            "description": {
+              "content": "Update Max Weekly Hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "locations",
+                ":locationId",
+                "max_weekly_hours",
+                ":maxWeeklyHoursId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be primary location id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "maxWeeklyHoursId",
+                  "description": "(Required) Max Weekly Hours id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<number>\",\n  \"start_date\": \"<date>\",\n  \"working_pattern\": {\n    \"days_count\": \"<number,null>\",\n    \"working_pattern_days\": [\n      {\n        \"day\": \"<string>\",\n        \"hours_count\": \"<number,null>\"\n      },\n      {\n        \"day\": \"<string>\",\n        \"hours_count\": \"<number,null>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bd290bbc-2bfb-4871-9a1f-33027436c81d",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "locations",
+                    ":locationId",
+                    "max_weekly_hours",
+                    ":maxWeeklyHoursId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be primary location id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "maxWeeklyHoursId",
+                      "description": "(Required) Max Weekly Hours id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"<number>\",\n  \"start_date\": \"<date>\",\n  \"working_pattern\": {\n    \"days_count\": \"<number,null>\",\n    \"working_pattern_days\": [\n      {\n        \"day\": \"<string>\",\n        \"hours_count\": \"<number,null>\"\n      },\n      {\n        \"day\": \"<string>\",\n        \"hours_count\": \"<number,null>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e696c535-2b0b-400a-ae70-8ca4f5aff87f",
+          "name": "Delete Max Weekly Hours API",
+          "request": {
+            "name": "Delete Max Weekly Hours API",
+            "description": {
+              "content": "Delete Max Weekly Hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "locations",
+                ":locationId",
+                "max_weekly_hours",
+                ":maxWeeklyHoursId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be primary location id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "maxWeeklyHoursId",
+                  "description": "(Required) Max Weekly Hours id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a0465dc-4068-40f3-b6a0-f1f2b04d6b7c",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "locations",
+                    ":locationId",
+                    "max_weekly_hours",
+                    ":maxWeeklyHoursId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be primary location id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "maxWeeklyHoursId",
+                      "description": "(Required) Max Weekly Hours id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2370ab5e-e2fe-4b3f-b412-b2dc92d49843",
+          "name": "Retrieve employee Max Weekly Hours API",
+          "request": {
+            "name": "Retrieve employee Max Weekly Hours API",
+            "description": {
+              "content": "Retrieve employee Max Weekly Hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "max_weekly_hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a0e2abe-30f2-4159-9c64-ec405d5707e6",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "max_weekly_hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"max_weekly_hours\": [\n    {\n      \"id\": 6877.364669221413,\n      \"value\": 1835.076007901719,\n      \"start_date\": \"2022-08-09\",\n      \"working_pattern\": {\n        \"id\": 6062.509082627181,\n        \"days_count\": 1,\n        \"working_pattern_days\": [\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          },\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          }\n        ]\n      }\n    },\n    {\n      \"id\": 2929.262075487177,\n      \"value\": 2722.967186482215,\n      \"start_date\": \"1948-03-02\",\n      \"working_pattern\": {\n        \"id\": 1118.4306202511152,\n        \"days_count\": 6,\n        \"working_pattern_days\": [\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          },\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de7a52f7-6889-40dc-99c1-ecd58aa782bb",
+          "name": "Define new employee Max Weekly Hours API",
+          "request": {
+            "name": "Define new employee Max Weekly Hours API",
+            "description": {
+              "content": "use this api when u want to define new employee Max Weekly Hours\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "max_weekly_hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44b3f2a9-13f6-4041-893b-fb42173eecd0",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "max_weekly_hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"max_weekly_hours\": {\n    \"id\": 8908.267147921852,\n    \"value\": 5088.222788120921,\n    \"start_date\": \"2001-07-12\",\n    \"working_pattern\": {\n      \"id\": 3591.1825553187505,\n      \"days_count\": 7,\n      \"working_pattern_days\": [\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        },\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a713717-95df-4399-b533-4ebbf21d85e0",
+          "name": "Update Max Weekly Hours API",
+          "request": {
+            "name": "Update Max Weekly Hours API",
+            "description": {
+              "content": "Update Max Weekly Hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "max_weekly_hours",
+                ":maxWeeklyHoursId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "maxWeeklyHoursId",
+                  "description": "(Required) Max Weekly Hours id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ddb5e341-9694-4898-8220-f0a976fff4b4",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "max_weekly_hours",
+                    ":maxWeeklyHoursId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "maxWeeklyHoursId",
+                      "description": "(Required) Max Weekly Hours id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7fa6402-adb1-46c6-8f17-eb5838cbc46d",
+          "name": "Delete Max Weekly Hours API",
+          "request": {
+            "name": "Delete Max Weekly Hours API",
+            "description": {
+              "content": "Delete Max Weekly Hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId",
+                "max_weekly_hours",
+                ":maxWeeklyHoursId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "maxWeeklyHoursId",
+                  "description": "(Required) Max Weekly Hours id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61fb493d-1543-45c3-950d-f965d9c61e08",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId",
+                    "max_weekly_hours",
+                    ":maxWeeklyHoursId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "maxWeeklyHoursId",
+                      "description": "(Required) Max Weekly Hours id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5766abac-99c3-4f91-85d4-6a28591417e4",
+          "name": "Retrieve employee max weekly hours",
+          "request": {
+            "name": "Retrieve employee max weekly hours",
+            "description": {
+              "content": "Retrieve the employee max weekly hours configurations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "max_weekly_hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6d2ba453-f3b4-4105-b155-ebc076c403a7",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "max_weekly_hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"max_weekly_hours\": [\n    {\n      \"id\": 5594.083953230086,\n      \"start_date\": \"1962-05-31\",\n      \"average_weekly_hours\": 3761.240898137027,\n      \"working_patterns\": [\n        {\n          \"id\": 9846.970190306065,\n          \"days_count\": 4,\n          \"total_hours\": 9939.132149662015,\n          \"order\": 1247,\n          \"working_pattern_days\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"day\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"hours_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"day\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"hours_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"id\": 6489.622376256518,\n          \"days_count\": 3,\n          \"total_hours\": 8168.865247758803,\n          \"order\": 9158,\n          \"working_pattern_days\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"day\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"hours_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"day\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"hours_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": 2546.6940132307936,\n      \"start_date\": \"1992-01-21\",\n      \"average_weekly_hours\": 9455.12892729259,\n      \"working_patterns\": [\n        {\n          \"id\": 281.2652144228944,\n          \"days_count\": 4,\n          \"total_hours\": 9561.303640477552,\n          \"order\": 1576,\n          \"working_pattern_days\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"day\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"hours_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"day\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"hours_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"id\": 8477.32863031881,\n          \"days_count\": 4,\n          \"total_hours\": 7588.765849041837,\n          \"order\": 8920,\n          \"working_pattern_days\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"day\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"hours_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"day\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"hours_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00a9848e-6d8f-444d-a568-6eb0dedd6683",
+          "name": "Create employee max weekly hours",
+          "request": {
+            "name": "Create employee max weekly hours",
+            "description": {
+              "content": "Create a max weekly hours configuration for the employee.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "max_weekly_hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"max_weekly_hours\": {\n    \"start_date\": \"<date>\",\n    \"working_patterns\": [\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      },\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "649e952a-0b28-42a2-9499-fbebb4d78581",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "max_weekly_hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"max_weekly_hours\": {\n    \"start_date\": \"<date>\",\n    \"working_patterns\": [\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      },\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"max_weekly_hours\": {\n    \"id\": 5203.234783404814,\n    \"start_date\": \"1985-06-22\",\n    \"average_weekly_hours\": 1604.4339424705422,\n    \"working_patterns\": [\n      {\n        \"id\": 6641.297857870505,\n        \"days_count\": 7,\n        \"total_hours\": 2724.023726970746,\n        \"order\": 9263,\n        \"working_pattern_days\": [\n          {\n            \"id\": 1008.2890288221513,\n            \"day\": \"TUE\",\n            \"hours_count\": 7125.97519966871\n          },\n          {\n            \"id\": 9560.498770396258,\n            \"day\": \"WED\",\n            \"hours_count\": 5912.467399107425\n          }\n        ]\n      },\n      {\n        \"id\": 8484.98087651532,\n        \"days_count\": 4,\n        \"total_hours\": 2621.53377659903,\n        \"order\": 5654,\n        \"working_pattern_days\": [\n          {\n            \"id\": 3294.881442937231,\n            \"day\": \"SUN\",\n            \"hours_count\": null\n          },\n          {\n            \"id\": 8658.865033008702,\n            \"day\": \"THU\",\n            \"hours_count\": 9731.538711774967\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fe74285-a1b5-4bcd-88c5-45b37c42a6b2",
+          "name": "Update employee max weekly hours",
+          "request": {
+            "name": "Update employee max weekly hours",
+            "description": {
+              "content": "Update a max weekly hours configuration for the employee.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "max_weekly_hours",
+                ":max_weekly_hours_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "max_weekly_hours_id",
+                  "description": "(Required) max weekly hours id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"max_weekly_hours\": {\n    \"start_date\": \"<date>\",\n    \"working_patterns\": [\n      {\n        \"id\": \"<integer>\",\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8aeb2964-e217-46f1-9fec-990c9478909e",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "max_weekly_hours",
+                    ":max_weekly_hours_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "max_weekly_hours_id",
+                      "description": "(Required) max weekly hours id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"max_weekly_hours\": {\n    \"start_date\": \"<date>\",\n    \"working_patterns\": [\n      {\n        \"id\": \"<integer>\",\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"max_weekly_hours\": {\n    \"id\": 5203.234783404814,\n    \"start_date\": \"1985-06-22\",\n    \"average_weekly_hours\": 1604.4339424705422,\n    \"working_patterns\": [\n      {\n        \"id\": 6641.297857870505,\n        \"days_count\": 7,\n        \"total_hours\": 2724.023726970746,\n        \"order\": 9263,\n        \"working_pattern_days\": [\n          {\n            \"id\": 1008.2890288221513,\n            \"day\": \"TUE\",\n            \"hours_count\": 7125.97519966871\n          },\n          {\n            \"id\": 9560.498770396258,\n            \"day\": \"WED\",\n            \"hours_count\": 5912.467399107425\n          }\n        ]\n      },\n      {\n        \"id\": 8484.98087651532,\n        \"days_count\": 4,\n        \"total_hours\": 2621.53377659903,\n        \"order\": 5654,\n        \"working_pattern_days\": [\n          {\n            \"id\": 3294.881442937231,\n            \"day\": \"SUN\",\n            \"hours_count\": null\n          },\n          {\n            \"id\": 8658.865033008702,\n            \"day\": \"THU\",\n            \"hours_count\": 9731.538711774967\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5d1141f-c4a5-48a9-88d8-281cb8d198ca",
+          "name": "Delete employee max weekly hours",
+          "request": {
+            "name": "Delete employee max weekly hours",
+            "description": {
+              "content": "Delete a max weekly hours configuration for the employee.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "max_weekly_hours",
+                ":max_weekly_hours_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "max_weekly_hours_id",
+                  "description": "(Required) max weekly hours id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8bc53390-e5ad-444d-9406-a7d02faba36b",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "max_weekly_hours",
+                    ":max_weekly_hours_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "max_weekly_hours_id",
+                      "description": "(Required) max weekly hours id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "52d16250-7236-4bdd-a04f-e3ca3e98edec",
+    "name": "Harri Employee Open Max Weekly Hours API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "item": [
+    {
+      "id": "c8ab6656-7235-4f7e-a664-dea43478b154",
+      "name": "Franchisees",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33850f7e-dc10-442e-a158-cabf6ec8faae",
+          "name": "retrieve all positions",
+          "request": {
+            "name": "retrieve all positions",
+            "description": {
+              "content": "Retrieve all franchisees",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "299adb4d-8c79-4354-a230-0e4621ee6c53",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"franchisees\": [\n    {\n      \"id\": 1065.9595805369781,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 3195.24719930687,\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "07ade8d6-0c7a-4a0e-a266-2936a893c7e9",
+    "name": "Harri Employee Open Franchisees API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

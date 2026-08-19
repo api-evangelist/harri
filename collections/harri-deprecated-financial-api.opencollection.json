@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Deprecated Financial API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deprecated Financial",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "retrieve pay type info API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_type",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ]
+          },
+          "docs": "retrieve pay type info"
+        },
+        {
+          "info": {
+            "name": "update pay type basic info API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_type",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update pay type info\nuse this api to updatee annual pay rate or max weekly hours\nyou cant use this API to update type (salaried to hourly or fixed to flexible)\n"
+        },
+        {
+          "info": {
+            "name": "define new pay type API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/pay_type",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "use this api when u want to update the whole paytype information\nusing this api is like starting new employment period\nyou have to provide all financial info again including employee positions\n"
+        },
+        {
+          "info": {
+            "name": "update financial info related to specific position on specific location, this will be used only for flexible hourly employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/locations/:locationId/positions/:positionCode",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "position code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update financial info related to specific position on specific location\nthis will be used only for flexible hourly employees\n"
+        },
+        {
+          "info": {
+            "name": "update fixed employee position financial info",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/positions/:positionCode",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "position code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update employee position financial info.\nthis API should be used only to update pay rates for hourly fixed employees\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,230 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Corporate Users API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Corporate Users
+paths:
+  /api/v1/corporates/users:
+    get:
+      tags:
+      - Corporate Users
+      summary: List corporate users
+      description: List corporate users.
+      operationId: ListCorporateUsers
+      parameters:
+      - name: limit
+        in: query
+        description: specify the number of rows to return
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      - name: page
+        in: query
+        description: page number
+        schema:
+          type: integer
+          minimum: 1
+      - name: franchisees_ids
+        in: query
+        description: comma-separated list of franchisee ids to filter by
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CorporateUser'
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+    post:
+      tags:
+      - Corporate Users
+      summary: Create a corporate user
+      description: Create a corporate user.
+      operationId: CreateCorporateUser
+      requestBody:
+        description: corporate user info
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                email:
+                  type: string
+                external_id:
+                  type: string
+                franchisees_ids:
+                  type: array
+                  items:
+                    type: integer
+                phone:
+                  type: string
+              required:
+              - first_name
+              - last_name
+              - email
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/CorporateUser'
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+  /api/v1/corporates/users/{pk}:
+    get:
+      tags:
+      - Corporate Users
+      summary: Retrieve a corporate user
+      description: Retrieve a corporate user.
+      operationId: RetrieveCorporateUser
+      parameters:
+      - name: pk
+        in: path
+        description: corporate user id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/CorporateUser'
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+    put:
+      tags:
+      - Corporate Users
+      summary: Update a corporate user
+      description: Update a corporate user.
+      operationId: UpdateCorporateUser
+      parameters:
+      - name: pk
+        in: path
+        description: corporate user id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        description: corporate user info
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                external_id:
+                  type: string
+                franchisees_ids:
+                  type: array
+                  items:
+                    type: integer
+                phone:
+                  type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/CorporateUser'
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+    delete:
+      tags:
+      - Corporate Users
+      summary: Delete a corporate user
+      description: Delete a corporate user.
+      operationId: DeleteCorporateUser
+      parameters:
+      - name: pk
+        in: path
+        description: corporate user id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+components:
+  schemas:
+    CorporateUser:
+      type: object
+      properties:
+        id:
+          type: integer
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        external_id:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        franchisees_ids:
+          type: array
+          items:
+            type: integer
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

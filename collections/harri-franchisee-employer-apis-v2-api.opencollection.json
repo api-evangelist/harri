@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri - External Brand Management Franchisee Employer APIs V2 API",
+    "version": "1.0.00"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.harristaging.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee Employer APIs V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all employers (v2 - franchisee)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/v2/franchisees/:franchiseeId/employers",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve all employers under a franchisee with their location roles.\nUses external IDs natively. Supports location grouping when enabled."
+        },
+        {
+          "info": {
+            "name": "Create employer (v2 - franchisee)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/v2/franchisees/:franchiseeId/employers",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an employer with location roles under a franchisee.\nUses external IDs natively. Supports location grouping when enabled."
+        },
+        {
+          "info": {
+            "name": "Get employer details (v2 - franchisee)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/v2/franchisees/:franchiseeId/employers/:id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "External employer ID"
+              }
+            ]
+          },
+          "docs": "Retrieve single employer by external ID under a franchisee.\nUses external IDs natively. Supports location grouping when enabled."
+        },
+        {
+          "info": {
+            "name": "Update employer (v2 - franchisee)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/v2/franchisees/:franchiseeId/employers/:id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "External employer ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update employer information and location roles under a franchisee.\nUses external IDs natively. Supports location grouping when enabled."
+        },
+        {
+          "info": {
+            "name": "Delete employer (v2 - franchisee)",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/v2/franchisees/:franchiseeId/employers/:id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "External employer ID"
+              }
+            ]
+          },
+          "docs": "Delete employer and their location roles under a franchisee.\nUses external IDs natively."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

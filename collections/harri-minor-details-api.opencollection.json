@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Minor Details API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Minor Details",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List School Calendar Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/locations/:location_id/school_templates",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the location."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of active school calendar templates for a specific location."
+        },
+        {
+          "info": {
+            "name": "List Minor Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/locations/:location_id/minor_types",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the location."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of active minor types for a specific location."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

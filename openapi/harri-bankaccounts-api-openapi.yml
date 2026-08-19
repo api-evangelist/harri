@@ -1,0 +1,182 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Bank Accounts API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: BankAccounts
+paths:
+  /api/v2/employees/{employeeId}/bank_accounts:
+    get:
+      tags:
+      - BankAccounts
+      summary: Get employee bank accounts API
+      description: Get employee bank accounts info
+      operationId: GetEmployeeBankAccounts
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BankAccount'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: employee not found
+          content: {}
+    put:
+      tags:
+      - BankAccounts
+      summary: Update or create employee bank account API
+      description: Update or create employee bank account
+      operationId: UpdateEmployeeBankAccount
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: bank account
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  order:
+                    type: number
+                    minimum: 1
+                    description: the order of the employee's bank account. An order value of 1 signifies that this is the primary bank account.
+                  routing_number:
+                    type: string
+                    description: required for US locations, can't be set for other locations
+                  account_number:
+                    type: string
+                  registration_number:
+                    type: string
+                    description: required for DK locations
+                  account_type:
+                    type: string
+                    enum:
+                    - SAVINGS
+                    - CHECKING
+                    description: required for US, cant be set for other locations
+                  bank_name:
+                    type: string
+                  account_name:
+                    type: string
+                    description: required for other non US locations
+                  sort_code:
+                    type: string
+                    description: required for other non US locations
+                  deposit_amount_type:
+                    type: string
+                    enum:
+                    - ENTIRE
+                    - PARTIAL
+                    - FIXED
+                    description: Specifies the type of deposit amount.
+                  amount:
+                    type: string
+                    description: Represents the amount of money if deposit_amount_type is FIXED, the percentage if deposit_amount_type is PARTIAL, and is null if deposit_amount_type is ENTIRE.
+                required:
+                - account_number
+                - order
+      responses:
+        '200':
+          description: successful updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccount'
+        '201':
+          description: successful updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccount'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: employee not found
+          content: {}
+components:
+  schemas:
+    BankAccount:
+      type: object
+      properties:
+        id:
+          type: number
+          description: employee bank account id
+        order:
+          type: number
+          description: the order of the employee's bank account. An order value of 1 signifies that this is the primary bank account.
+        routing_number:
+          type: string
+          description: for US locations only
+        account_number:
+          type: string
+        registration_number:
+          type: string
+          description: for DK locations
+        account_type:
+          type: string
+          enum:
+          - SAVINGS
+          - CHECKING
+          description: for US locations only
+        bank_name:
+          type: string
+        account_name:
+          type: string
+          description: for non US locations
+        sort_code:
+          type: string
+          description: for other US locations
+        deposit_amount_type:
+          type: string
+          enum:
+          - ENTIRE
+          - PARTIAL
+          - FIXED
+          description: Specifies the type of deposit amount.
+        amount:
+          type:
+          - number
+          - 'null'
+          description: Represents the amount of money if deposit_amount_type is FIXED, the percentage if deposit_amount_type is PARTIAL, and is null if deposit_amount_type is ENTIRE.
+        bank_branch:
+          type:
+          - string
+          - 'null'
+        bic:
+          type:
+          - string
+          - 'null'
+        iban:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

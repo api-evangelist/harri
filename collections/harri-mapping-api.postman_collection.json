@@ -1,0 +1,1805 @@
+{
+  "item": [
+    {
+      "id": "7689d7e2-d588-454f-8c0a-303e5c6f2f3e",
+      "name": "Mapping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65374312-571c-4bb1-8859-1e5571da65d8",
+          "name": "api v1 employees mappings list",
+          "request": {
+            "name": "api v1 employees mappings list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-employees-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "unmapped_employees_limit",
+                  "value": "1000",
+                  "description": "Specifies the maximum number of unmapped employees to return. Must be between 1 and 1000. Defaults to 1000 if not specified."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a7b55aa-ab70-4580-a659-d73319251353",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-employees-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unmapped_employees_limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4320.402273759886,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\",\n    \"meta\": {\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"ssn\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"BI6EWFba@BcsRGu.hkde\",\n      \"external_middleware_id\": \"string\"\n    }\n  },\n  {\n    \"id\": 2738.80783254412,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\",\n    \"meta\": {\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"ssn\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"v3JvC6fEHCLS7U@Jm.re\",\n      \"external_middleware_id\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b61f583b-853c-486c-90a6-d066858105ad",
+          "name": "api v1 employees mappings create",
+          "request": {
+            "name": "api v1 employees mappings create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-employees-mappings-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "28e537e0-c52e-42b0-8006-93da3bc93abf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-employees-mappings-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 6374.918881617604,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 6886.843694876682,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ec12249-7834-46b3-ba10-496b918f1648",
+          "name": "api v2 employees mappings list",
+          "request": {
+            "name": "api v2 employees mappings list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v2-employees-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>",
+                  "description": "IDs of locations where the requested employees are currently active"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>",
+                  "description": "IDs of locations where the requested employees are currently active"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "7000",
+                  "description": "(Required) Specifies the number of mapped or unmapped employees to return. Must be between 1 and 7000. Defaults to 7000 if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "(Required) Page number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41196e7b-53c1-4b19-9a25-b540332fda3d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v2-employees-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "7000"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\",\n      \"id\": 2160.0693853265475,\n      \"meta\": {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"ssn\": \"string\",\n        \"phone\": \"string\",\n        \"email\": \"LkGhcfereIqq6@FEAFuiOBR.dwc\",\n        \"external_middleware_id\": \"string\"\n      }\n    },\n    {\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\",\n      \"id\": 5809.2399681791485,\n      \"meta\": {\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"ssn\": \"string\",\n        \"phone\": \"string\",\n        \"email\": \"DtJsYKtf@riEOVrjuqTEFU.kcij\",\n        \"external_middleware_id\": \"string\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"page\": 4807,\n    \"per_page\": 9877,\n    \"total\": 9995,\n    \"total_pages\": 2314\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ae92f7e-eef2-4118-8fb5-ed44c245380f",
+          "name": "api v1 employees mappings update",
+          "request": {
+            "name": "api v1 employees mappings update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                "mappings",
+                ":id"
+              ],
+              "host": [
+                "{{api-v1-employees-mappings-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63b6fa44-3a8d-43da-9cb7-9d92e30149fe",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    "mappings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{api-v1-employees-mappings-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e09f0a72-7365-41ff-8ad0-11e13f122d2a",
+          "name": "api v1 locations mappings list",
+          "request": {
+            "name": "api v1 locations mappings list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "locations",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-locations-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2a87f22-1bbf-4dc1-ba50-41b270ab4afc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "locations",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-locations-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 8316.682759209185,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 1281.3374633305873,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5ad8de8-1dae-4302-8628-668bffc433b9",
+          "name": "api v1 locations mappings create",
+          "request": {
+            "name": "api v1 locations mappings create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "locations",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-locations-mappings-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71374cf3-c110-42d3-883e-3d973f77aa86",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "locations",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-locations-mappings-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 8316.682759209185,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 1281.3374633305873,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd31c493-cb89-42b4-867d-b619d0e2ca30",
+          "name": "api v1 locations mappings update",
+          "request": {
+            "name": "api v1 locations mappings update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "locations",
+                "mappings",
+                ":id"
+              ],
+              "host": [
+                "{{api-v1-locations-mappings-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57912d5a-a562-4a42-a3db-23d1eea604a5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "locations",
+                    "mappings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{api-v1-locations-mappings-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ca1b4e7-f2ac-4d69-aeac-10bfb8f41fe8",
+          "name": "api v1 positions mappings list",
+          "request": {
+            "name": "api v1 positions mappings list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "positions",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-positions-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f41c3cfc-5e03-432c-ae02-bb11f7657f7d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "positions",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-positions-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 8316.682759209185,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 1281.3374633305873,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bba34bc0-f050-4a84-a43d-7ee62b5b9a31",
+          "name": "api v1 positions mappings create",
+          "request": {
+            "name": "api v1 positions mappings create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "positions",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-positions-mappings-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ad2988d-3cc3-49b2-9b4b-f2f44d84e943",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "positions",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-positions-mappings-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 8316.682759209185,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 1281.3374633305873,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b07f664-a615-40b7-8db8-4b964eeed9a8",
+          "name": "api v1 positions mappings update",
+          "request": {
+            "name": "api v1 positions mappings update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "positions",
+                "mappings",
+                ":id"
+              ],
+              "host": [
+                "{{api-v1-positions-mappings-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "099398ac-5d78-4f46-ab04-310b291d8e36",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "positions",
+                    "mappings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{api-v1-positions-mappings-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b252a16-e300-4e33-8902-6555e9cf16ba",
+          "name": "api v1 employers mappings list",
+          "request": {
+            "name": "api v1 employers mappings list",
+            "description": {
+              "content": "List employer mappings or filter by criteria",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employers",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-employers-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5b52c25-1a73-4769-94f9-e3ea5f7edf0e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employers",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-employers-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 873.3161387082455,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  },\n  {\n    \"id\": 5737.097502697009,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "637cb31f-087d-4a80-ae69-4e57682be95b",
+          "name": "api v1 employers mappings create",
+          "request": {
+            "name": "api v1 employers mappings create",
+            "description": {
+              "content": "Create employer mappings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employers",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-employers-mappings-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "20dcf571-397b-4aba-a6a6-a247772a786f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employers",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-employers-mappings-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9337.79510984471,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  },\n  {\n    \"id\": 8567.425406492928,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "298cbbb8-b0ca-4e50-a171-4c402888fe90",
+          "name": "api v1 employers mappings update",
+          "request": {
+            "name": "api v1 employers mappings update",
+            "description": {
+              "content": "Update an employer mapping",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employers",
+                "mappings",
+                ":pk"
+              ],
+              "host": [
+                "{{api-v1-employers-mappings-pk-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "pk",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ea4dc79-d107-411e-a57b-a7f25ac2cfb4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employers",
+                    "mappings",
+                    ":pk"
+                  ],
+                  "host": [
+                    "{{api-v1-employers-mappings-pk-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pk",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22f50c56-a46e-4045-8887-5b3eb6e73082",
+          "name": "api v1 employees mappings update V2",
+          "request": {
+            "name": "api v1 employees mappings update V2",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                "mappings",
+                ":id"
+              ],
+              "host": [
+                "{{api-v2-employees-mappings-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2dee235b-db10-43ca-a1a6-a35c9c9c11fc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    "mappings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{api-v2-employees-mappings-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b8aa21b-6629-4f64-8025-ee60ac9225d1",
+          "name": "api v1 employers mappings list",
+          "request": {
+            "name": "api v1 employers mappings list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "employers",
+                "mappings"
+              ],
+              "host": [
+                "{{v1-employers-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a570ee00-5117-4acf-a424-4e9aaa939adb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{v1-employers-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 873.3161387082455,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  },\n  {\n    \"id\": 5737.097502697009,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-employees-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v2-employees-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-employees-mappings-id-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-locations-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-locations-mappings-id-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-positions-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-positions-mappings-id-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-employers-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-employers-mappings-pk-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v2-employees-mappings-id-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "v1-employers-mappings-Url"
+    }
+  ],
+  "info": {
+    "_postman_id": "39494643-f69d-420d-8c3d-b65adaaad814",
+    "name": "Harri Mapping API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Operations tagged Mapping across 2 of this provider's published API definitions: harri-employee-openapi.yml, harri-employer-openapi.json. Each path carries the servers of the definition it was published in.",
+      "type": "text/plain"
+    }
+  }
+}

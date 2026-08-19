@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Deprecated Franchisee Employment API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deprecated Franchisee Employment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get buisness termination reasons API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/termination_reasons",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "get buisness termination reasons"
+        },
+        {
+          "info": {
+            "name": "Terminat employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/terminate",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminat employee"
+        },
+        {
+          "info": {
+            "name": "Terminat employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/terminate",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminat employee"
+        },
+        {
+          "info": {
+            "name": "rehire employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/rehire",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "rehire employee"
+        },
+        {
+          "info": {
+            "name": "rehire employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/rehire",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "rehire employee"
+        },
+        {
+          "info": {
+            "name": "edit employment period hire date API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/hire_date",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "edit employment period hire date"
+        },
+        {
+          "info": {
+            "name": "include in schedule API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/include_in_schedule",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "include in schedule"
+        },
+        {
+          "info": {
+            "name": "rehire employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v4/franchisees/:franchiseeId/employees/:employeeId/rehire",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "rehire employee"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

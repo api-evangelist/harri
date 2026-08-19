@@ -1,0 +1,539 @@
+{
+  "item": [
+    {
+      "id": "abeabfdb-1285-4968-9565-c8721bf16052",
+      "name": "Deprecated Franchisee Financial",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bcc468a6-300a-46c9-9ca7-992e15c527b7",
+          "name": "define new pay type API",
+          "request": {
+            "name": "define new pay type API",
+            "description": {
+              "content": "use this api when u want to update the whole paytype information\nusing this api is like starting new employment period\nyou have to provide all financial info again including employee positions\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pay_type\": \"<string>\",\n  \"annual_pay_type\": {\n    \"pay_rate\": {\n      \"rate\": \"<number>\",\n      \"tronc\": \"<number>\"\n    },\n    \"max_weekly_hours\": \"<number>\"\n  },\n  \"hourly_pay_type\": {\n    \"positions\": [\n      {\n        \"code\": \"<string>\",\n        \"pay_rate\": {\n          \"rate\": \"<number>\",\n          \"tronc\": \"<number>\"\n        },\n        \"is_tipped\": \"<boolean>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"pay_rate\": {\n          \"rate\": \"<number>\",\n          \"tronc\": \"<number>\"\n        },\n        \"is_tipped\": \"<boolean>\"\n      }\n    ],\n    \"cross_location_mode\": \"<string,null>\",\n    \"max_weekly_hours\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d85e70a-c29b-40b4-aa8b-5725a4f3c81f",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pay_type\": \"<string>\",\n  \"annual_pay_type\": {\n    \"pay_rate\": {\n      \"rate\": \"<number>\",\n      \"tronc\": \"<number>\"\n    },\n    \"max_weekly_hours\": \"<number>\"\n  },\n  \"hourly_pay_type\": {\n    \"positions\": [\n      {\n        \"code\": \"<string>\",\n        \"pay_rate\": {\n          \"rate\": \"<number>\",\n          \"tronc\": \"<number>\"\n        },\n        \"is_tipped\": \"<boolean>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"pay_rate\": {\n          \"rate\": \"<number>\",\n          \"tronc\": \"<number>\"\n        },\n        \"is_tipped\": \"<boolean>\"\n      }\n    ],\n    \"cross_location_mode\": \"<string,null>\",\n    \"max_weekly_hours\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9959.173249827762,\n  \"employee_id\": null,\n  \"type\": \"SALARIED\",\n  \"cross_location_mode\": \"FIXED\",\n  \"annual_pay_rate\": {\n    \"id\": 3114.59656539942,\n    \"rate\": 7770.978227096794,\n    \"tronc\": 9168.289945416705\n  },\n  \"max_weekly_hours\": 1431.421276706234\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "470bd12e-2105-41a5-8801-67a66924d420",
+          "name": "retrieve pay type info API",
+          "request": {
+            "name": "retrieve pay type info API",
+            "description": {
+              "content": "retrieve pay type info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4cd2d96b-878e-4a4e-8207-60be230f8c40",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6902.3680437241865,\n  \"employee_id\": null,\n  \"type\": \"HOURLY\",\n  \"cross_location_mode\": \"FIXED\",\n  \"annual_pay_rates\": [\n    {\n      \"id\": 1253.8530726828812,\n      \"rate\": 9116.495260948197,\n      \"start_date\": \"2007-11-18\"\n    },\n    {\n      \"id\": 8079.673429321578,\n      \"rate\": 6347.7894254055045,\n      \"start_date\": \"1971-08-22\"\n    }\n  ],\n  \"tronc\": 9575.781937565116,\n  \"max_weekly_hours\": 7482.854098600098\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4153b3f7-07f4-4dc7-8ffe-b74bd94917f7",
+          "name": "update pay type basic info API",
+          "request": {
+            "name": "update pay type basic info API",
+            "description": {
+              "content": "update pay type info\nuse this api to updatee annual pay rate or max weekly hours\nyou cant use this API to update type (salaried to hourly or fixed to flexible)\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "pay_type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"annual_pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"max_weekly_hours\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dcaba269-c03f-45d1-9790-38212157ac52",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "pay_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"annual_pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"max_weekly_hours\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89ef0fd7-ce13-40c7-90f3-ad8d47294485",
+          "name": "update fixed employee position financial info",
+          "request": {
+            "name": "update fixed employee position financial info",
+            "description": {
+              "content": "update employee position financial info.\nthis API should be used only to update pay rates for hourly fixed employees\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "positions",
+                ":positionCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) position code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"is_tipped\": \"<boolean>\",\n  \"cost_centers\": [\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    },\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6ab85e8-ef69-4bdf-ab6f-4f6bfd254a04",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "positions",
+                    ":positionCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) position code"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"is_tipped\": \"<boolean>\",\n  \"cost_centers\": [\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    },\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8b09576b-ff29-4575-8585-1f028a85d358",
+    "name": "Harri Employee Open Deprecated Franchisee Financial API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Franchisee Subscriptions API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Franchisee Subscriptions
+paths:
+  /api/v1/franchisees/{franchiseeId}/subscriptions:
+    get:
+      tags:
+      - Franchisee Subscriptions
+      summary: List franchisee subscriptions
+      description: Retrieve all subscriptions for a specific franchisee.
+      operationId: ListFranchiseeSubscriptions
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        description: Franchisee ID
+        schema:
+          type: number
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    event_code:
+                      type: string
+                    webhook_url:
+                      type: string
+                    subscription_auth_type:
+                      type: string
+                    auth_config:
+                      type: object
+        '403':
+          description: Unauthorized access
+        '404':
+          description: Franchisee not found
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

@@ -1,0 +1,716 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Deprecated Franchisee EmployeePositions API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Deprecated Franchisee EmployeePositions
+paths:
+  /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeePositions
+      summary: Attach position to employee API
+      description: Attach positions to an employee
+      operationId: DeprecatedFranshiseesAttachEmployeePositionV2
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id, should be primary location for the employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                position:
+                  type: object
+                  properties:
+                    is_primary:
+                      type: boolean
+                      description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+                    pay_type_id:
+                      type: integer
+                      description: Required if hourly_rate or tipped_status provided upon positoin creation
+                    hourly_rate:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        start_date:
+                          type: string
+                          format: date
+                        tronc_point:
+                          type: number
+                        tronc_rate:
+                          type: number
+                        tronc_amount:
+                          type: number
+                      description: this field should be defined only for Hourly employees
+                    tipped_status:
+                      type: object
+                      properties:
+                        is_tipped:
+                          type: boolean
+                        start_date:
+                          type: string
+                          format: date
+                      description: this field should be defined only for Hourly employees
+                    cost_centers:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          value:
+                            type: object
+                            properties:
+                              id:
+                                type: number
+                            required:
+                            - id
+                        required:
+                        - id
+              required:
+              - position
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  position:
+                    $ref: '#/components/schemas/DeprecatedEmployeePositionRelatedInfoV2'
+  /api/v3/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}:
+    put:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeePositions
+      summary: Update position related info API
+      description: 'Update position related info - COST CENTERS, this will be used for fixed and flexible hourly employees
+
+        '
+      operationId: DeprecatedFranshiseesUpdateEmployeePosition
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id, should be the primary location for the employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                position:
+                  type: object
+                  properties:
+                    cost_centers:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          value:
+                            type: object
+                            properties:
+                              id:
+                                type: number
+                            required:
+                            - id
+                        required:
+                        - id
+                  required:
+                  - cost_centers
+              required:
+              - position
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/positions/{positionCode}:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeePositions
+      summary: Attach position to employee API
+      description: Attach positions to an employee
+      operationId: DeprecatedFranshiseesAttachEmployeePosition
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id, should be primary location for the employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                position:
+                  type: object
+                  properties:
+                    is_primary:
+                      type: boolean
+                      description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+                    pay_type_id:
+                      type: integer
+                      description: Required if hourly_rate or tipped_status provided upon positoin creation
+                    hourly_rate:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        start_date:
+                          type: string
+                          format: date
+                        tronc:
+                          type: number
+                      description: this field should be defined only for Hourly employees
+                    tipped_status:
+                      type: object
+                      properties:
+                        is_tipped:
+                          type: boolean
+                        start_date:
+                          type: string
+                          format: date
+                      description: this field should be defined only for Hourly employees
+                    cost_centers:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          value:
+                            type: object
+                            properties:
+                              id:
+                                type: number
+                            required:
+                            - id
+                        required:
+                        - id
+              required:
+              - position
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  position:
+                    $ref: '#/components/schemas/DeprecatedEmployeePositionRelatedInfo'
+    delete:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeePositions
+      summary: Delete employee position for fixed and flixable pay type API
+      description: Delete employee position for fixed flixable pay type
+      operationId: DeprecatedFranshiseesDeleteEmployeePosition
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id, should be primary location for the employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/positions/{positionCode}/set_primary:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeePositions
+      summary: Set employee primary position API
+      description: Set employee primary position based on the primary location positions
+      operationId: DeprecatedFranshiseesSetPrimaryEmployeePosition
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/positions/{positionCode}:
+    delete:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeePositions
+      summary: delete employee position for fixed pay type API
+      description: delete employee position for fixed pay type
+      operationId: DeprecatedFranshiseesDeleteEmployeePositionForFixedPayTypeV1
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/positions:
+    get:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeePositions
+      summary: Retrieve employee positions API
+      description: Retrieve employee positions
+      operationId: FranshiseesGetEmployeePositionsV1
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeprecatedEmployeePosition'
+  /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/positions:
+    get:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeePositions
+      summary: retrieve employee positions
+      description: retrieve employee positions
+      operationId: DeprecatedGetEmployeePositionsFranchisee
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeprecatedEmployeePositionV2'
+  /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/positions/{positionCode}:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeePositions
+      summary: attach position to employee API
+      description: attach positions to an employee
+      operationId: DeprecatedAttachPositionToEmployeesFranchisee
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location_id:
+                  type:
+                  - string
+                  - 'null'
+                  description: this field should be defined only for Hourly employees
+                pay_rate:
+                  type:
+                  - object
+                  - 'null'
+                  properties:
+                    rate:
+                      type: number
+                    start_date:
+                      type: string
+                      format: date
+                    tronc:
+                      type: number
+                  description: this field should be defined only for Hourly employees
+                is_tipped:
+                  type:
+                  - boolean
+                  - 'null'
+                  description: this field should be defined only for Hourly employees
+                cost_centers:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                      value:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                        required:
+                        - id
+                    required:
+                    - id
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Position'
+                - type: object
+                  properties:
+                    id:
+                      type: number
+                    employee_id:
+                      type:
+                      - string
+                      - 'null'
+                    location_id:
+                      type:
+                      - string
+                      - 'null'
+                    pay_rate:
+                      $ref: '#/components/schemas/DeprecatedPayRateV2'
+                    is_tipped:
+                      type: boolean
+                    cost_centers:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/CostCenter'
+components:
+  schemas:
+    DeprecatedHourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
+    Position:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    DeprecatedPayRateV2:
+      type: object
+      properties:
+        id:
+          type: number
+        rate:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
+    DeprecatedEmployeePosition:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type:
+            - integer
+            - 'null'
+            description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY and cross location mode is FLEXIBLE
+          pay_rate:
+            type:
+            - object
+            - 'null'
+            allOf:
+            - $ref: '#/components/schemas/DeprecatedPayRate'
+            description: this field is nullable, it depends on pay type. this will have value only if pay type is HOURLY
+          is_tipped:
+            type: boolean
+            description: this field is nullable, it depends on pay type. this will have value only if pay type is HOURLY
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+    DeprecatedPayRate:
+      type: object
+      properties:
+        id:
+          type: number
+        rate:
+          type: number
+        tronc:
+          type: number
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    DeprecatedEmployeePositionRelatedInfoV2:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: string
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          hourly_rate:
+            $ref: '#/components/schemas/HourlyRate'
+          tipped_status:
+            $ref: '#/components/schemas/TippedStatus'
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+    CostCenter:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        value:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    DeprecatedEmployeePositionRelatedInfo:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: integer
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          hourly_rate:
+            $ref: '#/components/schemas/DeprecatedHourlyRate'
+          tipped_status:
+            $ref: '#/components/schemas/TippedStatus'
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+    DeprecatedEmployeePositionV2:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type:
+            - integer
+            - 'null'
+            description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY and cross location mode is FLEXIBLE
+          pay_rates:
+            type: array
+            items:
+              $ref: '#/components/schemas/DeprecatedPayRateV2'
+          is_tipped:
+            type: boolean
+            description: this field is nullable, it depends on pay type. this will have value only if pay type is HOURLY
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

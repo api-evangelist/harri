@@ -1,0 +1,469 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Franchisee Mapping API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee Mapping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "franshisees_api_v1_employees_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unmapped_employees_limit",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum number of unmapped employees to return. Must be between 1 and 1000. Defaults to 1000 if not specified."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_employees_mappings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_employees_mappings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/mappings/:id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_locations_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/locations/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_locations_mappings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/locations/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_locations_mappings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/locations/mappings/:id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_positions_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/positions/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_positions_mappings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/positions/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_positions_mappings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/positions/mappings/:id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_employers_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employers/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List franchisee employer mappings or filter by criteria"
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_employers_mappings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employers/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create franchisee employer mappings"
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_employers_mappings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employers/mappings/:pk",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pk",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a franchisee employer mapping"
+        },
+        {
+          "info": {
+            "name": "franshisees_api_v1_employees_mappings_listV2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unmapped_employees_limit",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum number of unmapped employees to return. Must be between 1 and 1000. Defaults to 1000 if not specified."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_employees_mappings_createV2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "franchisees_api_v1_employees_mappings_updateV2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/mappings/:id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_franchisee_employers_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/v1/franchisees/:franchiseeId/employers/mappings",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

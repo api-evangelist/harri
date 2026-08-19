@@ -1,0 +1,596 @@
+{
+  "item": [
+    {
+      "id": "69f0291f-43ab-4777-80ff-c0b6cdfa01bd",
+      "name": "Deprecated PayTypes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f2a5b3f6-caed-446c-bfba-6ee0521941d5",
+          "name": "Define new employee pay type API",
+          "request": {
+            "name": "Define new employee pay type API",
+            "description": {
+              "content": "Use this api when u want to create the employee paytype with other financials information. positions\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "pay_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_date\": \"<date>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc\": {\n    \"value\": \"<number>\"\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\"\n  },\n  \"positions\": [\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    },\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71dc7758-d3be-4838-b862-f149ced7a55f",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "pay_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start_date\": \"<date>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc\": {\n    \"value\": \"<number>\"\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\"\n  },\n  \"positions\": [\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    },\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pay_type\": {\n    \"id\": 7987.08595342395,\n    \"type\": \"HOURLY\",\n    \"start_date\": \"1970-09-29\",\n    \"cross_location_mode\": \"FIXED\"\n  },\n  \"annual_rate\": {\n    \"id\": 6617.487880749586,\n    \"value\": 7549.663558014953,\n    \"start_date\": \"1960-10-06\"\n  },\n  \"tronc\": {\n    \"id\": 9861.73299793425,\n    \"value\": 223.6934414887126,\n    \"start_date\": \"1986-05-04\"\n  },\n  \"max_weekly_hours\": {\n    \"id\": 401.3543052855217,\n    \"value\": 5187.72891175171,\n    \"start_date\": \"1989-11-25\",\n    \"working_pattern\": {\n      \"id\": 4108.947868218323,\n      \"days_count\": 2,\n      \"working_pattern_days\": [\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        },\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        }\n      ]\n    }\n  },\n  \"positions\": [\n    {\n      \"code\": \"string\",\n      \"location_id\": \"string\",\n      \"hourly_rate\": {\n        \"id\": 8536.230603703048,\n        \"value\": 3052.2971451102853,\n        \"start_date\": \"1997-11-04\",\n        \"tronc\": 6502.391969658925\n      },\n      \"tipped_status\": {\n        \"id\": 2740.07045149545,\n        \"is_tipped\": true,\n        \"start_date\": \"2017-04-17\"\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"location_id\": \"string\",\n      \"hourly_rate\": {\n        \"id\": 8943.688013911133,\n        \"value\": 7307.299859325371,\n        \"start_date\": \"1985-04-10\",\n        \"tronc\": 5284.962723316491\n      },\n      \"tipped_status\": {\n        \"id\": 6557.313882181063,\n        \"is_tipped\": false,\n        \"start_date\": \"1983-01-10\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ea36c3f-a67c-4d07-9027-4ff6c40b967b",
+          "name": "Update pay type basic info API",
+          "request": {
+            "name": "Update pay type basic info API",
+            "description": {
+              "content": "Use this api to update pay type version start_date.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pay_type\": {\n    \"start_date\": \"<date>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53ed932b-3e06-4526-9e57-0f2662c24e0a",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pay_type\": {\n    \"start_date\": \"<date>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e5240e0-76d3-4774-b411-d1161b58dc53",
+          "name": "Delete pay type by id API",
+          "request": {
+            "name": "Delete pay type by id API",
+            "description": {
+              "content": "Delete pay type\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "pay_types",
+                ":payTypeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "payTypeId",
+                  "description": "(Required) pay type id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3728e5e8-3b35-4ecf-b6d9-b769df3cd0b2",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "pay_types",
+                    ":payTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "payTypeId",
+                      "description": "(Required) pay type id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3292cb5d-2ac2-4674-9d2a-440ce0a1d567",
+          "name": "Define new employee pay type API",
+          "request": {
+            "name": "Define new employee pay type API",
+            "description": {
+              "content": "Use this api when u want to create the employee paytype with other financials information.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "pay_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_date\": \"<date>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"positions\": [\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc_point\": \"<number>\",\n        \"tronc_rate\": \"<number>\",\n        \"tronc_amount\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    },\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc_point\": \"<number>\",\n        \"tronc_rate\": \"<number>\",\n        \"tronc_amount\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea80cdfe-85c3-4a61-803c-d84356aa74b7",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "pay_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start_date\": \"<date>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"positions\": [\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc_point\": \"<number>\",\n        \"tronc_rate\": \"<number>\",\n        \"tronc_amount\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    },\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc_point\": \"<number>\",\n        \"tronc_rate\": \"<number>\",\n        \"tronc_amount\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pay_type\": {\n    \"id\": 4331.906774179532,\n    \"type\": \"HOURLY\",\n    \"start_date\": \"2021-03-18\",\n    \"cross_location_mode\": \"FIXED\"\n  },\n  \"annual_rate\": {\n    \"id\": 607.0767204841832,\n    \"value\": 5542.916904597877,\n    \"start_date\": \"2023-07-23\"\n  },\n  \"tronc_amount\": {\n    \"id\": 7443.454356361603,\n    \"value\": 2911.832543226328,\n    \"start_date\": \"1959-10-04\"\n  },\n  \"tronc_point\": {\n    \"id\": 9761.785057831983,\n    \"value\": 6782.4383153380595,\n    \"start_date\": \"1988-02-27\"\n  },\n  \"max_weekly_hours\": {\n    \"id\": 9902.92595538325,\n    \"value\": 9150.61011941896,\n    \"start_date\": \"1979-01-04\",\n    \"working_pattern\": {\n      \"id\": 6413.696249665441,\n      \"days_count\": 7,\n      \"working_pattern_days\": [\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        },\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        }\n      ]\n    }\n  },\n  \"positions\": [\n    {\n      \"code\": \"string\",\n      \"location_id\": \"string\",\n      \"hourly_rate\": {\n        \"id\": 10.757521598001585,\n        \"value\": 5746.25377965823,\n        \"start_date\": \"2025-07-07\",\n        \"tronc_point\": 1080.5321453605231,\n        \"tronc_amount\": 8868.378526009283,\n        \"tronc_rate\": 483.2468597291073\n      },\n      \"tipped_status\": {\n        \"id\": 5349.077560320709,\n        \"is_tipped\": true,\n        \"start_date\": \"1971-11-26\"\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"location_id\": \"string\",\n      \"hourly_rate\": {\n        \"id\": 4233.629409055191,\n        \"value\": 3021.6227070955106,\n        \"start_date\": \"2010-01-26\",\n        \"tronc_point\": 2312.644080692532,\n        \"tronc_amount\": 4073.8493018311938,\n        \"tronc_rate\": 9121.174561905058\n      },\n      \"tipped_status\": {\n        \"id\": 4946.9432382157975,\n        \"is_tipped\": true,\n        \"start_date\": \"1986-08-25\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e10704bd-bd1b-4e99-83c1-da014c1c73d5",
+          "name": "Define new employee pay type API",
+          "request": {
+            "name": "Define new employee pay type API",
+            "description": {
+              "content": "Use this api when u want to create the employee paytype with other financials information.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "employees",
+                ":employeeId",
+                "pay_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_date\": \"<date>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"positions\": [\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc_point\": \"<number>\",\n        \"tronc_rate\": \"<number>\",\n        \"tronc_amount\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    },\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc_point\": \"<number>\",\n        \"tronc_rate\": \"<number>\",\n        \"tronc_amount\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "28bbf29b-f34b-4c76-8acd-1c9478d45b24",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "employees",
+                    ":employeeId",
+                    "pay_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start_date\": \"<date>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"positions\": [\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc_point\": \"<number>\",\n        \"tronc_rate\": \"<number>\",\n        \"tronc_amount\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    },\n    {\n      \"hourly_rate\": {\n        \"value\": \"<number>\",\n        \"tronc_point\": \"<number>\",\n        \"tronc_rate\": \"<number>\",\n        \"tronc_amount\": \"<number>\"\n      },\n      \"position\": {\n        \"code\": \"<string>\"\n      },\n      \"tipped_status\": {\n        \"is_tipped\": \"<boolean>\"\n      },\n      \"location_id\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pay_type\": {\n    \"id\": 2378.791167940496,\n    \"type\": \"SALARIED\",\n    \"start_date\": \"1969-05-03\",\n    \"cross_location_mode\": \"FIXED\"\n  },\n  \"annual_rate\": {\n    \"id\": 1825.5841298974274,\n    \"value\": 1578.9338919293205,\n    \"start_date\": \"1949-01-23\"\n  },\n  \"tronc_amount\": {\n    \"id\": 6671.748468003317,\n    \"value\": 8473.893840500526,\n    \"start_date\": \"1984-06-11\"\n  },\n  \"tronc_point\": {\n    \"id\": 2599.4169116812236,\n    \"value\": 9492.183786850717,\n    \"start_date\": \"1976-02-22\"\n  },\n  \"max_weekly_hours\": {\n    \"id\": 7490.460658697126,\n    \"value\": 1348.2714958246665,\n    \"start_date\": \"2007-12-26\",\n    \"working_pattern\": {\n      \"id\": 1884.34754810192,\n      \"days_count\": 1,\n      \"working_pattern_days\": [\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        },\n        {\n          \"id\": 1,\n          \"day\": \"SUN\",\n          \"hours_count\": 8\n        }\n      ]\n    }\n  },\n  \"positions\": [\n    {\n      \"code\": \"string\",\n      \"location_id\": \"string\",\n      \"hourly_rate\": {\n        \"id\": 2274.6408030416865,\n        \"value\": 249.63177879265274,\n        \"start_date\": \"1952-06-28\",\n        \"tronc_point\": 3251.0071753062907,\n        \"tronc_amount\": 1350.3399679798965,\n        \"tronc_rate\": 9202.88204967386\n      },\n      \"tipped_status\": {\n        \"id\": 9086.704399951772,\n        \"is_tipped\": true,\n        \"start_date\": \"1970-02-20\"\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"location_id\": \"string\",\n      \"hourly_rate\": {\n        \"id\": 1838.5602543386349,\n        \"value\": 9296.606490189573,\n        \"start_date\": \"2022-07-07\",\n        \"tronc_point\": 910.7692224022634,\n        \"tronc_amount\": 4989.964068438657,\n        \"tronc_rate\": 8722.945951892263\n      },\n      \"tipped_status\": {\n        \"id\": 5723.297540468347,\n        \"is_tipped\": true,\n        \"start_date\": \"1967-12-16\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bccfb375-ceed-44c7-8eae-2654a3e21622",
+    "name": "Harri Employee Open Deprecated PayTypes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

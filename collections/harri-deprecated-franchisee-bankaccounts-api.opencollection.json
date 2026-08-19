@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Deprecated Franchisee BankAccounts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deprecated Franchisee BankAccounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deprecated - Get employee bank accounts API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/bank_accounts",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ]
+          },
+          "docs": "Deprecated - Get employee bank accounts info"
+        },
+        {
+          "info": {
+            "name": "Deprecated - Update or create employee bank account API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/bank_accounts",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deprecated - Update or create employee bank account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

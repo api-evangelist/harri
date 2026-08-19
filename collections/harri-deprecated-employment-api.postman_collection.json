@@ -1,0 +1,851 @@
+{
+  "item": [
+    {
+      "id": "534aaebd-ee6f-40aa-ab29-b6f1f93a0205",
+      "name": "Deprecated Employment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd380ce1-0a8a-404f-986a-c0940bc5cd7e",
+          "name": "get buisness termination reasons API",
+          "request": {
+            "name": "get buisness termination reasons API",
+            "description": {
+              "content": "get buisness termination reasons",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "termination_reasons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "091d033b-7678-4019-b6ec-b75ab10f6e96",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "termination_reasons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7234.596939542256,\n    \"code\": \"string\",\n    \"name\": \"string\"\n  },\n  {\n    \"id\": 5436.726452725556,\n    \"code\": \"string\",\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33e4c28a-a8ed-4f96-be36-053750101816",
+          "name": "Terminat employee API",
+          "request": {
+            "name": "Terminat employee API",
+            "description": {
+              "content": "Terminat employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "terminate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"leave_date\": \"<string>\",\n  \"termination_reason_id\": \"<integer>\",\n  \"forecasted_shift_action\": \"UNASSIGN_DELETE\",\n  \"blocked_from_rehire\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2ed5513-cd00-479c-965f-218c9f88ffc0",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "terminate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"leave_date\": \"<string>\",\n  \"termination_reason_id\": \"<integer>\",\n  \"forecasted_shift_action\": \"UNASSIGN_DELETE\",\n  \"blocked_from_rehire\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb3f08a5-8d66-4e90-a224-2545935d9fbd",
+          "name": "Terminat employee API",
+          "request": {
+            "name": "Terminat employee API",
+            "description": {
+              "content": "Terminat employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "terminate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"leave_date\": \"<string>\",\n  \"termination_reason_id\": \"<integer>\",\n  \"forecasted_shift_action\": \"UNASSIGN_DELETE\",\n  \"blocked_from_rehire\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9279399a-e880-4342-8213-aa66d1715455",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "terminate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"leave_date\": \"<string>\",\n  \"termination_reason_id\": \"<integer>\",\n  \"forecasted_shift_action\": \"UNASSIGN_DELETE\",\n  \"blocked_from_rehire\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2b17966-2ddf-49f5-a092-9312aa778940",
+          "name": "rehire employee API",
+          "request": {
+            "name": "rehire employee API",
+            "description": {
+              "content": "rehire employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "rehire"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"position_code\": \"<string>\",\n    \"pay_rate\": {\n      \"rate\": \"<number>\",\n      \"tronc\": \"<number>\"\n    },\n    \"max_weekly_hours\": \"<number>\",\n    \"cross_location_mode\": \"<string,null>\",\n    \"is_tipped\": \"<boolean,null>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f8e4204e-84b4-48d2-bbd5-5d43363b7bcf",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "rehire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"position_code\": \"<string>\",\n    \"pay_rate\": {\n      \"rate\": \"<number>\",\n      \"tronc\": \"<number>\"\n    },\n    \"max_weekly_hours\": \"<number>\",\n    \"cross_location_mode\": \"<string,null>\",\n    \"is_tipped\": \"<boolean,null>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d0c04ce-4e57-4a5e-a397-206ad2499197",
+          "name": "rehire employee API",
+          "request": {
+            "name": "rehire employee API",
+            "description": {
+              "content": "rehire employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "rehire"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_status\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    }\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e2b39459-670e-4c84-9b39-99174cb6b3d0",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "rehire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_status\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    }\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf82f124-74cb-4f1c-9ead-58c4a0405290",
+          "name": "edit employment period hire date API",
+          "request": {
+            "name": "edit employment period hire date API",
+            "description": {
+              "content": "edit employment period hire date",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "hire_date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hire_date\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71a146bc-9d5a-4523-a997-d56bb4d12b4c",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "hire_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hire_date\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a236d28-ae0a-496a-aaf6-f9e8c90c4fbe",
+          "name": "include in schedule API",
+          "request": {
+            "name": "include in schedule API",
+            "description": {
+              "content": "include in schedule",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "include_in_schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"include_in_schedule\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5c018a0-8a09-4d69-8cb3-20cbec49131d",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "include_in_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"include_in_schedule\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3a45719-fd95-4349-a2c9-2e2b252c7d78",
+          "name": "rehire employee API",
+          "request": {
+            "name": "rehire employee API",
+            "description": {
+              "content": "rehire employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "employees",
+                ":employeeId",
+                "rehire"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_status\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    }\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e70e3f48-472c-4a52-80ae-50b74be718d9",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "employees",
+                    ":employeeId",
+                    "rehire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_status\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    }\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1\",\n  \"email\": \"g-r1Y@KCiwzxlXrrzWpWOYYHAPEFhiObKN.xcp\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"middle_name\": \"string\",\n  \"geid\": \"string\",\n  \"birth_date\": \"1973-12-12\",\n  \"phone\": \"string\",\n  \"home_phone\": \"string\",\n  \"blocked_from_rehire\": false,\n  \"known_as\": \"string\",\n  \"title\": \"string\",\n  \"gender\": \"NO_IDENTIFY\",\n  \"national_number\": \"string\",\n  \"financial_unit_location_id\": 4859,\n  \"status\": \"ACTIVE\",\n  \"address\": {\n    \"country_code\": \"US\",\n    \"state_code\": \"NY\",\n    \"city\": \"string\",\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"postal_code\": \"string\"\n  },\n  \"employer\": {\n    \"email\": \"Kf-4u3mVNBD0QWp@ZbQsIv.ju\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"employment_period\": {\n    \"id\": 1830.832153333748,\n    \"hire_date\": \"2019-09-10\",\n    \"leave_date\": null,\n    \"termination_reason\": {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  },\n  \"job_titles\": [\n    {\n      \"id\": 3836.6949473156064,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": true,\n      \"level\": \"string\"\n    },\n    {\n      \"id\": 5383.30605444973,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": true,\n      \"level\": \"string\"\n    }\n  ],\n  \"vsl\": \"IN\",\n  \"locations\": [\n    {\n      \"id\": 6662.761885645116,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": true,\n      \"is_active\": false,\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\",\n      \"location_periods\": [\n        {\n          \"id\": 4545.189969258574,\n          \"start_date\": \"1950-09-03\",\n          \"end_date\": \"1956-01-09\",\n          \"type\": \"PRIMARY\"\n        },\n        {\n          \"id\": 1531.100593518423,\n          \"start_date\": \"1969-08-04\",\n          \"end_date\": null,\n          \"type\": \"SECONDARY\"\n        }\n      ]\n    },\n    {\n      \"id\": 6399.921392187718,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": true,\n      \"is_active\": true,\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\",\n      \"location_periods\": [\n        {\n          \"id\": 8912.29490820107,\n          \"start_date\": \"1989-03-10\",\n          \"end_date\": \"2003-07-30\",\n          \"type\": \"SECONDARY\"\n        },\n        {\n          \"id\": 351.2813562255934,\n          \"start_date\": \"2009-11-10\",\n          \"end_date\": \"2005-10-27\",\n          \"type\": \"SECONDARY\"\n        }\n      ]\n    }\n  ],\n  \"positions\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 3235.9472369224727,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 9245.71726391815,\n      \"location_id\": 423,\n      \"is_primary\": true,\n      \"hourly_rates\": [\n        {\n          \"id\": 9575.710262172739,\n          \"pay_type_id\": 7649.345381252538,\n          \"value\": 4267.717591267162,\n          \"start_date\": \"1978-04-12\",\n          \"tronc_point\": 9748.24029156521,\n          \"tronc_amount\": 264.7996945398123,\n          \"tronc_rate\": 6433.978772850586\n        },\n        {\n          \"id\": 5961.38532501024,\n          \"pay_type_id\": 7519.2389501597445,\n          \"value\": 278.81536532269325,\n          \"start_date\": \"1993-09-12\",\n          \"tronc_point\": 6602.585322893473,\n          \"tronc_amount\": 8938.37554439728,\n          \"tronc_rate\": 5438.139812110023\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 3129.1646070603983,\n          \"pay_type_id\": 4812.71948368886,\n          \"is_tipped\": false,\n          \"start_date\": \"2013-10-28\"\n        },\n        {\n          \"id\": 3452.229294891269,\n          \"pay_type_id\": 2360.082775417579,\n          \"is_tipped\": true,\n          \"start_date\": \"1953-03-04\"\n        }\n      ],\n      \"cost_centers\": [\n        {\n          \"id\": 5215.260932486605,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 7961.638484298601,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 661.3501603848881,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 2328.8740052150024,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 7629.659545992646,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 7501.764510848191,\n      \"location_id\": 6569,\n      \"is_primary\": true,\n      \"hourly_rates\": [\n        {\n          \"id\": 2550.3151950103443,\n          \"pay_type_id\": 9096.948220378885,\n          \"value\": 4662.079437522947,\n          \"start_date\": \"2012-11-22\",\n          \"tronc_point\": 9632.970274529627,\n          \"tronc_amount\": 3830.8325674844914,\n          \"tronc_rate\": 5244.479904145811\n        },\n        {\n          \"id\": 8140.73100819705,\n          \"pay_type_id\": 7210.011711251026,\n          \"value\": 9984.219343082268,\n          \"start_date\": \"1972-06-22\",\n          \"tronc_point\": 7761.637235312148,\n          \"tronc_amount\": 6558.663028408358,\n          \"tronc_rate\": 6298.272188818144\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 5744.003166403701,\n          \"pay_type_id\": 4601.512508535719,\n          \"is_tipped\": false,\n          \"start_date\": \"1967-10-05\"\n        },\n        {\n          \"id\": 3174.398428173083,\n          \"pay_type_id\": 2662.0307132713615,\n          \"is_tipped\": true,\n          \"start_date\": \"1992-08-11\"\n        }\n      ],\n      \"cost_centers\": [\n        {\n          \"id\": 5493.936828498118,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 6397.405611758784,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 5743.791248821818,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 7455.921986955185,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"pay_types\": [\n    {\n      \"id\": 2142.9853446649263,\n      \"type\": \"SALARIED\",\n      \"start_date\": \"1955-09-06\",\n      \"cross_location_edit_mode\": \"FLEXIBLE\"\n    },\n    {\n      \"id\": 2646.365887622176,\n      \"type\": \"HOURLY\",\n      \"start_date\": \"2025-12-20\",\n      \"cross_location_edit_mode\": \"FLEXIBLE\"\n    }\n  ],\n  \"annual_rates\": [\n    {\n      \"id\": 3379.5811904875463,\n      \"pay_type_id\": 5259.843769151187,\n      \"value\": 5460.48837290726,\n      \"start_date\": \"2022-10-12\"\n    },\n    {\n      \"id\": 2158.076709190484,\n      \"pay_type_id\": 7993.550647889699,\n      \"value\": 5651.045834351047,\n      \"start_date\": \"1983-06-19\"\n    }\n  ],\n  \"tronc_points\": [\n    {\n      \"id\": 9803.963940055031,\n      \"pay_type_id\": 6597.845481366628,\n      \"value\": 9588.447063975696,\n      \"start_date\": \"1978-09-25\"\n    },\n    {\n      \"id\": 6224.985721029723,\n      \"pay_type_id\": 5310.21545133365,\n      \"value\": 7542.692245671524,\n      \"start_date\": \"2019-08-24\"\n    }\n  ],\n  \"tronc_amounts\": [\n    {\n      \"id\": 3122.3679644579383,\n      \"pay_type_id\": 4686.910694485089,\n      \"value\": 1575.347988445831,\n      \"start_date\": \"2011-12-12\"\n    },\n    {\n      \"id\": 7571.595816668252,\n      \"pay_type_id\": 2409.2086615253115,\n      \"value\": 8852.920234102905,\n      \"start_date\": \"1971-09-07\"\n    }\n  ],\n  \"max_weekly_hours\": [\n    {\n      \"id\": 2252.033454480176,\n      \"pay_type_id\": 6594.05745331215,\n      \"value\": 7492.191138166916,\n      \"start_date\": \"1972-09-02\",\n      \"working_pattern\": {\n        \"id\": 1801.372992576027,\n        \"days_count\": 6,\n        \"working_pattern_days\": [\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          },\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          }\n        ]\n      }\n    },\n    {\n      \"id\": 7642.102118385859,\n      \"pay_type_id\": 6118.418154220134,\n      \"value\": 5173.051559276603,\n      \"start_date\": \"2006-05-11\",\n      \"working_pattern\": {\n        \"id\": 5247.275153212407,\n        \"days_count\": 1,\n        \"working_pattern_days\": [\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          },\n          {\n            \"id\": 1,\n            \"day\": \"SUN\",\n            \"hours_count\": 8\n          }\n        ]\n      }\n    }\n  ],\n  \"bank_account\": {\n    \"id\": 4588.208237415483,\n    \"bank_branch\": null,\n    \"bic\": null,\n    \"iban\": null,\n    \"routing_number\": \"string\",\n    \"account_number\": \"string\",\n    \"registration_number\": \"string\",\n    \"account_type\": \"SAVINGS\",\n    \"bank_name\": \"string\",\n    \"account_name\": \"string\",\n    \"sort_code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "568fc750-edcf-44ab-ad86-098f63aa73e9",
+    "name": "Harri Employee Open Deprecated Employment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

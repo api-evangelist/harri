@@ -1,0 +1,178 @@
+{
+  "item": [
+    {
+      "id": "df252616-23b6-4de5-8163-3d3efbc25b68",
+      "name": "Deprecated Event",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "609a53ee-c7bc-4685-8410-ae62791faaf1",
+          "name": "retrieve events",
+          "request": {
+            "name": "retrieve events",
+            "description": {
+              "content": "retrieve events",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "event_code",
+                  "value": "<string>",
+                  "description": "Event code"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "location id"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "published_gte",
+                  "value": "<dateTime>",
+                  "description": "Published date greater than or equal to"
+                },
+                {
+                  "disabled": false,
+                  "key": "published_lte",
+                  "value": "<dateTime>",
+                  "description": "Published date less than or equal to"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Status of the event"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "798356f6-6b5b-4d4a-9433-568aaf27e3be",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "published_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "published_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"event_code\": \"EMPLOYEE.HIRED\",\n      \"webhook\": \"string\",\n      \"status\": \"IN_PROGRESS\",\n      \"publish_time\": \"string\",\n      \"location_id\": \"string\",\n      \"payload\": {\n        \"type\": \"EMPLOYEE.HIRED\",\n        \"location_id\": \"string\",\n        \"employee_id\": \"string\",\n        \"created_at\": \"2024-10-20 12:54:20.277755\",\n        \"event_id\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"event_code\": \"EMPLOYEE.HIRED\",\n      \"webhook\": \"string\",\n      \"status\": \"FAILED\",\n      \"publish_time\": \"string\",\n      \"location_id\": \"string\",\n      \"payload\": {\n        \"type\": \"EMPLOYEE.HIRED\",\n        \"location_id\": \"string\",\n        \"employee_id\": \"string\",\n        \"created_at\": \"2024-10-20 12:54:20.277755\",\n        \"event_id\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a0687877-1040-49e4-9467-a030d0ade2a4",
+    "name": "Harri Employee Open Deprecated Event API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

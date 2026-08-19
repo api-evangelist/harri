@@ -1,0 +1,653 @@
+{
+  "item": [
+    {
+      "id": "786be490-ea4d-46d0-8b4c-be6aec40b2c8",
+      "name": "EmployeePositions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5110d6e6-b5dd-4f05-b2a4-2e88b78763c3",
+          "name": "Retrieve employee positions API",
+          "request": {
+            "name": "Retrieve employee positions API",
+            "description": {
+              "content": "Retrieve employee positions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "employees",
+                ":employeeId",
+                "positions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f01f7cbb-f12a-404c-be65-e49c2a85f620",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "employees",
+                    ":employeeId",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"positions\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 8849.075861087513,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 8426.704924058087,\n      \"location_id\": 6832,\n      \"is_primary\": true,\n      \"cost_centers\": [\n        {\n          \"id\": 341.99378802378556,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 8428.246438244796,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 9234.145508766214,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 628.3296306699382,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 2131.6868761288365,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 8796.75636050385,\n      \"location_id\": 6764,\n      \"is_primary\": true,\n      \"cost_centers\": [\n        {\n          \"id\": 6236.1889591260115,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 5761.580196683555,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 9672.248594889938,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 7006.684388968927,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e14e6479-4c53-4ffe-a1c6-cdb341bcccc5",
+          "name": "Attach position to employee API",
+          "request": {
+            "name": "Attach position to employee API",
+            "description": {
+              "content": "Attach positions to an employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "employees",
+                ":employeeId",
+                "locations",
+                ":locationId",
+                "positions",
+                ":positionCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be primary location for the employees with fixed pay type"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) position code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"position\": {\n    \"is_primary\": \"<boolean>\",\n    \"pay_type_id\": \"<integer>\",\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"start_date\": \"<date>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    },\n    \"tipped_status\": {\n      \"is_tipped\": \"<boolean>\",\n      \"start_date\": \"<date>\"\n    },\n    \"cost_centers\": [\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      },\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ccf7fd14-cc52-4f23-b988-8932a9dfada9",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "employees",
+                    ":employeeId",
+                    "locations",
+                    ":locationId",
+                    "positions",
+                    ":positionCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be primary location for the employees with fixed pay type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) position code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"position\": {\n    \"is_primary\": \"<boolean>\",\n    \"pay_type_id\": \"<integer>\",\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"start_date\": \"<date>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    },\n    \"tipped_status\": {\n      \"is_tipped\": \"<boolean>\",\n      \"start_date\": \"<date>\"\n    },\n    \"cost_centers\": [\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      },\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"position\": {\n    \"code\": \"string\",\n    \"name\": \"string\",\n    \"category\": {\n      \"id\": 4664.105496567884,\n      \"code\": \"string\",\n      \"name\": \"string\"\n    },\n    \"id\": 7497.210612521476,\n    \"location_id\": 2396,\n    \"is_primary\": false,\n    \"hourly_rate\": {\n      \"id\": 2664.3361027166966,\n      \"value\": 7789.534226101316,\n      \"start_date\": \"1967-06-08\",\n      \"tronc_point\": 3214.3477464994685,\n      \"tronc_amount\": 5753.581134430121,\n      \"tronc_rate\": 2012.5287598632867\n    },\n    \"tipped_status\": {\n      \"id\": 8982.535225648178,\n      \"is_tipped\": true,\n      \"start_date\": \"2011-05-15\"\n    },\n    \"cost_centers\": [\n      {\n        \"id\": 71.83741471663896,\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"value\": {\n          \"id\": 3614.3259364861515,\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      },\n      {\n        \"id\": 9170.035454835008,\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"value\": {\n          \"id\": 4771.905675278921,\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0348468c-98f0-48ce-8dd4-e72e5c9dda90",
+          "name": "Update position related info API",
+          "request": {
+            "name": "Update position related info API",
+            "description": {
+              "content": "Update position related info - COST CENTERS, this will be used for fixed and flexible hourly employees\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "employees",
+                ":employeeId",
+                "locations",
+                ":locationId",
+                "positions",
+                ":positionCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be the primary location for the employees with fixed pay type"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) position code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"position\": {\n    \"cost_centers\": [\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      },\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4059dfbe-12bd-45e1-98b2-6508198ae0e9",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "employees",
+                    ":employeeId",
+                    "locations",
+                    ":locationId",
+                    "positions",
+                    ":positionCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be the primary location for the employees with fixed pay type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) position code"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"position\": {\n    \"cost_centers\": [\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      },\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80912be0-c65a-4c7e-89c6-1b27a2939d00",
+          "name": "Set employee primary position API",
+          "request": {
+            "name": "Set employee primary position API",
+            "description": {
+              "content": "Set employee primary position based on the primary location positions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "positions",
+                ":positionCode",
+                "set_primary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) position code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d462ad3-7583-4f31-aa32-bdcc47bf297c",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "positions",
+                    ":positionCode",
+                    "set_primary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) position code"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf6314bf-5a3b-4234-a42a-72ec0f256819",
+          "name": "Delete employee position for fixed and flixable pay type API",
+          "request": {
+            "name": "Delete employee position for fixed and flixable pay type API",
+            "description": {
+              "content": "Delete employee position for fixed flixable pay type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "locations",
+                ":locationId",
+                "positions",
+                ":positionCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id, should be primary location for the employees with fixed pay type"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) position code"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d95932e-5e97-4514-b56d-1c70a63ba61a",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "locations",
+                    ":locationId",
+                    "positions",
+                    ":positionCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id, should be primary location for the employees with fixed pay type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) position code"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7b503506-bd1e-4e31-b021-070698dbcbf5",
+    "name": "Harri Employee Open Employee Positions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

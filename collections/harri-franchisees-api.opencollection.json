@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Franchisees API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "retrieve all positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees"
+          },
+          "docs": "Retrieve all franchisees"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,429 @@
+openapi: 3.2.0
+info:
+  title: Harri - External Brand Management Franchisee Employer APIs V2 API
+  description: "## Harri Employer Endpoint to create and manage Harri Above Store Admin Users. \n Note: if you receive a 422 error about a corporate ID not being associated or found, you will need to contact Harri Support to have that ID associated with your API credentials."
+  termsOfService: https://harri.com/terms
+  contact:
+    email: support@harri.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.00
+servers:
+- url: https://gateway.harri.com/open-api-hub
+security:
+- oAuth2ClientCredentials: []
+tags:
+- name: Franchisee Employer APIs V2
+paths:
+  /v2/franchisees/{franchiseeId}/employers:
+    parameters:
+    - name: franchiseeId
+      in: path
+      required: true
+      schema:
+        type: number
+    post:
+      tags:
+      - Franchisee Employer APIs V2
+      summary: Create employer (v2 - franchisee)
+      description: 'Create an employer with location roles under a franchisee.
+
+        Uses external IDs natively. Supports location grouping when enabled.'
+      operationId: createFranchiseeEmployerV2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: External employer ID (required when employer_mapping is enabled)
+                first_name:
+                  type: string
+                  description: First name of employer
+                last_name:
+                  type: string
+                  description: Last name of employer
+                email:
+                  type: string
+                  format: email
+                  description: Email address of employer
+                location_roles:
+                  type: array
+                  description: 'Location roles for the employer.
+
+                    Can be group codes or individual location IDs.'
+                  minItems: 1
+                  items:
+                    type: object
+                    properties:
+                      location_id:
+                        type: string
+                        description: Location ID or group code
+                      role:
+                        type: string
+                        enum:
+                        - SUPER_ADMIN
+                        - FRANCHISEE_SUPER_USER
+                        - RSC
+                        - ABOVE_STORE_LEADER
+                        - RGM
+                        - ARGM
+                        - TEAM_LEADER
+                        - LEVEL_3
+                        - LEVEL_4
+                        description: User role for this location
+                    required:
+                    - location_id
+                    - role
+              required:
+              - first_name
+              - last_name
+              - email
+              - location_roles
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: External employer ID
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      email:
+                        type: string
+                      location_roles:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            location_id:
+                              type: string
+                              description: External location ID or group code
+                            role:
+                              type: string
+        '400':
+          description: Validation error or missing required fields
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        error:
+                          type: string
+        '403':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+    get:
+      tags:
+      - Franchisee Employer APIs V2
+      summary: List all employers (v2 - franchisee)
+      description: 'Retrieve all employers under a franchisee with their location roles.
+
+        Uses external IDs natively. Supports location grouping when enabled.'
+      operationId: listFranchiseeEmployersV2
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  employers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: External employer ID
+                        first_name:
+                          type: string
+                        last_name:
+                          type: string
+                        email:
+                          type: string
+                        location_roles:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              location_id:
+                                type: string
+                                description: External location ID or group code
+                              role:
+                                type: string
+        '403':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /v2/franchisees/{franchiseeId}/employers/{id}:
+    parameters:
+    - name: franchiseeId
+      in: path
+      required: true
+      schema:
+        type: number
+    get:
+      tags:
+      - Franchisee Employer APIs V2
+      summary: Get employer details (v2 - franchisee)
+      description: 'Retrieve single employer by external ID under a franchisee.
+
+        Uses external IDs natively. Supports location grouping when enabled.'
+      operationId: getFranchiseeEmployerV2
+      parameters:
+      - name: id
+        in: path
+        description: External employer ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: External employer ID
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email:
+                    type: string
+                  location_roles:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        location_id:
+                          type: string
+                          description: External location ID or group code
+                        role:
+                          type: string
+        '403':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Employer not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+    put:
+      tags:
+      - Franchisee Employer APIs V2
+      summary: Update employer (v2 - franchisee)
+      description: 'Update employer information and location roles under a franchisee.
+
+        Uses external IDs natively. Supports location grouping when enabled.'
+      operationId: updateFranchiseeEmployerV2
+      parameters:
+      - name: id
+        in: path
+        description: External employer ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: First name of employer
+                last_name:
+                  type: string
+                  description: Last name of employer
+                email:
+                  type: string
+                  format: email
+                  description: Email address of employer
+                location_roles:
+                  type: array
+                  description: 'Location roles for the employer.
+
+                    Can be group codes or individual location IDs.'
+                  items:
+                    type: object
+                    properties:
+                      location_id:
+                        type: string
+                        description: Location ID or group code
+                      role:
+                        type: string
+                        enum:
+                        - SUPER_ADMIN
+                        - FRANCHISEE_SUPER_USER
+                        - RSC
+                        - ABOVE_STORE_LEADER
+                        - RGM
+                        - ARGM
+                        - TEAM_LEADER
+                        - LEVEL_3
+                        - LEVEL_4
+                        description: User role for this location
+                    required:
+                    - location_id
+                    - role
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: External employer ID
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email:
+                    type: string
+                  location_roles:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        location_id:
+                          type: string
+                          description: External location ID or group code
+                        role:
+                          type: string
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        error:
+                          type: string
+        '403':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Employer not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+    delete:
+      tags:
+      - Franchisee Employer APIs V2
+      summary: Delete employer (v2 - franchisee)
+      description: 'Delete employer and their location roles under a franchisee.
+
+        Uses external IDs natively.'
+      operationId: deleteFranchiseeEmployerV2
+      parameters:
+      - name: id
+        in: path
+        description: External employer ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '403':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Employer not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harristaging.com/oauth2/token
+          scopes: {}
+externalDocs:
+  description: Find out more about Harri
+  url: http://harri.com

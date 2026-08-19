@@ -1,0 +1,785 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Absences API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Absences
+paths:
+  /api/v1/employees/{employeeId}/absences/requests:
+    get:
+      summary: Get Absence Requests for an employee API
+      description: Get Absence Requests for an employee API
+      parameters:
+      - in: path
+        name: employeeId
+        description: id  of the employee to get their absence requests
+        required: true
+        schema:
+          type: string
+      - name: types
+        in: query
+        required: true
+        description: array of absence request types
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - TIME_OFF
+            - LOA
+      - name: statuses
+        in: query
+        description: array of absence request statuses to filter by
+        schema:
+          type: array
+          items:
+            type: string
+      - name: start_date
+        in: query
+        required: true
+        description: filter of requests if the start date is equal or higher than the date
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: filter of requests if the end date is equal or less than the date
+        schema:
+          type: string
+          format: date
+      operationId: api_v1_employees_absences_requests_list
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbsenceRequestList'
+      tags:
+      - Absences
+    post:
+      summary: Create an Absence Requests for an employee API
+      description: Create an Absence Requests for an employee API
+      parameters:
+      - in: path
+        name: employeeId
+        description: id  of the employee to get their absence requests
+        required: true
+        schema:
+          type: string
+      operationId: api_v1_employees_absences_requests_create
+      requestBody:
+        description: Create Absence
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+              - type: object
+                properties:
+                  absence_type:
+                    type: string
+                    description: Type of absence (e.g., TIME_OFF, LOA)
+                  start_date:
+                    type: string
+                    format: date
+                    description: Start date of the absence request
+                  end_date:
+                    type: string
+                    format: date
+                    description: End date of the absence
+                  projected_end_date:
+                    type:
+                    - string
+                    - 'null'
+                    format: date
+                    description: Projected end date of the absence
+                  reason_option:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                        description: Reason code
+                  reason_description:
+                    type: string
+                    description: Detailed description of the reason for absence
+                  submitted_on:
+                    type: string
+                    format: date-time
+                    description: Timestamp when the absence was submitted
+                  note:
+                    type: string
+                    description: Free-text note attached to the absence request
+                  days:
+                    type: array
+                    description: List of days included in the absence
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          format: date
+                          description: Date of the absence
+                        weight:
+                          type: number
+                          description: Weight of the absence for the day
+                        from_time:
+                          type:
+                          - integer
+                          - 'null'
+                          description: Start time in seconds since midnight if is_all_day is false
+                        to_time:
+                          type:
+                          - integer
+                          - 'null'
+                          description: End time in seconds since midnight if is_all_day is false
+                        is_all_day:
+                          type: boolean
+                          description: Indicates if the absence covers the entire day
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbsenceRequest'
+      tags:
+      - Absences
+  /api/v1/employees/{employeeId}/absences/requests/{id}:
+    put:
+      summary: Update an Absence Requests for an employee API
+      description: Update an Absence Requests for an employee API
+      parameters:
+      - in: path
+        name: employeeId
+        description: id  of the employee to get their absence requests
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: number
+      operationId: api_v1_employees_absences_requests_update
+      requestBody:
+        description: Update Absence
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbsenceRequestUpdate'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Absence Request Updated
+      tags:
+      - Absences
+    delete:
+      summary: Delete an Absence Requests for an employee API
+      description: Delete an Absence Requests for an employee API by updating the status
+      parameters:
+      - in: path
+        name: employeeId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: number
+      operationId: api_v1_employees_absences_requests_delete
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Absence Request Deleted successfully
+      tags:
+      - Absences
+  /api/v1/absences/requests:
+    get:
+      summary: Get Absence Requests for a location API
+      description: Get Absence Requests for a location API
+      parameters:
+      - in: query
+        name: limit
+        required: false
+        schema:
+          type: number
+          minimum: 0
+          maximum: 100
+          default: 10
+        description: limit must be not negative and maximum, has a default value of 10
+      - in: query
+        name: page
+        required: false
+        schema:
+          type: number
+          minimum: 1
+          default: 1
+        description: page must be not negative and default value of 1
+      - in: query
+        name: statuses
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - APPROVED
+            - PENDING_APPROVAL
+            - DELETED
+            - REJECTED
+            - WITHDRAWN
+        description: statuses array of strings
+      - in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+          format: date
+        description: start date absence request being same or higher than the filter
+      - in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+          format: date
+        description: end date absence request being same or lower than the filter
+      - in: query
+        name: types
+        required: true
+        schema:
+          type: string
+          enum:
+          - LOA
+          - TIME_OFF
+      - in: query
+        name: location_id
+        required: false
+        schema:
+          type: integer
+      operationId: api_v1_absences_requests_list
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                allOf:
+                - type: object
+                  properties:
+                    requests:
+                      type: array
+                      description: array of absence requests
+                      items:
+                        allOf:
+                        - $ref: '#/components/schemas/AbsenceRequest'
+                        - type: object
+                          properties:
+                            employee_id:
+                              type:
+                              - string
+                              - 'null'
+                              description: external employee id (mapped from internal user_id)
+                            location_id:
+                              type:
+                              - string
+                              - 'null'
+                              description: external location id (mapped from internal brand_id)
+                - $ref: '#/components/schemas/Pagination'
+      tags:
+      - Absences
+  /api/v1/absences/reason_options:
+    get:
+      summary: Get Absence Reason Options Lookup API
+      description: Get Absence Reason Options Lookup API to use in submitting an Absence Request
+      parameters:
+      - in: query
+        name: types
+        required: true
+        schema:
+          type: string
+          enum:
+          - LOA
+      operationId: api_v1_absences_reason_options_list
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbsenceReasonOptionsList'
+      tags:
+      - Absences
+  /api/v1/employees/{employeeId}/absences/requests/{absenceRequestId}:
+    get:
+      summary: Get a Single Absence Request by Id for an employee API
+      description: Get a Single Absence Request by Id for an employee API
+      parameters:
+      - in: path
+        name: employeeId
+        description: id  of the employee to get their absence requests
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: absenceRequestId
+        description: id  of the absence request to get their absence request
+        required: true
+        schema:
+          type: number
+      operationId: api_v1_employees_absences_requests_get_by_id
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbsenceRequestFull'
+      tags:
+      - Absences
+  /api/v2/employees/{employeeId}/absences/requests:
+    get:
+      summary: Get Absence Requests for an employee API
+      description: Get Absence Requests for an employee API
+      parameters:
+      - in: path
+        name: employeeId
+        description: id  of the employee to get their absence requests
+        required: true
+        schema:
+          type: string
+      - name: types
+        in: query
+        required: true
+        description: array of absence request types
+        schema:
+          type: string
+          enum:
+          - TIME_OFF
+          - LOA
+      - name: start_date
+        in: query
+        required: true
+        description: filter of requests if the start date is equal or higher than the date
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: filter of requests if the end date is equal or less than the date
+        schema:
+          type: string
+          format: date
+      - name: statuses
+        in: query
+        required: false
+        description: filter requests by status
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - APPROVED
+            - PENDING_APPROVAL
+            - DELETED
+            - REJECTED
+            - WITHDRAWN
+      - name: limit
+        in: query
+        required: false
+        description: maximum number of records to return (max 100, default 10)
+        schema:
+          type: number
+          minimum: 0
+          maximum: 100
+          default: 10
+      - name: offset
+        in: query
+        required: false
+        description: number of records to skip for pagination (default 0)
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+      operationId: api_v1_employees_absences_requests_listV2
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/AbsenceRequestList'
+                - $ref: '#/components/schemas/Pagination'
+      tags:
+      - Absences
+    post:
+      summary: Create an Absence Requests for an employee API
+      description: Create an Absence Requests for an employee API
+      parameters:
+      - in: path
+        name: employeeId
+        description: id  of the employee to get their absence requests
+        required: true
+        schema:
+          type: string
+      operationId: api_v1_employees_absences_requests_createV2
+      requestBody:
+        description: Create Absence
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+              - type: object
+                properties:
+                  absence_type:
+                    type: string
+                    description: Type of absence (e.g., TIME_OFF, LOA)
+                  start_date:
+                    type: string
+                    format: date
+                    description: Start date of the absence request
+                  end_date:
+                    type: string
+                    format: date
+                    description: End date of the absence
+                  projected_end_date:
+                    type:
+                    - string
+                    - 'null'
+                    format: date
+                    description: Projected end date of the absence
+                  reason_option:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                        description: Reason code
+                  reason_description:
+                    type: string
+                    description: Detailed description of the reason for absence
+                  submitted_on:
+                    type: string
+                    format: date-time
+                    description: Timestamp when the absence was submitted
+                  note:
+                    type: string
+                    description: Free-text note attached to the absence request
+                  days:
+                    type: array
+                    description: List of days included in the absence
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          format: date
+                          description: Date of the absence
+                        weight:
+                          type: number
+                          description: Weight of the absence for the day
+                        from_time:
+                          type:
+                          - integer
+                          - 'null'
+                          description: Start time in seconds since midnight if is_all_day is false
+                        to_time:
+                          type:
+                          - integer
+                          - 'null'
+                          description: End time in seconds since midnight if is_all_day is false
+                        is_all_day:
+                          type: boolean
+                          description: Indicates if the absence covers the entire day
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbsenceRequest'
+      tags:
+      - Absences
+  /api/v2/employees/{employeeId}/absences/requests/{id}:
+    put:
+      summary: Update an Absence Requests for an employee API
+      description: Update an Absence Requests for an employee API
+      parameters:
+      - in: path
+        name: employeeId
+        description: id  of the employee to get their absence requests
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: number
+      operationId: api_v1_employees_absences_requests_updateV2
+      requestBody:
+        description: Update Absence
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbsenceRequestUpdate'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Absence Request Updated
+      tags:
+      - Absences
+    delete:
+      summary: Delete an Absence Requests for an employee API
+      description: Delete an Absence Requests for an employee API by updating the status
+      parameters:
+      - in: path
+        name: employeeId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: number
+      operationId: api_v1_employees_absences_requests_deleteV2
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Absence Request Deleted successfully
+      tags:
+      - Absences
+components:
+  schemas:
+    AbsenceRequestNoId:
+      type: object
+      properties:
+        absence_type:
+          type: string
+          description: Type of absence (e.g., TIME_OFF, LOA)
+        start_date:
+          type: string
+          format: date
+          description: Start date of the absence request
+        end_date:
+          type: string
+          format: date
+          description: End date of the absence
+        projected_end_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: Projected end date of the absence
+        status:
+          type: string
+          description: Status of the absence
+          enum:
+          - APPROVED
+          - PENDING_APPROVAL
+          - DELETED
+          - REJECTED
+          - WITHDRAWN
+        reason_option:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Reason code
+            name:
+              type: string
+              description: Reason name
+        reason_description:
+          type: string
+          description: Detailed description of the reason for absence from the employee
+        submitted_on:
+          type: string
+          format: date-time
+          description: Timestamp when the absence was submitted
+        days:
+          type: array
+          description: List of days included in the absence
+          items:
+            $ref: '#/components/schemas/AbsenceRequestDay'
+    AbsenceRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: number
+            description: id of the absence request
+      - $ref: '#/components/schemas/AbsenceRequestNoId'
+    AbsenceRequestDay:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Day ID
+        date:
+          type: string
+          format: date
+          description: Date of the absence
+        weight:
+          type: number
+          description: Weight of the absence for the day
+        from_time:
+          type:
+          - integer
+          - 'null'
+          description: Start time in seconds since midnight if is_all_day is false
+        to_time:
+          type:
+          - integer
+          - 'null'
+          description: End time in seconds since midnight if is_all_day is false
+        is_all_day:
+          type: boolean
+          description: Indicates if the absence covers the entire day
+    AbsenceRequestList:
+      type: object
+      properties:
+        requests:
+          type: array
+          description: array of absence requests
+          items:
+            $ref: '#/components/schemas/AbsenceRequest'
+    AbsenceRequestFull:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          employee_id:
+            type:
+            - number
+            - 'null'
+            description: 'External employee id mapped from the internal `user_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
+
+              '
+          location_id:
+            type:
+            - number
+            - 'null'
+            description: 'External location id mapped from the internal `brand_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
+
+              '
+      - $ref: '#/components/schemas/AbsenceRequest'
+    Pagination:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            page:
+              type: integer
+              description: current page number that starts with 1
+            per_page:
+              type: integer
+              description: amount of records per page
+            total:
+              type: integer
+              description: total number of records
+            total_pages:
+              type: integer
+              description: total number of pages
+    AbsenceReasonOptionsList:
+      type: object
+      properties:
+        reason_options:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: code of the reason option
+              name:
+                type: string
+                description: name/label for the reason option
+    AbsenceRequestUpdate:
+      type: object
+      properties:
+        absence_type:
+          type: string
+          description: Type of absence (e.g., TIME_OFF, LOA)
+        submitted_on:
+          type: string
+          format: date-time
+          description: Timestamp when the absence was submitted
+        start_date:
+          type: string
+          format: date
+          description: Start date of the absence request
+        end_date:
+          type: string
+          format: date
+          description: End date of the absence
+        projected_end_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: Projected end date of the absence
+        reason_option:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Reason code
+        reason_description:
+          type: string
+          description: Detailed description of the reason for absence
+        days:
+          type: array
+          items:
+            allOf:
+            - type: object
+              properties:
+                id:
+                  type: number
+                  description: added in case day already exists.
+                date:
+                  type: string
+                  example: '2025-05-28'
+                weight:
+                  type: number
+                is_all_day:
+                  type: boolean
+                from_time:
+                  type: number
+                  minimum: 0
+                to_time:
+                  type: number
+              required:
+              - date
+              - weight
+              - is_all_day
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

@@ -1,0 +1,474 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Franchisee MaxWeeklyHours API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee MaxWeeklyHours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee Max Weekly Hours API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/max_weekly_hours",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              }
+            ]
+          },
+          "docs": "Retrieve employee Max Weekly Hours"
+        },
+        {
+          "info": {
+            "name": "Define new employee Max Weekly Hours API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/max_weekly_hours",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "use this api when u want to define new employee Max Weekly Hours\n"
+        },
+        {
+          "info": {
+            "name": "Update Max Weekly Hours API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/max_weekly_hours/:maxWeeklyHoursId",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "maxWeeklyHoursId",
+                "value": "",
+                "type": "path",
+                "description": "Max Weekly Hours id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Max Weekly Hours"
+        },
+        {
+          "info": {
+            "name": "Delete Max Weekly Hours API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/max_weekly_hours/:maxWeeklyHoursId",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "maxWeeklyHoursId",
+                "value": "",
+                "type": "path",
+                "description": "Max Weekly Hours id"
+              }
+            ]
+          },
+          "docs": "Delete Max Weekly Hours"
+        },
+        {
+          "info": {
+            "name": "Retrieve employee Max Weekly Hours API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/max_weekly_hours",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              }
+            ]
+          },
+          "docs": "Retrieve employee Max Weekly Hours"
+        },
+        {
+          "info": {
+            "name": "Define new employee Max Weekly Hours API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/max_weekly_hours",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "use this api when u want to define new employee Max Weekly Hours\n"
+        },
+        {
+          "info": {
+            "name": "Update Max Weekly Hours API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/max_weekly_hours/:maxWeeklyHoursId",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "maxWeeklyHoursId",
+                "value": "",
+                "type": "path",
+                "description": "Max Weekly Hours id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Max Weekly Hours"
+        },
+        {
+          "info": {
+            "name": "Delete Max Weekly Hours API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/max_weekly_hours/:maxWeeklyHoursId",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "maxWeeklyHoursId",
+                "value": "",
+                "type": "path",
+                "description": "Max Weekly Hours id"
+              }
+            ]
+          },
+          "docs": "Delete Max Weekly Hours"
+        },
+        {
+          "info": {
+            "name": "Retrieve employee max weekly hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/max_weekly_hours",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieve the employee max weekly hours configurations."
+        },
+        {
+          "info": {
+            "name": "Create employee max weekly hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/max_weekly_hours",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create a max weekly hours configuration for the employee."
+        },
+        {
+          "info": {
+            "name": "Update employee max weekly hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/max_weekly_hours/:max_weekly_hours_id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "max_weekly_hours_id",
+                "value": "",
+                "type": "path",
+                "description": "max weekly hours id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update a max weekly hours configuration for the employee."
+        },
+        {
+          "info": {
+            "name": "Delete employee max weekly hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/employees/:employeeId/max_weekly_hours/:max_weekly_hours_id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "max_weekly_hours_id",
+                "value": "",
+                "type": "path",
+                "description": "max weekly hours id"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete a max weekly hours configuration for the employee."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

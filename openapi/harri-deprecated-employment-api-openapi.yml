@@ -1,0 +1,1020 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Deprecated Employment API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Deprecated Employment
+paths:
+  /api/v1/termination_reasons:
+    get:
+      deprecated: true
+      tags:
+      - Deprecated Employment
+      summary: get buisness termination reasons API
+      description: get buisness termination reasons
+      operationId: GetTerminationReasons
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TerminationReason'
+  /api/v1/employees/{employeeId}/terminate:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Employment
+      summary: Terminat employee API
+      description: Terminat employee
+      operationId: DeprecatedTerminateEmployee
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: terminate related fields
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                termination_reason_id:
+                  type: integer
+                leave_date:
+                  type: string
+                forecasted_shift_action:
+                  type: string
+                  enum:
+                  - UNASSIGN_DELETE
+                  - DELETE
+                  - UNASSIGN_PUBLISH
+                  - UNASSIGN_PUBLISH_MASS_COMMS
+                  default: UNASSIGN_DELETE
+                blocked_from_rehire:
+                  type: boolean
+              required:
+              - leave_date
+              - termination_reason_id
+              - forecasted_shift_action
+      responses:
+        '200':
+          description: successful operation
+  /api/v2/employees/{employeeId}/terminate:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Employment
+      summary: Terminat employee API
+      description: Terminat employee
+      operationId: TerminateEmployee
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: terminate related fields
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                termination_reason_id:
+                  type: integer
+                leave_date:
+                  type: string
+                forecasted_shift_action:
+                  type: string
+                  enum:
+                  - UNASSIGN_DELETE
+                  - DELETE
+                  - UNASSIGN_PUBLISH
+                  - UNASSIGN_PUBLISH_MASS_COMMS
+                  default: UNASSIGN_DELETE
+                blocked_from_rehire:
+                  type: boolean
+              required:
+              - leave_date
+              - termination_reason_id
+              - forecasted_shift_action
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/employees/{employeeId}/rehire:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Employment
+      summary: rehire employee API
+      description: rehire employee
+      operationId: DeprecatedRehireEmployee
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: employment info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location_id:
+                  type: string
+                hire_date:
+                  type: string
+                  format: date
+                pay_type:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - SALARIED
+                      - HOURLY
+                      - WEIGHTED_SHIFT
+                    position_code:
+                      type: string
+                    max_weekly_hours:
+                      type: number
+                    cross_location_mode:
+                      type:
+                      - string
+                      - 'null'
+                      enum:
+                      - FIXED
+                      - FLEXIBLE
+                      description: this should be defined only when the pay type    is HOURLY
+                    is_tipped:
+                      type:
+                      - boolean
+                      - 'null'
+                      description: shouble be null if pay type   SALARIED or WEIGHTED_SHIFT
+                    pay_rate:
+                      type: object
+                      properties:
+                        rate:
+                          type: number
+                        tronc:
+                          type: number
+                      required:
+                      - rate
+                  required:
+                  - type
+                  - position_code
+                  - pay_rate
+              required:
+              - hire_date
+              - location_id
+              - pay_type
+      responses:
+        '200':
+          description: successful operation
+  /api/v2/employees/{employeeId}/rehire:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Employment
+      summary: rehire employee API
+      description: rehire employee
+      operationId: DeprecatedRehireEmployeeV2
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: employment info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location_id:
+                  type: string
+                hire_date:
+                  type: string
+                  format: date
+                pay_type:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - SALARIED
+                      - HOURLY
+                      - WEIGHTED_SHIFT
+                    cross_location_mode:
+                      type:
+                      - string
+                      - 'null'
+                      enum:
+                      - FIXED
+                      - FLEXIBLE
+                      description: this should be defined only when the pay type    is HOURLY
+                  required:
+                  - type
+                max_weekly_hours:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                    working_pattern:
+                      type: object
+                      description: 'Defines the employee''s working pattern. The value depends on the enabled options: - If the WORKING_PATTERN service is **disabled**, the value should be omitted or set to `null`. - Option 1: Specific hours with non-specific days → `{"days_count": 1, "working_pattern_days": []}` - Option 2: Specific hours with flexible days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": null}]}` - Option 3: Specific hours with specific days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": 8}]}`
+
+                        '
+                      properties:
+                        days_count:
+                          type:
+                          - number
+                          - 'null'
+                          description: The number of working days per week value enum(1, 2, 3, 4, 5, 6, 7), it can be null but the key is required to be sent
+                        working_pattern_days:
+                          type: array
+                          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+                            '
+                          items:
+                            type: object
+                            properties:
+                              day:
+                                type: string
+                              hours_count:
+                                type:
+                                - number
+                                - 'null'
+                                description: The number of hours per day, it can be null but the key is required to be sent
+                            required:
+                            - day
+                      required:
+                      - days_count
+                  required:
+                  - value
+                position:
+                  type: object
+                  properties:
+                    code:
+                      type: string
+                    tipped_status:
+                      type: object
+                      properties:
+                        is_tipped:
+                          type: boolean
+                      required:
+                      - is_tipped
+                      description: Shouldn't be sent when the pay type is set to SALARIED or WEIGHTED_SHIFT.
+                    hourly_rate:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        tronc_point:
+                          type: number
+                        tronc_rate:
+                          type: number
+                        tronc_amount:
+                          type: number
+                      required:
+                      - value
+                  required:
+                  - code
+                tronc_point:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+                annual_rate:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+                tronc_amount:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+              required:
+              - hire_date
+              - location_id
+              - pay_type
+              - position
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/employees/{employeeId}/hire_date:
+    put:
+      deprecated: true
+      tags:
+      - Deprecated Employment
+      summary: edit employment period hire date API
+      description: edit employment period hire date
+      operationId: DeprecatedEditHireDate
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: hire date info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hire_date:
+                  type: string
+              required:
+              - hire_date
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/employees/{employeeId}/include_in_schedule:
+    put:
+      deprecated: true
+      tags:
+      - Deprecated Employment
+      summary: include in schedule API
+      description: include in schedule
+      operationId: DeprecatedIncludeInSchedule
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include_in_schedule:
+                  type: string
+                  enum:
+                  - REGULAR
+                  - NONE
+              required:
+              - include_in_schedule
+      responses:
+        '200':
+          description: successful operation
+  /api/v4/employees/{employeeId}/rehire:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Employment
+      summary: rehire employee API
+      description: rehire employee
+      operationId: RehireEmployeeV4
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: employment info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location_id:
+                  type: string
+                hire_date:
+                  type: string
+                  format: date
+                pay_type:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - SALARIED
+                      - HOURLY
+                      - WEIGHTED_SHIFT
+                    cross_location_mode:
+                      type:
+                      - string
+                      - 'null'
+                      enum:
+                      - FIXED
+                      - FLEXIBLE
+                      description: this should be defined only when the pay type    is HOURLY
+                  required:
+                  - type
+                max_weekly_hours:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                    working_pattern:
+                      type: object
+                      description: 'Defines the employee''s working pattern. The value depends on the enabled options: - If the WORKING_PATTERN service is **disabled**, the value should be omitted or set to `null`. - Option 1: Specific hours with non-specific days → `{"days_count": 1, "working_pattern_days": []}` - Option 2: Specific hours with flexible days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": null}]}` - Option 3: Specific hours with specific days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": 8}]}`
+
+                        '
+                      properties:
+                        days_count:
+                          type:
+                          - number
+                          - 'null'
+                          description: The number of working days per week value enum(1, 2, 3, 4, 5, 6, 7), it can be null but the key is required to be sent
+                        working_pattern_days:
+                          type: array
+                          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+                            '
+                          items:
+                            type: object
+                            properties:
+                              day:
+                                type: string
+                              hours_count:
+                                type:
+                                - number
+                                - 'null'
+                                description: The number of hours per day, it can be null but the key is required to be sent
+                            required:
+                            - day
+                      required:
+                      - days_count
+                  required:
+                  - value
+                position:
+                  type: object
+                  properties:
+                    code:
+                      type: string
+                    tipped_status:
+                      type: object
+                      properties:
+                        is_tipped:
+                          type: boolean
+                      required:
+                      - is_tipped
+                      description: Shouldn't be sent when the pay type is set to SALARIED or WEIGHTED_SHIFT.
+                    hourly_rate:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        tronc_point:
+                          type: number
+                        tronc_rate:
+                          type: number
+                        tronc_amount:
+                          type: number
+                      required:
+                      - value
+                  required:
+                  - code
+                tronc_point:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+                annual_rate:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+                tronc_amount:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+              required:
+              - hire_date
+              - location_id
+              - pay_type
+              - position
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RehireEmployeeV4Response'
+components:
+  schemas:
+    EmployeeBasicInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '1'
+          description: A unique ID provided by customers or third-parties
+        email:
+          type: string
+          format: email
+          description: employee email
+        first_name:
+          type: string
+          description: employee first name
+        last_name:
+          type: string
+          description: employee last name
+        middle_name:
+          type: string
+          description: employee middle name
+        geid:
+          type: string
+        birth_date:
+          type: string
+          format: date
+          description: employee birth date
+        phone:
+          type: string
+          format: phone
+          description: employee phone number
+        home_phone:
+          type: string
+          format: phone
+          description: home phone number
+        blocked_from_rehire:
+          type: boolean
+        known_as:
+          type: string
+    Position:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    TerminationReason:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+    WorkingPattern:
+      type: object
+      properties:
+        id:
+          type: number
+        days_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
+
+            '
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+        working_pattern_days:
+          type: array
+          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+            '
+          items:
+            $ref: '#/components/schemas/WorkingPatternDays'
+      example:
+        id: 101
+        days_count: null
+        working_pattern_days:
+        - day: MON
+          hours_count: 8
+        - day: WED
+          hours_count: 6
+        - day: FRI
+          hours_count: 4
+    LocationPeriod:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+          description: employee start date on specific location
+        end_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: employee end date on specific location
+        type:
+          type: string
+          enum:
+          - PRIMARY
+          - SECONDARY
+    EmploymentPeriod:
+      type: object
+      properties:
+        id:
+          type: number
+        hire_date:
+          type: string
+          format: date
+          description: employee hire date
+        leave_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: employee leave date
+        termination_reason:
+          type:
+          - object
+          - 'null'
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+    CostCenter:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        value:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    EmployeeJobTitle:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/JobTitle'
+      - type: object
+        properties:
+          level:
+            type: string
+            description: number with quotations like "5"
+    PayType:
+      type: object
+      properties:
+        id:
+          type: number
+        type:
+          type: string
+          enum:
+          - SALARIED
+          - HOURLY
+          - WEIGHTED_SHIFT
+        start_date:
+          type: string
+          format: date
+        cross_location_edit_mode:
+          type:
+          - string
+          - 'null'
+          enum:
+          - FIXED
+          - FLEXIBLE
+          description: This field is nullable and depends on the pay type. It will only be defined if the pay type is set to HOURLY.
+    Address:
+      type: object
+      properties:
+        country_code:
+          type: string
+          example: US
+        state_code:
+          type: string
+          example: NY
+        city:
+          type: string
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        postal_code:
+          type: string
+    RehireEmployeeV4Response:
+      allOf:
+      - $ref: '#/components/schemas/EmployeeBasicInfo'
+      - type: object
+        properties:
+          title:
+            type:
+            - string
+            - 'null'
+          gender:
+            type: string
+            enum:
+            - MALE
+            - FEMALE
+            - NO_IDENTIFY
+            description: employee gender
+          national_number:
+            type: string
+            description: National number
+          financial_unit_location_id:
+            type: integer
+          status:
+            type: string
+            enum:
+            - ACTIVE
+            - TERMINATED
+          address:
+            $ref: '#/components/schemas/Address'
+          employer:
+            type: object
+            properties:
+              email:
+                type: string
+                format: email
+              first_name:
+                type: string
+              last_name:
+                type: string
+          employment_period:
+            $ref: '#/components/schemas/EmploymentPeriod'
+          job_titles:
+            type: array
+            items:
+              $ref: '#/components/schemas/EmployeeJobTitle'
+          vsl:
+            type: string
+            enum:
+            - IN
+            - OUT
+          locations:
+            type: array
+            items:
+              type: object
+              allOf:
+              - $ref: '#/components/schemas/Location'
+              - type: object
+                properties:
+                  is_primary:
+                    type: boolean
+                  is_active:
+                    type: boolean
+                  payroll_id:
+                    type: string
+                  pos_id:
+                    type: string
+                  location_periods:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LocationPeriod'
+          positions:
+            type: array
+            items:
+              allOf:
+              - $ref: '#/components/schemas/Position'
+              - type: object
+                properties:
+                  id:
+                    type: number
+                  location_id:
+                    type: integer
+                  is_primary:
+                    type: boolean
+                  hourly_rates:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        pay_type_id:
+                          type: number
+                        value:
+                          type: number
+                        start_date:
+                          type: string
+                          format: date
+                        tronc_point:
+                          type: number
+                        tronc_amount:
+                          type: number
+                        tronc_rate:
+                          type: number
+                  tipped_statuses:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        pay_type_id:
+                          type: number
+                        is_tipped:
+                          type: boolean
+                        start_date:
+                          type: string
+                          format: date
+                  cost_centers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CostCenter'
+          pay_types:
+            type: array
+            items:
+              $ref: '#/components/schemas/PayType'
+          annual_rates:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                pay_type_id:
+                  type: number
+                value:
+                  type: number
+                start_date:
+                  type: string
+                  format: date
+          tronc_points:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                pay_type_id:
+                  type: number
+                value:
+                  type: number
+                start_date:
+                  type: string
+                  format: date
+          tronc_amounts:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                pay_type_id:
+                  type: number
+                value:
+                  type: number
+                start_date:
+                  type: string
+                  format: date
+          max_weekly_hours:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                pay_type_id:
+                  type: number
+                value:
+                  type: number
+                start_date:
+                  type: string
+                  format: date
+                working_pattern:
+                  allOf:
+                  - $ref: '#/components/schemas/WorkingPattern'
+          bank_account:
+            type: object
+            properties:
+              id:
+                type: number
+              bank_branch:
+                type:
+                - string
+                - 'null'
+              bic:
+                type:
+                - string
+                - 'null'
+              iban:
+                type:
+                - string
+                - 'null'
+              routing_number:
+                type: string
+              account_number:
+                type: string
+              registration_number:
+                type: string
+              account_type:
+                type: string
+                enum:
+                - SAVINGS
+                - CHECKING
+              bank_name:
+                type: string
+              account_name:
+                type: string
+              sort_code:
+                type: string
+    JobTitle:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        skill_needed:
+          type: boolean
+    Location:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        country_code:
+          type: string
+        state_code:
+          type: string
+        city:
+          type: string
+    WorkingPatternDays:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
+
+            '
+        hours_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working hours on this day. Can be `null` if not specified.
+
+            '
+      example:
+        id: 1
+        day: SUN
+        hours_count: 8
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

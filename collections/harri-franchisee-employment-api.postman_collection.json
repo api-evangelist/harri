@@ -1,0 +1,956 @@
+{
+  "item": [
+    {
+      "id": "80720a93-8005-4064-bdf9-2b6cc9d77dbe",
+      "name": "Franchisee Employment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9b97e6e7-eef3-4566-ba65-1068f0fde506",
+          "name": "get buisness termination reasons API",
+          "request": {
+            "name": "get buisness termination reasons API",
+            "description": {
+              "content": "get buisness termination reasons",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "termination_reasons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "edd07e30-38f2-45fb-bba6-15d6f39b89e3",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "termination_reasons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": \"string\",\n    \"name\": \"string\"\n  },\n  {\n    \"code\": \"string\",\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f566649-c103-4478-8e10-03e195fb56a0",
+          "name": "get buisness termination reason groups API",
+          "request": {
+            "name": "get buisness termination reason groups API",
+            "description": {
+              "content": "get buisness termination reason groups for the requested brand",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "termination_reason_groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "group_id",
+                  "value": "<number>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1cbbf4f4-d648-4be8-9167-7ed72249988f",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "termination_reason_groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group_id",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"groups\": [\n    {\n      \"id\": 7066.6399000256,\n      \"name\": \"string\",\n      \"termination_reasons\": [\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 964.7488788575076,\n      \"name\": \"string\",\n      \"termination_reasons\": [\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4253199e-4c6d-4311-888c-9466d96bbc5e",
+          "name": "Terminat employee API",
+          "request": {
+            "name": "Terminat employee API",
+            "description": {
+              "content": "Terminat employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "terminate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"leave_date\": \"<string>\",\n  \"termination_reason_code\": \"<string>\",\n  \"forecasted_shift_action\": \"UNASSIGN_DELETE\",\n  \"blocked_from_rehire\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44bd85ac-3544-4454-b37f-2d5a4c5cdbe7",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "terminate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"leave_date\": \"<string>\",\n  \"termination_reason_code\": \"<string>\",\n  \"forecasted_shift_action\": \"UNASSIGN_DELETE\",\n  \"blocked_from_rehire\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8423d58-a9ce-4c3b-a54c-3f65ad247965",
+          "name": "rehire employee API",
+          "request": {
+            "name": "rehire employee API",
+            "description": {
+              "content": "rehire employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "rehire"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_status\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    }\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6d352e37-d8af-4a3d-b76b-bce0a4049ca4",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "rehire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_status\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    }\n  },\n  \"max_weekly_hours\": {\n    \"value\": \"<number>\",\n    \"working_pattern\": {\n      \"days_count\": \"<number,null>\",\n      \"working_pattern_days\": [\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        },\n        {\n          \"day\": \"<string>\",\n          \"hours_count\": \"<number,null>\"\n        }\n      ]\n    }\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c5ba62e-05d8-4f09-beb3-2c4e28c5b8aa",
+          "name": "edit employment period hire date API",
+          "request": {
+            "name": "edit employment period hire date API",
+            "description": {
+              "content": "edit employment period hire date",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "hire_date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hire_date\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1cdb0ed3-6ba4-44c5-b73c-60cd3e2b8bfa",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "hire_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hire_date\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72c2974e-09d2-46e0-8612-fa77359f15d3",
+          "name": "undo termination API",
+          "request": {
+            "name": "undo termination API",
+            "description": {
+              "content": "undo termination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "undo_termination"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5af1eeb-6469-46e3-8b99-131dc2bd342b",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "undo_termination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "772bed07-7fba-4c94-8221-48dabbd193bc",
+          "name": "include in schedule API",
+          "request": {
+            "name": "include in schedule API",
+            "description": {
+              "content": "include in schedule",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "include_in_schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"include_in_schedule\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f15cfb75-1822-4dfe-8af7-8b580b1e3a9a",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "include_in_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"include_in_schedule\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f9f6581-b96d-436e-bc20-b48d3f5f4e21",
+          "name": "rehire employee API",
+          "request": {
+            "name": "rehire employee API",
+            "description": {
+              "content": "rehire employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v5",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "rehire"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_statuses\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    }\n  },\n  \"max_weekly_hours\": {\n    \"working_patterns\": [\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      },\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "060dacca-2f40-4e70-8860-72159df553a9",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v5",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "rehire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_statuses\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    }\n  },\n  \"max_weekly_hours\": {\n    \"working_patterns\": [\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      },\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"annual_rate\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1\",\n  \"email\": \"R6-P4h4Ii8mn8G@cWkmVUwtkezlWsxZgqBmne.pgia\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"middle_name\": \"string\",\n  \"geid\": \"string\",\n  \"birth_date\": \"2016-06-20\",\n  \"phone\": \"string\",\n  \"home_phone\": \"string\",\n  \"blocked_from_rehire\": false,\n  \"known_as\": \"string\",\n  \"title\": \"string\",\n  \"gender\": \"FEMALE\",\n  \"national_number\": \"string\",\n  \"financial_unit_location_id\": 6477,\n  \"status\": \"TERMINATED\",\n  \"address\": {\n    \"country_code\": \"US\",\n    \"state_code\": \"NY\",\n    \"city\": \"string\",\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"postal_code\": \"string\"\n  },\n  \"employer\": {\n    \"email\": \"c2PxKpDa1S4@zfZ.ezxh\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"employment_period\": {\n    \"id\": 9616.11190939844,\n    \"hire_date\": \"2012-12-29\",\n    \"leave_date\": null,\n    \"termination_reason\": {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  },\n  \"job_titles\": [\n    {\n      \"id\": 7392.074028152493,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": true,\n      \"level\": \"string\"\n    },\n    {\n      \"id\": 4415.25144915298,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": false,\n      \"level\": \"string\"\n    }\n  ],\n  \"vsl\": \"OUT\",\n  \"locations\": [\n    {\n      \"id\": 1288.6643988801761,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": true,\n      \"is_active\": false,\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\",\n      \"location_periods\": [\n        {\n          \"id\": 1436.1349885778852,\n          \"start_date\": \"1953-06-27\",\n          \"end_date\": null,\n          \"type\": \"SECONDARY\"\n        },\n        {\n          \"id\": 130.72235899343366,\n          \"start_date\": \"1984-11-28\",\n          \"end_date\": null,\n          \"type\": \"SECONDARY\"\n        }\n      ]\n    },\n    {\n      \"id\": 633.1615177848826,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": false,\n      \"is_active\": true,\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\",\n      \"location_periods\": [\n        {\n          \"id\": 2422.866097453806,\n          \"start_date\": \"2000-01-16\",\n          \"end_date\": null,\n          \"type\": \"PRIMARY\"\n        },\n        {\n          \"id\": 2299.380216154712,\n          \"start_date\": \"1998-06-19\",\n          \"end_date\": null,\n          \"type\": \"PRIMARY\"\n        }\n      ]\n    }\n  ],\n  \"positions\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 731.8917064449437,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 7086.907471478424,\n      \"location_id\": 8621,\n      \"is_primary\": false,\n      \"hourly_rates\": [\n        {\n          \"id\": 7586.327632442312,\n          \"pay_type_id\": 6197.880542025228,\n          \"value\": 642.437105828606,\n          \"start_date\": \"1966-05-22\",\n          \"tronc_point\": 8589.11053260123,\n          \"tronc_amount\": 380.3379268186558,\n          \"tronc_rate\": 631.9007189130376\n        },\n        {\n          \"id\": 4624.20330281667,\n          \"pay_type_id\": 8027.5352456956425,\n          \"value\": 831.0003783091902,\n          \"start_date\": \"1973-06-14\",\n          \"tronc_point\": 4608.874544479609,\n          \"tronc_amount\": 3326.514390433264,\n          \"tronc_rate\": 1184.8741273175233\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 9001.797040428319,\n          \"pay_type_id\": 6076.632949260062,\n          \"is_tipped\": false,\n          \"start_date\": \"1961-04-18\"\n        },\n        {\n          \"id\": 2531.0344641433558,\n          \"pay_type_id\": 5440.551525314597,\n          \"is_tipped\": true,\n          \"start_date\": \"1983-11-17\"\n        }\n      ],\n      \"cost_centers\": [\n        {\n          \"id\": 2341.833407017362,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 6370.334799425864,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 4324.172432856295,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 825.2328114517182,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 5785.204732904529,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 6499.579366339355,\n      \"location_id\": 8415,\n      \"is_primary\": false,\n      \"hourly_rates\": [\n        {\n          \"id\": 9207.302013987328,\n          \"pay_type_id\": 8802.82502899729,\n          \"value\": 8660.971254610116,\n          \"start_date\": \"2015-01-30\",\n          \"tronc_point\": 7642.222554889824,\n          \"tronc_amount\": 72.55260189562907,\n          \"tronc_rate\": 8017.406462802327\n        },\n        {\n          \"id\": 4175.83210188966,\n          \"pay_type_id\": 7148.591123590116,\n          \"value\": 1082.6603705355665,\n          \"start_date\": \"1951-05-15\",\n          \"tronc_point\": 7654.729963411654,\n          \"tronc_amount\": 6308.253480131215,\n          \"tronc_rate\": 6510.281615914368\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 440.2644251984722,\n          \"pay_type_id\": 9485.470775895043,\n          \"is_tipped\": true,\n          \"start_date\": \"1958-12-08\"\n        },\n        {\n          \"id\": 3135.330602785461,\n          \"pay_type_id\": 2082.7596498254943,\n          \"is_tipped\": false,\n          \"start_date\": \"1972-01-31\"\n        }\n      ],\n      \"cost_centers\": [\n        {\n          \"id\": 2578.3978820992425,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 8239.730523055516,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 1860.725053577984,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 1785.0589485839107,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"pay_types\": [\n    {\n      \"id\": 69.30944837254982,\n      \"type\": \"WEIGHTED_SHIFT\",\n      \"start_date\": \"1977-12-26\",\n      \"cross_location_edit_mode\": \"FLEXIBLE\"\n    },\n    {\n      \"id\": 6208.101127000126,\n      \"type\": \"SALARIED\",\n      \"start_date\": \"1954-11-09\",\n      \"cross_location_edit_mode\": \"FLEXIBLE\"\n    }\n  ],\n  \"annual_rates\": [\n    {\n      \"id\": 9905.108062512989,\n      \"pay_type_id\": 8604.405306695031,\n      \"value\": 3320.9023405791404,\n      \"start_date\": \"1974-06-04\"\n    },\n    {\n      \"id\": 6396.5506647584425,\n      \"pay_type_id\": 2002.7441140745673,\n      \"value\": 8931.229471000452,\n      \"start_date\": \"1985-04-18\"\n    }\n  ],\n  \"tronc_points\": [\n    {\n      \"id\": 1052.2408096597712,\n      \"pay_type_id\": 1422.5340966736533,\n      \"value\": 244.81280793924532,\n      \"start_date\": \"1997-05-22\"\n    },\n    {\n      \"id\": 9086.991604465866,\n      \"pay_type_id\": 5031.642218714459,\n      \"value\": 9598.925300593342,\n      \"start_date\": \"2018-06-11\"\n    }\n  ],\n  \"tronc_amounts\": [\n    {\n      \"id\": 7817.461700172396,\n      \"pay_type_id\": 3939.8445853433595,\n      \"value\": 3759.0837753576134,\n      \"start_date\": \"1959-08-20\"\n    },\n    {\n      \"id\": 8558.18835137327,\n      \"pay_type_id\": 2109.5826318365353,\n      \"value\": 470.091651791128,\n      \"start_date\": \"1981-01-11\"\n    }\n  ],\n  \"max_weekly_hours\": [\n    {\n      \"id\": 5097.380553748422,\n      \"start_date\": \"2020-11-25\",\n      \"average_weekly_hours\": 9830.912102923454,\n      \"working_patterns\": [\n        {\n          \"id\": 5290.295711916282,\n          \"days_count\": 2,\n          \"total_hours\": 2210.728486578455,\n          \"order\": 6084,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"id\": 1899.5430099901412,\n          \"days_count\": 7,\n          \"total_hours\": 5707.781830179794,\n          \"order\": 153,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": 2480.2044097068165,\n      \"start_date\": \"2019-03-28\",\n      \"average_weekly_hours\": 4473.433840522378,\n      \"working_patterns\": [\n        {\n          \"id\": 2958.205132816427,\n          \"days_count\": 6,\n          \"total_hours\": 3752.180698886871,\n          \"order\": 9217,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"id\": 3090.519431686495,\n          \"days_count\": 6,\n          \"total_hours\": 1282.7270939611258,\n          \"order\": 195,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"bank_account\": {\n    \"id\": 8671.858969800709,\n    \"bank_branch\": \"string\",\n    \"bic\": \"string\",\n    \"iban\": null,\n    \"routing_number\": \"string\",\n    \"account_number\": \"string\",\n    \"registration_number\": \"string\",\n    \"account_type\": \"SAVINGS\",\n    \"bank_name\": \"string\",\n    \"account_name\": \"string\",\n    \"sort_code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "19613ca2-1889-4582-91d9-626e889b8771",
+    "name": "Harri Employee Open Franchisee Employment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

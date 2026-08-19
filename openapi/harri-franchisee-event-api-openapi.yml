@@ -1,0 +1,232 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Franchisee Event API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Franchisee Event
+paths:
+  /api/v1/franchisees/{franchiseeId}/events/{eventId}:
+    get:
+      tags:
+      - Franchisee Event
+      summary: retrieve events API
+      description: retrieve events
+      operationId: FranchiseesGetEventById
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+  /api/v2/franchisees/{franchiseeId}/events:
+    get:
+      operationId: franchisees_v2_events_list
+      description: Retrieve a list of events based on query parameters.
+      summary: This is base class for all views API
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - in: query
+        name: event_code
+        schema:
+          type: string
+        description: Event code
+      - in: query
+        name: location_id
+        schema:
+          type: string
+        description: location id
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: 10
+        description: Number of items per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+          default: 1
+        description: Page number
+      - in: query
+        name: published_gte
+        schema:
+          type: string
+          format: date-time
+        description: Published date greater than or equal to
+      - in: query
+        name: published_lte
+        schema:
+          type: string
+          format: date-time
+        description: Published date less than or equal to
+      - in: query
+        name: status
+        schema:
+          type: string
+        description: Status of the event
+      tags:
+      - Franchisee Event
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Event'
+                  pagination:
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                      per_page:
+                        type: integer
+                      total:
+                        type: integer
+                      total_pages:
+                        type: integer
+  /api/v1/franchisees/{franchiseeId}/events:
+    get:
+      tags:
+      - Franchisee Event
+      summary: List franchisee events
+      description: Retrieve a list of events for a franchisee based on query parameters.
+      operationId: ListFranchiseeEvents
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        description: Franchisee ID
+        schema:
+          type: number
+      - name: status
+        in: query
+        required: false
+        description: Status of the event
+        schema:
+          type: string
+          enum:
+          - SUCCESS
+          - FAILED
+          - IN_PROGRESS
+      - name: event_code
+        in: query
+        required: false
+        description: Event code
+        schema:
+          type: string
+      - name: published_gte
+        in: query
+        required: false
+        description: Published date greater than or equal to (ISO 8601 datetime)
+        schema:
+          type: string
+          format: date-time
+      - name: published_lte
+        in: query
+        required: false
+        description: Published date less than or equal to (ISO 8601 datetime)
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        client_id:
+                          type: integer
+                        event_code:
+                          type: string
+                        webhook:
+                          type: string
+                        status:
+                          type: string
+                        publish_time:
+                          type: string
+                          format: date-time
+                        payload:
+                          type: object
+                        location_id:
+                          type: integer
+components:
+  schemas:
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+          description: event uniqe id
+        event_code:
+          type: string
+          example: EMPLOYEE.HIRED
+        webhook:
+          type: string
+          format: url
+        status:
+          type: string
+          enum:
+          - IN_PROGRESS
+          - SUCCESS
+          - FAILED
+        publish_time:
+          type: string
+          format: datetime
+        location_id:
+          type: string
+        payload:
+          type: object
+          properties:
+            type:
+              type: string
+              example: EMPLOYEE.HIRED
+            location_id:
+              type: string
+            employee_id:
+              type: string
+            created_at:
+              type: string
+              example: '2024-10-20 12:54:20.277755'
+            event_id:
+              type: string
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

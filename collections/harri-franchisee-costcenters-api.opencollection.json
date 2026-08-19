@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Franchisee CostCenters API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee CostCenters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Cost Centers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/locations/:location_id/cost_centers",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the location."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of cost centers for a specific location under a franchisee."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

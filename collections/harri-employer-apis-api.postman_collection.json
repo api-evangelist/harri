@@ -1,0 +1,1072 @@
+{
+  "item": [
+    {
+      "id": "03d963e9-d7ca-4c14-a05c-d4d26cf7d534",
+      "name": "Employer APIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a4bd7276-35fd-456a-b82d-4b6f655b739f",
+          "name": "Create user",
+          "request": {
+            "name": "Create user",
+            "description": {
+              "content": "Create a brand(s) admin user with specified role(s)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "employers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"external_id\": \"<string>\",\n  \"brands\": [\n    {\n      \"external_id\": \"<string>\",\n      \"role\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "692e0154-b102-408b-88b0-3af1c8796448",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"code\": \"INVALID_ROLE\",\n      \"details\": \"Missed external groups: abc, def\"\n    },\n    {\n      \"code\": \"INVALID_BRAND_EXTERNAL_ID\",\n      \"details\": \"Brand external id not found: abc\"\n    },\n    {\n      \"code\": \"INTERNAL_ERROR\",\n      \"details\": \"Internal error occurred while adding roles to the user after creation\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ed25f71-0ffc-4e2c-a6ae-4742ca2bb7ed",
+              "name": "Problem with the request body or related user/brands/roles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"MISSING_DATA\",\n      \"details\": \"Missing data: first_name, email\",\n      \"status\": 400\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9ed7838-ae8c-43cd-9b78-dddc83b0d247",
+              "name": "Unauthorized due to missing permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    },\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74eaee0c-0e38-4a32-9e26-96aa244d2e9b",
+          "name": "Retrieve users",
+          "request": {
+            "name": "Retrieve users",
+            "description": {
+              "content": "Retrieve users associated with a business ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "employers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69f4de20-761e-4441-a33a-ca9d184a123d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"users\": [\n    {\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"email\": \"string\",\n      \"external_id\": \"string\",\n      \"brands\": [\n        {\n          \"external_id\": \"string\",\n          \"role\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef1e2b99-8cf7-43e2-b506-2781246d56f3",
+              "name": "Problem with the related user/brands",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"USER_ALREADY_ADDED\",\n      \"details\": \"User already added\"\n    },\n    {\n      \"code\": \"USER_ALREADY_ADDED\",\n      \"details\": \"User already added\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c9cfa7c-2eae-44f2-b3fe-e4f216940aef",
+              "name": "Unauthorized due to missing permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    },\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09f714c7-3e3a-46e8-a526-8392cb0e0583",
+          "name": "Update user",
+          "request": {
+            "name": "Update user",
+            "description": {
+              "content": "Update a brand(s) admin user with the specified role(s).\nThis will overrwrite any existing accesses, brands and roles the user has.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "employers",
+                ":user_external_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_external_id",
+                  "description": "(Required) user external ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brands\": [\n    {\n      \"external_id\": \"<string>\",\n      \"role\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "76ef68d9-2fd1-4fe5-a87a-ea638772d696",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"code\": \"INVALID_ROLE\",\n      \"details\": \"Missed external groups: abc, def\"\n    },\n    {\n      \"code\": \"INVALID_BRAND_EXTERNAL_ID\",\n      \"details\": \"Brand external id not found: abc\"\n    },\n    {\n      \"code\": \"INTERNAL_ERROR\",\n      \"details\": \"Internal error occurred while adding roles to the user after creation\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff5e6712-a872-4d4c-bb4a-ba59abd2676a",
+              "name": "Problem with the request body or related user/brands/roles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"MISSING_DATA\",\n      \"details\": \"Missing data: first_name, email\",\n      \"status\": 400\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26d3b401-9add-41de-815d-d26e19759906",
+              "name": "Unauthorized due to missing permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    },\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34a5b6d3-883e-4771-9c68-b59d55d8444d",
+          "name": "Delete user",
+          "request": {
+            "name": "Delete user",
+            "description": {
+              "content": "Delete user and related accesses & roles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "employers",
+                ":user_external_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_external_id",
+                  "description": "(Required) user external ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b7da755-d41b-47aa-b01e-1460bfad1dbd",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b968f67-0e6f-4da7-b5a1-ef55c1361c8a",
+              "name": "Problem with the request body or related user/brands/roles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"USER_ALREADY_ADDED\",\n      \"details\": \"User already added\"\n    },\n    {\n      \"code\": \"USER_ALREADY_ADDED\",\n      \"details\": \"User already added\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3801054c-6797-4bf5-ad1c-456a8750d801",
+              "name": "Unauthorized due to missing permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    },\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6eb1e5a1-7726-46f3-b7bc-8551a8abf034",
+          "name": "Retrieve user",
+          "request": {
+            "name": "Retrieve user",
+            "description": {
+              "content": "Retrieve user based on user external ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "employers",
+                ":user_external_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_external_id",
+                  "description": "(Required) user external ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a2787a39-545e-47da-b6b9-bb03e39d9a1d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"email\": \"string\",\n  \"external_id\": \"string\",\n  \"brands\": [\n    {\n      \"external_id\": \"string\",\n      \"role\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77a1745e-e1f1-4084-8b92-7d0a605f80a6",
+              "name": "Problem with the related user/brands",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"USER_ALREADY_ADDED\",\n      \"details\": \"User already added\"\n    },\n    {\n      \"code\": \"USER_ALREADY_ADDED\",\n      \"details\": \"User already added\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96577a47-b7ab-4eda-bbe5-b183c6e83cb9",
+              "name": "Unauthorized due to missing permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    },\n    {\n      \"status\": 403,\n      \"code\": \"NOT_AUTHORIZED_EXCEPTION\",\n      \"details\": \"You are not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dad7245-a331-4578-8bbf-870c4ea3b3ca",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "employers",
+                    ":user_external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_external_id",
+                      "description": "(Required) user external ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"User not found\",\n  \"details\": \"User not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.harristaging.com/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "74622bed-0e7b-4abd-9212-f5f2eb7f2086",
+    "name": "Harri - External Brand Management Employer APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Harri Employer Endpoint to create and manage Harri Above Store Admin Users. \n Note: if you receive a 422 error about a corporate ID not being associated or found, you will need to contact Harri Support to have that ID associated with your API credentials.\n\nContact Support:\n Email: support@harri.com",
+      "type": "text/plain"
+    }
+  }
+}

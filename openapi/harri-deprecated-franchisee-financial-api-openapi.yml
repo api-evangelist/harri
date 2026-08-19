@@ -1,0 +1,346 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Deprecated Franchisee Financial API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Deprecated Franchisee Financial
+paths:
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_type:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee Financial
+      summary: define new pay type API
+      description: 'use this api when u want to update the whole paytype information
+
+        using this api is like starting new employment period
+
+        you have to provide all financial info again including employee positions
+
+        '
+      operationId: DeprecatedFranshiseesCreateEmployeePayTypeV1
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: employee pay type info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pay_type:
+                  type: string
+                  enum:
+                  - SALARIED
+                  - HOURLY
+                  - WEIGHTED_SHIFT
+                annual_pay_type:
+                  type: object
+                  properties:
+                    pay_rate:
+                      type: object
+                      properties:
+                        rate:
+                          type: number
+                        tronc:
+                          type: number
+                      required:
+                      - rate
+                    max_weekly_hours:
+                      type: number
+                  description: this should be defined only when the pay type is SALARIED or WEIGHTED_SHIFT
+                  required:
+                  - pay_rate
+                hourly_pay_type:
+                  type: object
+                  properties:
+                    cross_location_mode:
+                      type:
+                      - string
+                      - 'null'
+                      enum:
+                      - FIXED
+                      - FLEXIBLE
+                    positions:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                          pay_rate:
+                            type: object
+                            properties:
+                              rate:
+                                type: number
+                              tronc:
+                                type: number
+                            required:
+                            - rate
+                          is_tipped:
+                            type: boolean
+                        required:
+                        - code
+                        - pay_rate
+                    max_weekly_hours:
+                      type: number
+                  description: this should be defined only when the pay type is HOURLY
+                  required:
+                  - positions
+              required:
+              - pay_type
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeprecatedPayType'
+  /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_type:
+    get:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee Financial
+      summary: retrieve pay type info API
+      description: retrieve pay type info
+      operationId: DeprecatedGetEmployeePayTypeFranchisee
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeprecatedPayTypeV2'
+    put:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee Financial
+      summary: update pay type basic info API
+      description: 'update pay type info
+
+        use this api to updatee annual pay rate or max weekly hours
+
+        you cant use this API to update type (salaried to hourly or fixed to flexible)
+
+        '
+      operationId: DeprecatedUpdateEmployeePayTypeV2Franchisee
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: employee pay type info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                annual_pay_rate:
+                  type: object
+                  properties:
+                    rate:
+                      type: number
+                    start_date:
+                      type: string
+                      format: date
+                    tronc:
+                      type: number
+                      description: this should be defined only when the pay type is SALARIED or WEIGHTED_SHIFT
+                  required:
+                  - rate
+                max_weekly_hours:
+                  type: number
+      responses:
+        '200':
+          description: successful operation
+  /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/positions/{positionCode}:
+    put:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee Financial
+      summary: update fixed employee position financial info
+      description: 'update employee position financial info.
+
+        this API should be used only to update pay rates for hourly fixed employees
+
+        '
+      operationId: DeprecatedUpdateEmployeePositionFranchisee
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pay_rate:
+                  type: object
+                  properties:
+                    rate:
+                      type: number
+                    start_date:
+                      type: string
+                      format: date
+                    tronc:
+                      type: number
+                  required:
+                  - rate
+                is_tipped:
+                  type: boolean
+                cost_centers:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                      value:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                        required:
+                        - id
+                    required:
+                    - id
+              required:
+              - pay_rate
+      responses:
+        '200':
+          description: successful operation
+components:
+  schemas:
+    DeprecatedAnnualPayRate:
+      type: object
+      properties:
+        id:
+          type: number
+        rate:
+          type: number
+        tronc:
+          type: number
+    DeprecatedPayType:
+      type: object
+      properties:
+        id:
+          type: number
+        employee_id:
+          type:
+          - number
+          - 'null'
+        type:
+          type: string
+          enum:
+          - SALARIED
+          - HOURLY
+          - WEIGHTED_SHIFT
+        cross_location_mode:
+          type:
+          - string
+          - 'null'
+          enum:
+          - FIXED
+          - FLEXIBLE
+          description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY
+        annual_pay_rate:
+          $ref: '#/components/schemas/DeprecatedAnnualPayRate'
+        max_weekly_hours:
+          type: number
+    DeprecatedPayTypeV2:
+      type: object
+      properties:
+        id:
+          type: number
+        employee_id:
+          type:
+          - number
+          - 'null'
+        type:
+          type: string
+          enum:
+          - SALARIED
+          - HOURLY
+          - WEIGHTED_SHIFT
+        cross_location_mode:
+          type:
+          - string
+          - 'null'
+          enum:
+          - FIXED
+          - FLEXIBLE
+          description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY
+        annual_pay_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeprecatedAnnualPayRateV2'
+        tronc:
+          type: number
+        max_weekly_hours:
+          type: number
+    DeprecatedAnnualPayRateV2:
+      type: object
+      properties:
+        id:
+          type: number
+        rate:
+          type: number
+        start_date:
+          type: string
+          format: date
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

@@ -1,0 +1,225 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Deprecated Franchisee EmployeeLocation API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Deprecated Franchisee EmployeeLocation
+paths:
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeeLocation
+      summary: Attach existing employee to a new location API
+      description: Attach existing employee to a new location
+      operationId: DeprecatedFranshiseesAttachEmployeeToLocation
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: ID of employee to return
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: new location info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_primary:
+                  type: boolean
+                  description: assign the new location as a primary location, thats mean the old primary one will be secondary, or just detach it, based on keep_source_location field.
+                keep_source_location:
+                  type: boolean
+                  default: true
+                  description: this will be discarded if is_primary=false
+                start_date:
+                  type: string
+                  format: date
+                  default: location current date
+                  example: '2025-04-04'
+                  description: start date of new location
+      responses:
+        '200':
+          description: successful operation
+    delete:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeeLocation
+      summary: detach employee from location API
+      description: detach employee from location
+      operationId: DeprecatedFranshiseesDetachEmployeeToLocation
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: ID of employee to return
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/info:
+    put:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeeLocation
+      summary: Edit employee payroll id , POS id API
+      description: Edit employee payroll id , POS id
+      operationId: DeprecatedFranshiseesEditEmployeeLocationInfo
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: ID of employee to return
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: location info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pos_id:
+                  type: string
+                payroll_id:
+                  type: string
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/location_periods:
+    put:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeeLocation
+      summary: Update Location period start date and end_date API
+      description: Set and edit the start and end dates for the location period.
+      operationId: DeprecatedFranshiseesUpdateEmployeeLocationPeriod
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Employee location period
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location_period:
+                  type: object
+                  properties:
+                    start_date:
+                      type: string
+                      format: date
+                    end_date:
+                      type: string
+                      format: date
+                    forecasted_shift_action:
+                      type: string
+              required:
+              - location_period
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/locations/{locationId}/unshare:
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee EmployeeLocation
+      summary: Deprecated - Set share end_date API
+      description: Deprecated - Set share end_date
+      operationId: DeprecatedFranshiseesSetShareEndDateV1
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: ID of employee to return
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: location info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                end_date:
+                  type: string
+              required:
+              - Franchisee end_date
+      responses:
+        '200':
+          description: successful operation
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

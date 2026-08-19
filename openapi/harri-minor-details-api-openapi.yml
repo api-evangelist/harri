@@ -1,0 +1,89 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Minor Details API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Minor Details
+paths:
+  /api/v1/locations/{location_id}/school_templates:
+    get:
+      summary: List School Calendar Templates
+      description: Retrieves a list of active school calendar templates for a specific location.
+      operationId: GetLocationSchoolTemplates
+      parameters:
+      - in: path
+        name: location_id
+        required: true
+        description: Unique identifier for the location.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of school calendar templates.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  school_templates:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: The school template ID.
+                          example: 437
+                        title:
+                          type: string
+                          description: The name of the school calendar template.
+                          example: AZ Out of School
+      tags:
+      - Minor Details
+  /api/v1/locations/{location_id}/minor_types:
+    get:
+      summary: List Minor Types
+      description: Retrieves a list of active minor types for a specific location.
+      operationId: GetLocationMinorTypes
+      parameters:
+      - in: path
+        name: location_id
+        required: true
+        description: Unique identifier for the location.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of minor types.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  minor_types:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: The minor type ID.
+                          example: '1'
+                        name:
+                          type: string
+                          description: The name of the minor type.
+                          example: Traditional
+      tags:
+      - Minor Details
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

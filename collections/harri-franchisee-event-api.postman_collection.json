@@ -1,0 +1,444 @@
+{
+  "item": [
+    {
+      "id": "69a7832f-b70b-4222-8e27-3fca317fe0c6",
+      "name": "Franchisee Event",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1188d64b-8f18-41fd-b86e-00314ab4856b",
+          "name": "retrieve events API",
+          "request": {
+            "name": "retrieve events API",
+            "description": {
+              "content": "retrieve events",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "events",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b857a0db-8926-405f-b619-e30fb0a1b8bc",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "events",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"event_code\": \"EMPLOYEE.HIRED\",\n  \"webhook\": \"string\",\n  \"status\": \"IN_PROGRESS\",\n  \"publish_time\": \"string\",\n  \"location_id\": \"string\",\n  \"payload\": {\n    \"type\": \"EMPLOYEE.HIRED\",\n    \"location_id\": \"string\",\n    \"employee_id\": \"string\",\n    \"created_at\": \"2024-10-20 12:54:20.277755\",\n    \"event_id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e34fed1-9498-443b-94a0-baf7e0748483",
+          "name": "This is base class for all views API",
+          "request": {
+            "name": "This is base class for all views API",
+            "description": {
+              "content": "Retrieve a list of events based on query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "event_code",
+                  "value": "<string>",
+                  "description": "Event code"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "location id"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "published_gte",
+                  "value": "<dateTime>",
+                  "description": "Published date greater than or equal to"
+                },
+                {
+                  "disabled": false,
+                  "key": "published_lte",
+                  "value": "<dateTime>",
+                  "description": "Published date less than or equal to"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Status of the event"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e086476a-eef1-483b-92e6-33e486e05285",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "published_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "published_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"events\": [\n    {\n      \"id\": \"string\",\n      \"event_code\": \"EMPLOYEE.HIRED\",\n      \"webhook\": \"string\",\n      \"status\": \"SUCCESS\",\n      \"publish_time\": \"string\",\n      \"location_id\": \"string\",\n      \"payload\": {\n        \"type\": \"EMPLOYEE.HIRED\",\n        \"location_id\": \"string\",\n        \"employee_id\": \"string\",\n        \"created_at\": \"2024-10-20 12:54:20.277755\",\n        \"event_id\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"event_code\": \"EMPLOYEE.HIRED\",\n      \"webhook\": \"string\",\n      \"status\": \"FAILED\",\n      \"publish_time\": \"string\",\n      \"location_id\": \"string\",\n      \"payload\": {\n        \"type\": \"EMPLOYEE.HIRED\",\n        \"location_id\": \"string\",\n        \"employee_id\": \"string\",\n        \"created_at\": \"2024-10-20 12:54:20.277755\",\n        \"event_id\": \"string\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"page\": 6949,\n    \"per_page\": 6985,\n    \"total\": 3129,\n    \"total_pages\": 631\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5642985-a99d-430f-86e2-55bf22e186f9",
+          "name": "List franchisee events",
+          "request": {
+            "name": "List franchisee events",
+            "description": {
+              "content": "Retrieve a list of events for a franchisee based on query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Status of the event"
+                },
+                {
+                  "disabled": false,
+                  "key": "event_code",
+                  "value": "<string>",
+                  "description": "Event code"
+                },
+                {
+                  "disabled": false,
+                  "key": "published_gte",
+                  "value": "<dateTime>",
+                  "description": "Published date greater than or equal to (ISO 8601 datetime)"
+                },
+                {
+                  "disabled": false,
+                  "key": "published_lte",
+                  "value": "<dateTime>",
+                  "description": "Published date less than or equal to (ISO 8601 datetime)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) Franchisee ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43f5476c-1a74-4bc0-a584-945c22a8b1cc",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "event_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "published_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "published_lte",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) Franchisee ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 4102,\n      \"client_id\": 7329,\n      \"event_code\": \"string\",\n      \"webhook\": \"string\",\n      \"status\": \"string\",\n      \"publish_time\": \"1947-09-23T16:56:13.124Z\",\n      \"payload\": {},\n      \"location_id\": 5327\n    },\n    {\n      \"id\": 1373,\n      \"client_id\": 9744,\n      \"event_code\": \"string\",\n      \"webhook\": \"string\",\n      \"status\": \"string\",\n      \"publish_time\": \"2021-11-30T19:02:01.171Z\",\n      \"payload\": {},\n      \"location_id\": 2429\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d1660acb-cf84-4122-984c-644d4fb8b761",
+    "name": "Harri Employee Open Franchisee Event API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

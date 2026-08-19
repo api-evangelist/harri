@@ -1,0 +1,848 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Max Weekly Hours API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: MaxWeeklyHours
+paths:
+  /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours:
+    get:
+      tags:
+      - MaxWeeklyHours
+      summary: Retrieve employee Max Weekly Hours API
+      description: Retrieve employee Max Weekly Hours
+      operationId: GetEmployeeLocationMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, can be both primary and secondry
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  max_weekly_hours:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MaxWeeklyHours'
+    post:
+      tags:
+      - MaxWeeklyHours
+      summary: Define new employee Max Weekly Hours API
+      description: 'use this api when u want to define new employee Max Weekly Hours
+
+        '
+      operationId: CreateEmployeeLocationMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Employee Max Weekly Hours
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                max_weekly_hours:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                    start_date:
+                      type: string
+                      format: date
+                    working_pattern:
+                      type: object
+                      description: 'Defines the employee''s working pattern. The value depends on the enabled options: - If the WORKING_PATTERN service is **disabled**, the value should be omitted or set to `null`. - Option 1: Specific hours with non-specific days → `{"days_count": 1, "working_pattern_days": []}` - Option 2: Specific hours with flexible days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": null}]}` - Option 3: Specific hours with specific days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": 8}]}`
+
+                        '
+                      properties:
+                        days_count:
+                          type:
+                          - number
+                          - 'null'
+                          description: The number of working days per week value enum(1, 2, 3, 4, 5, 6, 7), it can be null but the key is required to be sent
+                        working_pattern_days:
+                          type: array
+                          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+                            '
+                          items:
+                            type: object
+                            properties:
+                              day:
+                                type: string
+                              hours_count:
+                                type:
+                                - number
+                                - 'null'
+                                description: The number of hours per day, it can be null but the key is required to be sent
+                            required:
+                            - day
+                      required:
+                      - days_count
+                  required:
+                  - value
+                  - start_date
+              required:
+              - max_weekly_hours
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  max_weekly_hours:
+                    $ref: '#/components/schemas/MaxWeeklyHours'
+  /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours/{maxWeeklyHoursId}:
+    put:
+      tags:
+      - MaxWeeklyHours
+      summary: Update Max Weekly Hours API
+      description: Update Max Weekly Hours
+      operationId: UpdateEmployeeLocationMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id
+        required: true
+        schema:
+          type: string
+      - name: maxWeeklyHoursId
+        in: path
+        description: Max Weekly Hours id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Employee Max Weekly Hours
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: number
+                start_date:
+                  type: string
+                  format: date
+                working_pattern:
+                  type: object
+                  description: 'Defines the employee''s working pattern. The value depends on the enabled options: - If the WORKING_PATTERN service is **disabled**, the value should be omitted or set to `null`. - Option 1: Specific hours with non-specific days → `{"days_count": 1, "working_pattern_days": []}` - Option 2: Specific hours with flexible days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": null}]}` - Option 3: Specific hours with specific days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": 8}]}`
+
+                    '
+                  properties:
+                    days_count:
+                      type:
+                      - number
+                      - 'null'
+                      description: The number of working days per week value enum(1, 2, 3, 4, 5, 6, 7), it can be null but the key is required to be sent
+                    working_pattern_days:
+                      type: array
+                      description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+                        '
+                      items:
+                        type: object
+                        properties:
+                          day:
+                            type: string
+                          hours_count:
+                            type:
+                            - number
+                            - 'null'
+                            description: The number of hours per day, it can be null but the key is required to be sent
+                        required:
+                        - day
+                  required:
+                  - days_count
+      responses:
+        '200':
+          description: successful operation
+    delete:
+      tags:
+      - MaxWeeklyHours
+      summary: Delete Max Weekly Hours API
+      description: Delete Max Weekly Hours
+      operationId: DeleteEmployeeLocationMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id
+        required: true
+        schema:
+          type: string
+      - name: maxWeeklyHoursId
+        in: path
+        description: Max Weekly Hours id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours:
+    get:
+      tags:
+      - MaxWeeklyHours
+      summary: Retrieve employee Max Weekly Hours API
+      description: Retrieve employee Max Weekly Hours
+      operationId: GetEmployeeMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  max_weekly_hours:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MaxWeeklyHours'
+    post:
+      tags:
+      - MaxWeeklyHours
+      summary: Define new employee Max Weekly Hours API
+      description: 'use this api when u want to define new employee Max Weekly Hours
+
+        '
+      operationId: CreateEmployeeMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Employee Max Weekly Hours
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                max_weekly_hours:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                    start_date:
+                      type: string
+                      format: date
+                    working_pattern:
+                      type: object
+                      description: 'Defines the employee''s working pattern. The value depends on the enabled options: - If the WORKING_PATTERN service is **disabled**, the value should be omitted or set to `null`. - Option 1: Specific hours with non-specific days → `{"days_count": 1, "working_pattern_days": []}` - Option 2: Specific hours with flexible days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": null}]}` - Option 3: Specific hours with specific days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": 8}]}`
+
+                        '
+                      properties:
+                        days_count:
+                          type:
+                          - number
+                          - 'null'
+                          description: The number of working days per week value enum(1, 2, 3, 4, 5, 6, 7), it can be null but the key is required to be sent
+                        working_pattern_days:
+                          type: array
+                          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+                            '
+                          items:
+                            type: object
+                            properties:
+                              day:
+                                type: string
+                              hours_count:
+                                type:
+                                - number
+                                - 'null'
+                                description: The number of hours per day, it can be null but the key is required to be sent
+                            required:
+                            - day
+                      required:
+                      - days_count
+                  required:
+                  - value
+                  - start_date
+              required:
+              - max_weekly_hours
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  max_weekly_hours:
+                    $ref: '#/components/schemas/MaxWeeklyHours'
+  /api/v1/employees/{employeeId}/pay_types/{payTypeId}/max_weekly_hours/{maxWeeklyHoursId}:
+    put:
+      tags:
+      - MaxWeeklyHours
+      summary: Update Max Weekly Hours API
+      description: Update Max Weekly Hours
+      operationId: UpdateEmployeeMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: maxWeeklyHoursId
+        in: path
+        description: Max Weekly Hours id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Employee Max Weekly Hours
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                max_weekly_hours:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                    start_date:
+                      type: string
+                      format: date
+                    working_pattern:
+                      type: object
+                      description: 'Defines the employee''s working pattern. The value depends on the enabled options: - If the WORKING_PATTERN service is **disabled**, the value should be omitted or set to `null`. - Option 1: Specific hours with non-specific days → `{"days_count": 1, "working_pattern_days": []}` - Option 2: Specific hours with flexible days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": null}]}` - Option 3: Specific hours with specific days → `{"days_count": null, "working_pattern_days": [{"day": "SUN", "hours_count": 8}]}`
+
+                        '
+                      properties:
+                        days_count:
+                          type:
+                          - number
+                          - 'null'
+                          description: The number of working days per week value enum(1, 2, 3, 4, 5, 6, 7), it can be null but the key is required to be sent
+                        working_pattern_days:
+                          type: array
+                          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+                            '
+                          items:
+                            type: object
+                            properties:
+                              day:
+                                type: string
+                              hours_count:
+                                type:
+                                - number
+                                - 'null'
+                                description: The number of hours per day, it can be null but the key is required to be sent
+                            required:
+                            - day
+                      required:
+                      - days_count
+                  required:
+                  - value
+                  - start_date
+              required:
+              - max_weekly_hours
+      responses:
+        '200':
+          description: successful operation
+    delete:
+      tags:
+      - MaxWeeklyHours
+      summary: Delete Max Weekly Hours API
+      description: Delete Max Weekly Hours
+      operationId: DeleteEmployeeMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: maxWeeklyHoursId
+        in: path
+        description: Max Weekly Hours id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+  /api/v1/employees/{employeeId}/max_weekly_hours:
+    get:
+      tags:
+      - MaxWeeklyHours
+      summary: Retrieve employee max weekly hours
+      description: Retrieve the employee max weekly hours configurations.
+      operationId: RetrieveEmployeeMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  max_weekly_hours:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MaxWeeklyHoursV2'
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+    post:
+      tags:
+      - MaxWeeklyHours
+      summary: Create employee max weekly hours
+      description: Create a max weekly hours configuration for the employee.
+      operationId: CreateEmployeeMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: max weekly hours info
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                max_weekly_hours:
+                  type: object
+                  properties:
+                    start_date:
+                      type: string
+                      format: date
+                    working_patterns:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          days_count:
+                            type:
+                            - integer
+                            - 'null'
+                          total_hours:
+                            type: number
+                          order:
+                            type: integer
+                          working_pattern_days:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                day:
+                                  type: string
+                                  enum:
+                                  - MON
+                                  - TUE
+                                  - WED
+                                  - THU
+                                  - FRI
+                                  - SAT
+                                  - SUN
+                                hours_count:
+                                  type:
+                                  - number
+                                  - 'null'
+                  required:
+                  - start_date
+                  - working_patterns
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  max_weekly_hours:
+                    $ref: '#/components/schemas/MaxWeeklyHoursV2'
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+  /api/v1/employees/{employeeId}/max_weekly_hours/{max_weekly_hours_id}:
+    put:
+      tags:
+      - MaxWeeklyHours
+      summary: Update employee max weekly hours
+      description: Update a max weekly hours configuration for the employee.
+      operationId: UpdateEmployeeMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: max_weekly_hours_id
+        in: path
+        description: max weekly hours id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: max weekly hours info
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                max_weekly_hours:
+                  type: object
+                  properties:
+                    start_date:
+                      type: string
+                      format: date
+                    working_patterns:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          days_count:
+                            type:
+                            - integer
+                            - 'null'
+                          total_hours:
+                            type: number
+                          order:
+                            type: integer
+                          working_pattern_days:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                day:
+                                  type: string
+                                  enum:
+                                  - MON
+                                  - TUE
+                                  - WED
+                                  - THU
+                                  - FRI
+                                  - SAT
+                                  - SUN
+                                hours_count:
+                                  type:
+                                  - number
+                                  - 'null'
+                  required:
+                  - start_date
+                  - working_patterns
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  max_weekly_hours:
+                    $ref: '#/components/schemas/MaxWeeklyHoursV2'
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+    delete:
+      tags:
+      - MaxWeeklyHours
+      summary: Delete employee max weekly hours
+      description: Delete a max weekly hours configuration for the employee.
+      operationId: DeleteEmployeeMaxWeeklyHours
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: max_weekly_hours_id
+        in: path
+        description: max weekly hours id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+components:
+  schemas:
+    MaxWeeklyHoursV2:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+        average_weekly_hours:
+          type: number
+        working_patterns:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternV2'
+    WorkingPatternDays:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
+
+            '
+        hours_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working hours on this day. Can be `null` if not specified.
+
+            '
+      example:
+        id: 1
+        day: SUN
+        hours_count: 8
+    WorkingPattern:
+      type: object
+      properties:
+        id:
+          type: number
+        days_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
+
+            '
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+        working_pattern_days:
+          type: array
+          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+            '
+          items:
+            $ref: '#/components/schemas/WorkingPatternDays'
+      example:
+        id: 101
+        days_count: null
+        working_pattern_days:
+        - day: MON
+          hours_count: 8
+        - day: WED
+          hours_count: 6
+        - day: FRI
+          hours_count: 4
+    WorkingPatternDaysV2:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+        hours_count:
+          type:
+          - number
+          - 'null'
+    MaxWeeklyHours:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        working_pattern:
+          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
+
+            '
+          allOf:
+          - $ref: '#/components/schemas/WorkingPattern'
+    WorkingPatternV2:
+      type: object
+      properties:
+        id:
+          type: number
+        days_count:
+          type:
+          - number
+          - 'null'
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+        total_hours:
+          type: number
+        order:
+          type: integer
+        working_pattern_days:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternDaysV2'
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

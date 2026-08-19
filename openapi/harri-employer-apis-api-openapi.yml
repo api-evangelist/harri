@@ -1,0 +1,519 @@
+openapi: 3.2.0
+info:
+  title: Harri - External Brand Management Employer APIs API
+  description: "## Harri Employer Endpoint to create and manage Harri Above Store Admin Users. \n Note: if you receive a 422 error about a corporate ID not being associated or found, you will need to contact Harri Support to have that ID associated with your API credentials."
+  termsOfService: https://harri.com/terms
+  contact:
+    email: support@harri.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.00
+servers:
+- url: https://gateway.harri.com/open-api-hub
+security:
+- oAuth2ClientCredentials: []
+tags:
+- name: Employer APIs
+paths:
+  /v1/employers:
+    post:
+      tags:
+      - Employer APIs
+      summary: Create user
+      description: Create a brand(s) admin user with specified role(s)
+      operationId: createUser
+      requestBody:
+        $ref: '#/components/requestBodies/UserCreate'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationSuccessful'
+        '400':
+          description: Problem with the request body or related user/brands/roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_400'
+              examples:
+                MissingData:
+                  summary: Missing data or invalid data/request body
+                  value:
+                    errors:
+                    - code: MISSING_DATA
+                      details: 'Missing data: first_name, email'
+                      status: 400
+                InvalidEmailAddress:
+                  summary: Invalid email address
+                  value:
+                    data:
+                    - code: INVALID_EMAIL_ADDRESS
+                      details: Invalid email address
+                    status_code: 400
+                    status:
+                      message: Bad Request
+                UserAlreadyAdded:
+                  summary: User already added
+                  value:
+                    data:
+                    - code: USER_ALREADY_ADDED
+                      details: User already added
+                    status_code: 400
+                    status:
+                      message: Bad Request
+                UserExistsOnAnotherTree:
+                  summary: User email used on another business tree
+                  value:
+                    data:
+                    - code: USER_EXISTS_ON_ANOTHER_TREE
+                      details: Email address already in use by an admin
+                    status_code: 400
+                    status:
+                      message: Bad Request
+                InvalidBrandExternalIDs:
+                  summary: All brand external IDs provided are invalid
+                  value:
+                    data:
+                    - code: INVALID_BRAND_EXTERNAL_IDS
+                      details: No brand external mappings found
+                    status_code: 400
+                    status:
+                      message: Bad Request
+        '403':
+          description: Unauthorized due to missing permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_403'
+    get:
+      tags:
+      - Employer APIs
+      summary: Retrieve users
+      description: Retrieve users associated with a business ID
+      operationId: retrieveUsersByBusinessId
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRetrievedSuccessful'
+              examples:
+                SuccessfullyDeleted:
+                  summary: Successfully retrieved
+                  value:
+                    users:
+                    - first_name: string
+                      last_name: string
+                      email: string
+                      external_id: string
+                      brands:
+                      - external_id: string
+                        role: string
+        '400':
+          description: Problem with the related user/brands
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_400'
+        '403':
+          description: Unauthorized due to missing permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_403'
+  /v1/employers/{user_external_id}:
+    put:
+      tags:
+      - Employer APIs
+      summary: Update user
+      description: 'Update a brand(s) admin user with the specified role(s).
+
+        This will overrwrite any existing accesses, brands and roles the user has.'
+      operationId: updateUser
+      parameters:
+      - name: user_external_id
+        in: path
+        description: user external ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/UserUpdate'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationSuccessful'
+        '400':
+          description: Problem with the request body or related user/brands/roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_400'
+              examples:
+                MissingData:
+                  summary: Missing data or invalid data/request body
+                  value:
+                    errors:
+                    - code: MISSING_DATA
+                      details: 'Missing data: first_name, email'
+                      status: 400
+                UserNotFound:
+                  summary: User not found by external ID
+                  value:
+                    errors:
+                    - code: MISSING_DATA
+                      details: User not found
+                      status: 400
+                InvalidEmailAddress:
+                  summary: Invalid email address
+                  value:
+                    errors:
+                    - code: INVALID_EMAIL_ADDRESS
+                      details: Invalid email address
+                      status: 400
+                UserExistsOnAnotherTree:
+                  summary: User email used on another business tree
+                  value:
+                    errors:
+                    - code: USER_EXISTS_ON_ANOTHER_TREE
+                      details: Email address already in use by an admin
+                      status: 400
+                InvalidBrandExternalIDs:
+                  summary: All brand external IDs provided are invalid
+                  value:
+                    errors:
+                    - code: INVALID_BRAND_EXTERNAL_IDS
+                      details: No brand external mappings found
+                      status: 400
+        '403':
+          description: Unauthorized due to missing permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_403'
+    delete:
+      tags:
+      - Employer APIs
+      summary: Delete user
+      description: Delete user and related accesses & roles
+      operationId: deleteUser
+      parameters:
+      - name: user_external_id
+        in: path
+        description: user external ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationSuccessful'
+              examples:
+                SuccessfullyDeleted:
+                  summary: Successfully deleted
+                  value:
+                    warnings: []
+        '400':
+          description: Problem with the request body or related user/brands/roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_400'
+        '403':
+          description: Unauthorized due to missing permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_403'
+    get:
+      summary: Retrieve user
+      description: Retrieve user based on user external ID
+      operationId: retrieveUser
+      parameters:
+      - name: user_external_id
+        in: path
+        description: user external ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRetrievedSuccessful'
+              examples:
+                SuccessfullyDeleted:
+                  summary: Successfully retrieved
+                  value:
+                    first_name: string
+                    last_name: string
+                    email: string
+                    external_id: string
+                    brands:
+                    - external_id: string
+                      role: string
+        '400':
+          description: Problem with the related user/brands
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_400'
+        '403':
+          description: Unauthorized due to missing permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_403'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserOperationFailed_404'
+      tags:
+      - Employer APIs
+components:
+  schemas:
+    UserOperationFailed_403:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 403
+              code:
+                type: string
+                description: Error code
+                example: NOT_AUTHORIZED_EXCEPTION
+              details:
+                type: string
+                description: Error details
+                example: You are not authorized
+    UserRetrievedSuccessful:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: First name of user
+            last_name:
+              type: string
+              description: Last name of user
+            email:
+              type: string
+              format: email
+              description: Email of user
+            external_id:
+              type: string
+              description: External ID of user
+            brands:
+              type: array
+              items:
+                type: object
+                properties:
+                  external_id:
+                    type: string
+                    description: External ID of the brand
+                  role:
+                    type: string
+                    enum:
+                    - SUPER_ADMIN
+                    - FRANCHISEE_SUPER_USER
+                    - RSC
+                    - ABOVE_STORE_LEADER
+                    - RGM
+                    - ARGM
+                    - TEAM_LEADER
+                    - LEVEL_3
+                    - LEVEL_4
+                    description: User role on this brand (replaces any existing role)
+      example:
+        user:
+        - first_name: first name
+        - last_name: last name
+        - email: email@hotmail.com
+        - external_id: 2
+        - brands:
+          - external_id: 1
+            role: SUPER_ADMIN
+    UserOperationSuccessful:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            warnings:
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: Warning code
+                    enum:
+                    - INVALID_BRAND_EXTERNAL_ID
+                    - INVALID_ROLE
+                    - INTERNAL_ERROR
+                  details:
+                    type: string
+                    description: Warning details
+        status_code:
+          type: integer
+          description: Status code
+        status:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Request status
+      example:
+        warnings:
+        - code: INVALID_ROLE
+          details: 'Missed external groups: abc, def'
+        - code: INVALID_BRAND_EXTERNAL_ID
+          details: 'Brand external id not found: abc'
+        - code: INTERNAL_ERROR
+          details: Internal error occurred while adding roles to the user after creation
+    UserOperationFailed_400:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: Error code
+                example: USER_ALREADY_ADDED
+                enum:
+                - MISSING_DATA
+                - USER_ALREADY_ADDED
+                - USER_EXISTS_ON_ANOTHER_TREE
+                - INVALID_EMAIL_ADDRESS
+                - INVALID_BRAND_EXTERNAL_IDS
+              details:
+                type: string
+                description: Error details
+                example: User already added
+    UserOperationFailed_404:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: User not found
+        details:
+          type: string
+          description: Error details
+          example: User not found
+  requestBodies:
+    UserUpdate:
+      description: User update fields
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              brands:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    external_id:
+                      type: string
+                      description: External ID of the brand
+                    role:
+                      type: string
+                      enum:
+                      - SUPER_ADMIN
+                      - FRANCHISEE_SUPER_USER
+                      - RSC
+                      - ABOVE_STORE_LEADER
+                      - RGM
+                      - ARGM
+                      - TEAM_LEADER
+                      - LEVEL_3
+                      - LEVEL_4
+                      description: User role on this brand (replaces any existing role)
+                minItems: 1
+                description: Specifies which brands the user will have access to (replaces any existing access)
+            required:
+            - brands
+    UserCreate:
+      description: User create fields
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              first_name:
+                type: string
+                description: First name of user
+              last_name:
+                type: string
+                description: Last name of user
+              email:
+                type: string
+                format: email
+                description: Email of user
+              external_id:
+                type: string
+                description: External ID of user
+              brands:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    external_id:
+                      type: string
+                      description: External ID of the brand
+                    role:
+                      type: string
+                      enum:
+                      - SUPER_ADMIN
+                      - FRANCHISEE_SUPER_USER
+                      - RSC
+                      - ABOVE_STORE_LEADER
+                      - RGM
+                      - ARGM
+                      - TEAM_LEADER
+                      - LEVEL_3
+                      - LEVEL_4
+                      description: User role on this brand (replaces any existing role)
+                minItems: 1
+                description: Specifies which brands the user will have access to (replaces any existing access)
+            required:
+            - first_name
+            - last_name
+            - email
+            - external_id
+            - brands
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harristaging.com/oauth2/token
+          scopes: {}
+externalDocs:
+  description: Find out more about Harri
+  url: http://harri.com

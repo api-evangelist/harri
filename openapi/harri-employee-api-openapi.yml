@@ -1,0 +1,1573 @@
+openapi: 3.2.0
+info:
+  title: Harri Open Employee API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Employee
+paths:
+  /api/v3/employees/{employeeId}/basic_info:
+    put:
+      tags:
+      - Employee
+      summary: Update employee API
+      description: Update employee
+      operationId: UpdateEmployee
+      parameters:
+      - name: employeeId
+        in: path
+        description: ID of employee to return
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: employee
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: employee email
+                first_name:
+                  type: string
+                  description: employee first name
+                last_name:
+                  type: string
+                  description: employee last name
+                middle_name:
+                  type: string
+                  description: employee middle name
+                geid:
+                  type: string
+                birth_date:
+                  type: string
+                  format: date
+                  description: employee birth date
+                national_number:
+                  type: string
+                  description: National number
+                phone:
+                  type: string
+                  format: phone
+                  description: employee phone number
+                home_phone:
+                  type: string
+                  format: phone
+                  description: home phone number
+                gender:
+                  type: string
+                  enum:
+                  - MALE
+                  - FEMALE
+                  - NO_IDENTIFY
+                  description: employee gender
+                address:
+                  allOf:
+                  - $ref: '#/components/schemas/Address'
+                  - type: object
+                    required:
+                    - address_line_1
+                    - postal_code
+                    - country_code
+                vsl:
+                  type: string
+                  enum:
+                  - IN
+                  - OUT
+                title:
+                  type: string
+        required: true
+      responses:
+        '200':
+          description: successful operation
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+  /api/v4/employees/:
+    get:
+      tags:
+      - Employee
+      parameters:
+      - name: status
+        in: query
+        description: to get terminated or active employee, default active
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - TERMINATED
+      - name: limit
+        in: query
+        description: specify the number of rows to return
+        schema:
+          type: integer
+          minimum: 1
+      - name: page
+        in: query
+        description: specify the number of rows to skip
+        schema:
+          type: integer
+          minimum: 0
+      - name: location_id
+        in: query
+        description: specify the location id to filter
+        schema:
+          type: string
+      - name: is_primary
+        in: query
+        description: retrieve primary employees of the provided location_id
+        schema:
+          type: boolean
+      - name: loa_status
+        in: query
+        required: false
+        description: 'Filters employees by active LOA (Leave of Absence) status. When provided, only employees currently marked as ''ON_LEAVE'' within the retrieved page will be returned.
+
+          '
+        schema:
+          type: string
+          enum:
+          - ON_LEAVE
+          example: ON_LEAVE
+      - name: payroll_id
+        in: query
+        description: filter employees by payroll_id
+        schema:
+          type: string
+      - name: geid
+        in: query
+        description: filter employees by geid (external middleware id)
+        schema:
+          type: string
+      summary: Get employees API
+      description: Get employees.
+      operationId: ListEmployeesV4
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  employees:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EmployeesListV3'
+                  pagination:
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                      per_page:
+                        type: integer
+                      total:
+                        type: integer
+                      total_pages:
+                        type: integer
+  /api/v5/employees/{employeeId}/profile:
+    get:
+      tags:
+      - Employee
+      summary: Get employee profile API
+      description: Get employee profile.
+      operationId: GetEmployeeProfileV5
+      parameters:
+      - name: employeeId
+        in: path
+        description: ID of employee to return
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeProfileV2'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: employee not found
+          content: {}
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+  /api/v6/employees/{employeeId}:
+    get:
+      tags:
+      - Employee
+      summary: Get employee by id API
+      description: Get employee by harri employee id.
+      operationId: GetEmployeeByIdV6
+      parameters:
+      - name: employeeId
+        in: path
+        description: ID of employee to return
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeAggregatedInfoV6'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: employee not found
+          content: {}
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+  /api/v7/employees:
+    post:
+      tags:
+      - Employee
+      summary: Create employee API
+      description: Create employee API
+      operationId: CreateEmployeeV7
+      requestBody:
+        description: Employee data
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                id:
+                  type: string
+                  description: A unique ID supplied by customers or third parties. If not provided, Harri will generate one. This is supported only if external mapping is enabled for the client.
+                email:
+                  type: string
+                  format: email
+                  description: If phone number is not provided, employee email must be provided.
+                first_name:
+                  type: string
+                  description: employee first name
+                last_name:
+                  type: string
+                  description: employee last name
+                middle_name:
+                  type: string
+                  description: employee middle name
+                known_as:
+                  type: string
+                birth_date:
+                  type: string
+                  format: date
+                  description: employee birth date
+                national_number:
+                  type: string
+                  description: national_number max length is 12 cahrechters
+                phone:
+                  type: string
+                  format: phone
+                  description: If email is not provided, employee phone number must be provided.
+                home_phone:
+                  type: string
+                  format: phone
+                  description: home phone number
+                gender:
+                  type: string
+                  enum:
+                  - MALE
+                  - FEMALE
+                  - NO_IDENTIFY
+                  description: employee gender
+                geid:
+                  type: string
+                address:
+                  allOf:
+                  - $ref: '#/components/schemas/Address'
+                  - type: object
+                    properties:
+                      county:
+                        type: string
+                    required:
+                    - account_number
+                    - postal_code
+                    - country_code
+                hire_date:
+                  type: string
+                  format: date
+                  description: employee hire date
+                bank_account:
+                  type: object
+                  properties:
+                    routing_number:
+                      type: string
+                    account_number:
+                      type: string
+                    registration_number:
+                      type: string
+                    account_type:
+                      type: string
+                      enum:
+                      - SAVINGS
+                      - CHECKING
+                    bank_name:
+                      type: string
+                    account_name:
+                      type: string
+                    sort_code:
+                      type: string
+                    bank_branch:
+                      type: string
+                  required:
+                  - account_number
+                job_titles:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      job_title_id:
+                        type: number
+                      level:
+                        type: number
+                    required:
+                    - job_title_id
+                    - level
+                payroll_id:
+                  type: string
+                  minLength: 1
+                vsl:
+                  type: string
+                  enum:
+                  - IN
+                  - OUT
+                location_id:
+                  type: string
+                pay_type:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - SALARIED
+                      - HOURLY
+                      - WEIGHTED_SHIFT
+                    cross_location_mode:
+                      type:
+                      - string
+                      - 'null'
+                      enum:
+                      - FIXED
+                      - FLEXIBLE
+                      description: Required when the pay type is set to HOURLY.
+                  required:
+                  - type
+                max_weekly_hours:
+                  type: object
+                  properties:
+                    working_patterns:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          days_count:
+                            type:
+                            - integer
+                            - 'null'
+                          total_hours:
+                            type: number
+                          order:
+                            type: integer
+                          working_pattern_days:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                day:
+                                  type: string
+                                  enum:
+                                  - MON
+                                  - TUE
+                                  - WED
+                                  - THU
+                                  - FRI
+                                  - SAT
+                                  - SUN
+                                hours_count:
+                                  type:
+                                  - number
+                                  - 'null'
+                tronc_point:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+                tronc_amount:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+                position:
+                  type: object
+                  properties:
+                    code:
+                      type: string
+                    tipped_statuses:
+                      type: object
+                      properties:
+                        is_tipped:
+                          type: boolean
+                    hourly_rate:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        tronc_point:
+                          type: number
+                        tronc_rate:
+                          type: number
+                        tronc_amount:
+                          type: number
+                      required:
+                      - value
+                    cost_centers:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          value:
+                            type: object
+                            properties:
+                              id:
+                                type: number
+                            required:
+                            - id
+                        required:
+                        - id
+                  required:
+                  - code
+              required:
+              - first_name
+              - last_name
+              - hire_date
+              - location_id
+              - pay_type
+              - position
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatedEmployeeV7'
+      security:
+      - oAuth2ClientCredentials:
+        - ''
+components:
+  schemas:
+    EmployeeCustomFieldsCityWithholdingDetails:
+      type: object
+      description: Section 6 - City Withholding Details - CITY_WITHHOLDING_DETAILS
+      properties:
+        city_additional_withholding_amount:
+          type: number
+          format: double
+          description: Decimal, 2 decimal places
+        city_exempt_status:
+          type: string
+        city_marital_status:
+          type: string
+        city_number_of_exceptions:
+          type: integer
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+    TroncPoint:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    Address:
+      type: object
+      properties:
+        country_code:
+          type: string
+          example: US
+        state_code:
+          type: string
+          example: NY
+        city:
+          type: string
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        postal_code:
+          type: string
+    EmployeeProfileV2:
+      allOf:
+      - $ref: '#/components/schemas/EmployeeBasicInfo'
+      - type: object
+        properties:
+          financial_unit_location_id:
+            type: integer
+          loa_status:
+            type:
+            - string
+            - 'null'
+          title:
+            type:
+            - string
+            - 'null'
+          status:
+            type: string
+            enum:
+            - ACTIVE
+            - TERMINATED
+          address:
+            $ref: '#/components/schemas/Address'
+          employer:
+            type: object
+            properties:
+              id:
+                type:
+                - number
+                - 'null'
+              email:
+                type: string
+                format: email
+                description: employer email
+              first_name:
+                type: string
+                description: employer first name
+              last_name:
+                type: string
+                description: employer last name
+          employment_period:
+            $ref: '#/components/schemas/EmploymentPeriod'
+          job_titles:
+            type: array
+            items:
+              $ref: '#/components/schemas/EmployeeJobTitle'
+          vsl:
+            type: string
+            enum:
+            - IN
+            - OUT
+          locations:
+            type: array
+            items:
+              type: object
+              allOf:
+              - $ref: '#/components/schemas/Location'
+              - type: object
+                properties:
+                  is_primary:
+                    type: boolean
+                  is_active:
+                    type: boolean
+                  location_periods:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LocationPeriod'
+                  payroll_id:
+                    type: string
+                  pos_id:
+                    type: string
+          positions:
+            type: array
+            items:
+              allOf:
+              - $ref: '#/components/schemas/EmployeePosition'
+              - type: object
+                properties:
+                  hourly_rates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HourlyRate'
+                  tipped_statuses:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TippedStatus'
+          pay_types:
+            type: array
+            items:
+              $ref: '#/components/schemas/PayType'
+          tronc_points:
+            type: array
+            items:
+              $ref: '#/components/schemas/TroncPoint'
+          tronc_amounts:
+            type: array
+            items:
+              $ref: '#/components/schemas/TroncAmount'
+          max_weekly_hours:
+            type: array
+            items:
+              $ref: '#/components/schemas/MaxWeeklyHoursV2'
+    MaxWeeklyHoursV4:
+      type: object
+      description: 'Max Weekly Hours entry (v4+ shape) exposing a list of `working_patterns` and the derived `average_weekly_hours`.
+
+        '
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+        average_weekly_hours:
+          type: number
+        working_patterns:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternV4'
+    EmployeeCustomFieldsEqualOpportunityInformation:
+      type: object
+      description: Section 8 - Equal Opportunity Information - EQUAL_OPPORTUNITY_INFORMATION
+      properties:
+        caring_responsibilities:
+          type: string
+        disability_status:
+          type: string
+        ethnicity:
+          type: string
+        flexible_working_arrangements:
+          type: string
+        gender_identity:
+          type: string
+        other_ethnicity:
+          type: string
+        other_flexible_working_arrangements:
+          type: string
+        other_gender_identity:
+          type: string
+        other_religious_belief:
+          type: string
+        other_sexual_orientation:
+          type: string
+        religious_belief:
+          type: string
+        sexual_orientation:
+          type: string
+        specific_ethnicity:
+          type: string
+        type_of_caring_responsibilities:
+          type: string
+    Location:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        country_code:
+          type: string
+        state_code:
+          type: string
+        city:
+          type: string
+    CreatedEmployeeV7:
+      allOf:
+      - $ref: '#/components/schemas/EmployeeBasicInfo'
+      - type: object
+        properties:
+          user_id:
+            type:
+            - number
+            - 'null'
+          title:
+            type:
+            - string
+            - 'null'
+          gender:
+            type: string
+            enum:
+            - MALE
+            - FEMALE
+            - NO_IDENTIFY
+            description: employee gender
+          national_number:
+            type: string
+            description: National number
+          financial_unit_location_id:
+            type: integer
+          status:
+            type: string
+            enum:
+            - ACTIVE
+            - TERMINATED
+          address:
+            $ref: '#/components/schemas/Address'
+          employer:
+            type: object
+            properties:
+              email:
+                type: string
+                format: email
+                description: employer email
+              first_name:
+                type: string
+                description: employer first name
+              last_name:
+                type: string
+                description: employer last name
+          employment_period:
+            $ref: '#/components/schemas/EmploymentPeriod'
+          job_titles:
+            type: array
+            items:
+              $ref: '#/components/schemas/EmployeeJobTitle'
+          vsl:
+            type: string
+            enum:
+            - IN
+            - OUT
+          locations:
+            type: array
+            items:
+              type: object
+              allOf:
+              - $ref: '#/components/schemas/Location'
+              - type: object
+                properties:
+                  is_primary:
+                    type: boolean
+                  is_active:
+                    type: boolean
+                  payroll_id:
+                    type: string
+                  pos_id:
+                    type: string
+                  location_periods:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LocationPeriod'
+          positions:
+            type: array
+            items:
+              allOf:
+              - $ref: '#/components/schemas/Position'
+              - type: object
+                properties:
+                  id:
+                    type: number
+                  location_id:
+                    type: integer
+                  is_primary:
+                    type: boolean
+                  hourly_rates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HourlyRate'
+                  tipped_statuses:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TippedStatus'
+                  cost_centers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CostCenter'
+          pay_types:
+            type: array
+            items:
+              $ref: '#/components/schemas/PayType'
+          annual_rates:
+            type: array
+            items:
+              $ref: '#/components/schemas/AnnualRate'
+          tronc_points:
+            type: array
+            items:
+              $ref: '#/components/schemas/TroncPoint'
+          tronc_amounts:
+            type: array
+            items:
+              $ref: '#/components/schemas/TroncAmount'
+          max_weekly_hours:
+            type: array
+            items:
+              $ref: '#/components/schemas/MaxWeeklyHoursV2'
+          bank_account:
+            type: object
+            properties:
+              id:
+                type: number
+              bank_branch:
+                type:
+                - string
+                - 'null'
+              bic:
+                type:
+                - string
+                - 'null'
+              iban:
+                type:
+                - string
+                - 'null'
+              routing_number:
+                type: string
+              account_number:
+                type: string
+              registration_number:
+                type: string
+              account_type:
+                type: string
+                enum:
+                - SAVINGS
+                - CHECKING
+              bank_name:
+                type: string
+              account_name:
+                type: string
+              sort_code:
+                type: string
+            required:
+            - account_number
+    MaxWeeklyHoursV2:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+        average_weekly_hours:
+          type: number
+        working_patterns:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternV2'
+    Position:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    EmployeePosition:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: integer
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    EmploymentPeriod:
+      type: object
+      properties:
+        id:
+          type: number
+        hire_date:
+          type: string
+          format: date
+          description: employee hire date
+        leave_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: employee leave date
+        termination_reason:
+          type:
+          - object
+          - 'null'
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+    EmployeeJobTitle:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/JobTitle'
+      - type: object
+        properties:
+          level:
+            type: string
+            description: number with quotations like "5"
+    EmployeeCustomFieldsPersonalInfoAdditionalInfo:
+      type: object
+      description: Section 1 - Additional Information - PERSONAL_INFO_ADDITIONAL_INFO
+      properties:
+        certificate_of_sponsorship_number:
+          type: string
+        dbs_cert_number:
+          type: string
+        dbs_expiry_date:
+          type: string
+        dbs_issue_date:
+          type: string
+        disabled_veteran:
+          type: string
+        ethnicity_2:
+          type: string
+        first_language:
+          type: string
+        marital_status:
+          type: string
+        military_veteran_status:
+          type: string
+        nationality:
+          type: string
+        national_origin:
+          type: string
+        nmc_date_checked:
+          type: string
+        nmc_expiry_date:
+          type: string
+        nmc_pin_number:
+          type: string
+        passport_expiry_date:
+          type: string
+        passport_number:
+          type: string
+        person_marital_status:
+          type: string
+        pronoun:
+          type: string
+        student_permit_exp_date:
+          type: string
+        student_status:
+          type: string
+        veteran_type:
+          type: string
+    AnnualRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    EmployeeAggregatedInfoV6:
+      allOf:
+      - $ref: '#/components/schemas/EmployeeBasicInfo'
+      - type: object
+        additionalProperties: true
+        description: Additional dynamic custom fields (e.g., `personal_info_additional_info`) may appear at the top level — they are flattened from the underlying `custom_fields` map during serialization.
+        properties:
+          title:
+            type:
+            - string
+            - 'null'
+          gender:
+            type: string
+            enum:
+            - MALE
+            - FEMALE
+            - NO_IDENTIFY
+            description: employee gender
+          national_number:
+            type: string
+            description: National number
+          financial_unit_location_id:
+            type: integer
+          status:
+            type: string
+            enum:
+            - ACTIVE
+            - TERMINATED
+          address:
+            $ref: '#/components/schemas/Address'
+          employer:
+            type: object
+            properties:
+              id:
+                type:
+                - number
+                - 'null'
+              email:
+                type: string
+                format: email
+                description: employer email
+              first_name:
+                type: string
+                description: employer first name
+              last_name:
+                type: string
+                description: employer last name
+          employment_period:
+            $ref: '#/components/schemas/EmploymentPeriod'
+          job_titles:
+            type: array
+            items:
+              $ref: '#/components/schemas/EmployeeJobTitle'
+          vsl:
+            type: string
+            enum:
+            - IN
+            - OUT
+          locations:
+            type: array
+            items:
+              type: object
+              allOf:
+              - $ref: '#/components/schemas/Location'
+              - type: object
+                properties:
+                  is_primary:
+                    type: boolean
+                  is_active:
+                    type: boolean
+                  location_periods:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LocationPeriod'
+                  payroll_id:
+                    type: string
+                  pos_id:
+                    type: string
+          positions:
+            type: array
+            items:
+              allOf:
+              - $ref: '#/components/schemas/EmployeePosition'
+              - type: object
+                properties:
+                  hourly_rates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HourlyRate'
+                  tipped_statuses:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TippedStatus'
+          pay_types:
+            type: array
+            items:
+              $ref: '#/components/schemas/PayType'
+          annual_rates:
+            type: array
+            items:
+              $ref: '#/components/schemas/AnnualRate'
+          tronc_points:
+            type: array
+            items:
+              $ref: '#/components/schemas/TroncPoint'
+          tronc_amounts:
+            type: array
+            items:
+              $ref: '#/components/schemas/TroncAmount'
+          max_weekly_hours:
+            type: array
+            items:
+              $ref: '#/components/schemas/MaxWeeklyHoursV4'
+          loa_status:
+            type:
+            - string
+            - 'null'
+            example: ON_LEAVE
+          pin:
+            type: string
+          personal_info_additional_info:
+            $ref: '#/components/schemas/EmployeeCustomFieldsPersonalInfoAdditionalInfo'
+          emergency_contact:
+            $ref: '#/components/schemas/EmployeeCustomFieldsEmergencyContact'
+          employment_info_additional_info:
+            $ref: '#/components/schemas/EmployeeCustomFieldsEmploymentInfoAdditionalInfo'
+          federal_withholding_details:
+            $ref: '#/components/schemas/EmployeeCustomFieldsFederalWithholdingDetails'
+          state_withholding_details:
+            $ref: '#/components/schemas/EmployeeCustomFieldsStateWithholdingDetails'
+          city_withholding_details:
+            $ref: '#/components/schemas/EmployeeCustomFieldsCityWithholdingDetails'
+          local_withholding_details:
+            $ref: '#/components/schemas/EmployeeCustomFieldsLocalWithholdingDetails'
+          payroll_taxes_additional_info:
+            $ref: '#/components/schemas/EmployeeCustomFieldsPayrollTaxesAdditionalInfo'
+          equal_opportunity_information:
+            $ref: '#/components/schemas/EmployeeCustomFieldsEqualOpportunityInformation'
+          payroll_taxes_pension_information:
+            $ref: '#/components/schemas/EmployeeCustomFieldsPayrollTaxesPensionInformation'
+    EmployeeCustomFieldsPayrollTaxesPensionInformation:
+      type: object
+      description: Section 9 - Pension Information - PAYROLL_TAXES_PENSION_INFORMATION
+      properties:
+        ae_opt_out:
+          type: string
+        ae_opt_out_date:
+          type: string
+        auto_enrolled:
+          type: string
+        pension_employee_contribution:
+          type: string
+        pension_is_ae_qualifying:
+          type: string
+        pension_scheme:
+          type: string
+        pension_start_date:
+          type: string
+        pension_worker_group:
+          type: string
+        worker_status:
+          type: string
+    EmployeeBasicInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '1'
+          description: A unique ID provided by customers or third-parties
+        email:
+          type: string
+          format: email
+          description: employee email
+        first_name:
+          type: string
+          description: employee first name
+        last_name:
+          type: string
+          description: employee last name
+        middle_name:
+          type: string
+          description: employee middle name
+        geid:
+          type: string
+        birth_date:
+          type: string
+          format: date
+          description: employee birth date
+        phone:
+          type: string
+          format: phone
+          description: employee phone number
+        home_phone:
+          type: string
+          format: phone
+          description: home phone number
+        blocked_from_rehire:
+          type: boolean
+        known_as:
+          type: string
+    EmployeeCustomFieldsEmergencyContact:
+      type: object
+      description: Section 2 - Emergency Contact - EMERGENCY_CONTACT
+      properties:
+        emergency_contact_cell_phone_number:
+          type: string
+        emergency_contact_contact_if_detained:
+          type: string
+        emergency_contact_first_name:
+          type: string
+        emergency_contact_home_phone_number1:
+          type: string
+        emergency_contact_last_name:
+          type: string
+        emergency_contact_work_phone_number:
+          type: string
+    PayType:
+      type: object
+      properties:
+        id:
+          type: number
+        type:
+          type: string
+          enum:
+          - SALARIED
+          - HOURLY
+          - WEIGHTED_SHIFT
+        start_date:
+          type: string
+          format: date
+        cross_location_edit_mode:
+          type:
+          - string
+          - 'null'
+          enum:
+          - FIXED
+          - FLEXIBLE
+          description: This field is nullable and depends on the pay type. It will only be defined if the pay type is set to HOURLY.
+    JobTitle:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        skill_needed:
+          type: boolean
+    WorkingPatternV4:
+      type: object
+      description: 'A single working pattern as returned in v4+ Max Weekly Hours responses. Each entry carries its own `total_hours` and `order`.
+
+        '
+      properties:
+        id:
+          type: number
+        days_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working days per week. Can be `null` when working days are defined explicitly in `working_pattern_days`.
+
+            '
+        total_hours:
+          type: number
+        order:
+          type: integer
+          description: Position of this working pattern within the list.
+        working_pattern_days:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternDays'
+    EmployeesListV3:
+      allOf:
+      - $ref: '#/components/schemas/EmployeeBasicInfo'
+      - type: object
+        properties:
+          national_number:
+            type:
+            - string
+            - 'null'
+          title:
+            type:
+            - string
+            - 'null'
+          locations:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                name:
+                  type: string
+                payroll_id:
+                  type: string
+                pos_id:
+                  type: string
+    WorkingPatternV2:
+      type: object
+      properties:
+        id:
+          type: number
+        days_count:
+          type:
+          - number
+          - 'null'
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+        total_hours:
+          type: number
+        order:
+          type: integer
+        working_pattern_days:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternDaysV2'
+    WorkingPatternDays:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
+
+            '
+        hours_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working hours on this day. Can be `null` if not specified.
+
+            '
+      example:
+        id: 1
+        day: SUN
+        hours_count: 8
+    WorkingPatternDaysV2:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+        hours_count:
+          type:
+          - number
+          - 'null'
+    LocationPeriod:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+          description: employee start date on specific location
+        end_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: employee end date on specific location
+        type:
+          type: string
+          enum:
+          - PRIMARY
+          - SECONDARY
+    EmployeeCustomFieldsStateWithholdingDetails:
+      type: object
+      description: Section 5 - State Withholding Details - STATE_WITHHOLDING_DETAILS
+      properties:
+        do_not_calculate_state_tax:
+          type: string
+        geo_location_code:
+          type: string
+        health_insurance:
+          type: string
+        naics_code_for_washington:
+          type: string
+        number_of_exemptions:
+          type: integer
+        soc_code:
+          type: string
+        state_additional_withholding_amount:
+          type: number
+          format: double
+          description: Decimal, 2 decimal places
+        state_exempt_status:
+          type: string
+        state_extra_tax:
+          type: integer
+        state_marital_status:
+          type: string
+        state_number_of_exceptions:
+          type: integer
+    EmployeeCustomFieldsEmploymentInfoAdditionalInfo:
+      type: object
+      description: Section 3 - Additional Information - EMPLOYMENT_INFO_ADDITIONAL_INFO
+      properties:
+        benefits_eligibility_class:
+          type: string
+        benefit_class_code:
+          type: string
+        business_unit:
+          type: string
+        class_code_effective_date:
+          type: string
+        company_service_date:
+          type: string
+        disability_insurance_type:
+          type: string
+        fixed_term_contract_end_date:
+          type: string
+        flsa_overtime:
+          type: string
+        follow_up_orientation_date:
+          type: string
+        home_department:
+          type: string
+        organization_start_date:
+          type: string
+        orientation_date:
+          type: string
+        part_time_for_puerto_rico:
+          type: string
+        pto_plans:
+          type: string
+        starter_declaration:
+          type: string
+        unity_care_deduction:
+          type: string
+        worker_category:
+          type: string
+    CostCenter:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        value:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    EmployeeCustomFieldsPayrollTaxesAdditionalInfo:
+      type: object
+      description: Section 7 - Additional Information - PAYROLL_TAXES_ADDITIONAL_INFO
+      properties:
+        postgrad_loan:
+          type: string
+        previous_employer_gross:
+          type: string
+        previous_employer_tax:
+          type: string
+        secondary_class1_not_payable:
+          type: string
+        student_loan:
+          type: string
+        tax_code:
+          type: string
+        w1m1:
+          type: string
+    EmployeeCustomFieldsLocalWithholdingDetails:
+      type: object
+      description: Local Withholding Details - LOCAL_WITHHOLDING_DETAILS
+      properties:
+        local_additional_tax_amount:
+          type: number
+          format: double
+          description: Decimal, 2 decimal places
+        locality:
+          type: string
+        total_allowances:
+          type: integer
+    TroncAmount:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    EmployeeCustomFieldsFederalWithholdingDetails:
+      type: object
+      description: Section 4 - Federal Withholding Details - FEDERAL_WITHHOLDING_DETAILS
+      properties:
+        do_not_calculate_federal_tax:
+          type: string
+        federal_deduction_dollars:
+          type: number
+          format: double
+          description: Decimal, 2 decimal places
+        federal_exempt_status:
+          type: string
+        federal_extra_withholding:
+          type: number
+          format: double
+          description: Decimal, 2 decimal places
+        federal_marital_status:
+          type: string
+        federal_multiple_jobs:
+          type: string
+        federal_number_of_exceptions:
+          type: integer
+        federal_other_dependent_dollars:
+          type: number
+          format: double
+          description: Decimal, 2 decimal places
+        federal_other_income_dollars:
+          type: number
+          format: double
+          description: Decimal, 2 decimal places
+        federal_qualifying_children_dollars:
+          type: number
+          format: double
+          description: Decimal, 2 decimal places
+        federal_tax_additional_amount:
+          type: integer
+        federal_tax_deductions_amount:
+          type: integer
+        federal_tax_dependents_amount:
+          type: integer
+        federal_tax_filing_status:
+          type: string
+        federal_tax_multiple_jobs:
+          type: string
+        federal_tax_other_income_amount:
+          type: integer
+        federal_total_dependent_dollars:
+          type: number
+          format: double
+          description: Decimal, 2 decimal places
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

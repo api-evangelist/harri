@@ -1,0 +1,236 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Tipped Statuses API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: TippedStatuses
+paths:
+  /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses:
+    get:
+      tags:
+      - TippedStatuses
+      summary: Retrieve employee tipped status API
+      description: Retrieve employee tipped status on specific positoin
+      operationId: GetEmployeeTippedStatuses
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: positoin code
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tipped_statuses:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TippedStatus'
+    post:
+      tags:
+      - TippedStatuses
+      summary: Define new employee tipped status API
+      description: 'use this api when u want to define new tipped status for an employee on specific position
+
+        '
+      operationId: CreateEmployeeTippedStatus
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Employee tipped status
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tipped_status:
+                  type: object
+                  properties:
+                    is_tipped:
+                      type: boolean
+                    start_date:
+                      type: string
+                      format: date
+                  required:
+                  - is_tipped
+                  - start_date
+              required:
+              - tipped_status
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tipped_status:
+                    $ref: '#/components/schemas/TippedStatus'
+  ? /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/tipped_statuses/{tippedStatusId}
+  : put:
+      tags:
+      - TippedStatuses
+      summary: Update employee tipped status API
+      description: Update employee tipped status for specific position
+      operationId: UpdateEmployeeTippedStatus
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: positoin code
+        required: true
+        schema:
+          type: string
+      - name: tippedStatusId
+        in: path
+        description: tipped status id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Employee tipped status
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_tipped:
+                  type: boolean
+                start_date:
+                  type: string
+                  format: date
+      responses:
+        '200':
+          description: successful operation
+    delete:
+      tags:
+      - TippedStatuses
+      summary: Delete employee tipped status API
+      description: Delete employee tipped status by id
+      operationId: DeleteEmployeeTippedStatus
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: positoin code
+        required: true
+        schema:
+          type: string
+      - name: tippedStatusId
+        in: path
+        description: tipped status id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+components:
+  schemas:
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

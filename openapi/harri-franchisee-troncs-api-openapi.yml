@@ -1,0 +1,208 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Franchisee Troncs API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Franchisee Troncs
+paths:
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/troncs:
+    get:
+      tags:
+      - Franchisee Troncs
+      summary: Retrieve employee troncs API
+      description: Retrieve employee troncs
+      operationId: FranshiseesGetEmployeeTronc
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  troncs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DeprecatedTronc'
+    post:
+      tags:
+      - Franchisee Troncs
+      summary: Define new employee tronc API
+      description: 'use this api when u want to define new employee tronc
+
+        '
+      operationId: FranshiseesCreateEmployeeTronc
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Employee tronc
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tronc:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                    start_date:
+                      type: string
+                      format: date
+                  required:
+                  - value
+                  - start_date
+              required:
+              - tronc
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tronc:
+                    $ref: '#/components/schemas/DeprecatedTronc'
+  /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/troncs/{troncId}:
+    put:
+      tags:
+      - Franchisee Troncs
+      summary: Update employee tronc API
+      description: Update employee tronc by id
+      operationId: FranshiseesUpdateEmployeeTronc
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: troncId
+        in: path
+        description: tronc id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Employee tronc
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: number
+                start_date:
+                  type: string
+                  format: date
+      responses:
+        '200':
+          description: successful operation
+    delete:
+      tags:
+      - Franchisee Troncs
+      summary: Delete employee tronc API
+      description: Delete employee tronc by id
+      operationId: FranshiseesDeleteEmployeeTronc
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: troncId
+        in: path
+        description: tronc id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+components:
+  schemas:
+    DeprecatedTronc:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

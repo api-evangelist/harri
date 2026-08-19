@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri - External Brand Management Franchisee Employer APIs API",
+    "version": "1.0.00"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.harristaging.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee Employer APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/v1/franchisees/:franchiseeId/employers",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve users associated with a business ID"
+        },
+        {
+          "info": {
+            "name": "Create user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/v1/franchisees/:franchiseeId/employers",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a brand(s) admin user with specified role(s)"
+        },
+        {
+          "info": {
+            "name": "Retrieve user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/v1/franchisees/:franchiseeId/employers/:user_external_id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_external_id",
+                "value": "",
+                "type": "path",
+                "description": "user external ID"
+              }
+            ]
+          },
+          "docs": "Retrieve user based on user external ID"
+        },
+        {
+          "info": {
+            "name": "Update user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/v1/franchisees/:franchiseeId/employers/:user_external_id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_external_id",
+                "value": "",
+                "type": "path",
+                "description": "user external ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a brand(s) admin user with the specified role(s).\nThis will overrwrite any existing accesses, brands and roles the user has."
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/v1/franchisees/:franchiseeId/employers/:user_external_id",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_external_id",
+                "value": "",
+                "type": "path",
+                "description": "user external ID"
+              }
+            ]
+          },
+          "docs": "Delete user and related accesses & roles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

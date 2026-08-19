@@ -112,3 +112,9 @@ tools:
 - name: list_employer_mappings
   description: List Harri-to-external employer identifier mappings
   source_operation: openapi/harri-employer-openapi.json#api_v1_employers_mappings_list
+deployment:
+  mode: none
+  verified: derived
+  tools: 32
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,606 @@
+{
+  "item": [
+    {
+      "id": "07b10132-c7da-40cb-84bf-db004a8867ee",
+      "name": "Deprecated Financial",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "76f7c947-6f56-4468-b8a4-5a3a1020c95b",
+          "name": "retrieve pay type info API",
+          "request": {
+            "name": "retrieve pay type info API",
+            "description": {
+              "content": "retrieve pay type info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "pay_type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14014d2b-aa4d-4989-9297-18f6ffd366b6",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "pay_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6578.432437152318,\n  \"employee_id\": 1133.772418350193,\n  \"type\": \"SALARIED\",\n  \"cross_location_mode\": \"FLEXIBLE\",\n  \"annual_pay_rates\": [\n    {\n      \"id\": 1253.1322803287758,\n      \"rate\": 886.8631367519497,\n      \"start_date\": \"2010-07-03\"\n    },\n    {\n      \"id\": 8602.471319572393,\n      \"rate\": 2838.2591451229546,\n      \"start_date\": \"1960-09-22\"\n    }\n  ],\n  \"tronc\": 7345.470308289414,\n  \"max_weekly_hours\": 327.2522260193167\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d004949-9c69-43c2-ba17-9b1ff1f23754",
+          "name": "update pay type basic info API",
+          "request": {
+            "name": "update pay type basic info API",
+            "description": {
+              "content": "update pay type info\nuse this api to updatee annual pay rate or max weekly hours\nyou cant use this API to update type (salaried to hourly or fixed to flexible)\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "pay_type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"annual_pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"max_weekly_hours\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5bcc3ec-d317-4196-bc98-5919fc06655a",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "pay_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"annual_pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"max_weekly_hours\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9420f394-6bcd-4960-b0d5-0d60eab28d7a",
+          "name": "define new pay type API",
+          "request": {
+            "name": "define new pay type API",
+            "description": {
+              "content": "use this api when u want to update the whole paytype information\nusing this api is like starting new employment period\nyou have to provide all financial info again including employee positions\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "pay_type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pay_type\": \"<string>\",\n  \"annual_pay_type\": {\n    \"pay_rate\": {\n      \"rate\": \"<number>\",\n      \"tronc\": \"<number>\"\n    },\n    \"max_weekly_hours\": \"<number>\"\n  },\n  \"hourly_pay_type\": {\n    \"positions\": [\n      {\n        \"code\": \"<string>\",\n        \"pay_rate\": {\n          \"rate\": \"<number>\",\n          \"tronc\": \"<number>\"\n        },\n        \"is_tipped\": \"<boolean>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"pay_rate\": {\n          \"rate\": \"<number>\",\n          \"tronc\": \"<number>\"\n        },\n        \"is_tipped\": \"<boolean>\"\n      }\n    ],\n    \"cross_location_mode\": \"<string,null>\",\n    \"max_weekly_hours\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b5b4fc6-7461-4211-97eb-f09e124672ac",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "pay_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pay_type\": \"<string>\",\n  \"annual_pay_type\": {\n    \"pay_rate\": {\n      \"rate\": \"<number>\",\n      \"tronc\": \"<number>\"\n    },\n    \"max_weekly_hours\": \"<number>\"\n  },\n  \"hourly_pay_type\": {\n    \"positions\": [\n      {\n        \"code\": \"<string>\",\n        \"pay_rate\": {\n          \"rate\": \"<number>\",\n          \"tronc\": \"<number>\"\n        },\n        \"is_tipped\": \"<boolean>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"pay_rate\": {\n          \"rate\": \"<number>\",\n          \"tronc\": \"<number>\"\n        },\n        \"is_tipped\": \"<boolean>\"\n      }\n    ],\n    \"cross_location_mode\": \"<string,null>\",\n    \"max_weekly_hours\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1434.18457280735,\n  \"employee_id\": 7273.465576823261,\n  \"type\": \"HOURLY\",\n  \"cross_location_mode\": \"FIXED\",\n  \"annual_pay_rate\": {\n    \"id\": 5802.4626281624915,\n    \"rate\": 5561.236613434017,\n    \"tronc\": 1494.3250780680817\n  },\n  \"max_weekly_hours\": 3487.3195373546205\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee7cc5dc-9957-488d-9573-1bbd628e7e22",
+          "name": "update financial info related to specific position on specific location, this will be used only for flexible hourly employees",
+          "request": {
+            "name": "update financial info related to specific position on specific location, this will be used only for flexible hourly employees",
+            "description": {
+              "content": "update financial info related to specific position on specific location\nthis will be used only for flexible hourly employees\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "locations",
+                ":locationId",
+                "positions",
+                ":positionCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) location id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) position code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"is_tipped\": \"<boolean,null>\",\n  \"cost_centers\": [\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    },\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "07b05e02-4af7-4850-97dc-75d00aefee78",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "locations",
+                    ":locationId",
+                    "positions",
+                    ":positionCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) location id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) position code"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"is_tipped\": \"<boolean,null>\",\n  \"cost_centers\": [\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    },\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39e600b2-c5f2-474c-b879-83ba100cd3f3",
+          "name": "update fixed employee position financial info",
+          "request": {
+            "name": "update fixed employee position financial info",
+            "description": {
+              "content": "update employee position financial info.\nthis API should be used only to update pay rates for hourly fixed employees\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "positions",
+                ":positionCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "positionCode",
+                  "description": "(Required) position code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"is_tipped\": \"<boolean>\",\n  \"cost_centers\": [\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    },\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "497eda0f-e30b-42b9-bcad-7fcf24e23437",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "positions",
+                    ":positionCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "positionCode",
+                      "description": "(Required) position code"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pay_rate\": {\n    \"rate\": \"<number>\",\n    \"start_date\": \"<date>\",\n    \"tronc\": \"<number>\"\n  },\n  \"is_tipped\": \"<boolean>\",\n  \"cost_centers\": [\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    },\n    {\n      \"id\": \"<number>\",\n      \"value\": {\n        \"id\": \"<number>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dffb5164-9fa3-4547-91bd-5cc5fb4ac68d",
+    "name": "Harri Employee Open Deprecated Financial API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

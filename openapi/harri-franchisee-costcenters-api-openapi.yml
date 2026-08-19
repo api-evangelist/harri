@@ -1,0 +1,85 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Franchisee CostCenters API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Franchisee CostCenters
+paths:
+  /api/v1/franchisees/{franchiseeId}/locations/{location_id}/cost_centers:
+    get:
+      tags:
+      - Franchisee CostCenters
+      summary: List Cost Centers
+      description: Retrieves a list of cost centers for a specific location under a franchisee.
+      operationId: FranchiseesGetLocationCostCenters
+      parameters:
+      - in: path
+        name: franchiseeId
+        required: true
+        schema:
+          type: number
+      - in: path
+        name: location_id
+        required: true
+        description: Unique identifier for the location.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of cost centers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cost_centers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2848
+                        name:
+                          type: string
+                          example: Test
+                        code:
+                          type: string
+                          example: Temp Dept
+                        mode:
+                          type: string
+                          example: LOCKED
+                        values:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 2849
+                              name:
+                                type: string
+                                example: Front of House
+                              code:
+                                type: string
+                                example: FOH
+                              mode:
+                                type: string
+                                example: LOCKED
+                              priority:
+                                type:
+                                - integer
+                                - 'null'
+                                example: null
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

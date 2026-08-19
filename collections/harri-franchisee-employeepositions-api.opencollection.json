@@ -1,0 +1,192 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Franchisee EmployeePositions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee EmployeePositions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee positions API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/franchisees/:franchiseeId/employees/:employeeId/positions",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ]
+          },
+          "docs": "Retrieve employee positions"
+        },
+        {
+          "info": {
+            "name": "Delete employee position for fixed and flixable pay type API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/locations/:locationId/positions/:positionCode",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location for the employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "position code"
+              }
+            ]
+          },
+          "docs": "Delete employee position for fixed flixable pay type"
+        },
+        {
+          "info": {
+            "name": "Attach position to employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/franchisees/:franchiseeId/employees/:employeeId/locations/:locationId/positions/:positionCode",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location for the employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "position code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Attach positions to an employee"
+        },
+        {
+          "info": {
+            "name": "Update position related info API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v4/franchisees/:franchiseeId/employees/:employeeId/locations/:locationId/positions/:positionCode",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be the primary location for the employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "position code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update position related info - COST CENTERS, this will be used for fixed and flexible hourly employees\n"
+        },
+        {
+          "info": {
+            "name": "Set employee primary position API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/employees/:employeeId/positions/:positionCode/set_primary",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "position code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set employee primary position based on the primary location positions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

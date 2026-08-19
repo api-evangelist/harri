@@ -1,0 +1,522 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Deprecated Franchisee HourlyRates API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Deprecated Franchisee HourlyRates
+paths:
+  ? /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  : get:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee HourlyRates
+      summary: Retrieve employee pay rates API
+      description: Retrieve employee pay rates on a specific position
+      operationId: DeprecatedFranshiseesGetEmployeePayRates
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: positoin code
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hourly_rates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DeprecatedHourlyRate'
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee HourlyRates
+      summary: Define new employee pay rate API
+      description: 'use this api when u want to create pay rate for an employee on specific position
+
+        '
+      operationId: DeprecatedFranshiseesCreateEmployeePayRate
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Employee pay rate
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hourly_rate:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                    start_date:
+                      type: string
+                      format: date
+                    tronc:
+                      type:
+                      - number
+                      - 'null'
+                  required:
+                  - value
+                  - start_date
+              required:
+              - hourly_rate
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hourly_rate:
+                    $ref: '#/components/schemas/DeprecatedHourlyRate'
+  ? /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  : put:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee HourlyRates
+      summary: Update employee pay rate API
+      description: Update employee pay rate
+      operationId: DeprecatedFranshiseesUpdateEmployeePayRate
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: positoin code
+        required: true
+        schema:
+          type: string
+      - name: hourlyRateId
+        in: path
+        description: hourly rate id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Employee pay rate
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: number
+                start_date:
+                  type: string
+                  format: date
+      responses:
+        '200':
+          description: successful operation
+    delete:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee HourlyRates
+      summary: Delete employee pay rate API
+      description: Delete employee pay rate by id
+      operationId: FranshiseesDeleteEmployeePayRate
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: positoin code
+        required: true
+        schema:
+          type: string
+      - name: hourlyRateId
+        in: path
+        description: hourly rate id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+  ? /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates
+  : get:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee HourlyRates
+      summary: Retrieve employee pay rates API
+      description: Retrieve employee pay rates on a specific position
+      operationId: DeprecatedFranshiseesGetEmployeePayRatesV2
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: positoin code
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hourly_rates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DeprecatedHourlyRateV2'
+    post:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee HourlyRates
+      summary: Define new employee pay rate API
+      description: 'use this api when u want to create pay rate for an employee on specific position
+
+        '
+      operationId: DeprecatedFranshiseesCreateEmployeePayRateV2
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Employee pay rate
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hourly_rate:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                    start_date:
+                      type: string
+                      format: date
+                    tronc_point:
+                      type: number
+                    tronc_amount:
+                      type: number
+                    tronc_rate:
+                      type: number
+                  required:
+                  - value
+                  - start_date
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hourly_rate:
+                    $ref: '#/components/schemas/DeprecatedHourlyRateV2'
+  ? /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/positions/{positionCode}/hourly_rates/{hourlyRateId}
+  : put:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee HourlyRates
+      summary: Update employee pay rate API
+      description: Update employee pay rate
+      operationId: DeprecatedFranshiseesUpdateEmployeePayRateV2
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: positoin code
+        required: true
+        schema:
+          type: string
+      - name: hourlyRateId
+        in: path
+        description: hourly rate id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Employee pay rate
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: number
+                start_date:
+                  type: string
+                  format: date
+                tronc_point:
+                  type: number
+                tronc_amount:
+                  type: number
+                tronc_rate:
+                  type: number
+      responses:
+        '200':
+          description: successful operation
+    delete:
+      deprecated: true
+      tags:
+      - Deprecated Franchisee HourlyRates
+      summary: Delete employee pay rate API
+      description: Delete employee pay rate by id
+      operationId: DeprecatedFranshiseesDeleteEmployeePayRateV2
+      parameters:
+      - name: franchiseeId
+        in: path
+        required: true
+        schema:
+          type: number
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: locationId
+        in: path
+        description: location id, should be primary location id for employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: positoin code
+        required: true
+        schema:
+          type: string
+      - name: hourlyRateId
+        in: path
+        description: hourly rate id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+components:
+  schemas:
+    DeprecatedHourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
+    DeprecatedHourlyRateV2:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

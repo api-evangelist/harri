@@ -1,0 +1,350 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Employee Positions API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: EmployeePositions
+paths:
+  /api/v3/employees/{employeeId}/positions:
+    get:
+      tags:
+      - EmployeePositions
+      summary: Retrieve employee positions API
+      description: Retrieve employee positions
+      operationId: GetEmployeePositions
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  positions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EmployeePosition'
+  /api/v3/employees/{employeeId}/locations/{locationId}/positions/{positionCode}:
+    post:
+      tags:
+      - EmployeePositions
+      summary: Attach position to employee API
+      description: Attach positions to an employee
+      operationId: AttachEmployeePosition
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id, should be primary location for the employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                position:
+                  type: object
+                  properties:
+                    is_primary:
+                      type: boolean
+                      description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+                    pay_type_id:
+                      type: integer
+                      description: Required if hourly_rate or tipped_status provided upon positoin creation
+                    hourly_rate:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        start_date:
+                          type: string
+                          format: date
+                        tronc_point:
+                          type: number
+                        tronc_rate:
+                          type: number
+                        tronc_amount:
+                          type: number
+                      description: this field should be defined only for Hourly employees
+                    tipped_status:
+                      type: object
+                      properties:
+                        is_tipped:
+                          type: boolean
+                        start_date:
+                          type: string
+                          format: date
+                      description: this field should be defined only for Hourly employees
+                    cost_centers:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          value:
+                            type: object
+                            properties:
+                              id:
+                                type: number
+                            required:
+                            - id
+                        required:
+                        - id
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  position:
+                    $ref: '#/components/schemas/EmployeePositionRelatedInfo'
+  /api/v4/employees/{employeeId}/locations/{locationId}/positions/{positionCode}:
+    put:
+      tags:
+      - EmployeePositions
+      summary: Update position related info API
+      description: 'Update position related info - COST CENTERS, this will be used for fixed and flexible hourly employees
+
+        '
+      operationId: UpdateEmployeePosition
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id, should be the primary location for the employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                position:
+                  type: object
+                  properties:
+                    cost_centers:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          value:
+                            type: object
+                            properties:
+                              id:
+                                type: number
+                            required:
+                            - id
+                        required:
+                        - id
+                  required:
+                  - cost_centers
+              required:
+              - position
+      responses:
+        '200':
+          description: successful operation
+  /api/v2/employees/{employeeId}/positions/{positionCode}/set_primary:
+    post:
+      tags:
+      - EmployeePositions
+      summary: Set employee primary position API
+      description: Set employee primary position based on the primary location positions
+      operationId: SetPrimaryEmployeePosition
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: successful operation
+  /api/v2/employees/{employeeId}/locations/{locationId}/positions/{positionCode}:
+    delete:
+      tags:
+      - EmployeePositions
+      summary: Delete employee position for fixed and flixable pay type API
+      description: Delete employee position for fixed flixable pay type
+      operationId: DeleteEmployeePosition
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        description: location id, should be primary location for the employees with fixed pay type
+        required: true
+        schema:
+          type: string
+      - name: positionCode
+        in: path
+        description: position code
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+components:
+  schemas:
+    Position:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    EmployeePosition:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: integer
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    CostCenter:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        value:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    EmployeePositionRelatedInfo:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: integer
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          hourly_rate:
+            $ref: '#/components/schemas/HourlyRate'
+          tipped_status:
+            $ref: '#/components/schemas/TippedStatus'
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

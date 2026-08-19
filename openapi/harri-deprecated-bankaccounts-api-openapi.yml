@@ -1,0 +1,135 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Deprecated BankAccounts API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: Deprecated BankAccounts
+paths:
+  /api/v1/employees/{employeeId}/bank_accounts:
+    get:
+      deprecated: true
+      tags:
+      - Deprecated BankAccounts
+      summary: Deprecated - Get employee bank accounts API
+      description: Deprecated - Get employee bank accounts info
+      operationId: DeprecatedGetBankAccountsByEmployeeId
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeprecatedBankAccount'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: employee not found
+          content: {}
+    put:
+      deprecated: true
+      tags:
+      - Deprecated BankAccounts
+      summary: Deprecated - Update or create employee bank account API
+      description: Deprecated - Update or create employee bank account
+      operationId: DeprecatedUpdateEmployeeBankAccount
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: bank account
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                routing_number:
+                  type: string
+                  description: required for US locations, can't be set for other locations
+                account_number:
+                  type: string
+                registration_number:
+                  type: string
+                  description: required for DK locations
+                account_type:
+                  type: string
+                  enum:
+                  - SAVINGS
+                  - CHECKING
+                  description: required for US, cant be set for other locations
+                bank_name:
+                  type: string
+                account_name:
+                  type: string
+                  description: required for other non US locations
+                sort_code:
+                  type: string
+                  description: required for other non US locations
+              required:
+              - account_number
+      responses:
+        '200':
+          description: successful updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeprecatedBankAccount'
+        '201':
+          description: successful updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeprecatedBankAccount'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: employee not found
+          content: {}
+components:
+  schemas:
+    DeprecatedBankAccount:
+      type: object
+      properties:
+        routing_number:
+          type: string
+          description: for US locations only
+        account_number:
+          type: string
+        registration_number:
+          type: string
+          description: for DK locations
+        account_type:
+          type: string
+          enum:
+          - SAVINGS
+          - CHECKING
+          description: for US locations only
+        bank_name:
+          type: string
+        account_name:
+          type: string
+          description: for non US locations
+        sort_code:
+          type: string
+          description: for other US locations
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

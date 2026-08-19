@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Deprecated Event API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deprecated Event",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "retrieve events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/events",
+            "params": [
+              {
+                "name": "event_code",
+                "value": "",
+                "type": "query",
+                "description": "Event code"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "location id"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "published_gte",
+                "value": "",
+                "type": "query",
+                "description": "Published date greater than or equal to"
+              },
+              {
+                "name": "published_lte",
+                "value": "",
+                "type": "query",
+                "description": "Published date less than or equal to"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Status of the event"
+              }
+            ]
+          },
+          "docs": "retrieve events"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

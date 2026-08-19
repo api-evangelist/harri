@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Employee Location API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EmployeeLocation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Attach existing employee to a new location API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/locations/:locationId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Attach existing employee to a new location"
+        },
+        {
+          "info": {
+            "name": "detach employee from location API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/locations/:locationId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id"
+              }
+            ]
+          },
+          "docs": "detach employee from location"
+        },
+        {
+          "info": {
+            "name": "Edit employee payroll id , POS id API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/locations/:locationId/info",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit employee payroll id , POS id"
+        },
+        {
+          "info": {
+            "name": "Update Location period start date and end_date API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/locations/:locationId/location_periods",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set and edit the start and end dates for the location period."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

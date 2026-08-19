@@ -1,0 +1,1630 @@
+{
+  "item": [
+    {
+      "id": "5dbaebd6-1d8d-4551-b349-0b4b4841bfb7",
+      "name": "Franchisee Absences",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "330d5df2-3aa4-4560-8072-37632b379e6f",
+          "name": "Get Absence Requests for an employee API",
+          "request": {
+            "name": "Get Absence Requests for an employee API",
+            "description": {
+              "content": "Get Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) array of absence request types"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) array of absence request types"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "array of absence request statuses to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "array of absence request statuses to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) filter of requests if the start date is equal or higher than the date"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "filter of requests if the end date is equal or less than the date"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6b3c0f7-1f13-4d32-80f9-5ab0929f613e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requests\": [\n    {\n      \"id\": 7453.294709592356,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1986-06-28\",\n      \"end_date\": \"1996-05-04\",\n      \"projected_end_date\": \"1952-09-19\",\n      \"status\": \"WITHDRAWN\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1958-02-13T01:03:14.508Z\",\n      \"days\": [\n        {\n          \"id\": 1658,\n          \"date\": \"1983-07-27\",\n          \"weight\": 892.4551337826148,\n          \"from_time\": null,\n          \"to_time\": null,\n          \"is_all_day\": false\n        },\n        {\n          \"id\": 5637,\n          \"date\": \"1986-12-22\",\n          \"weight\": 6871.20362771942,\n          \"from_time\": null,\n          \"to_time\": 5781,\n          \"is_all_day\": true\n        }\n      ]\n    },\n    {\n      \"id\": 6402.656888144677,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1989-03-14\",\n      \"end_date\": \"2001-07-11\",\n      \"projected_end_date\": null,\n      \"status\": \"APPROVED\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1966-01-05T11:47:36.745Z\",\n      \"days\": [\n        {\n          \"id\": 7660,\n          \"date\": \"1949-06-19\",\n          \"weight\": 3665.450749661082,\n          \"from_time\": 2160,\n          \"to_time\": 4453,\n          \"is_all_day\": false\n        },\n        {\n          \"id\": 9647,\n          \"date\": \"2013-02-16\",\n          \"weight\": 7422.700434391464,\n          \"from_time\": null,\n          \"to_time\": 6124,\n          \"is_all_day\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b91c3270-ce5b-4741-8152-e6d8ba1ea472",
+          "name": "Create an Absence Requests for an employee API",
+          "request": {
+            "name": "Create an Absence Requests for an employee API",
+            "description": {
+              "content": "Create an Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e53223c-ad2e-492d-b18b-7dea1264dbda",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"absence_type\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"note\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"<date>\",\n      \"weight\": \"<number>\",\n      \"from_time\": \"<integer,null>\",\n      \"to_time\": \"<integer,null>\",\n      \"is_all_day\": \"<boolean>\"\n    },\n    {\n      \"date\": \"<date>\",\n      \"weight\": \"<number>\",\n      \"from_time\": \"<integer,null>\",\n      \"to_time\": \"<integer,null>\",\n      \"is_all_day\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6399.555587777986,\n  \"absence_type\": \"string\",\n  \"start_date\": \"1965-11-29\",\n  \"end_date\": \"1973-09-06\",\n  \"projected_end_date\": null,\n  \"status\": \"REJECTED\",\n  \"reason_option\": {\n    \"code\": \"string\",\n    \"name\": \"string\"\n  },\n  \"reason_description\": \"string\",\n  \"submitted_on\": \"1954-04-30T19:26:40.947Z\",\n  \"days\": [\n    {\n      \"id\": 9222,\n      \"date\": \"1966-07-28\",\n      \"weight\": 3802.895291698335,\n      \"from_time\": null,\n      \"to_time\": null,\n      \"is_all_day\": true\n    },\n    {\n      \"id\": 3447,\n      \"date\": \"1993-07-14\",\n      \"weight\": 2336.95144950537,\n      \"from_time\": 7813,\n      \"to_time\": 777,\n      \"is_all_day\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37561dca-1f27-4cbf-beeb-9283ac06f4cc",
+          "name": "Update an Absence Requests for an employee API",
+          "request": {
+            "name": "Update an Absence Requests for an employee API",
+            "description": {
+              "content": "Update an Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"absence_type\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0e41b08a-51b4-4c8f-b8b7-b4bddda43b13",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"absence_type\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"2025-05-28\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    },\n    {\n      \"date\": \"2025-05-28\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Absence Request Updated\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "099b4913-7746-4867-97e2-737a2fb0cc07",
+          "name": "Delete an Absence Requests for an employee API",
+          "request": {
+            "name": "Delete an Absence Requests for an employee API",
+            "description": {
+              "content": "Delete an Absence Requests for an employee API by updating the status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f5e0895-542b-46ca-b609-8ec3d1d5df55",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Absence Request Deleted successfully\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70649525-97d9-412f-9051-61cf605817a2",
+          "name": "Get Absence Requests for a location API",
+          "request": {
+            "name": "Get Absence Requests for a location API",
+            "description": {
+              "content": "Get Absence Requests for a location API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "limit must be not negative and maximum, has a default value of 10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "page must be not negative and default value of 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "statuses array of strings"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "statuses array of strings"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "start date absence request being same or higher than the filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "end date absence request being same or lower than the filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "587ad9ca-4db4-4896-9554-c746e8d1a52d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requests\": [\n    {\n      \"id\": 6983.530504345572,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1975-12-12\",\n      \"end_date\": \"2006-02-17\",\n      \"projected_end_date\": null,\n      \"status\": \"REJECTED\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"2019-01-21T14:06:40.002Z\",\n      \"days\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"employee_id\": null,\n      \"location_id\": null\n    },\n    {\n      \"id\": 6270.598355685801,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1996-12-30\",\n      \"end_date\": \"1948-06-28\",\n      \"projected_end_date\": null,\n      \"status\": \"APPROVED\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1951-02-25T17:55:33.900Z\",\n      \"days\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"employee_id\": null,\n      \"location_id\": \"string\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 3665,\n    \"per_page\": 8143,\n    \"total\": 6513,\n    \"total_pages\": 3112\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba8df7f6-660c-4706-a71d-6c862fc6c72d",
+          "name": "Get Absence Reason Options Lookup API",
+          "request": {
+            "name": "Get Absence Reason Options Lookup API",
+            "description": {
+              "content": "Get Absence Reason Options Lookup API to use in submitting an Absence Request",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "absences",
+                "reason_options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7791c3af-4ead-41f8-905c-5bc926bf14f1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "absences",
+                    "reason_options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reason_options\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c12e51cb-aa54-4d35-b688-ed37f664a330",
+          "name": "Get a Single Absence Request by Id for an employee API",
+          "request": {
+            "name": "Get a Single Absence Request by Id for an employee API",
+            "description": {
+              "content": "Get a Single Absence Request by Id for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":absenceRequestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "absenceRequestId",
+                  "description": "(Required) id  of the absence request to get their absence request"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e16d75f-d002-4d9e-8bd7-761e88ae162b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":absenceRequestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "absenceRequestId",
+                      "description": "(Required) id  of the absence request to get their absence request"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"employee_id\": 8492.110238755145,\n  \"location_id\": 1349.3842612835272,\n  \"id\": 9826.494465759346,\n  \"absence_type\": \"string\",\n  \"start_date\": \"2012-08-05\",\n  \"end_date\": \"1992-01-22\",\n  \"projected_end_date\": \"1973-07-01\",\n  \"status\": \"DELETED\",\n  \"reason_option\": {\n    \"code\": \"string\",\n    \"name\": \"string\"\n  },\n  \"reason_description\": \"string\",\n  \"submitted_on\": \"1974-07-09T19:00:57.706Z\",\n  \"days\": [\n    {\n      \"id\": 1792,\n      \"date\": \"1993-02-08\",\n      \"weight\": 6942.868596844537,\n      \"from_time\": 311,\n      \"to_time\": null,\n      \"is_all_day\": false\n    },\n    {\n      \"id\": 6217,\n      \"date\": \"2010-11-20\",\n      \"weight\": 114.77238903745967,\n      \"from_time\": null,\n      \"to_time\": null,\n      \"is_all_day\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "176baf3f-63a5-4725-8d14-c5991e9dbb20",
+          "name": "Get Absence Requests for an employee API",
+          "request": {
+            "name": "Get Absence Requests for an employee API",
+            "description": {
+              "content": "Get Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) array of absence request types"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) filter of requests if the start date is equal or higher than the date"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "filter of requests if the end date is equal or less than the date"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "filter requests by status"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "filter requests by status"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "maximum number of records to return (max 100, default 10)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "number of records to skip for pagination (default 0)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c809d752-f273-481b-8c5c-e265eeffb300",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requests\": [\n    {\n      \"id\": 1232.0196388686354,\n      \"absence_type\": \"string\",\n      \"start_date\": \"2000-09-21\",\n      \"end_date\": \"1947-03-09\",\n      \"projected_end_date\": \"2008-08-14\",\n      \"status\": \"WITHDRAWN\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1994-02-24T11:56:15.378Z\",\n      \"days\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": 72.37772260144438,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1979-09-27\",\n      \"end_date\": \"2010-02-24\",\n      \"projected_end_date\": null,\n      \"status\": \"REJECTED\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1985-03-09T16:37:53.838Z\",\n      \"days\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"page\": 9081,\n    \"per_page\": 511,\n    \"total\": 6352,\n    \"total_pages\": 1379\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2609a145-f4fe-4260-a9f9-486d6fc79315",
+          "name": "Create an Absence Requests for an employee API",
+          "request": {
+            "name": "Create an Absence Requests for an employee API",
+            "description": {
+              "content": "Create an Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0808ce5f-744f-4df4-8008-3711cf7efd46",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"absence_type\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"note\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"<date>\",\n      \"weight\": \"<number>\",\n      \"from_time\": \"<integer,null>\",\n      \"to_time\": \"<integer,null>\",\n      \"is_all_day\": \"<boolean>\"\n    },\n    {\n      \"date\": \"<date>\",\n      \"weight\": \"<number>\",\n      \"from_time\": \"<integer,null>\",\n      \"to_time\": \"<integer,null>\",\n      \"is_all_day\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6399.555587777986,\n  \"absence_type\": \"string\",\n  \"start_date\": \"1965-11-29\",\n  \"end_date\": \"1973-09-06\",\n  \"projected_end_date\": null,\n  \"status\": \"REJECTED\",\n  \"reason_option\": {\n    \"code\": \"string\",\n    \"name\": \"string\"\n  },\n  \"reason_description\": \"string\",\n  \"submitted_on\": \"1954-04-30T19:26:40.947Z\",\n  \"days\": [\n    {\n      \"id\": 9222,\n      \"date\": \"1966-07-28\",\n      \"weight\": 3802.895291698335,\n      \"from_time\": null,\n      \"to_time\": null,\n      \"is_all_day\": true\n    },\n    {\n      \"id\": 3447,\n      \"date\": \"1993-07-14\",\n      \"weight\": 2336.95144950537,\n      \"from_time\": 7813,\n      \"to_time\": 777,\n      \"is_all_day\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ebcea0a2-3cc6-47c3-9d27-d6512b67f0f3",
+          "name": "Update an Absence Requests for an employee API",
+          "request": {
+            "name": "Update an Absence Requests for an employee API",
+            "description": {
+              "content": "Update an Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"absence_type\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "56fbd3f1-df08-41a2-8ae6-f377c34f0ade",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"absence_type\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"2025-05-28\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    },\n    {\n      \"date\": \"2025-05-28\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Absence Request Updated\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d15b16b-8e3d-4cb9-9f3f-cb2166b5840e",
+          "name": "Delete an Absence Requests for an employee API",
+          "request": {
+            "name": "Delete an Absence Requests for an employee API",
+            "description": {
+              "content": "Delete an Absence Requests for an employee API by updating the status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5e10b69-7de9-4447-a7f8-be29bcfe44e6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Absence Request Deleted successfully\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8ad6244b-62c1-4f7e-a14d-d378ab7fc8b1",
+    "name": "Harri Employee Open Franchisee Absences API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

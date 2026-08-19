@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Franchisee Subscriptions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List franchisee subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/subscriptions",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path",
+                "description": "Franchisee ID"
+              }
+            ]
+          },
+          "docs": "Retrieve all subscriptions for a specific franchisee."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

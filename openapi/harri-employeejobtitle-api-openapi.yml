@@ -1,0 +1,180 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Employee Job Title API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: EmployeeJobTitle
+paths:
+  /api/v1/employees/{employeeId}/job_titles:
+    get:
+      tags:
+      - EmployeeJobTitle
+      summary: Get employee job titles API
+      description: Get employee job titles
+      operationId: GetJobTitlesByEmployeeId
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    code:
+                      type: string
+                    name:
+                      type: string
+                    level:
+                      type: string
+                      description: number with quotations like "5"
+                    skill_needed:
+                      type: boolean
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: employee not found
+          content: {}
+  /api/v1/employees/{employeeId}/job_titles/{jobTitleId}:
+    post:
+      tags:
+      - EmployeeJobTitle
+      summary: attach job title to employee API
+      description: attach job title to employee
+      operationId: AttachJobTitleToEmployee
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: jobTitleId
+        in: path
+        description: job title id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: employee job title info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                level:
+                  type: number
+              required:
+              - level
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  code:
+                    type: string
+                  name:
+                    type: string
+                  level:
+                    type: string
+                    description: number with quotations like "5"
+        '400':
+          description: Invalid employee or Invalid job title
+        '404':
+          description: employee not found, or job title not found
+          content: {}
+    put:
+      tags:
+      - EmployeeJobTitle
+      summary: update employee job title related info API
+      description: update employee job title related info
+      operationId: UpdateEmployeeJobTitle
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: jobTitleId
+        in: path
+        description: job title id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: employee job title info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                level:
+                  type: number
+              required:
+              - level
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid employee or Invalid job title
+        '404':
+          description: employee not found, or job title not found
+          content: {}
+    delete:
+      tags:
+      - EmployeeJobTitle
+      summary: delete employee job title API
+      description: delete employee job title
+      operationId: DeleteEmployeeJobTitle
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: jobTitleId
+        in: path
+        description: job title id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid employee or Invalid job title
+        '404':
+          description: employee not found, or job title not found
+          content: {}
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

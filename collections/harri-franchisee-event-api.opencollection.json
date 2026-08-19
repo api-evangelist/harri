@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Franchisee Event API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee Event",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "retrieve events API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/events/:eventId",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "retrieve events"
+        },
+        {
+          "info": {
+            "name": "This is base class for all views API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/franchisees/:franchiseeId/events",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "event_code",
+                "value": "",
+                "type": "query",
+                "description": "Event code"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "location id"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "published_gte",
+                "value": "",
+                "type": "query",
+                "description": "Published date greater than or equal to"
+              },
+              {
+                "name": "published_lte",
+                "value": "",
+                "type": "query",
+                "description": "Published date less than or equal to"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Status of the event"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of events based on query parameters."
+        },
+        {
+          "info": {
+            "name": "List franchisee events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/franchisees/:franchiseeId/events",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path",
+                "description": "Franchisee ID"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Status of the event"
+              },
+              {
+                "name": "event_code",
+                "value": "",
+                "type": "query",
+                "description": "Event code"
+              },
+              {
+                "name": "published_gte",
+                "value": "",
+                "type": "query",
+                "description": "Published date greater than or equal to (ISO 8601 datetime)"
+              },
+              {
+                "name": "published_lte",
+                "value": "",
+                "type": "query",
+                "description": "Published date less than or equal to (ISO 8601 datetime)"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of events for a franchisee based on query parameters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

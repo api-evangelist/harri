@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Pay Types API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PayTypes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee pay types API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/pay_types",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ]
+          },
+          "docs": "Retrieve pemployee ay types info"
+        },
+        {
+          "info": {
+            "name": "Update pay type basic info API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_types/:payTypeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this api to update pay type version start_date.\n"
+        },
+        {
+          "info": {
+            "name": "Delete pay type by id API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_types/:payTypeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              }
+            ]
+          },
+          "docs": "Delete pay type\n"
+        },
+        {
+          "info": {
+            "name": "Define new employee pay type API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v4/employees/:employeeId/pay_types",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this api when u want to create the employee paytype with other financials information.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

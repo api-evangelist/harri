@@ -1,0 +1,571 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Deprecated Employee API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deprecated Employee",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get employees API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/employees",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "to get terminated or active employee, default active"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "specify the number of rows to return"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "specify the number of rows to skip"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "specify the location id to filter"
+              },
+              {
+                "name": "is_primary",
+                "value": "",
+                "type": "query",
+                "description": "retrieve primary employees of the provided location_id"
+              },
+              {
+                "name": "loa_status",
+                "value": "",
+                "type": "query",
+                "description": "Filters employees by active LOA (Leave of Absence) status. When provided, only employees currently marked as 'ON_LEAVE' within the retrieved page will be returned.\n"
+              },
+              {
+                "name": "payroll_id",
+                "value": "",
+                "type": "query",
+                "description": "filter employees by payroll_id"
+              },
+              {
+                "name": "geid",
+                "value": "",
+                "type": "query",
+                "description": "filter employees by geid (external middleware id)"
+              }
+            ]
+          },
+          "docs": "Get employees."
+        },
+        {
+          "info": {
+            "name": "Deprecated create employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/employees",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deprecated create employee"
+        },
+        {
+          "info": {
+            "name": "Create employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v4/employees",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create employee API"
+        },
+        {
+          "info": {
+            "name": "Create employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v5/employees",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create employee API"
+        },
+        {
+          "info": {
+            "name": "Create employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v6/employees",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create employee API"
+        },
+        {
+          "info": {
+            "name": "Get employees API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "to get terminated or active employee, default active"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "specify the number of rows to return"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "specify the number of rows to skip"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "specify the location id to filter"
+              },
+              {
+                "name": "is_primary",
+                "value": "",
+                "type": "query",
+                "description": "retrieve primary employees of the provided location_id"
+              },
+              {
+                "name": "loa_status",
+                "value": "",
+                "type": "query",
+                "description": "Filters employees by active LOA (Leave of Absence) status. When provided, only employees currently marked as 'ON_LEAVE' within the retrieved page will be returned.\n"
+              }
+            ]
+          },
+          "docs": "Get employees."
+        },
+        {
+          "info": {
+            "name": "Deprecated - Get employee by id API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/employees/:employeeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deprecated - Get employee by harri employee id."
+        },
+        {
+          "info": {
+            "name": "Get employee by id API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v4/employees/:employeeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get employee by harri employee id."
+        },
+        {
+          "info": {
+            "name": "Get employee by id API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v5/employees/:employeeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get employee by harri employee id."
+        },
+        {
+          "info": {
+            "name": "Deprecated - Get employee profile API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/profile",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deprecated - Get employee profile."
+        },
+        {
+          "info": {
+            "name": "Get employee profile API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/profile",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get employee profile."
+        },
+        {
+          "info": {
+            "name": "Get employee profile API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/employees/:employeeId/profile",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get employee profile."
+        },
+        {
+          "info": {
+            "name": "Get employee profile API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v4/employees/:employeeId/profile",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get employee profile."
+        },
+        {
+          "info": {
+            "name": "Update employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/basic_info",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update employee"
+        },
+        {
+          "info": {
+            "name": "Get employees API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "to get terminated or active employee, default active"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "specify the number of rows to return"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "specify the number of rows to skip"
+              }
+            ]
+          },
+          "docs": "Get employees."
+        },
+        {
+          "info": {
+            "name": "Deprecated - Get employee by id API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deprecated - Get employee by harri employee id."
+        },
+        {
+          "info": {
+            "name": "Update employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/basic_info",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update employee"
+        },
+        {
+          "info": {
+            "name": "Deprecated - Get employee by id API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "ID of employee to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deprecated - Get employee by harri employee id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

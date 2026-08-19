@@ -1,0 +1,360 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Absences API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Absences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Absence Requests for an employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/absences/requests",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "id  of the employee to get their absence requests"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "array of absence request types"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "array of absence request statuses to filter by"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "filter of requests if the start date is equal or higher than the date"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "filter of requests if the end date is equal or less than the date"
+              }
+            ]
+          },
+          "docs": "Get Absence Requests for an employee API"
+        },
+        {
+          "info": {
+            "name": "Create an Absence Requests for an employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/absences/requests",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "id  of the employee to get their absence requests"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an Absence Requests for an employee API"
+        },
+        {
+          "info": {
+            "name": "Update an Absence Requests for an employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/absences/requests/:id",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "id  of the employee to get their absence requests"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an Absence Requests for an employee API"
+        },
+        {
+          "info": {
+            "name": "Delete an Absence Requests for an employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/absences/requests/:id",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an Absence Requests for an employee API by updating the status"
+        },
+        {
+          "info": {
+            "name": "Get Absence Requests for a location API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/absences/requests",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "limit must be not negative and maximum, has a default value of 10"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "page must be not negative and default value of 1"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "statuses array of strings"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "start date absence request being same or higher than the filter"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "end date absence request being same or lower than the filter"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Absence Requests for a location API"
+        },
+        {
+          "info": {
+            "name": "Get Absence Reason Options Lookup API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/absences/reason_options",
+            "params": [
+              {
+                "name": "types",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Absence Reason Options Lookup API to use in submitting an Absence Request"
+        },
+        {
+          "info": {
+            "name": "Get a Single Absence Request by Id for an employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/:employeeId/absences/requests/:absenceRequestId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "id  of the employee to get their absence requests"
+              },
+              {
+                "name": "absenceRequestId",
+                "value": "",
+                "type": "path",
+                "description": "id  of the absence request to get their absence request"
+              }
+            ]
+          },
+          "docs": "Get a Single Absence Request by Id for an employee API"
+        },
+        {
+          "info": {
+            "name": "Get Absence Requests for an employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/absences/requests",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "id  of the employee to get their absence requests"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "array of absence request types"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "filter of requests if the start date is equal or higher than the date"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "filter of requests if the end date is equal or less than the date"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "filter requests by status"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of records to return (max 100, default 10)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "number of records to skip for pagination (default 0)"
+              }
+            ]
+          },
+          "docs": "Get Absence Requests for an employee API"
+        },
+        {
+          "info": {
+            "name": "Create an Absence Requests for an employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/absences/requests",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "id  of the employee to get their absence requests"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an Absence Requests for an employee API"
+        },
+        {
+          "info": {
+            "name": "Update an Absence Requests for an employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/absences/requests/:id",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "id  of the employee to get their absence requests"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an Absence Requests for an employee API"
+        },
+        {
+          "info": {
+            "name": "Delete an Absence Requests for an employee API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/absences/requests/:id",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an Absence Requests for an employee API by updating the status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Franchisee HourlyRates API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchisee HourlyRates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee pay rates API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/positions/:positionCode/hourly_rates",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "positoin code"
+              }
+            ]
+          },
+          "docs": "Retrieve employee pay rates on a specific position"
+        },
+        {
+          "info": {
+            "name": "Define new employee pay rate API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/positions/:positionCode/hourly_rates",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "position code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "use this api when u want to create pay rate for an employee on specific position\n"
+        },
+        {
+          "info": {
+            "name": "Update employee pay rate API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/positions/:positionCode/hourly_rates/:hourlyRateId",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "positoin code"
+              },
+              {
+                "name": "hourlyRateId",
+                "value": "",
+                "type": "path",
+                "description": "hourly rate id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update employee pay rate"
+        },
+        {
+          "info": {
+            "name": "Delete employee pay rate API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v3/franchisees/:franchiseeId/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/positions/:positionCode/hourly_rates/:hourlyRateId",
+            "params": [
+              {
+                "name": "franchiseeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "positoin code"
+              },
+              {
+                "name": "hourlyRateId",
+                "value": "",
+                "type": "path",
+                "description": "hourly rate id"
+              }
+            ]
+          },
+          "docs": "Delete employee pay rate by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

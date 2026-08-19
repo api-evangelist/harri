@@ -1,0 +1,367 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Mapping API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mapping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "api_v1_employees_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/mappings",
+            "params": [
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unmapped_employees_limit",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum number of unmapped employees to return. Must be between 1 and 1000. Defaults to 1000 if not specified."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_employees_mappings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/mappings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "api_v2_employees_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/mappings",
+            "params": [
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query",
+                "description": "IDs of locations where the requested employees are currently active"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the number of mapped or unmapped employees to return. Must be between 1 and 7000. Defaults to 7000 if not specified."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_employees_mappings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employees/mappings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_locations_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/locations/mappings",
+            "params": [
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_locations_mappings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/locations/mappings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_locations_mappings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/locations/mappings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_positions_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/positions/mappings",
+            "params": [
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_positions_mappings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/positions/mappings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_positions_mappings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/positions/mappings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_employers_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employers/mappings",
+            "params": [
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List employer mappings or filter by criteria"
+        },
+        {
+          "info": {
+            "name": "api_v1_employers_mappings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employers/mappings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create employer mappings"
+        },
+        {
+          "info": {
+            "name": "api_v1_employers_mappings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v1/employers/mappings/:pk",
+            "params": [
+              {
+                "name": "pk",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an employer mapping"
+        },
+        {
+          "info": {
+            "name": "api_v1_employees_mappings_updateV2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/mappings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "api_v1_employers_mappings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/v1/employers/mappings",
+            "params": [
+              {
+                "name": "internal_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_values",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://oauth.harri.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

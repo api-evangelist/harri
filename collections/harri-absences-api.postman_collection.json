@@ -1,0 +1,1428 @@
+{
+  "item": [
+    {
+      "id": "1de0b6d6-b8ea-4f2f-ad71-994cd940ab4e",
+      "name": "Absences",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee046013-a393-4599-969b-fd7e274891bb",
+          "name": "Get Absence Requests for an employee API",
+          "request": {
+            "name": "Get Absence Requests for an employee API",
+            "description": {
+              "content": "Get Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) array of absence request types"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) array of absence request types"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "array of absence request statuses to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "array of absence request statuses to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) filter of requests if the start date is equal or higher than the date"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "filter of requests if the end date is equal or less than the date"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a015768-f120-40ff-a9ae-9c6349a2f239",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requests\": [\n    {\n      \"id\": 7744.334170660007,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1980-12-11\",\n      \"end_date\": \"1968-03-28\",\n      \"projected_end_date\": null,\n      \"status\": \"PENDING_APPROVAL\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"2005-11-27T03:25:30.015Z\",\n      \"days\": [\n        {\n          \"id\": 7602,\n          \"date\": \"1972-02-08\",\n          \"weight\": 7955.29562807939,\n          \"from_time\": null,\n          \"to_time\": 863,\n          \"is_all_day\": true\n        },\n        {\n          \"id\": 6287,\n          \"date\": \"2011-02-14\",\n          \"weight\": 2005.07802071214,\n          \"from_time\": 2199,\n          \"to_time\": null,\n          \"is_all_day\": false\n        }\n      ]\n    },\n    {\n      \"id\": 1540.0633102430904,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1967-10-12\",\n      \"end_date\": \"1973-10-31\",\n      \"projected_end_date\": null,\n      \"status\": \"WITHDRAWN\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1991-02-10T13:31:47.369Z\",\n      \"days\": [\n        {\n          \"id\": 5145,\n          \"date\": \"1947-06-08\",\n          \"weight\": 6604.436854402444,\n          \"from_time\": 8937,\n          \"to_time\": 4909,\n          \"is_all_day\": false\n        },\n        {\n          \"id\": 4225,\n          \"date\": \"2016-01-03\",\n          \"weight\": 9652.79982189702,\n          \"from_time\": null,\n          \"to_time\": 5335,\n          \"is_all_day\": false\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "196c7c20-fc09-44a8-8969-b0f5ebd62ace",
+          "name": "Create an Absence Requests for an employee API",
+          "request": {
+            "name": "Create an Absence Requests for an employee API",
+            "description": {
+              "content": "Create an Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7a6a11d-1776-4fe5-b46b-cdb6d85d7aab",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"absence_type\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"note\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"<date>\",\n      \"weight\": \"<number>\",\n      \"from_time\": \"<integer,null>\",\n      \"to_time\": \"<integer,null>\",\n      \"is_all_day\": \"<boolean>\"\n    },\n    {\n      \"date\": \"<date>\",\n      \"weight\": \"<number>\",\n      \"from_time\": \"<integer,null>\",\n      \"to_time\": \"<integer,null>\",\n      \"is_all_day\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1057.3533281033287,\n  \"absence_type\": \"string\",\n  \"start_date\": \"1993-06-05\",\n  \"end_date\": \"1974-01-14\",\n  \"projected_end_date\": \"1990-11-29\",\n  \"status\": \"PENDING_APPROVAL\",\n  \"reason_option\": {\n    \"code\": \"string\",\n    \"name\": \"string\"\n  },\n  \"reason_description\": \"string\",\n  \"submitted_on\": \"1952-07-27T07:02:52.477Z\",\n  \"days\": [\n    {\n      \"id\": 861,\n      \"date\": \"1983-01-30\",\n      \"weight\": 8073.383373326467,\n      \"from_time\": 3062,\n      \"to_time\": 1807,\n      \"is_all_day\": true\n    },\n    {\n      \"id\": 5185,\n      \"date\": \"1954-06-08\",\n      \"weight\": 160.974520829702,\n      \"from_time\": null,\n      \"to_time\": null,\n      \"is_all_day\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92dbc796-fc51-43ff-b342-e15d6e8c555d",
+          "name": "Update an Absence Requests for an employee API",
+          "request": {
+            "name": "Update an Absence Requests for an employee API",
+            "description": {
+              "content": "Update an Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"absence_type\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "021c878c-da62-45cb-9596-2df40862add1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"absence_type\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"2025-05-28\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    },\n    {\n      \"date\": \"2025-05-28\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Absence Request Updated\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9bdd572-1c38-41f7-8e6b-452f8680dbd8",
+          "name": "Delete an Absence Requests for an employee API",
+          "request": {
+            "name": "Delete an Absence Requests for an employee API",
+            "description": {
+              "content": "Delete an Absence Requests for an employee API by updating the status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c3bd136-0144-474b-8651-817f03371f9a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Absence Request Deleted successfully\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c979e3fb-c3c2-45a9-8b1f-d247f7221c19",
+          "name": "Get Absence Requests for a location API",
+          "request": {
+            "name": "Get Absence Requests for a location API",
+            "description": {
+              "content": "Get Absence Requests for a location API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "limit must be not negative and maximum, has a default value of 10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "page must be not negative and default value of 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "statuses array of strings"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "statuses array of strings"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "start date absence request being same or higher than the filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "end date absence request being same or lower than the filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2579558-793c-4e42-8d6e-30821bd19ca8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requests\": [\n    {\n      \"id\": 3349.609247171551,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1976-04-17\",\n      \"end_date\": \"1986-08-22\",\n      \"projected_end_date\": \"1946-09-01\",\n      \"status\": \"APPROVED\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1952-12-02T15:45:16.258Z\",\n      \"days\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"employee_id\": null,\n      \"location_id\": \"string\"\n    },\n    {\n      \"id\": 5762.527747136086,\n      \"absence_type\": \"string\",\n      \"start_date\": \"2014-11-24\",\n      \"end_date\": \"1967-06-19\",\n      \"projected_end_date\": null,\n      \"status\": \"APPROVED\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1991-10-30T11:57:31.766Z\",\n      \"days\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"employee_id\": \"string\",\n      \"location_id\": \"string\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 2397,\n    \"per_page\": 3895,\n    \"total\": 497,\n    \"total_pages\": 7041\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2d64ced-de47-4fc6-b4de-fd306274feca",
+          "name": "Get Absence Reason Options Lookup API",
+          "request": {
+            "name": "Get Absence Reason Options Lookup API",
+            "description": {
+              "content": "Get Absence Reason Options Lookup API to use in submitting an Absence Request",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "absences",
+                "reason_options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c0c2565-9bc2-4caf-a3e3-9f4d8ae72343",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "absences",
+                    "reason_options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reason_options\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4642374-96a5-4c99-8dc7-f953b767fcf5",
+          "name": "Get a Single Absence Request by Id for an employee API",
+          "request": {
+            "name": "Get a Single Absence Request by Id for an employee API",
+            "description": {
+              "content": "Get a Single Absence Request by Id for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":absenceRequestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "absenceRequestId",
+                  "description": "(Required) id  of the absence request to get their absence request"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b564eee-c8d0-4ce3-b5be-1bb6588c8d7c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":absenceRequestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "absenceRequestId",
+                      "description": "(Required) id  of the absence request to get their absence request"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"employee_id\": 9839.599597172306,\n  \"location_id\": null,\n  \"id\": 4785.749529981866,\n  \"absence_type\": \"string\",\n  \"start_date\": \"1963-01-29\",\n  \"end_date\": \"1998-07-17\",\n  \"projected_end_date\": null,\n  \"status\": \"WITHDRAWN\",\n  \"reason_option\": {\n    \"code\": \"string\",\n    \"name\": \"string\"\n  },\n  \"reason_description\": \"string\",\n  \"submitted_on\": \"2016-08-09T11:18:20.542Z\",\n  \"days\": [\n    {\n      \"id\": 7214,\n      \"date\": \"1971-12-04\",\n      \"weight\": 2854.7068615999883,\n      \"from_time\": 1221,\n      \"to_time\": null,\n      \"is_all_day\": false\n    },\n    {\n      \"id\": 6728,\n      \"date\": \"1989-07-09\",\n      \"weight\": 4092.2923466538887,\n      \"from_time\": null,\n      \"to_time\": null,\n      \"is_all_day\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b4cfdb9-002f-45a8-ab8c-3c853a48e299",
+          "name": "Get Absence Requests for an employee API",
+          "request": {
+            "name": "Get Absence Requests for an employee API",
+            "description": {
+              "content": "Get Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) array of absence request types"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) filter of requests if the start date is equal or higher than the date"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "filter of requests if the end date is equal or less than the date"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "filter requests by status"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "filter requests by status"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "maximum number of records to return (max 100, default 10)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "number of records to skip for pagination (default 0)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79f515c1-7523-4cdd-9d38-3eda838ca748",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requests\": [\n    {\n      \"id\": 1485.3051463388167,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1991-01-27\",\n      \"end_date\": \"1956-05-12\",\n      \"projected_end_date\": null,\n      \"status\": \"APPROVED\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1953-06-22T22:32:08.815Z\",\n      \"days\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": 2801.369395008193,\n      \"absence_type\": \"string\",\n      \"start_date\": \"1970-09-10\",\n      \"end_date\": \"1949-12-10\",\n      \"projected_end_date\": null,\n      \"status\": \"DELETED\",\n      \"reason_option\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"reason_description\": \"string\",\n      \"submitted_on\": \"1953-01-25T04:06:18.511Z\",\n      \"days\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"page\": 4337,\n    \"per_page\": 3792,\n    \"total\": 1511,\n    \"total_pages\": 2587\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "280d994e-c1f6-4005-8976-a7d92cdd1c2b",
+          "name": "Create an Absence Requests for an employee API",
+          "request": {
+            "name": "Create an Absence Requests for an employee API",
+            "description": {
+              "content": "Create an Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a74cf0d-e9c5-4607-8fd8-97ff67dfa1c8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"absence_type\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"note\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"<date>\",\n      \"weight\": \"<number>\",\n      \"from_time\": \"<integer,null>\",\n      \"to_time\": \"<integer,null>\",\n      \"is_all_day\": \"<boolean>\"\n    },\n    {\n      \"date\": \"<date>\",\n      \"weight\": \"<number>\",\n      \"from_time\": \"<integer,null>\",\n      \"to_time\": \"<integer,null>\",\n      \"is_all_day\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1057.3533281033287,\n  \"absence_type\": \"string\",\n  \"start_date\": \"1993-06-05\",\n  \"end_date\": \"1974-01-14\",\n  \"projected_end_date\": \"1990-11-29\",\n  \"status\": \"PENDING_APPROVAL\",\n  \"reason_option\": {\n    \"code\": \"string\",\n    \"name\": \"string\"\n  },\n  \"reason_description\": \"string\",\n  \"submitted_on\": \"1952-07-27T07:02:52.477Z\",\n  \"days\": [\n    {\n      \"id\": 861,\n      \"date\": \"1983-01-30\",\n      \"weight\": 8073.383373326467,\n      \"from_time\": 3062,\n      \"to_time\": 1807,\n      \"is_all_day\": true\n    },\n    {\n      \"id\": 5185,\n      \"date\": \"1954-06-08\",\n      \"weight\": 160.974520829702,\n      \"from_time\": null,\n      \"to_time\": null,\n      \"is_all_day\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0f16991-98d4-44c6-add6-96ee1a6a74a3",
+          "name": "Update an Absence Requests for an employee API",
+          "request": {
+            "name": "Update an Absence Requests for an employee API",
+            "description": {
+              "content": "Update an Absence Requests for an employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) id  of the employee to get their absence requests"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"absence_type\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d7f3bd22-aeaf-4baa-89da-05335eb8b391",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) id  of the employee to get their absence requests"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"absence_type\": \"<string>\",\n  \"submitted_on\": \"<dateTime>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"projected_end_date\": \"<string,null-date>\",\n  \"reason_option\": {\n    \"code\": \"<string>\"\n  },\n  \"reason_description\": \"<string>\",\n  \"days\": [\n    {\n      \"date\": \"2025-05-28\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    },\n    {\n      \"date\": \"2025-05-28\",\n      \"weight\": \"<number>\",\n      \"is_all_day\": \"<boolean>\",\n      \"id\": \"<number>\",\n      \"from_time\": \"<number>\",\n      \"to_time\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Absence Request Updated\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba9025b2-5188-4079-bb63-73418496483e",
+          "name": "Delete an Absence Requests for an employee API",
+          "request": {
+            "name": "Delete an Absence Requests for an employee API",
+            "description": {
+              "content": "Delete an Absence Requests for an employee API by updating the status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "employees",
+                ":employeeId",
+                "absences",
+                "requests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0e0fe97-e9db-4b41-9c4d-ca6ad46652bc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "employees",
+                    ":employeeId",
+                    "absences",
+                    "requests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Absence Request Deleted successfully\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cbecee62-fd27-4132-9ca9-fbb77b8e8801",
+    "name": "Harri Employee Open Absences API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

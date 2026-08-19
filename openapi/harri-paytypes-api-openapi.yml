@@ -1,0 +1,338 @@
+openapi: 3.2.0
+info:
+  title: Harri Employee Open Pay Types API
+  description: 'API for managing and retrieving employee data in the Harri system. - Notice: Harri''s API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.'
+  termsOfService: https://harri.com/terms
+  version: 1.0.0
+servers:
+- url: https://gateway.harri.com/open-api-hub
+tags:
+- name: PayTypes
+paths:
+  /api/v1/employees/{employeeId}/pay_types:
+    get:
+      tags:
+      - PayTypes
+      summary: Retrieve employee pay types API
+      description: Retrieve pemployee ay types info
+      operationId: GetEmployeePayTypes
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    type:
+                      type: string
+                      enum:
+                      - SALARIED
+                      - HOURLY
+                      - WEIGHTED_SHIFT
+                    start_date:
+                      type: string
+                      format: date
+                    cross_location_mode:
+                      type:
+                      - string
+                      - 'null'
+                      enum:
+                      - FIXED
+                      - FLEXIBLE
+  /api/v2/employees/{employeeId}/pay_types/{payTypeId}:
+    put:
+      tags:
+      - PayTypes
+      summary: Update pay type basic info API
+      description: 'Use this api to update pay type version start_date.
+
+        '
+      operationId: UpdateEmployeePayType
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: employee pay type info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pay_type:
+                  type: object
+                  properties:
+                    start_date:
+                      type: string
+                      format: date
+                  required:
+                  - start_date
+              required:
+              - pay_type
+      responses:
+        '200':
+          description: successful operation
+    delete:
+      tags:
+      - PayTypes
+      summary: Delete pay type by id API
+      description: 'Delete pay type
+
+        '
+      operationId: DeleteEmployeePayTypes
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      - name: payTypeId
+        in: path
+        description: pay type id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: successful operation
+  /api/v4/employees/{employeeId}/pay_types:
+    post:
+      tags:
+      - PayTypes
+      summary: Define new employee pay type API
+      description: 'Use this api when u want to create the employee paytype with other financials information.
+
+        '
+      operationId: CreatePayTypeV4
+      parameters:
+      - name: employeeId
+        in: path
+        description: employee id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Employee pay type info
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start_date:
+                  type: string
+                  format: date
+                pay_type:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - SALARIED
+                      - HOURLY
+                      - WEIGHTED_SHIFT
+                    cross_location_mode:
+                      type:
+                      - string
+                      - 'null'
+                      enum:
+                      - FIXED
+                      - FLEXIBLE
+                      description: Required when the pay type is set to HOURLY.
+                annual_rate:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+                tronc_point:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+                tronc_amount:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                  required:
+                  - value
+                positions:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      position:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                      hourly_rate:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          tronc_point:
+                            type: number
+                          tronc_rate:
+                            type: number
+                          tronc_amount:
+                            type: number
+                        required:
+                        - value
+                      tipped_status:
+                        type: object
+                        properties:
+                          is_tipped:
+                            type: boolean
+                        required:
+                        - is_tipped
+                      location_id:
+                        type: string
+                        description: location id, should be primary location id for employees with fixed pay
+                    required:
+                    - code
+                    - hourly_rate
+              required:
+              - start_date
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostEmployeePayTypeResponseV3'
+components:
+  schemas:
+    TroncAmount:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    TroncPoint:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    AnnualRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    PostEmployeePayTypeResponseV3:
+      type: object
+      properties:
+        pay_type:
+          type: object
+          properties:
+            id:
+              type: number
+            type:
+              type: string
+              enum:
+              - SALARIED
+              - HOURLY
+              - WEIGHTED_SHIFT
+            start_date:
+              type: string
+              format: date
+            cross_location_mode:
+              type:
+              - string
+              - 'null'
+              enum:
+              - FIXED
+              - FLEXIBLE
+        annual_rate:
+          $ref: '#/components/schemas/AnnualRate'
+        tronc_amount:
+          $ref: '#/components/schemas/TroncAmount'
+        tronc_point:
+          $ref: '#/components/schemas/TroncPoint'
+        positions:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              location_id:
+                type: string
+              hourly_rate:
+                $ref: '#/components/schemas/HourlyRate'
+              tipped_status:
+                $ref: '#/components/schemas/TippedStatus'
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.harri.com/oauth2/token
+          scopes: {}

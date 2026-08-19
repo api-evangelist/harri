@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "41629db8-a258-4d89-80d6-49896b704ad0",
+      "name": "Franchisee CostCenters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2a1ab145-2852-452d-9d56-2d96e52d51d9",
+          "name": "List Cost Centers",
+          "request": {
+            "name": "List Cost Centers",
+            "description": {
+              "content": "Retrieves a list of cost centers for a specific location under a franchisee.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "locations",
+                ":location_id",
+                "cost_centers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location_id",
+                  "description": "(Required) Unique identifier for the location."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3322dd7-5911-4cba-9566-91ac311dea83",
+              "name": "A list of cost centers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "locations",
+                    ":location_id",
+                    "cost_centers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location_id",
+                      "description": "(Required) Unique identifier for the location."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cost_centers\": [\n    {\n      \"id\": 2848,\n      \"name\": \"Test\",\n      \"code\": \"Temp Dept\",\n      \"mode\": \"LOCKED\",\n      \"values\": [\n        {\n          \"id\": 2849,\n          \"name\": \"Front of House\",\n          \"code\": \"FOH\",\n          \"mode\": \"LOCKED\",\n          \"priority\": null\n        },\n        {\n          \"id\": 2849,\n          \"name\": \"Front of House\",\n          \"code\": \"FOH\",\n          \"mode\": \"LOCKED\",\n          \"priority\": null\n        }\n      ]\n    },\n    {\n      \"id\": 2848,\n      \"name\": \"Test\",\n      \"code\": \"Temp Dept\",\n      \"mode\": \"LOCKED\",\n      \"values\": [\n        {\n          \"id\": 2849,\n          \"name\": \"Front of House\",\n          \"code\": \"FOH\",\n          \"mode\": \"LOCKED\",\n          \"priority\": null\n        },\n        {\n          \"id\": 2849,\n          \"name\": \"Front of House\",\n          \"code\": \"FOH\",\n          \"mode\": \"LOCKED\",\n          \"priority\": null\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "654872fa-69c4-4420-8fd4-af39af7638a9",
+    "name": "Harri Employee Open Franchisee CostCenters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

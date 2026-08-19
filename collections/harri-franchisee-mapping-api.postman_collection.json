@@ -1,0 +1,2217 @@
+{
+  "item": [
+    {
+      "id": "18411178-be0d-4db6-8452-2406adcbfbb2",
+      "name": "Franchisee Mapping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "846c5596-df33-4b98-a26d-2ea8952177ce",
+          "name": "franshisees api v1 employees mappings list",
+          "request": {
+            "name": "franshisees api v1 employees mappings list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-employees-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "unmapped_employees_limit",
+                  "value": "1000",
+                  "description": "Specifies the maximum number of unmapped employees to return. Must be between 1 and 1000. Defaults to 1000 if not specified."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd733665-c46f-4455-ab19-0dbb1c718486",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-employees-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unmapped_employees_limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 321.8382764132754,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\",\n    \"meta\": {\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"ssn\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"T7LPETAb4@LbfChc.yw\",\n      \"external_middleware_id\": \"string\"\n    }\n  },\n  {\n    \"id\": 9449.276551849802,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\",\n    \"meta\": {\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"ssn\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"4s59@uRWxJHYZdAnXlapbXOAuSAhn.ahqd\",\n      \"external_middleware_id\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f55ff0a-5910-42cb-a635-8ea37c096a46",
+          "name": "franchisees api v1 employees mappings create",
+          "request": {
+            "name": "franchisees api v1 employees mappings create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-employees-mappings-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91c1dd69-9404-4b45-a496-f1da68f15c64",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-employees-mappings-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 9403.235910670204,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 3295.9706545961485,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25e9155a-1212-4b51-bcdc-0fa26f25b79c",
+          "name": "franchisees api v1 employees mappings update",
+          "request": {
+            "name": "franchisees api v1 employees mappings update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                "mappings",
+                ":id"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-employees-mappings-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d33278ed-4010-4ddc-9ead-c297e8dd82c5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    "mappings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-employees-mappings-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd175aec-56b2-4e7f-bb26-2f4391074dfb",
+          "name": "franchisees api v1 locations mappings list",
+          "request": {
+            "name": "franchisees api v1 locations mappings list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "locations",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-locations-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e709ab71-cd8a-43eb-895c-8266419a54bb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "locations",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-locations-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 6347.650422849864,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 8312.631334091446,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d110c41e-24dd-49c0-ba85-8a69c35ea70c",
+          "name": "franchisees api v1 locations mappings create",
+          "request": {
+            "name": "franchisees api v1 locations mappings create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "locations",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-locations-mappings-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9eb528dc-e992-4018-85d3-cff6b40fa419",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "locations",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-locations-mappings-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 6347.650422849864,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 8312.631334091446,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d622a38-bb2e-4208-9beb-c0f747c87446",
+          "name": "franchisees api v1 locations mappings update",
+          "request": {
+            "name": "franchisees api v1 locations mappings update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "locations",
+                "mappings",
+                ":id"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-locations-mappings-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2633cd5-451d-49bc-a0d6-96bc87e087e3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "locations",
+                    "mappings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-locations-mappings-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "574ceb78-c440-4192-ab59-78b421d34ca4",
+          "name": "franchisees api v1 positions mappings list",
+          "request": {
+            "name": "franchisees api v1 positions mappings list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "positions",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-positions-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "017e9dc2-46ef-42db-8fc3-c1e575d82462",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "positions",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-positions-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 6347.650422849864,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 8312.631334091446,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c48b0dbd-a442-4cc7-b664-0a2fbcdd23ab",
+          "name": "franchisees api v1 positions mappings create",
+          "request": {
+            "name": "franchisees api v1 positions mappings create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "positions",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-positions-mappings-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d8e241f-c0eb-4e4a-afe6-ec864738ac7b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "positions",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-positions-mappings-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 6347.650422849864,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 8312.631334091446,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49df0a84-6f9a-47c0-9cc0-8db616fb0add",
+          "name": "franchisees api v1 positions mappings update",
+          "request": {
+            "name": "franchisees api v1 positions mappings update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "positions",
+                "mappings",
+                ":id"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-positions-mappings-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf1611d7-421d-49bf-89db-c03c6f2f496d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "positions",
+                    "mappings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-positions-mappings-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05a87a91-196e-423c-aeca-15e966d5be7e",
+          "name": "franchisees api v1 employers mappings list",
+          "request": {
+            "name": "franchisees api v1 employers mappings list",
+            "description": {
+              "content": "List franchisee employer mappings or filter by criteria",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employers",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-employers-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d06e049d-1d10-4d30-a4eb-d309f79ecdec",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employers",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-employers-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4345.206913892923,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  },\n  {\n    \"id\": 9609.44187888368,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad4cc5fb-4a4c-4c6e-9163-f539d66576cf",
+          "name": "franchisees api v1 employers mappings create",
+          "request": {
+            "name": "franchisees api v1 employers mappings create",
+            "description": {
+              "content": "Create franchisee employer mappings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employers",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-employers-mappings-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "867cdd71-03db-4af3-b819-ceab9536a482",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employers",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-employers-mappings-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 598.841481459721,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  },\n  {\n    \"id\": 1495.4869402186578,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d968e6a4-aba7-4e31-91ed-4bc3f4155e22",
+          "name": "franchisees api v1 employers mappings update",
+          "request": {
+            "name": "franchisees api v1 employers mappings update",
+            "description": {
+              "content": "Update a franchisee employer mapping",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employers",
+                "mappings",
+                ":pk"
+              ],
+              "host": [
+                "{{api-v1-franchisees-franchiseeId-employers-mappings-pk-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "pk",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e2cac7b-14e6-4e85-9712-83085c7d5b23",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employers",
+                    "mappings",
+                    ":pk"
+                  ],
+                  "host": [
+                    "{{api-v1-franchisees-franchiseeId-employers-mappings-pk-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pk",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6dbb6814-aec1-46bb-8bb6-5dfa68489d88",
+          "name": "franshisees api v1 employees mappings list V2",
+          "request": {
+            "name": "franshisees api v1 employees mappings list V2",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v2-franchisees-franchiseeId-employees-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "unmapped_employees_limit",
+                  "value": "1000",
+                  "description": "Specifies the maximum number of unmapped employees to return. Must be between 1 and 1000. Defaults to 1000 if not specified."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "167194d0-9f16-4cfe-bef7-ef9ef6681245",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v2-franchisees-franchiseeId-employees-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unmapped_employees_limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 321.8382764132754,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\",\n    \"meta\": {\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"ssn\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"T7LPETAb4@LbfChc.yw\",\n      \"external_middleware_id\": \"string\"\n    }\n  },\n  {\n    \"id\": 9449.276551849802,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\",\n    \"meta\": {\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"ssn\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"4s59@uRWxJHYZdAnXlapbXOAuSAhn.ahqd\",\n      \"external_middleware_id\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f868c9aa-08fb-42ac-9cc3-cb6a12881f25",
+          "name": "franchisees api v1 employees mappings create V2",
+          "request": {
+            "name": "franchisees api v1 employees mappings create V2",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                "mappings"
+              ],
+              "host": [
+                "{{api-v2-franchisees-franchiseeId-employees-mappings-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "886353e1-23d4-4922-8488-35f11c7a8749",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{api-v2-franchisees-franchiseeId-employees-mappings-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mappings\": [\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    },\n    {\n      \"internal_value\": \"<string>\",\n      \"external_value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 6347.650422849864,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    },\n    {\n      \"id\": 8312.631334091446,\n      \"internal_value\": \"string\",\n      \"external_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "415264e3-c156-4202-a93d-9e5e45fb17a7",
+          "name": "franchisees api v1 employees mappings update V2",
+          "request": {
+            "name": "franchisees api v1 employees mappings update V2",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                "mappings",
+                ":id"
+              ],
+              "host": [
+                "{{api-v2-franchisees-franchiseeId-employees-mappings-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6647737d-2800-43bb-b9d1-6c3db8752c16",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    "mappings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{api-v2-franchisees-franchiseeId-employees-mappings-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"internal_value\": \"<string>\",\n  \"external_value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3de9b933-7d37-47d1-aab7-c512898bfa4f",
+          "name": "api v1 franchisee employers mappings list",
+          "request": {
+            "name": "api v1 franchisee employers mappings list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "franchisees",
+                ":franchiseeId",
+                "employers",
+                "mappings"
+              ],
+              "host": [
+                "{{v1-franchisees-franchiseeId-employers-mappings-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "internal_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_values",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d84bc55d-6bf8-4a0a-9ba4-f4163e5d8c56",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employers",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{v1-franchisees-franchiseeId-employers-mappings-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "internal_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "external_values",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4345.206913892923,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  },\n  {\n    \"id\": 9609.44187888368,\n    \"internal_value\": \"string\",\n    \"external_value\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-franchisees-franchiseeId-employees-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-franchisees-franchiseeId-employees-mappings-id-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-franchisees-franchiseeId-locations-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-franchisees-franchiseeId-locations-mappings-id-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-franchisees-franchiseeId-positions-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-franchisees-franchiseeId-positions-mappings-id-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-franchisees-franchiseeId-employers-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v1-franchisees-franchiseeId-employers-mappings-pk-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v2-franchisees-franchiseeId-employees-mappings-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "api-v2-franchisees-franchiseeId-employees-mappings-id-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "v1-franchisees-franchiseeId-employers-mappings-Url"
+    }
+  ],
+  "info": {
+    "_postman_id": "8e0d9913-5412-489e-b244-13dea4c3f262",
+    "name": "Harri Franchisee Mapping API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Operations tagged Franchisee Mapping across 2 of this provider's published API definitions: harri-employee-openapi.yml, harri-employer-openapi.json. Each path carries the servers of the definition it was published in.",
+      "type": "text/plain"
+    }
+  }
+}

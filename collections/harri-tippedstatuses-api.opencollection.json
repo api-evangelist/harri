@@ -1,0 +1,186 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harri Employee Open Tipped Statuses API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TippedStatuses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee tipped status API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/positions/:positionCode/tipped_statuses",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "positoin code"
+              }
+            ]
+          },
+          "docs": "Retrieve employee tipped status on specific positoin"
+        },
+        {
+          "info": {
+            "name": "Define new employee tipped status API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/positions/:positionCode/tipped_statuses",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "position code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "use this api when u want to define new tipped status for an employee on specific position\n"
+        },
+        {
+          "info": {
+            "name": "Update employee tipped status API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/positions/:positionCode/tipped_statuses/:tippedStatusId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "positoin code"
+              },
+              {
+                "name": "tippedStatusId",
+                "value": "",
+                "type": "path",
+                "description": "tipped status id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update employee tipped status for specific position"
+        },
+        {
+          "info": {
+            "name": "Delete employee tipped status API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.harri.com/open-api-hub/api/v2/employees/:employeeId/pay_types/:payTypeId/locations/:locationId/positions/:positionCode/tipped_statuses/:tippedStatusId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path",
+                "description": "employee id"
+              },
+              {
+                "name": "payTypeId",
+                "value": "",
+                "type": "path",
+                "description": "pay type id"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "location id, should be primary location id for employees with fixed pay type"
+              },
+              {
+                "name": "positionCode",
+                "value": "",
+                "type": "path",
+                "description": "positoin code"
+              },
+              {
+                "name": "tippedStatusId",
+                "value": "",
+                "type": "path",
+                "description": "tipped status id"
+              }
+            ]
+          },
+          "docs": "Delete employee tipped status by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,557 @@
+{
+  "item": [
+    {
+      "id": "cff6a6c6-0fa5-422f-91ee-8711561709ab",
+      "name": "Franchisee BankAccounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6392fb2-5da1-408e-a644-641ca8be02d8",
+          "name": "Get employee bank accounts API",
+          "request": {
+            "name": "Get employee bank accounts API",
+            "description": {
+              "content": "Get employee bank accounts info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "bank_accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28105ed6-7786-4d40-b2f9-2223f9cfd22e",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 811.2983679960362,\n    \"order\": 645.7613801644968,\n    \"routing_number\": \"string\",\n    \"account_number\": \"string\",\n    \"registration_number\": \"string\",\n    \"account_type\": \"CHECKING\",\n    \"bank_name\": \"string\",\n    \"account_name\": \"string\",\n    \"sort_code\": \"string\",\n    \"deposit_amount_type\": \"FIXED\",\n    \"amount\": null,\n    \"bank_branch\": \"string\",\n    \"bic\": null,\n    \"iban\": \"string\"\n  },\n  {\n    \"id\": 6527.678781248701,\n    \"order\": 7415.160631076372,\n    \"routing_number\": \"string\",\n    \"account_number\": \"string\",\n    \"registration_number\": \"string\",\n    \"account_type\": \"CHECKING\",\n    \"bank_name\": \"string\",\n    \"account_name\": \"string\",\n    \"sort_code\": \"string\",\n    \"deposit_amount_type\": \"ENTIRE\",\n    \"amount\": null,\n    \"bank_branch\": \"string\",\n    \"bic\": \"string\",\n    \"iban\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ef189a2-7aec-42ec-b2fa-5ce524c7755a",
+              "name": "Invalid ID supplied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92ea5f27-f3e6-41a5-88e8-6b357115a082",
+              "name": "employee not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa636984-ac76-4c4b-a09e-6fc028f59baf",
+          "name": "Update or create employee bank account API",
+          "request": {
+            "name": "Update or create employee bank account API",
+            "description": {
+              "content": "Update or create employee bank account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "franchisees",
+                ":franchiseeId",
+                "employees",
+                ":employeeId",
+                "bank_accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "franchiseeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) employee id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  },\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5fb3cd00-4eea-4ac2-a2dc-d901a7564662",
+              "name": "successful updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  },\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1153.8875651230785,\n  \"order\": 7443.426890321787,\n  \"routing_number\": \"string\",\n  \"account_number\": \"string\",\n  \"registration_number\": \"string\",\n  \"account_type\": \"SAVINGS\",\n  \"bank_name\": \"string\",\n  \"account_name\": \"string\",\n  \"sort_code\": \"string\",\n  \"deposit_amount_type\": \"ENTIRE\",\n  \"amount\": null,\n  \"bank_branch\": null,\n  \"bic\": \"string\",\n  \"iban\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0c92bc0-9386-4725-99d7-9b1680f3395f",
+              "name": "successful updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  },\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1153.8875651230785,\n  \"order\": 7443.426890321787,\n  \"routing_number\": \"string\",\n  \"account_number\": \"string\",\n  \"registration_number\": \"string\",\n  \"account_type\": \"SAVINGS\",\n  \"bank_name\": \"string\",\n  \"account_name\": \"string\",\n  \"sort_code\": \"string\",\n  \"deposit_amount_type\": \"ENTIRE\",\n  \"amount\": null,\n  \"bank_branch\": null,\n  \"bic\": \"string\",\n  \"iban\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23b02916-d554-4a8e-bf2d-a0f9c832aa15",
+              "name": "Invalid ID supplied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  },\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf68585c-6a5d-49bc-970a-0f940eea7819",
+              "name": "employee not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "franchisees",
+                    ":franchiseeId",
+                    "employees",
+                    ":employeeId",
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "franchiseeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) employee id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  },\n  {\n    \"account_number\": \"<string>\",\n    \"order\": \"<number>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"deposit_amount_type\": \"<string>\",\n    \"amount\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "371353a3-8a76-47d3-bd78-c58340f4756e",
+    "name": "Harri Employee Open Franchisee BankAccounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}

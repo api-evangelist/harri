@@ -1,0 +1,860 @@
+{
+  "item": [
+    {
+      "id": "d2c3beed-8e84-4459-9918-e64f39d5ab72",
+      "name": "Employee",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dc82b153-f77d-4a91-82ff-6d169a5f7e05",
+          "name": "Update employee API",
+          "request": {
+            "name": "Update employee API",
+            "description": {
+              "content": "Update employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "employees",
+                ":employeeId",
+                "basic_info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) ID of employee to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"middle_name\": \"<string>\",\n  \"geid\": \"<string>\",\n  \"birth_date\": \"<date>\",\n  \"national_number\": \"<string>\",\n  \"phone\": \"<phone>\",\n  \"home_phone\": \"<phone>\",\n  \"gender\": \"<string>\",\n  \"address\": \"<object>\",\n  \"vsl\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "732ace53-b706-426f-83b5-3421b8b71749",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "employees",
+                    ":employeeId",
+                    "basic_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) ID of employee to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"middle_name\": \"<string>\",\n  \"geid\": \"<string>\",\n  \"birth_date\": \"<date>\",\n  \"national_number\": \"<string>\",\n  \"phone\": \"<phone>\",\n  \"home_phone\": \"<phone>\",\n  \"gender\": \"<string>\",\n  \"address\": \"<object>\",\n  \"vsl\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "799efa60-b8cf-4079-990a-659d00fc6a99",
+          "name": "Get employees API",
+          "request": {
+            "name": "Get employees API",
+            "description": {
+              "content": "Get employees.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "employees",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "to get terminated or active employee, default active"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "specify the number of rows to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "specify the number of rows to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "specify the location id to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_primary",
+                  "value": "<boolean>",
+                  "description": "retrieve primary employees of the provided location_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "loa_status",
+                  "value": "<string>",
+                  "description": "Filters employees by active LOA (Leave of Absence) status. When provided, only employees currently marked as 'ON_LEAVE' within the retrieved page will be returned.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "payroll_id",
+                  "value": "<string>",
+                  "description": "filter employees by payroll_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "geid",
+                  "value": "<string>",
+                  "description": "filter employees by geid (external middleware id)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f81adde-56a1-49c7-b78c-51f49c0445b6",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "employees",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_primary",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "loa_status",
+                      "value": "ON_LEAVE"
+                    },
+                    {
+                      "key": "payroll_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "geid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"employees\": [\n    {\n      \"id\": \"1\",\n      \"email\": \"B0ziZfl4@JSEwEDagExa.faw\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"middle_name\": \"string\",\n      \"geid\": \"string\",\n      \"birth_date\": \"2002-12-27\",\n      \"phone\": \"string\",\n      \"home_phone\": \"string\",\n      \"blocked_from_rehire\": true,\n      \"known_as\": \"string\",\n      \"national_number\": \"string\",\n      \"title\": null,\n      \"locations\": [\n        {\n          \"id\": 4170.711789331511,\n          \"name\": \"string\",\n          \"payroll_id\": \"string\",\n          \"pos_id\": \"string\"\n        },\n        {\n          \"id\": 253.14224343354397,\n          \"name\": \"string\",\n          \"payroll_id\": \"string\",\n          \"pos_id\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"1\",\n      \"email\": \"zVMf5siJ8c5ben@XdmMdAUVbdeleBZjqekznqkm.co\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"middle_name\": \"string\",\n      \"geid\": \"string\",\n      \"birth_date\": \"2011-01-02\",\n      \"phone\": \"string\",\n      \"home_phone\": \"string\",\n      \"blocked_from_rehire\": false,\n      \"known_as\": \"string\",\n      \"national_number\": \"string\",\n      \"title\": null,\n      \"locations\": [\n        {\n          \"id\": 5734.006886975137,\n          \"name\": \"string\",\n          \"payroll_id\": \"string\",\n          \"pos_id\": \"string\"\n        },\n        {\n          \"id\": 1968.6695441733327,\n          \"name\": \"string\",\n          \"payroll_id\": \"string\",\n          \"pos_id\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"page\": 2086,\n    \"per_page\": 6796,\n    \"total\": 1002,\n    \"total_pages\": 2791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33b058dd-e869-4b9d-980e-d5f21d6581d6",
+          "name": "Get employee profile API",
+          "request": {
+            "name": "Get employee profile API",
+            "description": {
+              "content": "Get employee profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v5",
+                "employees",
+                ":employeeId",
+                "profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) ID of employee to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d318c270-057f-4f36-8559-3854d28ea29b",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v5",
+                    "employees",
+                    ":employeeId",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) ID of employee to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1\",\n  \"email\": \"x17cYuZYYaU9fYL@vlfgrRGHzGMMrKDOUriW.vd\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"middle_name\": \"string\",\n  \"geid\": \"string\",\n  \"birth_date\": \"1963-09-28\",\n  \"phone\": \"string\",\n  \"home_phone\": \"string\",\n  \"blocked_from_rehire\": true,\n  \"known_as\": \"string\",\n  \"financial_unit_location_id\": 6492,\n  \"loa_status\": null,\n  \"title\": null,\n  \"status\": \"ACTIVE\",\n  \"address\": {\n    \"country_code\": \"US\",\n    \"state_code\": \"NY\",\n    \"city\": \"<string>\",\n    \"address_line_1\": \"<string>\",\n    \"address_line_2\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"employer\": {\n    \"id\": null,\n    \"email\": \"lsOPH191H6f@SHnbXRY.ei\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"employment_period\": {\n    \"id\": 3128.322434644756,\n    \"hire_date\": \"1957-05-19\",\n    \"leave_date\": \"1973-01-24\",\n    \"termination_reason\": {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  },\n  \"job_titles\": [\n    {\n      \"id\": 6800.551889595326,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": true,\n      \"level\": \"string\"\n    },\n    {\n      \"id\": 2321.6789390960803,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": true,\n      \"level\": \"string\"\n    }\n  ],\n  \"vsl\": \"OUT\",\n  \"locations\": [\n    {\n      \"id\": 2131.594405283661,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": false,\n      \"is_active\": true,\n      \"location_periods\": [\n        {\n          \"id\": 8937.833338687484,\n          \"start_date\": \"2012-11-20\",\n          \"end_date\": \"1991-03-27\",\n          \"type\": \"SECONDARY\"\n        },\n        {\n          \"id\": 8742.175767402985,\n          \"start_date\": \"1954-04-25\",\n          \"end_date\": \"1957-08-11\",\n          \"type\": \"PRIMARY\"\n        }\n      ],\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\"\n    },\n    {\n      \"id\": 2107.317495346114,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": true,\n      \"is_active\": false,\n      \"location_periods\": [\n        {\n          \"id\": 4056.4070211251633,\n          \"start_date\": \"2015-12-05\",\n          \"end_date\": \"1977-12-02\",\n          \"type\": \"SECONDARY\"\n        },\n        {\n          \"id\": 8659.143802471266,\n          \"start_date\": \"1997-03-13\",\n          \"end_date\": null,\n          \"type\": \"PRIMARY\"\n        }\n      ],\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\"\n    }\n  ],\n  \"positions\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 4008.285396635838,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 9111.985735598913,\n      \"location_id\": 4016,\n      \"is_primary\": false,\n      \"cost_centers\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"hourly_rates\": [\n        {\n          \"id\": 3273.0530683818347,\n          \"value\": 2137.0912017470555,\n          \"start_date\": \"1998-11-21\",\n          \"tronc_point\": 7085.298985109357,\n          \"tronc_amount\": 1159.728725338639,\n          \"tronc_rate\": 5341.942306666257\n        },\n        {\n          \"id\": 8880.416182181,\n          \"value\": 489.94054160467425,\n          \"start_date\": \"2009-09-18\",\n          \"tronc_point\": 956.5401338084267,\n          \"tronc_amount\": 8234.55976404678,\n          \"tronc_rate\": 3318.031327152906\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 8023.375567772323,\n          \"is_tipped\": true,\n          \"start_date\": \"2021-05-15\"\n        },\n        {\n          \"id\": 65.4048978519739,\n          \"is_tipped\": true,\n          \"start_date\": \"1969-05-01\"\n        }\n      ]\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 4465.790179208823,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 9789.372790811547,\n      \"location_id\": 1723,\n      \"is_primary\": false,\n      \"cost_centers\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"hourly_rates\": [\n        {\n          \"id\": 3698.7821402580344,\n          \"value\": 155.65931612123606,\n          \"start_date\": \"1985-09-03\",\n          \"tronc_point\": 2092.343856815221,\n          \"tronc_amount\": 1119.9318166798444,\n          \"tronc_rate\": 1091.6442711517982\n        },\n        {\n          \"id\": 1536.9736672939628,\n          \"value\": 8771.205860827586,\n          \"start_date\": \"1963-12-20\",\n          \"tronc_point\": 904.7395039140915,\n          \"tronc_amount\": 312.83293423095324,\n          \"tronc_rate\": 9990.026686247797\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 4226.030321582142,\n          \"is_tipped\": false,\n          \"start_date\": \"1957-03-22\"\n        },\n        {\n          \"id\": 1196.0286241789586,\n          \"is_tipped\": false,\n          \"start_date\": \"2024-10-13\"\n        }\n      ]\n    }\n  ],\n  \"pay_types\": [\n    {\n      \"id\": 5057.99074949141,\n      \"type\": \"WEIGHTED_SHIFT\",\n      \"start_date\": \"1972-06-15\",\n      \"cross_location_edit_mode\": \"FIXED\"\n    },\n    {\n      \"id\": 966.1126368256989,\n      \"type\": \"HOURLY\",\n      \"start_date\": \"1950-01-12\",\n      \"cross_location_edit_mode\": \"FLEXIBLE\"\n    }\n  ],\n  \"tronc_points\": [\n    {\n      \"id\": 3169.5397678089444,\n      \"value\": 3412.450278332476,\n      \"start_date\": \"2003-10-19\"\n    },\n    {\n      \"id\": 6339.586517830211,\n      \"value\": 123.24957453869301,\n      \"start_date\": \"2007-10-06\"\n    }\n  ],\n  \"tronc_amounts\": [\n    {\n      \"id\": 1380.4860485449267,\n      \"value\": 4144.798068870598,\n      \"start_date\": \"2012-11-10\"\n    },\n    {\n      \"id\": 3143.964861059576,\n      \"value\": 8375.735358581462,\n      \"start_date\": \"2012-08-13\"\n    }\n  ],\n  \"max_weekly_hours\": [\n    {\n      \"id\": 5073.031933549905,\n      \"start_date\": \"2021-09-09\",\n      \"average_weekly_hours\": 8593.439144198486,\n      \"working_patterns\": [\n        {\n          \"id\": 6060.524471046611,\n          \"days_count\": 1,\n          \"total_hours\": 25.741971794864817,\n          \"order\": 6716,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"id\": 665.0065721904197,\n          \"days_count\": 1,\n          \"total_hours\": 4083.050952609215,\n          \"order\": 1388,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": 5879.716102741326,\n      \"start_date\": \"2026-07-10\",\n      \"average_weekly_hours\": 5735.503618198329,\n      \"working_patterns\": [\n        {\n          \"id\": 8528.876458292161,\n          \"days_count\": 6,\n          \"total_hours\": 3103.5766915050667,\n          \"order\": 5819,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"id\": 5681.584555434387,\n          \"days_count\": 1,\n          \"total_hours\": 3709.031075256761,\n          \"order\": 3512,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b2a4024-6366-405d-8da3-8fd5bee86093",
+              "name": "Invalid ID supplied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v5",
+                    "employees",
+                    ":employeeId",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) ID of employee to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5cdd5b15-f5ef-48ea-b6f2-56ab44a4f100",
+              "name": "employee not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v5",
+                    "employees",
+                    ":employeeId",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) ID of employee to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2edb5637-dde0-47ad-bc8c-ec78ed6a9840",
+          "name": "Get employee by id API",
+          "request": {
+            "name": "Get employee by id API",
+            "description": {
+              "content": "Get employee by harri employee id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v6",
+                "employees",
+                ":employeeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employeeId",
+                  "description": "(Required) ID of employee to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "13f5f1b8-43fa-4b8c-878c-cb26c4ac0ded",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v6",
+                    "employees",
+                    ":employeeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) ID of employee to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1\",\n  \"email\": \"pcCa7WXv@EKiptSLbssKRwVaWUbrBZgOkduZuJNMpl.rfi\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"middle_name\": \"string\",\n  \"geid\": \"string\",\n  \"birth_date\": \"2015-12-14\",\n  \"phone\": \"string\",\n  \"home_phone\": \"string\",\n  \"blocked_from_rehire\": false,\n  \"known_as\": \"string\",\n  \"title\": null,\n  \"gender\": \"MALE\",\n  \"national_number\": \"string\",\n  \"financial_unit_location_id\": 8853,\n  \"status\": \"ACTIVE\",\n  \"address\": {\n    \"country_code\": \"US\",\n    \"state_code\": \"NY\",\n    \"city\": \"<string>\",\n    \"address_line_1\": \"<string>\",\n    \"address_line_2\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"employer\": {\n    \"id\": null,\n    \"email\": \"DOb@oGzFBOivfnoRTgjZjZrOpq.smq\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"employment_period\": {\n    \"id\": 6911.401769583246,\n    \"hire_date\": \"2021-01-31\",\n    \"leave_date\": \"1992-01-10\",\n    \"termination_reason\": {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  },\n  \"job_titles\": [\n    {\n      \"id\": 8905.426307923572,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": false,\n      \"level\": \"string\"\n    },\n    {\n      \"id\": 1324.3762350889076,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": true,\n      \"level\": \"string\"\n    }\n  ],\n  \"vsl\": \"IN\",\n  \"locations\": [\n    {\n      \"id\": 68.81415802181601,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": true,\n      \"is_active\": false,\n      \"location_periods\": [\n        {\n          \"id\": 6186.480088587347,\n          \"start_date\": \"1951-02-04\",\n          \"end_date\": \"1960-12-04\",\n          \"type\": \"SECONDARY\"\n        },\n        {\n          \"id\": 5890.683283510699,\n          \"start_date\": \"1987-08-14\",\n          \"end_date\": null,\n          \"type\": \"PRIMARY\"\n        }\n      ],\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\"\n    },\n    {\n      \"id\": 4248.061713645426,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": true,\n      \"is_active\": false,\n      \"location_periods\": [\n        {\n          \"id\": 7529.353034057007,\n          \"start_date\": \"1953-10-20\",\n          \"end_date\": null,\n          \"type\": \"SECONDARY\"\n        },\n        {\n          \"id\": 1776.604665035213,\n          \"start_date\": \"1980-05-01\",\n          \"end_date\": \"1968-08-19\",\n          \"type\": \"PRIMARY\"\n        }\n      ],\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\"\n    }\n  ],\n  \"positions\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 9697.413234291824,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 6442.551345981292,\n      \"location_id\": 9207,\n      \"is_primary\": true,\n      \"cost_centers\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"hourly_rates\": [\n        {\n          \"id\": 2797.5208239080207,\n          \"value\": 6120.435778468066,\n          \"start_date\": \"1956-03-24\",\n          \"tronc_point\": 5930.7424037529145,\n          \"tronc_amount\": 1570.9355505981325,\n          \"tronc_rate\": 4658.095042600162\n        },\n        {\n          \"id\": 6771.199142185981,\n          \"value\": 2608.8750519449754,\n          \"start_date\": \"1997-07-05\",\n          \"tronc_point\": 3263.719399161812,\n          \"tronc_amount\": 8896.808819642736,\n          \"tronc_rate\": 7197.324788572293\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 417.45580493335876,\n          \"is_tipped\": false,\n          \"start_date\": \"1980-12-06\"\n        },\n        {\n          \"id\": 1186.7465178805726,\n          \"is_tipped\": true,\n          \"start_date\": \"2009-08-03\"\n        }\n      ]\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 1522.0632369025623,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 7891.6463533396245,\n      \"location_id\": 2015,\n      \"is_primary\": true,\n      \"cost_centers\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"hourly_rates\": [\n        {\n          \"id\": 2798.775394838503,\n          \"value\": 2106.2918192564175,\n          \"start_date\": \"2003-08-29\",\n          \"tronc_point\": 7858.856055498298,\n          \"tronc_amount\": 4256.3899015948155,\n          \"tronc_rate\": 749.04017868194\n        },\n        {\n          \"id\": 1774.210989958409,\n          \"value\": 6886.71882340242,\n          \"start_date\": \"2018-11-01\",\n          \"tronc_point\": 2270.649843929867,\n          \"tronc_amount\": 2509.7037988198936,\n          \"tronc_rate\": 3887.2790188486074\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 8557.730393928223,\n          \"is_tipped\": false,\n          \"start_date\": \"1962-02-08\"\n        },\n        {\n          \"id\": 6453.490789625418,\n          \"is_tipped\": false,\n          \"start_date\": \"1994-03-27\"\n        }\n      ]\n    }\n  ],\n  \"pay_types\": [\n    {\n      \"id\": 5404.54733869365,\n      \"type\": \"HOURLY\",\n      \"start_date\": \"1952-05-13\",\n      \"cross_location_edit_mode\": \"FLEXIBLE\"\n    },\n    {\n      \"id\": 4316.920522642897,\n      \"type\": \"HOURLY\",\n      \"start_date\": \"1958-05-14\",\n      \"cross_location_edit_mode\": \"FLEXIBLE\"\n    }\n  ],\n  \"annual_rates\": [\n    {\n      \"id\": 7875.118876149318,\n      \"value\": 6187.814374771417,\n      \"start_date\": \"2005-12-07\"\n    },\n    {\n      \"id\": 3525.6937487211994,\n      \"value\": 5809.1062487502495,\n      \"start_date\": \"1965-09-18\"\n    }\n  ],\n  \"tronc_points\": [\n    {\n      \"id\": 638.0399623151956,\n      \"value\": 934.8893541508896,\n      \"start_date\": \"1959-01-02\"\n    },\n    {\n      \"id\": 479.6825391571702,\n      \"value\": 1239.3698723114344,\n      \"start_date\": \"2005-08-03\"\n    }\n  ],\n  \"tronc_amounts\": [\n    {\n      \"id\": 4048.8253674675257,\n      \"value\": 8201.128374329395,\n      \"start_date\": \"2002-06-25\"\n    },\n    {\n      \"id\": 4980.959698339775,\n      \"value\": 5054.422019121455,\n      \"start_date\": \"1993-05-24\"\n    }\n  ],\n  \"max_weekly_hours\": [\n    {\n      \"id\": 8122.53362336142,\n      \"start_date\": \"1990-04-22\",\n      \"average_weekly_hours\": 4031.864530011925,\n      \"working_patterns\": [\n        {\n          \"id\": 2187.564536263068,\n          \"days_count\": null,\n          \"total_hours\": 4175.221051335057,\n          \"order\": 8455,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"id\": 9935.502021144897,\n          \"days_count\": null,\n          \"total_hours\": 6163.69327465839,\n          \"order\": 56,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": 4671.177679726012,\n      \"start_date\": \"1970-08-29\",\n      \"average_weekly_hours\": 8314.006004450597,\n      \"working_patterns\": [\n        {\n          \"id\": 5718.258272124175,\n          \"days_count\": null,\n          \"total_hours\": 9566.031301568122,\n          \"order\": 7549,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"id\": 8865.045610692294,\n          \"days_count\": null,\n          \"total_hours\": 5489.82129971232,\n          \"order\": 1553,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"loa_status\": \"ON_LEAVE\",\n  \"pin\": \"string\",\n  \"personal_info_additional_info\": {\n    \"certificate_of_sponsorship_number\": \"string\",\n    \"dbs_cert_number\": \"string\",\n    \"dbs_expiry_date\": \"string\",\n    \"dbs_issue_date\": \"string\",\n    \"disabled_veteran\": \"string\",\n    \"ethnicity_2\": \"string\",\n    \"first_language\": \"string\",\n    \"marital_status\": \"string\",\n    \"military_veteran_status\": \"string\",\n    \"nationality\": \"string\",\n    \"national_origin\": \"string\",\n    \"nmc_date_checked\": \"string\",\n    \"nmc_expiry_date\": \"string\",\n    \"nmc_pin_number\": \"string\",\n    \"passport_expiry_date\": \"string\",\n    \"passport_number\": \"string\",\n    \"person_marital_status\": \"string\",\n    \"pronoun\": \"string\",\n    \"student_permit_exp_date\": \"string\",\n    \"student_status\": \"string\",\n    \"veteran_type\": \"string\"\n  },\n  \"emergency_contact\": {\n    \"emergency_contact_cell_phone_number\": \"string\",\n    \"emergency_contact_contact_if_detained\": \"string\",\n    \"emergency_contact_first_name\": \"string\",\n    \"emergency_contact_home_phone_number1\": \"string\",\n    \"emergency_contact_last_name\": \"string\",\n    \"emergency_contact_work_phone_number\": \"string\"\n  },\n  \"employment_info_additional_info\": {\n    \"benefits_eligibility_class\": \"string\",\n    \"benefit_class_code\": \"string\",\n    \"business_unit\": \"string\",\n    \"class_code_effective_date\": \"string\",\n    \"company_service_date\": \"string\",\n    \"disability_insurance_type\": \"string\",\n    \"fixed_term_contract_end_date\": \"string\",\n    \"flsa_overtime\": \"string\",\n    \"follow_up_orientation_date\": \"string\",\n    \"home_department\": \"string\",\n    \"organization_start_date\": \"string\",\n    \"orientation_date\": \"string\",\n    \"part_time_for_puerto_rico\": \"string\",\n    \"pto_plans\": \"string\",\n    \"starter_declaration\": \"string\",\n    \"unity_care_deduction\": \"string\",\n    \"worker_category\": \"string\"\n  },\n  \"federal_withholding_details\": {\n    \"do_not_calculate_federal_tax\": \"string\",\n    \"federal_deduction_dollars\": 3527.387401918902,\n    \"federal_exempt_status\": \"string\",\n    \"federal_extra_withholding\": 1507.5096495020612,\n    \"federal_marital_status\": \"string\",\n    \"federal_multiple_jobs\": \"string\",\n    \"federal_number_of_exceptions\": 4802,\n    \"federal_other_dependent_dollars\": 1906.8144004271237,\n    \"federal_other_income_dollars\": 6373.630763376515,\n    \"federal_qualifying_children_dollars\": 4985.617655377843,\n    \"federal_tax_additional_amount\": 9197,\n    \"federal_tax_deductions_amount\": 8244,\n    \"federal_tax_dependents_amount\": 2468,\n    \"federal_tax_filing_status\": \"string\",\n    \"federal_tax_multiple_jobs\": \"string\",\n    \"federal_tax_other_income_amount\": 1250,\n    \"federal_total_dependent_dollars\": 4034.3766995560404\n  },\n  \"state_withholding_details\": {\n    \"do_not_calculate_state_tax\": \"string\",\n    \"geo_location_code\": \"string\",\n    \"health_insurance\": \"string\",\n    \"naics_code_for_washington\": \"string\",\n    \"number_of_exemptions\": 7568,\n    \"soc_code\": \"string\",\n    \"state_additional_withholding_amount\": 9697.058915361575,\n    \"state_exempt_status\": \"string\",\n    \"state_extra_tax\": 9702,\n    \"state_marital_status\": \"string\",\n    \"state_number_of_exceptions\": 114\n  },\n  \"city_withholding_details\": {\n    \"city_additional_withholding_amount\": 5159.861271251908,\n    \"city_exempt_status\": \"string\",\n    \"city_marital_status\": \"string\",\n    \"city_number_of_exceptions\": 6024\n  },\n  \"local_withholding_details\": {\n    \"local_additional_tax_amount\": 1836.1917757404578,\n    \"locality\": \"string\",\n    \"total_allowances\": 9057\n  },\n  \"payroll_taxes_additional_info\": {\n    \"postgrad_loan\": \"string\",\n    \"previous_employer_gross\": \"string\",\n    \"previous_employer_tax\": \"string\",\n    \"secondary_class1_not_payable\": \"string\",\n    \"student_loan\": \"string\",\n    \"tax_code\": \"string\",\n    \"w1m1\": \"string\"\n  },\n  \"equal_opportunity_information\": {\n    \"caring_responsibilities\": \"string\",\n    \"disability_status\": \"string\",\n    \"ethnicity\": \"string\",\n    \"flexible_working_arrangements\": \"string\",\n    \"gender_identity\": \"string\",\n    \"other_ethnicity\": \"string\",\n    \"other_flexible_working_arrangements\": \"string\",\n    \"other_gender_identity\": \"string\",\n    \"other_religious_belief\": \"string\",\n    \"other_sexual_orientation\": \"string\",\n    \"religious_belief\": \"string\",\n    \"sexual_orientation\": \"string\",\n    \"specific_ethnicity\": \"string\",\n    \"type_of_caring_responsibilities\": \"string\"\n  },\n  \"payroll_taxes_pension_information\": {\n    \"ae_opt_out\": \"string\",\n    \"ae_opt_out_date\": \"string\",\n    \"auto_enrolled\": \"string\",\n    \"pension_employee_contribution\": \"string\",\n    \"pension_is_ae_qualifying\": \"string\",\n    \"pension_scheme\": \"string\",\n    \"pension_start_date\": \"string\",\n    \"pension_worker_group\": \"string\",\n    \"worker_status\": \"string\"\n  },\n  \"key_0\": 5967.3762933937605,\n  \"key_1\": false,\n  \"key_2\": false,\n  \"key_3\": 4669.430766499614\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d4d7107-1ebb-49e6-b231-04e3e2cd347e",
+              "name": "Invalid ID supplied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v6",
+                    "employees",
+                    ":employeeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) ID of employee to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "55a2fa16-7a4a-42f5-be18-9d516ecae2a6",
+              "name": "employee not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v6",
+                    "employees",
+                    ":employeeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employeeId",
+                      "description": "(Required) ID of employee to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90810c5d-97d3-4b1e-a068-7aa4383183ba",
+          "name": "Create employee API",
+          "request": {
+            "name": "Create employee API",
+            "description": {
+              "content": "Create employee API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v7",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth.harri.com/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_statuses\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    },\n    \"cost_centers\": [\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      },\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"title\": \"<string>\",\n  \"id\": \"<string>\",\n  \"email\": \"<email>\",\n  \"middle_name\": \"<string>\",\n  \"known_as\": \"<string>\",\n  \"birth_date\": \"<date>\",\n  \"national_number\": \"<string>\",\n  \"phone\": \"<phone>\",\n  \"home_phone\": \"<phone>\",\n  \"gender\": \"<string>\",\n  \"geid\": \"<string>\",\n  \"address\": {\n    \"postal_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"state_code\": \"<string>\",\n    \"city\": \"<string>\",\n    \"address_line_1\": \"<string>\",\n    \"address_line_2\": \"<string>\",\n    \"county\": \"<string>\"\n  },\n  \"bank_account\": {\n    \"account_number\": \"<string>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"bank_branch\": \"<string>\"\n  },\n  \"job_titles\": [\n    {\n      \"job_title_id\": \"<number>\",\n      \"level\": \"<number>\"\n    },\n    {\n      \"job_title_id\": \"<number>\",\n      \"level\": \"<number>\"\n    }\n  ],\n  \"payroll_id\": \"<string>\",\n  \"vsl\": \"<string>\",\n  \"max_weekly_hours\": {\n    \"working_patterns\": [\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      },\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7221bf0f-3cb3-49b6-9f1e-417ce8b07567",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v7",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"hire_date\": \"<date>\",\n  \"location_id\": \"<string>\",\n  \"pay_type\": {\n    \"type\": \"<string>\",\n    \"cross_location_mode\": \"<string,null>\"\n  },\n  \"position\": {\n    \"code\": \"<string>\",\n    \"tipped_statuses\": {\n      \"is_tipped\": \"<boolean>\"\n    },\n    \"hourly_rate\": {\n      \"value\": \"<number>\",\n      \"tronc_point\": \"<number>\",\n      \"tronc_rate\": \"<number>\",\n      \"tronc_amount\": \"<number>\"\n    },\n    \"cost_centers\": [\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      },\n      {\n        \"id\": \"<number>\",\n        \"value\": {\n          \"id\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"title\": \"<string>\",\n  \"id\": \"<string>\",\n  \"email\": \"<email>\",\n  \"middle_name\": \"<string>\",\n  \"known_as\": \"<string>\",\n  \"birth_date\": \"<date>\",\n  \"national_number\": \"<string>\",\n  \"phone\": \"<phone>\",\n  \"home_phone\": \"<phone>\",\n  \"gender\": \"<string>\",\n  \"geid\": \"<string>\",\n  \"address\": {\n    \"postal_code\": \"<string>\",\n    \"country_code\": \"US\",\n    \"state_code\": \"NY\",\n    \"city\": \"<string>\",\n    \"address_line_1\": \"<string>\",\n    \"address_line_2\": \"<string>\",\n    \"county\": \"<string>\"\n  },\n  \"bank_account\": {\n    \"account_number\": \"<string>\",\n    \"routing_number\": \"<string>\",\n    \"registration_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"bank_branch\": \"<string>\"\n  },\n  \"job_titles\": [\n    {\n      \"job_title_id\": \"<number>\",\n      \"level\": \"<number>\"\n    },\n    {\n      \"job_title_id\": \"<number>\",\n      \"level\": \"<number>\"\n    }\n  ],\n  \"payroll_id\": \"<string>\",\n  \"vsl\": \"<string>\",\n  \"max_weekly_hours\": {\n    \"working_patterns\": [\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      },\n      {\n        \"days_count\": \"<integer,null>\",\n        \"total_hours\": \"<number>\",\n        \"order\": \"<integer>\",\n        \"working_pattern_days\": [\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          },\n          {\n            \"day\": \"<string>\",\n            \"hours_count\": \"<number,null>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"tronc_point\": {\n    \"value\": \"<number>\"\n  },\n  \"tronc_amount\": {\n    \"value\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1\",\n  \"email\": \"6oCJ@rYTRcKHJTJdFxIWGafnxVOlBaP.cgjc\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"middle_name\": \"string\",\n  \"geid\": \"string\",\n  \"birth_date\": \"2020-08-28\",\n  \"phone\": \"string\",\n  \"home_phone\": \"string\",\n  \"blocked_from_rehire\": false,\n  \"known_as\": \"string\",\n  \"user_id\": 6420.102719018811,\n  \"title\": null,\n  \"gender\": \"FEMALE\",\n  \"national_number\": \"string\",\n  \"financial_unit_location_id\": 3706,\n  \"status\": \"ACTIVE\",\n  \"address\": {\n    \"country_code\": \"US\",\n    \"state_code\": \"NY\",\n    \"city\": \"<string>\",\n    \"address_line_1\": \"<string>\",\n    \"address_line_2\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"employer\": {\n    \"email\": \"Q1R4y@dxiGJuTNMqjCkzvV.vveh\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"employment_period\": {\n    \"id\": 844.2242589823445,\n    \"hire_date\": \"1955-05-05\",\n    \"leave_date\": \"1952-06-15\",\n    \"termination_reason\": {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  },\n  \"job_titles\": [\n    {\n      \"id\": 441.76232397125534,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": false,\n      \"level\": \"string\"\n    },\n    {\n      \"id\": 1639.0299461316592,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"skill_needed\": true,\n      \"level\": \"string\"\n    }\n  ],\n  \"vsl\": \"IN\",\n  \"locations\": [\n    {\n      \"id\": 2099.972124786573,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": false,\n      \"is_active\": false,\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\",\n      \"location_periods\": [\n        {\n          \"id\": 3020.3990323623875,\n          \"start_date\": \"1980-12-27\",\n          \"end_date\": \"1967-03-09\",\n          \"type\": \"SECONDARY\"\n        },\n        {\n          \"id\": 8066.262579935521,\n          \"start_date\": \"2014-04-01\",\n          \"end_date\": \"1992-10-27\",\n          \"type\": \"PRIMARY\"\n        }\n      ]\n    },\n    {\n      \"id\": 538.6417854983861,\n      \"name\": \"string\",\n      \"country_code\": \"string\",\n      \"state_code\": \"string\",\n      \"city\": \"string\",\n      \"is_primary\": true,\n      \"is_active\": true,\n      \"payroll_id\": \"string\",\n      \"pos_id\": \"string\",\n      \"location_periods\": [\n        {\n          \"id\": 8999.023740447792,\n          \"start_date\": \"2014-05-16\",\n          \"end_date\": \"1950-11-09\",\n          \"type\": \"SECONDARY\"\n        },\n        {\n          \"id\": 2777.6911410443195,\n          \"start_date\": \"1983-08-04\",\n          \"end_date\": null,\n          \"type\": \"PRIMARY\"\n        }\n      ]\n    }\n  ],\n  \"positions\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 7606.2406478966905,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 7870.8504620668855,\n      \"location_id\": 9954,\n      \"is_primary\": true,\n      \"hourly_rates\": [\n        {\n          \"id\": 5961.613851543124,\n          \"value\": 2615.6596061238693,\n          \"start_date\": \"2021-06-30\",\n          \"tronc_point\": 5887.974216173695,\n          \"tronc_amount\": 379.47675388592785,\n          \"tronc_rate\": 746.4161617317866\n        },\n        {\n          \"id\": 1567.059080638099,\n          \"value\": 494.8210725088298,\n          \"start_date\": \"2021-07-27\",\n          \"tronc_point\": 3788.625167712024,\n          \"tronc_amount\": 8022.124782895638,\n          \"tronc_rate\": 9554.78064107251\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 7855.057048521116,\n          \"is_tipped\": true,\n          \"start_date\": \"1965-02-19\"\n        },\n        {\n          \"id\": 9203.495436278916,\n          \"is_tipped\": false,\n          \"start_date\": \"1967-10-14\"\n        }\n      ],\n      \"cost_centers\": [\n        {\n          \"id\": 409.39665374885027,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 526.6749914043689,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 8627.779237887817,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 9802.506856794163,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"category\": {\n        \"id\": 8591.913926581688,\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      \"id\": 9784.369666129442,\n      \"location_id\": 3108,\n      \"is_primary\": true,\n      \"hourly_rates\": [\n        {\n          \"id\": 8123.340031938948,\n          \"value\": 6688.974938854356,\n          \"start_date\": \"1984-11-20\",\n          \"tronc_point\": 6678.463053288245,\n          \"tronc_amount\": 8004.7891973317155,\n          \"tronc_rate\": 4722.067005844198\n        },\n        {\n          \"id\": 8453.49363143132,\n          \"value\": 2849.2836918691587,\n          \"start_date\": \"1951-01-20\",\n          \"tronc_point\": 7951.4960863501665,\n          \"tronc_amount\": 9973.533738918895,\n          \"tronc_rate\": 5995.77978352967\n        }\n      ],\n      \"tipped_statuses\": [\n        {\n          \"id\": 2197.0686577054253,\n          \"is_tipped\": true,\n          \"start_date\": \"1974-05-28\"\n        },\n        {\n          \"id\": 511.94369451335376,\n          \"is_tipped\": false,\n          \"start_date\": \"2001-07-03\"\n        }\n      ],\n      \"cost_centers\": [\n        {\n          \"id\": 9755.001635105113,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 8908.447709545178,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 2328.2785855476372,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"id\": 3664.7597219307804,\n            \"code\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"pay_types\": [\n    {\n      \"id\": 2178.2334772198565,\n      \"type\": \"HOURLY\",\n      \"start_date\": \"1972-07-05\",\n      \"cross_location_edit_mode\": \"FIXED\"\n    },\n    {\n      \"id\": 5216.911704364115,\n      \"type\": \"SALARIED\",\n      \"start_date\": \"1972-01-10\",\n      \"cross_location_edit_mode\": \"FLEXIBLE\"\n    }\n  ],\n  \"annual_rates\": [\n    {\n      \"id\": 4116.507844571721,\n      \"value\": 7239.5051347486915,\n      \"start_date\": \"1997-01-14\"\n    },\n    {\n      \"id\": 7195.268083588201,\n      \"value\": 8316.601345003486,\n      \"start_date\": \"1949-12-19\"\n    }\n  ],\n  \"tronc_points\": [\n    {\n      \"id\": 2665.8739177395864,\n      \"value\": 4634.748255830601,\n      \"start_date\": \"2004-09-28\"\n    },\n    {\n      \"id\": 2289.1828886993558,\n      \"value\": 9614.459981827393,\n      \"start_date\": \"1978-09-05\"\n    }\n  ],\n  \"tronc_amounts\": [\n    {\n      \"id\": 9028.846112487923,\n      \"value\": 4982.8792708218125,\n      \"start_date\": \"2005-07-11\"\n    },\n    {\n      \"id\": 2713.5048431599794,\n      \"value\": 9537.537399885512,\n      \"start_date\": \"2013-01-25\"\n    }\n  ],\n  \"max_weekly_hours\": [\n    {\n      \"id\": 9740.13283691297,\n      \"start_date\": \"2009-11-08\",\n      \"average_weekly_hours\": 4095.596895506547,\n      \"working_patterns\": [\n        {\n          \"id\": 6717.231833250157,\n          \"days_count\": 3,\n          \"total_hours\": 649.9216401570196,\n          \"order\": 5980,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"id\": 5990.137867730338,\n          \"days_count\": 4,\n          \"total_hours\": 602.3883283811216,\n          \"order\": 6765,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": 386.4426447353853,\n      \"start_date\": \"1950-06-24\",\n      \"average_weekly_hours\": 5930.335654282648,\n      \"working_patterns\": [\n        {\n          \"id\": 9675.46943513307,\n          \"days_count\": 2,\n          \"total_hours\": 3120.943553332194,\n          \"order\": 2331,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"id\": 4451.698419938609,\n          \"days_count\": 2,\n          \"total_hours\": 8422.17817102501,\n          \"order\": 4363,\n          \"working_pattern_days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"bank_account\": {\n    \"account_number\": \"string\",\n    \"id\": 6284.929180068951,\n    \"bank_branch\": \"string\",\n    \"bic\": null,\n    \"iban\": null,\n    \"routing_number\": \"string\",\n    \"registration_number\": \"string\",\n    \"account_type\": \"SAVINGS\",\n    \"bank_name\": \"string\",\n    \"account_name\": \"string\",\n    \"sort_code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.harri.com/open-api-hub",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fcab474e-e8ec-491a-be90-f44c567654d3",
+    "name": "Harri Open Employee API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing and retrieving employee data in the Harri system. - Notice: Harri's API enforces a rate limit of 400 requests per minute. Once you exceed this limit, an HTTP 403 error is returned with a body that informs you that the limit has been exceeded. Please examine the API returns for this error so your software can respond appropriately. After 4 June, 2026, the rate limiting error will change from 403 to 429.",
+      "type": "text/plain"
+    }
+  }
+}
