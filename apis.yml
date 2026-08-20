@@ -24,6 +24,17 @@ tags:
 - Human Resources
 - Workforce Management
 - Hospitality
+- Restaurant
+- Scheduling
+- Time and Attendance
+- Payroll
+- Talent Acquisition
+- Labor Compliance
+- HCM
+tags_raw:
+- Human Resources
+- Workforce Management
+- Hospitality
 - Restaurants
 - Scheduling
 - Time and Attendance
@@ -66,6 +77,8 @@ apis:
   humanURL: https://developer.harri.com/employees/
   baseURL: https://gateway.harri.com/open-api-hub
   tags:
+  - Bank Accounts
+  tags_raw:
   - BankAccounts
   properties:
   - type: OpenAPI
@@ -94,6 +107,8 @@ apis:
   humanURL: https://developer.harri.com/employees/
   baseURL: https://gateway.harri.com/open-api-hub
   tags:
+  - Cost Centers
+  tags_raw:
   - CostCenters
   properties:
   - type: OpenAPI
@@ -1089,6 +1104,8 @@ apis:
   humanURL: https://developer.harri.com/employees/
   baseURL: https://gateway.harri.com/open-api-hub
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
