@@ -13,6 +13,18 @@ description: 'Harri is a hospitality-first human capital management (HCM) and wo
   subscriptions, plus an employer/brand-management surface for above-store admin
   users. A parallel franchisee-scoped path set mirrors the corporate endpoints for
   multi-brand and franchise operators.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.harri.com/10c3cd15-ec51-41c0-ba18-3227e664ad83/images/icons/apple-touch-icon.png
 url: https://raw.githubusercontent.com/api-evangelist/harri/refs/heads/main/apis.yml
 x-type: company
@@ -1176,6 +1188,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/harri-capability-edges.yml
+  name: Harri Business Capability Map
 - type: Overlay
   url: overlays/harri-employee-overlay.yaml
 - type: AgenticAccess
