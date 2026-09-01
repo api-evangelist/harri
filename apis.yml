@@ -89,7 +89,7 @@ apis:
   humanURL: https://developer.harri.com/employees/
   baseURL: https://gateway.harri.com/open-api-hub
   tags:
-  - BankAccounts
+  - Bank Accounts
   tags_raw:
   - BankAccounts
   properties:
@@ -119,7 +119,7 @@ apis:
   humanURL: https://developer.harri.com/employees/
   baseURL: https://gateway.harri.com/open-api-hub
   tags:
-  - CostCenters
+  - Cost Centers
   tags_raw:
   - CostCenters
   properties:
