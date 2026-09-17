@@ -98,22 +98,6 @@ apis:
     url: https://developer.harri.com/employees/
   - type: Documentation
     url: https://developer.harri.com/employer/
-- aid: harri:harri-bankaccounts-api
-  name: Harri Bank Accounts API
-  description: The BankAccounts API from Harri — 1 operation(s) for bankaccounts.
-  humanURL: https://developer.harri.com/employees/
-  baseURL: https://gateway.harri.com/open-api-hub
-  tags:
-  - Bank Accounts
-  tags_raw:
-  - BankAccounts
-  properties:
-  - type: OpenAPI
-    url: openapi/harri-bankaccounts-api-openapi.yml
-  - type: Documentation
-    url: https://developer.harri.com/employees/
-  - type: Documentation
-    url: https://developer.harri.com/employer/
 - aid: harri:harri-corporate-users-api
   name: Harri Corporate Users API
   description: The Corporate Users API from Harri — 2 operation(s) for corporate users.
@@ -124,22 +108,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/harri-corporate-users-api-openapi.yml
-  - type: Documentation
-    url: https://developer.harri.com/employees/
-  - type: Documentation
-    url: https://developer.harri.com/employer/
-- aid: harri:harri-costcenters-api
-  name: Harri Cost Centers API
-  description: The CostCenters API from Harri — 1 operation(s) for costcenters.
-  humanURL: https://developer.harri.com/employees/
-  baseURL: https://gateway.harri.com/open-api-hub
-  tags:
-  - Cost Centers
-  tags_raw:
-  - CostCenters
-  properties:
-  - type: OpenAPI
-    url: openapi/harri-costcenters-api-openapi.yml
   - type: Documentation
     url: https://developer.harri.com/employees/
   - type: Documentation
@@ -1027,20 +995,6 @@ apis:
     url: https://developer.harri.com/employees/
   - type: Documentation
     url: https://developer.harri.com/employer/
-- aid: harri:harri-jobtitle-api
-  name: Harri Job Title API
-  description: The JobTitle API from Harri — 1 operation(s) for jobtitle.
-  humanURL: https://developer.harri.com/employees/
-  baseURL: https://gateway.harri.com/open-api-hub
-  tags:
-  - JobTitle
-  properties:
-  - type: OpenAPI
-    url: openapi/harri-jobtitle-api-openapi.yml
-  - type: Documentation
-    url: https://developer.harri.com/employees/
-  - type: Documentation
-    url: https://developer.harri.com/employer/
 - aid: harri:harri-location-api
   name: Harri Location API
   description: The Location API from Harri — 1 operation(s) for location.
@@ -1193,6 +1147,48 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/harri-troncs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-bank-accounts-api
+  name: Harri Bank Accounts API
+  description: The Bank Accounts API from Harri — 1 operation(s) for bank accounts.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Bank Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-bank-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-cost-centers-api
+  name: Harri Cost Centers API
+  description: The Cost Centers API from Harri — 1 operation(s) for cost centers.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Cost Centers
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-cost-centers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harri.com/employees/
+  - type: Documentation
+    url: https://developer.harri.com/employer/
+- aid: harri:harri-job-title-api
+  name: Harri Job Title API
+  description: The Job Title API from Harri — 1 operation(s) for job title.
+  humanURL: https://developer.harri.com/employees/
+  baseURL: https://gateway.harri.com/open-api-hub
+  tags:
+  - Job Title
+  properties:
+  - type: OpenAPI
+    url: openapi/harri-job-title-api-openapi.yml
   - type: Documentation
     url: https://developer.harri.com/employees/
   - type: Documentation
