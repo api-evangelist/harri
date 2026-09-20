@@ -340,7 +340,8 @@ edges:
     delivery (leave administration) under HR Operations Management. Slight ambiguity vs. benefits administration
     keeps confidence below 0.85.
 - tag: BankAccounts
-  spec_file: harri-bankaccounts-api-openapi.yml
+  spec_file: harri-bank-accounts-api-openapi.yml
+  reanchored_from: harri-bankaccounts-api-openapi.yml
   capability_id: BC-300.70
   capability_id_l1: BC-300
   capability_name: HR Operations Management
