@@ -1,0 +1,525 @@
+slug: harri
+provider: Harri
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Travel & Hospitality
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 53
+edges:
+- tag: Franchisee HourlyRates
+  spec_file: harri-franchisee-hourlyrates-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.9
+  evidence: '"Define new employee pay rate API" / schema "HourlyRate" on /employees/{employeeId}/pay_types/.../hourly_rates'
+  reason: CRUD over employee hourly pay rates within an HCM platform — pay structure administration, i.e.
+    Compensation & Benefits Management.
+- tag: HourlyRates
+  spec_file: harri-hourlyrates-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.9
+  evidence: POST .../positions/{positionCode}/hourly_rates CreateEmployeePayRate 'Define new employee
+    pay rate API'; schema HourlyRate
+  reason: Full CRUD over employee pay rates by position and location is pay-structure administration,
+    squarely Compensation & Benefits Management within HCM.
+- tag: PayTypes
+  spec_file: harri-paytypes-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.9
+  evidence: POST /api/v4/employees/{employeeId}/pay_types 'Define new employee pay type API'; schemas
+    AnnualRate, HourlyRate, TroncAmount, TippedStatus
+  reason: Defines and maintains employee pay types with hourly/annual rates and tip-related attributes
+    — pay structure administration under Compensation & Benefits Management.
+- tag: Franchisee PayTypes
+  spec_file: harri-franchisee-paytypes-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.88
+  evidence: '"Define new employee pay type API", schemas "HourlyRate, AnnualRate, TippedStatus, TroncAmount"'
+  reason: Management of employee pay types and associated rates — pay structure/compensation administration.
+- tag: AnnualRates
+  spec_file: harri-annualrates-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.85
+  evidence: POST /api/v2/employees/{employeeId}/pay_types/{payTypeId}/annual_rates Define new employee
+    annual rate API
+  reason: Employee pay rate definition by pay type — compensation management within HCM.
+- tag: Deprecated AnnualRates
+  spec_file: harri-deprecated-annualrates-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.85
+  evidence: POST /api/v1/employees/{employeeId}/pay_types/{payTypeId}/annual_rates  "Define new employee
+    annual rate API"
+  reason: Operations create, update and delete an employee's annual pay rate against a pay type — pay
+    structure administration within HCM, i.e. Compensation & Benefits Management.
+- tag: Deprecated Employee
+  spec_file: harri-deprecated-employee-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: POST /api/v6/employees  "Create employee API"; GET /api/v1/employees/{employeeId}/profile  "Get
+    employee profile API"; schema DeprecatedEmployeeProfile
+  reason: Core CRUD over employee records and profiles in an HCM platform — employee master record maintenance,
+    i.e. HR Operations Management. Payroll-tax and pay-rate sub-schemas confirm HR administration rather
+    than any other domain.
+- tag: Deprecated Franchisee AnnualRates
+  spec_file: harri-deprecated-franchisee-annualrates-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.85
+  evidence: POST /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/pay_types/{payTypeId}/annual_rates  "Define
+    new employee annual rate API"
+  reason: Franchisee-scoped variant of employee annual pay rate maintenance — pay structure administration
+    under Compensation & Benefits Management.
+- tag: Deprecated Franchisee Employee
+  spec_file: harri-deprecated-franchisee-employee-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: POST /api/v6/franchisees/{franchiseeId}/employees  "Create employee API"; GET .../employees/{employeeId}/profile  "Get
+    employee profile API"
+  reason: Franchisee-scoped CRUD over employee records and profiles, including payroll-tax custom fields
+    — employee master data maintenance, i.e. HR Operations Management.
+- tag: Deprecated Franchisee HourlyRates
+  spec_file: harri-deprecated-franchisee-hourlyrates-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.85
+  evidence: '"Define new employee pay rate API"; "Update employee pay rate API"; schema "DeprecatedHourlyRate"'
+  reason: CRUD over employee hourly pay rates per position and location — pay structure/compensation administration.
+- tag: Deprecated HourlyRates
+  spec_file: harri-deprecated-hourlyrates-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.85
+  evidence: '"Define new employee pay rate API"; "Retrieve employee pay rates API"; schema "DeprecatedHourlyRateV2"'
+  reason: 'Non-franchisee variant of the same surface: CRUD over employee hourly pay rates — compensation
+    administration.'
+- tag: Employee
+  spec_file: harri-employee-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: '''Create employee API'', ''Get employee profile API'', ''Update employee API''; schemas EmployeeProfileV2,
+    EmploymentPeriod, EmployeeCustomFieldsFederalWithholdingDetails'
+  reason: CRUD over the employee master record including profile, employment period and payroll withholding
+    fields — employee records / HR service delivery.
+- tag: Franchisee AnnualRates
+  spec_file: harri-franchisee-annualrates-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.85
+  evidence: '"Define new employee annual rate API" on /employees/{employeeId}/pay_types/{payTypeId}/annual_rates;
+    schema AnnualRate'
+  reason: Managing employee pay rates by pay type is compensation structure administration within Human
+    Capital Management.
+- tag: Franchisee Employee
+  spec_file: harri-franchisee-employee-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: '"Get employee profile API", "Create employee API"; schemas EmployeeProfileV2, EmploymentPeriod,
+    PayType'
+  reason: CRUD over the employee master record in an HCM system — employee records maintenance under HR
+    Operations Management.
+- tag: TippedStatuses
+  spec_file: harri-tippedstatuses-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.85
+  evidence: POST .../tipped_statuses CreateEmployeeTippedStatus 'Define new employee tipped status API';
+    schema TippedStatus
+  reason: Tipped status governs how an employee is paid (tip credit / tipped wage) per position, a pay-structure
+    attribute under Compensation & Benefits Management.
+- tag: TroncAmounts
+  spec_file: harri-troncamounts-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.85
+  evidence: POST /api/v2/employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts 'Define new employee
+    tronc amount API'; schema TroncAmount
+  reason: Tronc amounts are the employee's share of pooled service charges/tips attached to a pay type
+    — remuneration administration, i.e. Compensation & Benefits Management.
+- tag: Deprecated Franchisee PayTypes
+  spec_file: harri-deprecated-franchisee-paytypes-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.82
+  evidence: '"Define new employee pay type API"; schemas "AnnualRate", "HourlyRate", "TroncPoint", "TippedStatus"'
+  reason: Creates employee pay types carrying hourly/annual rates, tronc and tipped status — pay structure
+    and compensation administration.
+- tag: Deprecated PayTypes
+  spec_file: harri-deprecated-paytypes-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.82
+  evidence: POST /api/v1/employees/{employeeId}/pay_types  'Define new employee pay type API'; schemas
+    AnnualRate, HourlyRate, TippedStatus, TroncAmount
+  reason: Operations define and maintain employee pay types and rates (hourly, annual, tronc, tipped status),
+    which is pay structure administration within Compensation & Benefits Management.
+- tag: Franchisee TroncAmounts
+  spec_file: harri-franchisee-troncamounts-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.82
+  evidence: '"Define new employee tronc amount API", schema "TroncAmount"'
+  reason: Tronc (tip pool) amounts recorded against an employee pay type are gratuity remuneration data
+    — Compensation & Benefits administration.
+- tag: Franchisee TroncPoints
+  spec_file: harri-franchisee-troncpoints-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.82
+  evidence: '"Define new employee tronc point API", schema "TroncPoint"'
+  reason: Tronc point allocations governing an employee's share of the tip pool — remuneration/compensation
+    data in an HCM system.
+- tag: Absences
+  spec_file: harri-absences-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: POST /api/v1/employees/{employeeId}/absences/requests Create an Absence Requests for an employee
+    API
+  reason: Employee absence/leave request administration in an HCM platform — HR operations (leave administration)
+    within Human Capital Management.
+- tag: Deprecated BankAccounts
+  spec_file: harri-deprecated-bankaccounts-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: PUT /api/v1/employees/{employeeId}/bank_accounts  "Deprecated - Update or create employee
+    bank account API"
+  reason: Employee bank account records are payroll-disbursement master data maintained on the employee
+    record, which sits in HR Operations Management (employee records, payroll administration) for this
+    HCM vendor.
+- tag: Deprecated Financial
+  spec_file: harri-deprecated-financial-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.8
+  evidence: POST /api/v1/employees/{employeeId}/pay_type  "define new pay type API"; "update fixed employee
+    position financial info"; schema DeprecatedAnnualPayRate
+  reason: Despite the generic 'Financial' tag, the operations manage employee pay types and annual pay
+    rates — employee remuneration structure, i.e. Compensation & Benefits Management, not corporate finance.
+- tag: Deprecated Franchisee BankAccounts
+  spec_file: harri-deprecated-franchisee-bankaccounts-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: PUT /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/bank_accounts  "Update or create
+    employee bank account API"
+  reason: Franchisee-scoped maintenance of employee bank details for pay disbursement — employee record/payroll
+    administration within HR Operations.
+- tag: Deprecated Franchisee Financial
+  spec_file: harri-deprecated-franchisee-financial-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.8
+  evidence: '"define new pay type API"; "update fixed employee position financial info"; schema "DeprecatedAnnualPayRateV2"'
+  reason: Defines and updates employee pay types and annual pay rates — compensation administration within
+    the HCM platform.
+- tag: Employment
+  spec_file: harri-employment-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: '''Terminat employee API'', ''rehire employee API'', ''edit employment period hire date API'',
+    ''get buisness termination reasons API'''
+  reason: Hire-date, termination, undo-termination and rehire operations maintain the employment record
+    lifecycle — HR operations rather than recruiting or compensation.
+- tag: Franchisee Employment
+  spec_file: harri-franchisee-employment-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: '"Terminat employee API", "rehire employee API", "edit employment period hire date API"; schemas
+    TerminationReasonV2, EmploymentPeriod'
+  reason: Hire, termination, rehire and employment-period maintenance — core employee lifecycle record
+    administration in HR Operations.
+- tag: Franchisee TippedStatuses
+  spec_file: harri-franchisee-tippedstatuses-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.8
+  evidence: '"Define new employee tipped status API", schema "TippedStatus"'
+  reason: Tipped-status flags attached to an employee's pay type and position drive pay calculation —
+    compensation administration within HCM.
+- tag: Franchisee Troncs
+  spec_file: harri-franchisee-troncs-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.8
+  evidence: '"Define new employee tronc API", schema "DeprecatedTronc"'
+  reason: Employee tronc records attached to pay types — tip-based remuneration configuration, part of
+    Compensation & Benefits Management.
+- tag: Deprecated Franchisee Employment
+  spec_file: harri-deprecated-franchisee-employment-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.78
+  evidence: '"Terminat employee API"; "rehire employee API"; "edit employment period hire date API"; schema
+    "EmploymentPeriod", "TerminationReason"'
+  reason: Hire, termination and rehire record maintenance on the employment period — core employee-record/HR
+    operations administration in an HCM system.
+- tag: Deprecated Franchisee TippedStatuses
+  spec_file: harri-deprecated-franchisee-tippedstatuses-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.78
+  evidence: '"Define new employee tipped status API" under "/pay_types/{payTypeId}/.../tipped_statuses"'
+  reason: Tipped status is a pay attribute governing how the employee is remunerated, managed under pay
+    types — compensation administration.
+- tag: Deprecated Franchisee TroncAmounts
+  spec_file: harri-deprecated-franchisee-troncamounts-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.78
+  evidence: '"Define new employee tronc amount API" under "/pay_types/{payTypeId}/tronc_amounts"'
+  reason: Tronc (pooled tip distribution) amounts attached to an employee's pay type — remuneration/compensation
+    administration in the HCM platform.
+- tag: Deprecated Franchisee TroncPoints
+  spec_file: harri-deprecated-franchisee-troncpoints-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.78
+  evidence: '"Define new employee tronc point API"; "Update employee tronc point API"'
+  reason: Tronc point allocations determine an employee's share of pooled tips under their pay type —
+    compensation administration.
+- tag: Franchisee Absences
+  spec_file: harri-franchisee-absences-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.78
+  evidence: '"Create an Absence Requests for an employee API"; schemas AbsenceRequestFull, AbsenceReasonOptionsList'
+  reason: Employee absence/leave request lifecycle in an HCM platform — employee records and HR service
+    delivery (leave administration) under HR Operations Management. Slight ambiguity vs. benefits administration
+    keeps confidence below 0.85.
+- tag: BankAccounts
+  spec_file: harri-bankaccounts-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: PUT /api/v2/employees/{employeeId}/bank_accounts Update or create employee bank account API
+  reason: Employee bank account details for payroll disbursement — employee records/payroll administration
+    in HR Operations.
+- tag: Deprecated EmployeeLocation
+  spec_file: harri-deprecated-employeelocation-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: POST /api/v1/employees/{employeeId}/locations/{locationId}  "Attach existing employee to a
+    new location API"; PUT .../info  "Edit employee payroll id , POS id API"
+  reason: Maintains the employee-to-location assignment and associated payroll identifiers and location
+    periods — employee record administration within HR Operations.
+- tag: Deprecated Franchisee EmployeeLocation
+  spec_file: harri-deprecated-franchisee-employeelocation-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: '"Attach existing employee to a new location API"; "Edit employee payroll id , POS id API"'
+  reason: Operations maintain the employee's location assignment and payroll/POS identifiers — employee
+    record administration within an HCM platform, i.e. HR Operations Management.
+- tag: Deprecated TippedStatuses
+  spec_file: harri-deprecated-tippedstatuses-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.75
+  evidence: '''Define new employee tipped status API'' under /employees/{employeeId}/pay_types/{payTypeId}/.../tipped_statuses'
+  reason: Tipped status is an attribute of the employee's pay arrangement per position/location, i.e.
+    compensation administration in an HCM platform.
+- tag: Deprecated TroncAmounts
+  spec_file: harri-deprecated-troncamounts-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.75
+  evidence: '''Define new employee tronc amount API'' under /employees/{employeeId}/pay_types/{payTypeId}/tronc_amounts'
+  reason: Tronc amounts are tip-pool distribution values attached to an employee's pay type — employee
+    pay/compensation administration.
+- tag: Deprecated TroncPoints
+  spec_file: harri-deprecated-troncpoints-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.75
+  evidence: '''Define new employee tronc point API'' under /employees/{employeeId}/pay_types/{payTypeId}/tronc_points'
+  reason: Tronc points allocate share of tip pool per employee pay type — a compensation structure element
+    in the HCM platform.
+- tag: Franchisee BankAccounts
+  spec_file: harri-franchisee-bankaccounts-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: '"Update or create employee bank account API"; schema BankAccount'
+  reason: Employee bank account details are payroll disbursement master data — HR operations/payroll administration,
+    not corporate treasury banking.
+- tag: TroncPoints
+  spec_file: harri-troncpoints-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.75
+  evidence: POST /api/v2/employees/{employeeId}/pay_types/{payTypeId}/tronc_points  Define new employee
+    tronc point API
+  reason: Tronc points are the allocation units used to distribute pooled tips/service charge to hospitality
+    employees, attached here to an employee's pay type. The operations manage employee pay-related records
+    in an HCM platform, which realises Compensation & Benefits (pay administration) within Human Capital
+    Management, not any hospitality-operations capability.
+- tag: Troncs
+  spec_file: harri-troncs-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.75
+  evidence: GET /api/v1/employees/{employeeId}/pay_types/{payTypeId}/troncs  Retrieve employee troncs
+    API
+  reason: 'Same surface as TroncPoints: CRUD over employee tronc (tip-pool) records under a pay type in
+    a workforce/HCM system. That is employee pay/compensation administration, so BC-300.30 is the honest
+    mapping.'
+- tag: Franchisee EmployeeJobTitle
+  spec_file: harri-franchisee-employeejobtitle-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: '"attach job title to employee API", "update employee job title related info API"'
+  reason: Assignment and maintenance of job titles on the employee record — employee records administration
+    within HCM.
+- tag: Franchisee EmployeeLocation
+  spec_file: harri-franchisee-employeelocation-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: '"Attach existing employee to a new location API", "Edit employee payroll id , POS id API"'
+  reason: Maintains employee-to-location assignment and payroll identifiers on the employee record — HR
+    operations/employee records, not real estate or facilities.
+- tag: Franchisee EmployeePositions
+  spec_file: harri-franchisee-employeepositions-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: '"Attach position to employee API", "Set employee primary position API"; schemas EmployeePosition,
+    HourlyRate, TippedStatus'
+  reason: Position assignment and related pay attributes on the employee record — HR operations; overlaps
+    compensation but the operations are primarily record maintenance.
+- tag: Deprecated EmployeePositions
+  spec_file: harri-deprecated-employeepositions-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: POST /api/v1/employees/{employeeId}/locations/{locationId}/positions/{positionCode}  "Attach
+    position to employee API"; "Set employee primary position API"
+  reason: Assignment of positions (and their hourly pay rates) to employees is employee-record administration
+    in an HCM system. Overlaps compensation via HourlyRate schemas, hence L2 confidence held moderate.
+- tag: Deprecated Employment
+  spec_file: harri-deprecated-employment-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: POST /api/v2/employees/{employeeId}/terminate  "Terminat employee API"; POST /api/v4/employees/{employeeId}/rehire  "rehire
+    employee API"; PUT .../hire_date  "edit employment period hire date API"
+  reason: Termination, rehire and hire-date maintenance are employment-lifecycle record transactions administered
+    by HR Operations. Rehire touches talent acquisition, so the L2 choice carries some ambiguity.
+- tag: Deprecated Franchisee EmployeePositions
+  spec_file: harri-deprecated-franchisee-employeepositions-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: '"Attach position to employee API"; "Set employee primary position API"; schema "Position",
+    "HourlyRate"'
+  reason: Manages employee-to-position assignments (with associated pay-rate data) in the employee record
+    — HR operations/employee records rather than recruiting or benefits design.
+- tag: EmployeeLocation
+  spec_file: harri-employeelocation-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: '''Attach existing employee to a new location API'', ''Edit employee payroll id , POS id API'''
+  reason: Maintains employee-to-location assignment plus payroll identifiers on the employee record —
+    HR operations / employee data administration.
+- tag: EmployeePositions
+  spec_file: harri-employeepositions-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: '''Attach position to employee API'', ''Set employee primary position API''; schemas EmployeePosition,
+    CostCenter, HourlyRate'
+  reason: Assignment and maintenance of positions, cost centres and rates on the employee record within
+    the HCM platform — employee records administration.
+- tag: Franchisee MaxWeeklyHours
+  spec_file: harri-franchisee-maxweeklyhours-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.7
+  evidence: '"Create employee max weekly hours", schemas "WorkingPattern", "MaxWeeklyHours"'
+  reason: Employee contracted working pattern and maximum weekly hours held per pay type — employment
+    terms data in an HCM system; L1 HCM is safe, sub-capability ambiguous between HR operations and workforce/labour
+    compliance.
+- tag: MaxWeeklyHours
+  spec_file: harri-maxweeklyhours-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.7
+  evidence: POST /api/v2/employees/{employeeId}/pay_types/{payTypeId}/locations/{locationId}/max_weekly_hours
+    'Define new employee Max Weekly Hours API'; schemas WorkingPattern, MaxWeeklyHours
+  reason: Maintains contracted maximum weekly hours and working patterns on the employee record — employee-lifecycle/HR
+    data administration; the evidence does not pin a single L2 (records vs. labour compliance).
