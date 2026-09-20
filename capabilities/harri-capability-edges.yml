@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 53
+edge_count: 54
 edges:
 - tag: Franchisee HourlyRates
   spec_file: harri-franchisee-hourlyrates-api-openapi.yml
@@ -485,6 +485,17 @@ edges:
     "HourlyRate"'
   reason: Manages employee-to-position assignments (with associated pay-rate data) in the employee record
     — HR operations/employee records rather than recruiting or benefits design.
+- tag: EmployeeJobTitle
+  spec_file: harri-employeejobtitle-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: POST /api/v1/employees/{employeeId}/job_titles/{jobTitleId} 'attach job title to employee
+    API'
+  reason: Maintains job-title assignments on the employee record in an HCM platform — employee record
+    administration under HR Operations Management. No schema detail, so moderate confidence.
+  recovered_from: sweep-20260828T235257Z-edges.json
 - tag: EmployeeLocation
   spec_file: harri-employeelocation-api-openapi.yml
   capability_id: BC-300.70
