@@ -1,7 +1,9 @@
 openapi: 3.2.0
 info:
-  title: Harri - External Brand Management Franchisee Employer APIs V2 API
-  description: "## Harri Employer Endpoint to create and manage Harri Above Store Admin Users. \n Note: if you receive a 422 error about a corporate ID not being associated or found, you will need to contact Harri Support to have that ID associated with your API credentials."
+  title: Harri - External Brand Management Franchisee Employer APIs…
+  description: '## Harri Employer Endpoint to create and manage Harri Above Store Admin Users.
+
+    Note: if you receive a 422 error about a corporate ID not being associated or found, you will need to contact Harri Support to have that ID associated with your API credentials.'
   termsOfService: https://harri.com/terms
   contact:
     email: support@harri.com

@@ -52,9 +52,7 @@ paths:
       tags:
       - Franchisee TroncPoints
       summary: Define new employee tronc point API
-      description: 'use this api when u want to define new employee tronc point
-
-        '
+      description: use this api when u want to define new employee tronc point
       operationId: FranshiseesCreateEmployeeTroncPoint
       parameters:
       - name: franchiseeId

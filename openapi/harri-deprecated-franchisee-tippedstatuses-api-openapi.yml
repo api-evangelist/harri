@@ -65,9 +65,7 @@ paths:
       tags:
       - Deprecated Franchisee TippedStatuses
       summary: Define new employee tipped status API
-      description: 'use this api when u want to define new tipped status for an employee on specific position
-
-        '
+      description: use this api when u want to define new tipped status for an employee on specific position
       operationId: DeprecatedFranshiseesCreateEmployeeTippedStatus
       parameters:
       - name: franchiseeId

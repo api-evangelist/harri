@@ -46,9 +46,7 @@ paths:
       tags:
       - Troncs
       summary: Define new employee tronc API
-      description: 'use this api when u want to define new employee tronc
-
-        '
+      description: use this api when u want to define new employee tronc
       operationId: CreateEmployeeTronc
       parameters:
       - name: employeeId

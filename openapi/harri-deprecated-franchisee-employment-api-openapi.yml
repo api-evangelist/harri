@@ -572,6 +572,138 @@ paths:
                 $ref: '#/components/schemas/RehireEmployeeV4Response'
 components:
   schemas:
+    EmploymentPeriod:
+      type: object
+      properties:
+        id:
+          type: number
+        hire_date:
+          type: string
+          format: date
+          description: employee hire date
+        leave_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: employee leave date
+        termination_reason:
+          type:
+          - object
+          - 'null'
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+    Address:
+      type: object
+      properties:
+        country_code:
+          type: string
+          example: US
+        state_code:
+          type: string
+          example: NY
+        city:
+          type: string
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        postal_code:
+          type: string
+    LocationPeriod:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+          description: employee start date on specific location
+        end_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: employee end date on specific location
+        type:
+          type: string
+          enum:
+          - PRIMARY
+          - SECONDARY
+    WorkingPatternDays:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
+
+            '
+        hours_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working hours on this day. Can be `null` if not specified.
+
+            '
+      example:
+        id: 1
+        day: SUN
+        hours_count: 8
+    PayType:
+      type: object
+      properties:
+        id:
+          type: number
+        type:
+          type: string
+          enum:
+          - SALARIED
+          - HOURLY
+          - WEIGHTED_SHIFT
+        start_date:
+          type: string
+          format: date
+        cross_location_edit_mode:
+          type:
+          - string
+          - 'null'
+          enum:
+          - FIXED
+          - FLEXIBLE
+          description: This field is nullable and depends on the pay type. It will only be defined if the pay type is set to HOURLY.
+    JobTitle:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        skill_needed:
+          type: boolean
+    TerminationReason:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
     EmployeeBasicInfo:
       type: object
       properties:
@@ -610,6 +742,15 @@ components:
           type: boolean
         known_as:
           type: string
+    EmployeeJobTitle:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/JobTitle'
+      - type: object
+        properties:
+          level:
+            type: string
+            description: number with quotations like "5"
     Position:
       type: object
       properties:
@@ -622,96 +763,6 @@ components:
           properties:
             id:
               type: number
-            code:
-              type: string
-            name:
-              type: string
-    TerminationReason:
-      type: object
-      properties:
-        id:
-          type: number
-        code:
-          type: string
-        name:
-          type: string
-    WorkingPattern:
-      type: object
-      properties:
-        id:
-          type: number
-        days_count:
-          type:
-          - number
-          - 'null'
-          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
-
-            '
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-        working_pattern_days:
-          type: array
-          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
-
-            '
-          items:
-            $ref: '#/components/schemas/WorkingPatternDays'
-      example:
-        id: 101
-        days_count: null
-        working_pattern_days:
-        - day: MON
-          hours_count: 8
-        - day: WED
-          hours_count: 6
-        - day: FRI
-          hours_count: 4
-    LocationPeriod:
-      type: object
-      properties:
-        id:
-          type: number
-        start_date:
-          type: string
-          format: date
-          description: employee start date on specific location
-        end_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          description: employee end date on specific location
-        type:
-          type: string
-          enum:
-          - PRIMARY
-          - SECONDARY
-    EmploymentPeriod:
-      type: object
-      properties:
-        id:
-          type: number
-        hire_date:
-          type: string
-          format: date
-          description: employee hire date
-        leave_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          description: employee leave date
-        termination_reason:
-          type:
-          - object
-          - 'null'
-          properties:
             code:
               type: string
             name:
@@ -734,53 +785,18 @@ components:
               type: string
             name:
               type: string
-    EmployeeJobTitle:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/JobTitle'
-      - type: object
-        properties:
-          level:
-            type: string
-            description: number with quotations like "5"
-    PayType:
+    Location:
       type: object
       properties:
         id:
           type: number
-        type:
+        name:
           type: string
-          enum:
-          - SALARIED
-          - HOURLY
-          - WEIGHTED_SHIFT
-        start_date:
-          type: string
-          format: date
-        cross_location_edit_mode:
-          type:
-          - string
-          - 'null'
-          enum:
-          - FIXED
-          - FLEXIBLE
-          description: This field is nullable and depends on the pay type. It will only be defined if the pay type is set to HOURLY.
-    Address:
-      type: object
-      properties:
         country_code:
           type: string
-          example: US
         state_code:
           type: string
-          example: NY
         city:
-          type: string
-        address_line_1:
-          type: string
-        address_line_2:
-          type: string
-        postal_code:
           type: string
     RehireEmployeeV4Response:
       allOf:
@@ -999,59 +1015,43 @@ components:
                 type: string
               sort_code:
                 type: string
-    JobTitle:
+    WorkingPattern:
       type: object
       properties:
         id:
           type: number
-        code:
-          type: string
-        name:
-          type: string
-        skill_needed:
-          type: boolean
-    Location:
-      type: object
-      properties:
-        id:
-          type: number
-        name:
-          type: string
-        country_code:
-          type: string
-        state_code:
-          type: string
-        city:
-          type: string
-    WorkingPatternDays:
-      type: object
-      properties:
-        id:
-          type: number
-        day:
-          type: string
-          enum:
-          - MON
-          - TUE
-          - WED
-          - THU
-          - FRI
-          - SAT
-          - SUN
-          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
-
-            '
-        hours_count:
+        days_count:
           type:
           - number
           - 'null'
-          description: 'Number of working hours on this day. Can be `null` if not specified.
+          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
 
             '
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+        working_pattern_days:
+          type: array
+          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+            '
+          items:
+            $ref: '#/components/schemas/WorkingPatternDays'
       example:
-        id: 1
-        day: SUN
-        hours_count: 8
+        id: 101
+        days_count: null
+        working_pattern_days:
+        - day: MON
+          hours_count: 8
+        - day: WED
+          hours_count: 6
+        - day: FRI
+          hours_count: 4
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

@@ -19,9 +19,7 @@ paths:
 
         using this api is like starting new employment period
 
-        you have to provide all financial info again including employee positions
-
-        '
+        you have to provide all financial info again including employee positions'
       operationId: DeprecatedFranshiseesCreateEmployeePayTypeV1
       parameters:
       - name: franchiseeId
@@ -146,9 +144,7 @@ paths:
 
         use this api to updatee annual pay rate or max weekly hours
 
-        you cant use this API to update type (salaried to hourly or fixed to flexible)
-
-        '
+        you cant use this API to update type (salaried to hourly or fixed to flexible)'
       operationId: DeprecatedUpdateEmployeePayTypeV2Franchisee
       parameters:
       - name: franchiseeId
@@ -195,9 +191,7 @@ paths:
       summary: update fixed employee position financial info
       description: 'update employee position financial info.
 
-        this API should be used only to update pay rates for hourly fixed employees
-
-        '
+        this API should be used only to update pay rates for hourly fixed employees'
       operationId: DeprecatedUpdateEmployeePositionFranchisee
       parameters:
       - name: franchiseeId
@@ -269,33 +263,6 @@ components:
           type: number
         tronc:
           type: number
-    DeprecatedPayType:
-      type: object
-      properties:
-        id:
-          type: number
-        employee_id:
-          type:
-          - number
-          - 'null'
-        type:
-          type: string
-          enum:
-          - SALARIED
-          - HOURLY
-          - WEIGHTED_SHIFT
-        cross_location_mode:
-          type:
-          - string
-          - 'null'
-          enum:
-          - FIXED
-          - FLEXIBLE
-          description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY
-        annual_pay_rate:
-          $ref: '#/components/schemas/DeprecatedAnnualPayRate'
-        max_weekly_hours:
-          type: number
     DeprecatedPayTypeV2:
       type: object
       properties:
@@ -325,6 +292,33 @@ components:
             $ref: '#/components/schemas/DeprecatedAnnualPayRateV2'
         tronc:
           type: number
+        max_weekly_hours:
+          type: number
+    DeprecatedPayType:
+      type: object
+      properties:
+        id:
+          type: number
+        employee_id:
+          type:
+          - number
+          - 'null'
+        type:
+          type: string
+          enum:
+          - SALARIED
+          - HOURLY
+          - WEIGHTED_SHIFT
+        cross_location_mode:
+          type:
+          - string
+          - 'null'
+          enum:
+          - FIXED
+          - FLEXIBLE
+          description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY
+        annual_pay_rate:
+          $ref: '#/components/schemas/DeprecatedAnnualPayRate'
         max_weekly_hours:
           type: number
     DeprecatedAnnualPayRateV2:

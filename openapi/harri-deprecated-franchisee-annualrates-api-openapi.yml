@@ -15,9 +15,7 @@ paths:
       tags:
       - Deprecated Franchisee AnnualRates
       summary: Define new employee annual rate API
-      description: 'use this api when u want to define employee annual rate
-
-        '
+      description: use this api when u want to define employee annual rate
       operationId: DeprecatedFranshiseesCreateEmployeeAnnualRate
       parameters:
       - name: franchiseeId

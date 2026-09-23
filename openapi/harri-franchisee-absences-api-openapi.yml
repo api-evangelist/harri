@@ -12,7 +12,6 @@ paths:
   /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests:
     get:
       summary: Get Absence Requests for an employee API
-      description: Get Absence Requests for an employee API
       parameters:
       - name: franchiseeId
         in: path
@@ -68,7 +67,6 @@ paths:
       - Franchisee Absences
     post:
       summary: Create an Absence Requests for an employee API
-      description: Create an Absence Requests for an employee API
       parameters:
       - name: franchiseeId
         in: path
@@ -162,7 +160,6 @@ paths:
   /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests/{id}:
     put:
       summary: Update an Absence Requests for an employee API
-      description: Update an Absence Requests for an employee API
       parameters:
       - name: franchiseeId
         in: path
@@ -230,7 +227,6 @@ paths:
   /api/v1/franchisees/{franchiseeId}/absences/requests:
     get:
       summary: Get Absence Requests for a location API
-      description: Get Absence Requests for a location API
       parameters:
       - name: franchiseeId
         in: path
@@ -355,7 +351,6 @@ paths:
   /api/v1/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests/{absenceRequestId}:
     get:
       summary: Get a Single Absence Request by Id for an employee API
-      description: Get a Single Absence Request by Id for an employee API
       parameters:
       - in: path
         name: franchiseeId
@@ -388,7 +383,6 @@ paths:
   /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests:
     get:
       summary: Get Absence Requests for an employee API
-      description: Get Absence Requests for an employee API
       parameters:
       - name: franchiseeId
         in: path
@@ -468,7 +462,6 @@ paths:
       - Franchisee Absences
     post:
       summary: Create an Absence Requests for an employee API
-      description: Create an Absence Requests for an employee API
       parameters:
       - name: franchiseeId
         in: path
@@ -562,7 +555,6 @@ paths:
   /api/v2/franchisees/{franchiseeId}/employees/{employeeId}/absences/requests/{id}:
     put:
       summary: Update an Absence Requests for an employee API
-      description: Update an Absence Requests for an employee API
       parameters:
       - name: franchiseeId
         in: path
@@ -679,87 +671,6 @@ components:
           description: List of days included in the absence
           items:
             $ref: '#/components/schemas/AbsenceRequestDay'
-    AbsenceRequest:
-      type: object
-      allOf:
-      - type: object
-        properties:
-          id:
-            type: number
-            description: id of the absence request
-      - $ref: '#/components/schemas/AbsenceRequestNoId'
-    AbsenceRequestDay:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Day ID
-        date:
-          type: string
-          format: date
-          description: Date of the absence
-        weight:
-          type: number
-          description: Weight of the absence for the day
-        from_time:
-          type:
-          - integer
-          - 'null'
-          description: Start time in seconds since midnight if is_all_day is false
-        to_time:
-          type:
-          - integer
-          - 'null'
-          description: End time in seconds since midnight if is_all_day is false
-        is_all_day:
-          type: boolean
-          description: Indicates if the absence covers the entire day
-    AbsenceRequestList:
-      type: object
-      properties:
-        requests:
-          type: array
-          description: array of absence requests
-          items:
-            $ref: '#/components/schemas/AbsenceRequest'
-    AbsenceRequestFull:
-      type: object
-      allOf:
-      - type: object
-        properties:
-          employee_id:
-            type:
-            - number
-            - 'null'
-            description: 'External employee id mapped from the internal `user_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
-
-              '
-          location_id:
-            type:
-            - number
-            - 'null'
-            description: 'External location id mapped from the internal `brand_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
-
-              '
-      - $ref: '#/components/schemas/AbsenceRequest'
-    Pagination:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            page:
-              type: integer
-              description: current page number that starts with 1
-            per_page:
-              type: integer
-              description: amount of records per page
-            total:
-              type: integer
-              description: total number of records
-            total_pages:
-              type: integer
-              description: total number of pages
     AbsenceReasonOptionsList:
       type: object
       properties:
@@ -832,6 +743,87 @@ components:
               - date
               - weight
               - is_all_day
+    AbsenceRequestDay:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Day ID
+        date:
+          type: string
+          format: date
+          description: Date of the absence
+        weight:
+          type: number
+          description: Weight of the absence for the day
+        from_time:
+          type:
+          - integer
+          - 'null'
+          description: Start time in seconds since midnight if is_all_day is false
+        to_time:
+          type:
+          - integer
+          - 'null'
+          description: End time in seconds since midnight if is_all_day is false
+        is_all_day:
+          type: boolean
+          description: Indicates if the absence covers the entire day
+    AbsenceRequestList:
+      type: object
+      properties:
+        requests:
+          type: array
+          description: array of absence requests
+          items:
+            $ref: '#/components/schemas/AbsenceRequest'
+    AbsenceRequestFull:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          employee_id:
+            type:
+            - number
+            - 'null'
+            description: 'External employee id mapped from the internal `user_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
+
+              '
+          location_id:
+            type:
+            - number
+            - 'null'
+            description: 'External location id mapped from the internal `brand_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
+
+              '
+      - $ref: '#/components/schemas/AbsenceRequest'
+    Pagination:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            page:
+              type: integer
+              description: current page number that starts with 1
+            per_page:
+              type: integer
+              description: amount of records per page
+            total:
+              type: integer
+              description: total number of records
+            total_pages:
+              type: integer
+              description: total number of pages
+    AbsenceRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: number
+            description: id of the absence request
+      - $ref: '#/components/schemas/AbsenceRequestNoId'
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

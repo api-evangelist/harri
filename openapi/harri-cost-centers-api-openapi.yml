@@ -7,12 +7,12 @@ info:
 servers:
 - url: https://gateway.harri.com/open-api-hub
 tags:
-- name: CostCenters
+- name: Cost Centers
 paths:
   /api/v1/locations/{location_id}/cost_centers:
     get:
       tags:
-      - CostCenters
+      - Cost Centers
       summary: List Cost Centers
       description: Retrieves a list of cost centers for a specific location.
       operationId: GetLocationCostCenters

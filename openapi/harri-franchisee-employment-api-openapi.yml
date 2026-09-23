@@ -487,93 +487,30 @@ paths:
                 $ref: '#/components/schemas/RehireEmployeeV5Response'
 components:
   schemas:
-    MaxWeeklyHoursV2:
-      type: object
-      properties:
-        id:
-          type: number
-        start_date:
-          type: string
-          format: date
-        average_weekly_hours:
-          type: number
-        working_patterns:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkingPatternV2'
-    EmployeeBasicInfo:
-      type: object
-      properties:
-        id:
-          type: string
-          example: '1'
-          description: A unique ID provided by customers or third-parties
-        email:
-          type: string
-          format: email
-          description: employee email
-        first_name:
-          type: string
-          description: employee first name
-        last_name:
-          type: string
-          description: employee last name
-        middle_name:
-          type: string
-          description: employee middle name
-        geid:
-          type: string
-        birth_date:
-          type: string
-          format: date
-          description: employee birth date
-        phone:
-          type: string
-          format: phone
-          description: employee phone number
-        home_phone:
-          type: string
-          format: phone
-          description: home phone number
-        blocked_from_rehire:
-          type: boolean
-        known_as:
-          type: string
-    Position:
+    TerminationReasonV2:
       type: object
       properties:
         code:
           type: string
         name:
           type: string
-        category:
-          type: object
-          properties:
-            id:
-              type: number
-            code:
-              type: string
-            name:
-              type: string
-    WorkingPatternDaysV2:
+    Address:
       type: object
       properties:
-        id:
-          type: number
-        day:
+        country_code:
           type: string
-          enum:
-          - MON
-          - TUE
-          - WED
-          - THU
-          - FRI
-          - SAT
-          - SUN
-        hours_count:
-          type:
-          - number
-          - 'null'
+          example: US
+        state_code:
+          type: string
+          example: NY
+        city:
+          type: string
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        postal_code:
+          type: string
     LocationPeriod:
       type: object
       properties:
@@ -618,68 +555,6 @@ components:
               type: string
             name:
               type: string
-    TerminationReasonGroup:
-      type: object
-      properties:
-        id:
-          type: number
-        name:
-          type: string
-        termination_reasons:
-          type: array
-          items:
-            $ref: '#/components/schemas/TerminationReasonV2'
-    CostCenter:
-      type: object
-      properties:
-        id:
-          type: number
-        code:
-          type: string
-        name:
-          type: string
-        value:
-          type: object
-          properties:
-            id:
-              type: number
-            code:
-              type: string
-            name:
-              type: string
-    EmployeeJobTitle:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/JobTitle'
-      - type: object
-        properties:
-          level:
-            type: string
-            description: number with quotations like "5"
-    TerminationReasonV2:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
-    Address:
-      type: object
-      properties:
-        country_code:
-          type: string
-          example: US
-        state_code:
-          type: string
-          example: NY
-        city:
-          type: string
-        address_line_1:
-          type: string
-        address_line_2:
-          type: string
-        postal_code:
-          type: string
     RehireEmployeeV5Response:
       allOf:
       - $ref: '#/components/schemas/EmployeeBasicInfo'
@@ -884,6 +759,20 @@ components:
                 type: string
               sort_code:
                 type: string
+    MaxWeeklyHoursV2:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+        average_weekly_hours:
+          type: number
+        working_patterns:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternV2'
     PayType:
       type: object
       properties:
@@ -906,6 +795,17 @@ components:
           - FIXED
           - FLEXIBLE
           description: This field is nullable and depends on the pay type. It will only be defined if the pay type is set to HOURLY.
+    TerminationReasonGroup:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        termination_reasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/TerminationReasonV2'
     JobTitle:
       type: object
       properties:
@@ -917,6 +817,87 @@ components:
           type: string
         skill_needed:
           type: boolean
+    EmployeeBasicInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '1'
+          description: A unique ID provided by customers or third-parties
+        email:
+          type: string
+          format: email
+          description: employee email
+        first_name:
+          type: string
+          description: employee first name
+        last_name:
+          type: string
+          description: employee last name
+        middle_name:
+          type: string
+          description: employee middle name
+        geid:
+          type: string
+        birth_date:
+          type: string
+          format: date
+          description: employee birth date
+        phone:
+          type: string
+          format: phone
+          description: employee phone number
+        home_phone:
+          type: string
+          format: phone
+          description: home phone number
+        blocked_from_rehire:
+          type: boolean
+        known_as:
+          type: string
+    EmployeeJobTitle:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/JobTitle'
+      - type: object
+        properties:
+          level:
+            type: string
+            description: number with quotations like "5"
+    Position:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    CostCenter:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        value:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
     Location:
       type: object
       properties:
@@ -955,6 +936,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WorkingPatternDaysV2'
+    WorkingPatternDaysV2:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+        hours_count:
+          type:
+          - number
+          - 'null'
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

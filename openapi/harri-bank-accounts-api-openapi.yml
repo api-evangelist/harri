@@ -7,12 +7,12 @@ info:
 servers:
 - url: https://gateway.harri.com/open-api-hub
 tags:
-- name: BankAccounts
+- name: Bank Accounts
 paths:
   /api/v2/employees/{employeeId}/bank_accounts:
     get:
       tags:
-      - BankAccounts
+      - Bank Accounts
       summary: Get employee bank accounts API
       description: Get employee bank accounts info
       operationId: GetEmployeeBankAccounts
@@ -39,7 +39,7 @@ paths:
           content: {}
     put:
       tags:
-      - BankAccounts
+      - Bank Accounts
       summary: Update or create employee bank account API
       description: Update or create employee bank account
       operationId: UpdateEmployeeBankAccount

@@ -177,9 +177,7 @@ paths:
       tags:
       - Franchisee EmployeePositions
       summary: Update position related info API
-      description: 'Update position related info - COST CENTERS, this will be used for fixed and flexible hourly employees
-
-        '
+      description: Update position related info - COST CENTERS, this will be used for fixed and flexible hourly employees
       operationId: FranshiseesUpdateEmployeePosition
       parameters:
       - name: franchiseeId
@@ -288,66 +286,6 @@ components:
               type: string
             name:
               type: string
-    EmployeePosition:
-      allOf:
-      - $ref: '#/components/schemas/Position'
-      - type: object
-        properties:
-          id:
-            type: number
-          location_id:
-            type: integer
-          is_primary:
-            type: boolean
-            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
-          cost_centers:
-            type: array
-            items:
-              $ref: '#/components/schemas/CostCenter'
-    HourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc_point:
-          type: number
-        tronc_amount:
-          type: number
-        tronc_rate:
-          type: number
-    TippedStatus:
-      type: object
-      properties:
-        id:
-          type: number
-        is_tipped:
-          type: boolean
-        start_date:
-          type: string
-          format: date
-    CostCenter:
-      type: object
-      properties:
-        id:
-          type: number
-        code:
-          type: string
-        name:
-          type: string
-        value:
-          type: object
-          properties:
-            id:
-              type: number
-            code:
-              type: string
-            name:
-              type: string
     EmployeePositionRelatedInfo:
       allOf:
       - $ref: '#/components/schemas/Position'
@@ -368,6 +306,66 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/CostCenter'
+    EmployeePosition:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: integer
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+    CostCenter:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        value:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

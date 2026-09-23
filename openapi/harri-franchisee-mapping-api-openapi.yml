@@ -10,8 +10,6 @@ tags:
 - name: Franchisee Mapping
 paths:
   /api/v1/franchisees/{franchiseeId}/employees/mappings:
-    servers:
-    - url: https://gateway.harri.com/open-api-hub
     get:
       parameters:
       - name: franchiseeId
@@ -95,6 +93,8 @@ paths:
                           description: external middleware id
       tags:
       - Franchisee Mapping
+      summary: Franshisees api v1 employees mappings list
+      x-summary-source: derived
     post:
       parameters:
       - name: franchiseeId
@@ -134,9 +134,11 @@ paths:
                 $ref: '#/components/schemas/MapperData'
       tags:
       - Franchisee Mapping
-  /api/v1/franchisees/{franchiseeId}/employees/mappings/{id}:
+      summary: Franchisees api v1 employees mappings create
+      x-summary-source: derived
     servers:
     - url: https://gateway.harri.com/open-api-hub
+  /api/v1/franchisees/{franchiseeId}/employees/mappings/{id}:
     put:
       operationId: franchisees_api_v1_employees_mappings_update
       parameters:
@@ -176,9 +178,11 @@ paths:
                 $ref: '#/components/schemas/UpdateMapper'
       tags:
       - Franchisee Mapping
-  /api/v1/franchisees/{franchiseeId}/locations/mappings:
+      summary: Franchisees api v1 employees mappings update
+      x-summary-source: derived
     servers:
     - url: https://gateway.harri.com/open-api-hub
+  /api/v1/franchisees/{franchiseeId}/locations/mappings:
     get:
       parameters:
       - name: franchiseeId
@@ -215,6 +219,8 @@ paths:
                 $ref: '#/components/schemas/MapperData'
       tags:
       - Franchisee Mapping
+      summary: Franchisees api v1 locations mappings list
+      x-summary-source: derived
     post:
       parameters:
       - name: franchiseeId
@@ -253,9 +259,11 @@ paths:
                 $ref: '#/components/schemas/MapperData'
       tags:
       - Franchisee Mapping
-  /api/v1/franchisees/{franchiseeId}/locations/mappings/{id}:
+      summary: Franchisees api v1 locations mappings create
+      x-summary-source: derived
     servers:
     - url: https://gateway.harri.com/open-api-hub
+  /api/v1/franchisees/{franchiseeId}/locations/mappings/{id}:
     put:
       operationId: franchisees_api_v1_locations_mappings_update
       parameters:
@@ -293,9 +301,11 @@ paths:
                 $ref: '#/components/schemas/UpdateMapper'
       tags:
       - Franchisee Mapping
-  /api/v1/franchisees/{franchiseeId}/positions/mappings:
+      summary: Franchisees api v1 locations mappings update
+      x-summary-source: derived
     servers:
     - url: https://gateway.harri.com/open-api-hub
+  /api/v1/franchisees/{franchiseeId}/positions/mappings:
     get:
       parameters:
       - name: franchiseeId
@@ -332,6 +342,8 @@ paths:
                 $ref: '#/components/schemas/MapperData'
       tags:
       - Franchisee Mapping
+      summary: Franchisees api v1 positions mappings list
+      x-summary-source: derived
     post:
       parameters:
       - name: franchiseeId
@@ -369,9 +381,11 @@ paths:
                 $ref: '#/components/schemas/MapperData'
       tags:
       - Franchisee Mapping
-  /api/v1/franchisees/{franchiseeId}/positions/mappings/{id}:
+      summary: Franchisees api v1 positions mappings create
+      x-summary-source: derived
     servers:
     - url: https://gateway.harri.com/open-api-hub
+  /api/v1/franchisees/{franchiseeId}/positions/mappings/{id}:
     put:
       operationId: franchisees_api_v1_positions_mappings_update
       parameters:
@@ -409,6 +423,10 @@ paths:
                 $ref: '#/components/schemas/UpdateMapper'
       tags:
       - Franchisee Mapping
+      summary: Franchisees api v1 positions mappings update
+      x-summary-source: derived
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
   /api/v1/franchisees/{franchiseeId}/employers/mappings:
     parameters:
     - name: franchiseeId
@@ -416,8 +434,6 @@ paths:
       required: true
       schema:
         type: number
-    servers:
-    - url: https://gateway.harri.com/open-api-hub
     get:
       parameters:
       - name: internal_values
@@ -464,6 +480,8 @@ paths:
                       description: Mapper external code
       tags:
       - Franchisee Mapping
+      summary: Franchisees api v1 employers mappings list
+      x-summary-source: derived
     post:
       operationId: franchisees_api_v1_employers_mappings_create
       description: Create franchisee employer mappings
@@ -506,9 +524,11 @@ paths:
                       type: string
       tags:
       - Franchisee Mapping
-  /api/v1/franchisees/{franchiseeId}/employers/mappings/{pk}:
+      summary: Franchisees api v1 employers mappings create
+      x-summary-source: derived
     servers:
     - url: https://gateway.harri.com/open-api-hub
+  /api/v1/franchisees/{franchiseeId}/employers/mappings/{pk}:
     put:
       operationId: franchisees_api_v1_employers_mappings_update
       parameters:
@@ -545,9 +565,11 @@ paths:
                 type: string
       tags:
       - Franchisee Mapping
-  /api/v2/franchisees/{franchiseeId}/employees/mappings:
+      summary: Franchisees api v1 employers mappings update
+      x-summary-source: derived
     servers:
     - url: https://gateway.harri.com/open-api-hub
+  /api/v2/franchisees/{franchiseeId}/employees/mappings:
     get:
       parameters:
       - name: franchiseeId
@@ -631,6 +653,8 @@ paths:
                           description: external middleware id
       tags:
       - Franchisee Mapping
+      summary: Franshisees api v1 employees mappings list V2
+      x-summary-source: derived
     post:
       parameters:
       - name: franchiseeId
@@ -670,9 +694,11 @@ paths:
                 $ref: '#/components/schemas/MapperData'
       tags:
       - Franchisee Mapping
-  /api/v2/franchisees/{franchiseeId}/employees/mappings/{id}:
+      summary: Franchisees api v1 employees mappings create V2
+      x-summary-source: derived
     servers:
     - url: https://gateway.harri.com/open-api-hub
+  /api/v2/franchisees/{franchiseeId}/employees/mappings/{id}:
     put:
       operationId: franchisees_api_v1_employees_mappings_updateV2
       parameters:
@@ -712,6 +738,10 @@ paths:
                 $ref: '#/components/schemas/UpdateMapper'
       tags:
       - Franchisee Mapping
+      summary: Franchisees api v1 employees mappings update V2
+      x-summary-source: derived
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
   /v1/franchisees/{franchiseeId}/employers/mappings:
     parameters:
     - name: franchiseeId
@@ -719,8 +749,6 @@ paths:
       required: true
       schema:
         type: number
-    servers:
-    - url: https://gateway.harri.com/open-api-hub
     get:
       parameters:
       - name: internal_values
@@ -769,8 +797,26 @@ paths:
       - Franchisee Mapping
       security:
       - oAuth2ClientCredentials: []
+      summary: Api v1 franchisee employers mappings list
+      x-summary-source: derived
+    servers:
+    - url: https://gateway.harri.com/open-api-hub
 components:
   schemas:
+    Mapping:
+      type: object
+      properties:
+        internal_value:
+          type: string
+        external_value:
+          type: string
+    UpdateMapper:
+      type: object
+      properties:
+        data:
+          type: string
+          enum:
+          - Success
     MapperData:
       type: object
       properties:
@@ -787,20 +833,6 @@ components:
               external_value:
                 type: string
                 description: Mapper external code
-    Mapping:
-      type: object
-      properties:
-        internal_value:
-          type: string
-        external_value:
-          type: string
-    UpdateMapper:
-      type: object
-      properties:
-        data:
-          type: string
-          enum:
-          - Success
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

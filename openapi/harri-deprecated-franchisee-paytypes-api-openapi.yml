@@ -15,9 +15,7 @@ paths:
       tags:
       - Deprecated Franchisee PayTypes
       summary: Define new employee pay type API
-      description: 'Use this api when u want to create the employee paytype with other financials information. positions
-
-        '
+      description: Use this api when u want to create the employee paytype with other financials information. positions
       operationId: DeprecatedFranshiseesCreateEmployeePayTypes
       parameters:
       - name: franchiseeId
@@ -128,9 +126,7 @@ paths:
       tags:
       - Deprecated Franchisee PayTypes
       summary: Define new employee pay type API
-      description: 'Use this api when u want to create the employee paytype with other financials information
-
-        '
+      description: Use this api when u want to create the employee paytype with other financials information
       operationId: DeprecatedFranshiseesCreateEmployeePayTypesV2
       parameters:
       - name: franchiseeId
@@ -282,9 +278,7 @@ paths:
       tags:
       - Deprecated Franchisee PayTypes
       summary: Define new employee pay type API
-      description: 'Use this api when u want to create the employee paytype with other financials information
-
-        '
+      description: Use this api when u want to create the employee paytype with other financials information
       operationId: FranshiseesCreateEmployeePayTypes
       parameters:
       - name: franchiseeId
@@ -432,6 +426,65 @@ paths:
                 $ref: '#/components/schemas/PostEmployeePayTypeResponseV2'
 components:
   schemas:
+    WorkingPatternDays:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
+
+            '
+        hours_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working hours on this day. Can be `null` if not specified.
+
+            '
+      example:
+        id: 1
+        day: SUN
+        hours_count: 8
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    TroncAmount:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    DeprecatedTronc:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
     DeprecatedHourlyRate:
       type: object
       properties:
@@ -444,6 +497,16 @@ components:
           format: date
         tronc:
           type: number
+    AnnualRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
     DeprecatedMaxWeeklyHours:
       type: object
       properties:
@@ -460,6 +523,32 @@ components:
             '
           allOf:
           - $ref: '#/components/schemas/WorkingPattern'
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+    TroncPoint:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
     PostEmployeePayTypeResponseV1:
       type: object
       properties:
@@ -503,99 +592,6 @@ components:
                 $ref: '#/components/schemas/DeprecatedHourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
-    WorkingPattern:
-      type: object
-      properties:
-        id:
-          type: number
-        days_count:
-          type:
-          - number
-          - 'null'
-          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
-
-            '
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-        working_pattern_days:
-          type: array
-          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
-
-            '
-          items:
-            $ref: '#/components/schemas/WorkingPatternDays'
-      example:
-        id: 101
-        days_count: null
-        working_pattern_days:
-        - day: MON
-          hours_count: 8
-        - day: WED
-          hours_count: 6
-        - day: FRI
-          hours_count: 4
-    HourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc_point:
-          type: number
-        tronc_amount:
-          type: number
-        tronc_rate:
-          type: number
-    TippedStatus:
-      type: object
-      properties:
-        id:
-          type: number
-        is_tipped:
-          type: boolean
-        start_date:
-          type: string
-          format: date
-    TroncPoint:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    AnnualRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    DeprecatedTronc:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
     PostEmployeePayTypeResponseV2:
       type: object
       properties:
@@ -641,45 +637,43 @@ components:
                 $ref: '#/components/schemas/HourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
-    TroncAmount:
+    WorkingPattern:
       type: object
       properties:
         id:
           type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    WorkingPatternDays:
-      type: object
-      properties:
-        id:
-          type: number
-        day:
-          type: string
-          enum:
-          - MON
-          - TUE
-          - WED
-          - THU
-          - FRI
-          - SAT
-          - SUN
-          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
-
-            '
-        hours_count:
+        days_count:
           type:
           - number
           - 'null'
-          description: 'Number of working hours on this day. Can be `null` if not specified.
+          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
 
             '
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+        working_pattern_days:
+          type: array
+          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+            '
+          items:
+            $ref: '#/components/schemas/WorkingPatternDays'
       example:
-        id: 1
-        day: SUN
-        hours_count: 8
+        id: 101
+        days_count: null
+        working_pattern_days:
+        - day: MON
+          hours_count: 8
+        - day: WED
+          hours_count: 6
+        - day: FRI
+          hours_count: 4
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

@@ -15,9 +15,7 @@ paths:
       tags:
       - Deprecated TroncPoints
       summary: Define new employee tronc point API
-      description: 'use this api when u want to define new employee tronc point
-
-        '
+      description: use this api when u want to define new employee tronc point
       operationId: DeprecatedCreateEmployeeTroncPoint
       parameters:
       - name: employeeId

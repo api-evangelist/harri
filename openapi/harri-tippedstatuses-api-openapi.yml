@@ -58,9 +58,7 @@ paths:
       tags:
       - TippedStatuses
       summary: Define new employee tipped status API
-      description: 'use this api when u want to define new tipped status for an employee on specific position
-
-        '
+      description: use this api when u want to define new tipped status for an employee on specific position
       operationId: CreateEmployeeTippedStatus
       parameters:
       - name: employeeId

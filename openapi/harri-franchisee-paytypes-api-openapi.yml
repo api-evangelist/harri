@@ -61,9 +61,7 @@ paths:
       tags:
       - Franchisee PayTypes
       summary: Update pay type basic info API
-      description: 'Use this api to update pay type version start_date.
-
-        '
+      description: Use this api to update pay type version start_date.
       operationId: FranshiseesUpdateEmployeePayType
       parameters:
       - name: franchiseeId
@@ -108,9 +106,7 @@ paths:
       tags:
       - Franchisee PayTypes
       summary: Delete pay type by id API
-      description: 'Delete pay type
-
-        '
+      description: Delete pay type
       operationId: FranshiseesDeleteEmployeePayTypes
       parameters:
       - name: franchiseeId
@@ -139,9 +135,7 @@ paths:
       tags:
       - Franchisee PayTypes
       summary: Update pay type basic info API
-      description: 'Use this api to update pay type version start_date.
-
-        '
+      description: Use this api to update pay type version start_date.
       operationId: UpdateEmployeePayTypeFranchisee
       parameters:
       - name: franchiseeId
@@ -186,9 +180,7 @@ paths:
       tags:
       - Franchisee PayTypes
       summary: Delete pay type by id API
-      description: 'Delete pay type
-
-        '
+      description: Delete pay type
       operationId: DeleteEmployeePayTypesFranchisee
       parameters:
       - name: franchiseeId
@@ -217,9 +209,7 @@ paths:
       tags:
       - Franchisee PayTypes
       summary: Define new employee pay type API
-      description: 'Use this api when u want to create the employee paytype with other financials information
-
-        '
+      description: Use this api when u want to create the employee paytype with other financials information
       operationId: FranchiseesCreatePayTypeV4
       parameters:
       - name: franchiseeId
@@ -330,62 +320,6 @@ paths:
                 $ref: '#/components/schemas/PostEmployeePayTypeResponseV3'
 components:
   schemas:
-    TroncAmount:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    HourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc_point:
-          type: number
-        tronc_amount:
-          type: number
-        tronc_rate:
-          type: number
-    TippedStatus:
-      type: object
-      properties:
-        id:
-          type: number
-        is_tipped:
-          type: boolean
-        start_date:
-          type: string
-          format: date
-    TroncPoint:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    AnnualRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
     PostEmployeePayTypeResponseV3:
       type: object
       properties:
@@ -429,6 +363,62 @@ components:
                 $ref: '#/components/schemas/HourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    TroncAmount:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    AnnualRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+    TroncPoint:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

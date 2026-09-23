@@ -1,7 +1,9 @@
 openapi: 3.2.0
 info:
   title: Harri - External Brand Management Employer APIs API
-  description: "## Harri Employer Endpoint to create and manage Harri Above Store Admin Users. \n Note: if you receive a 422 error about a corporate ID not being associated or found, you will need to contact Harri Support to have that ID associated with your API credentials."
+  description: '## Harri Employer Endpoint to create and manage Harri Above Store Admin Users.
+
+    Note: if you receive a 422 error about a corporate ID not being associated or found, you will need to contact Harri Support to have that ID associated with your API credentials.'
   termsOfService: https://harri.com/terms
   contact:
     email: support@harri.com
@@ -286,25 +288,6 @@ paths:
       - Employer APIs
 components:
   schemas:
-    UserOperationFailed_403:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 403
-              code:
-                type: string
-                description: Error code
-                example: NOT_AUTHORIZED_EXCEPTION
-              details:
-                type: string
-                description: Error details
-                example: You are not authorized
     UserRetrievedSuccessful:
       type: object
       properties:
@@ -354,6 +337,47 @@ components:
         - brands:
           - external_id: 1
             role: SUPER_ADMIN
+    UserOperationFailed_403:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 403
+              code:
+                type: string
+                description: Error code
+                example: NOT_AUTHORIZED_EXCEPTION
+              details:
+                type: string
+                description: Error details
+                example: You are not authorized
+    UserOperationFailed_400:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: Error code
+                example: USER_ALREADY_ADDED
+                enum:
+                - MISSING_DATA
+                - USER_ALREADY_ADDED
+                - USER_EXISTS_ON_ANOTHER_TREE
+                - INVALID_EMAIL_ADDRESS
+                - INVALID_BRAND_EXTERNAL_IDS
+              details:
+                type: string
+                description: Error details
+                example: User already added
     UserOperationSuccessful:
       type: object
       properties:
@@ -392,28 +416,6 @@ components:
           details: 'Brand external id not found: abc'
         - code: INTERNAL_ERROR
           details: Internal error occurred while adding roles to the user after creation
-    UserOperationFailed_400:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              code:
-                type: string
-                description: Error code
-                example: USER_ALREADY_ADDED
-                enum:
-                - MISSING_DATA
-                - USER_ALREADY_ADDED
-                - USER_EXISTS_ON_ANOTHER_TREE
-                - INVALID_EMAIL_ADDRESS
-                - INVALID_BRAND_EXTERNAL_IDS
-              details:
-                type: string
-                description: Error details
-                example: User already added
     UserOperationFailed_404:
       type: object
       properties:

@@ -14,7 +14,6 @@ paths:
       tags:
       - Franchisee AnnualRates
       summary: Retrieve employee annual rates
-      description: Retrieve employee annual rates
       operationId: FranshiseesGetEmployeeAnnualRate
       parameters:
       - name: franchiseeId
@@ -52,9 +51,7 @@ paths:
       tags:
       - Franchisee AnnualRates
       summary: Define new employee annual rate API
-      description: 'use this api when u want to define employee annual rate
-
-        '
+      description: use this api when u want to define employee annual rate
       operationId: FranshiseesCreateEmployeeAnnualRate
       parameters:
       - name: franchiseeId

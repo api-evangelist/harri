@@ -54,9 +54,7 @@ paths:
       tags:
       - Deprecated MaxWeeklyHours
       summary: Define new employee Max Weekly Hours API
-      description: 'use this api when u want to define new employee Max Weekly Hours
-
-        '
+      description: use this api when u want to define new employee Max Weekly Hours
       operationId: DeprecatedCreateEmployeeMaxWeeklyHours
       parameters:
       - name: employeeId
@@ -257,6 +255,51 @@ paths:
           description: successful operation
 components:
   schemas:
+    DeprecatedMaxWeeklyHoursV2:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        working_pattern:
+          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
+
+            '
+          allOf:
+          - $ref: '#/components/schemas/WorkingPattern'
+    WorkingPatternDays:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
+
+            '
+        hours_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working hours on this day. Can be `null` if not specified.
+
+            '
+      example:
+        id: 1
+        day: SUN
+        hours_count: 8
     WorkingPattern:
       type: object
       properties:
@@ -294,51 +337,6 @@ components:
           hours_count: 6
         - day: FRI
           hours_count: 4
-    WorkingPatternDays:
-      type: object
-      properties:
-        id:
-          type: number
-        day:
-          type: string
-          enum:
-          - MON
-          - TUE
-          - WED
-          - THU
-          - FRI
-          - SAT
-          - SUN
-          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
-
-            '
-        hours_count:
-          type:
-          - number
-          - 'null'
-          description: 'Number of working hours on this day. Can be `null` if not specified.
-
-            '
-      example:
-        id: 1
-        day: SUN
-        hours_count: 8
-    DeprecatedMaxWeeklyHoursV2:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        working_pattern:
-          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
-
-            '
-          allOf:
-          - $ref: '#/components/schemas/WorkingPattern'
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

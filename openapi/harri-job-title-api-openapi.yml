@@ -7,14 +7,13 @@ info:
 servers:
 - url: https://gateway.harri.com/open-api-hub
 tags:
-- name: JobTitle
+- name: Job Title
 paths:
   /api/v1/job_titles:
     get:
       tags:
-      - JobTitle
+      - Job Title
       summary: Retrieve all job titles
-      description: Retrieve all job titles
       operationId: GetAllJobTitles
       responses:
         '200':

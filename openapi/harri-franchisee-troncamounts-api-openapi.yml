@@ -52,9 +52,7 @@ paths:
       tags:
       - Franchisee TroncAmounts
       summary: Define new employee tronc amount API
-      description: 'use this api when u want to define new employee tronc amount
-
-        '
+      description: use this api when u want to define new employee tronc amount
       operationId: FranshiseesCreateEmployeeTroncAmount
       parameters:
       - name: franchiseeId

@@ -15,7 +15,6 @@ paths:
       tags:
       - Deprecated Event
       summary: retrieve events
-      description: retrieve events
       operationId: GetEvents
       parameters:
       - in: query

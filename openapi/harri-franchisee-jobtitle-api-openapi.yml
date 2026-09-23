@@ -14,7 +14,6 @@ paths:
       tags:
       - Franchisee JobTitle
       summary: Retrieve all job titles
-      description: Retrieve all job titles
       operationId: FranshiseesGetAllJobTitles
       parameters:
       - name: franchiseeId

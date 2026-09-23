@@ -65,9 +65,7 @@ paths:
       tags:
       - Deprecated Franchisee HourlyRates
       summary: Define new employee pay rate API
-      description: 'use this api when u want to create pay rate for an employee on specific position
-
-        '
+      description: use this api when u want to create pay rate for an employee on specific position
       operationId: DeprecatedFranshiseesCreateEmployeePayRate
       parameters:
       - name: franchiseeId
@@ -299,9 +297,7 @@ paths:
       tags:
       - Deprecated Franchisee HourlyRates
       summary: Define new employee pay rate API
-      description: 'use this api when u want to create pay rate for an employee on specific position
-
-        '
+      description: use this api when u want to create pay rate for an employee on specific position
       operationId: DeprecatedFranshiseesCreateEmployeePayRateV2
       parameters:
       - name: franchiseeId
@@ -485,18 +481,6 @@ paths:
           description: successful operation
 components:
   schemas:
-    DeprecatedHourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc:
-          type: number
     DeprecatedHourlyRateV2:
       type: object
       properties:
@@ -512,6 +496,18 @@ components:
         tronc_amount:
           type: number
         tronc_rate:
+          type: number
+    DeprecatedHourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
           type: number
   securitySchemes:
     oAuth2ClientCredentials:
