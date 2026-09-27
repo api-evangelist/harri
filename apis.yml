@@ -1185,8 +1185,6 @@ apis:
   humanURL: https://developer.harri.com/employees/
   baseURL: https://gateway.harri.com/open-api-hub
   tags:
-  - JobTitle
-  tags_raw:
   - Job Title
   properties:
   - type: OpenAPI

@@ -672,7 +672,7 @@ paths:
           type: string
           enum:
           - UNMAPPED
-      operationId: api_v1_employers_mappings_list
+      operationId: getV1EmployersMappings
       description: ''
       responses:
         '200':
@@ -702,6 +702,8 @@ paths:
       - oAuth2ClientCredentials: []
       summary: Api v1 employers mappings list
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: api_v1_employers_mappings_list
     servers:
     - url: https://gateway.harri.com/open-api-hub
 components:

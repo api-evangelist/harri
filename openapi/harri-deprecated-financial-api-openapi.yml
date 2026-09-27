@@ -306,46 +306,6 @@ paths:
           description: successful operation
 components:
   schemas:
-    DeprecatedAnnualPayRate:
-      type: object
-      properties:
-        id:
-          type: number
-        rate:
-          type: number
-        tronc:
-          type: number
-    DeprecatedPayTypeV2:
-      type: object
-      properties:
-        id:
-          type: number
-        employee_id:
-          type:
-          - number
-          - 'null'
-        type:
-          type: string
-          enum:
-          - SALARIED
-          - HOURLY
-          - WEIGHTED_SHIFT
-        cross_location_mode:
-          type:
-          - string
-          - 'null'
-          enum:
-          - FIXED
-          - FLEXIBLE
-          description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY
-        annual_pay_rates:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeprecatedAnnualPayRateV2'
-        tronc:
-          type: number
-        max_weekly_hours:
-          type: number
     DeprecatedPayType:
       type: object
       properties:
@@ -383,6 +343,46 @@ components:
         start_date:
           type: string
           format: date
+    DeprecatedPayTypeV2:
+      type: object
+      properties:
+        id:
+          type: number
+        employee_id:
+          type:
+          - number
+          - 'null'
+        type:
+          type: string
+          enum:
+          - SALARIED
+          - HOURLY
+          - WEIGHTED_SHIFT
+        cross_location_mode:
+          type:
+          - string
+          - 'null'
+          enum:
+          - FIXED
+          - FLEXIBLE
+          description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY
+        annual_pay_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeprecatedAnnualPayRateV2'
+        tronc:
+          type: number
+        max_weekly_hours:
+          type: number
+    DeprecatedAnnualPayRate:
+      type: object
+      properties:
+        id:
+          type: number
+        rate:
+          type: number
+        tronc:
+          type: number
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

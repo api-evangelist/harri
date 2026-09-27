@@ -471,103 +471,6 @@ paths:
                 $ref: '#/components/schemas/PostEmployeePayTypeResponseV2'
 components:
   schemas:
-    WorkingPatternDays:
-      type: object
-      properties:
-        id:
-          type: number
-        day:
-          type: string
-          enum:
-          - MON
-          - TUE
-          - WED
-          - THU
-          - FRI
-          - SAT
-          - SUN
-          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
-
-            '
-        hours_count:
-          type:
-          - number
-          - 'null'
-          description: 'Number of working hours on this day. Can be `null` if not specified.
-
-            '
-      example:
-        id: 1
-        day: SUN
-        hours_count: 8
-    TippedStatus:
-      type: object
-      properties:
-        id:
-          type: number
-        is_tipped:
-          type: boolean
-        start_date:
-          type: string
-          format: date
-    TroncAmount:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    DeprecatedTronc:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    DeprecatedHourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc:
-          type: number
-    AnnualRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    DeprecatedMaxWeeklyHours:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        working_pattern:
-          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
-
-            '
-          allOf:
-          - $ref: '#/components/schemas/WorkingPattern'
     HourlyRate:
       type: object
       properties:
@@ -584,16 +487,6 @@ components:
           type: number
         tronc_rate:
           type: number
-    TroncPoint:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
     PostEmployeePayTypeResponseV1:
       type: object
       properties:
@@ -637,6 +530,67 @@ components:
                 $ref: '#/components/schemas/DeprecatedHourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
+    TroncPoint:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    WorkingPatternDays:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
+
+            '
+        hours_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working hours on this day. Can be `null` if not specified.
+
+            '
+      example:
+        id: 1
+        day: SUN
+        hours_count: 8
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    DeprecatedHourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
     PostEmployeePayTypeResponseV2:
       type: object
       properties:
@@ -682,6 +636,42 @@ components:
                 $ref: '#/components/schemas/HourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
+    DeprecatedTronc:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    DeprecatedMaxWeeklyHours:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        working_pattern:
+          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
+
+            '
+          allOf:
+          - $ref: '#/components/schemas/WorkingPattern'
+    TroncAmount:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
     WorkingPattern:
       type: object
       properties:
@@ -719,6 +709,16 @@ components:
           hours_count: 6
         - day: FRI
           hours_count: 4
+    AnnualRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

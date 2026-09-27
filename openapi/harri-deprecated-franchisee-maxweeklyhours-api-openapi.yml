@@ -245,22 +245,6 @@ paths:
           description: successful operation
 components:
   schemas:
-    DeprecatedMaxWeeklyHoursV2:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        working_pattern:
-          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
-
-            '
-          allOf:
-          - $ref: '#/components/schemas/WorkingPattern'
     WorkingPatternDays:
       type: object
       properties:
@@ -290,6 +274,22 @@ components:
         id: 1
         day: SUN
         hours_count: 8
+    DeprecatedMaxWeeklyHoursV2:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        working_pattern:
+          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
+
+            '
+          allOf:
+          - $ref: '#/components/schemas/WorkingPattern'
     WorkingPattern:
       type: object
       properties:

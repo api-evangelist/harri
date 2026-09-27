@@ -507,7 +507,7 @@ paths:
       - MaxWeeklyHours
       summary: Create employee max weekly hours
       description: Create a max weekly hours configuration for the employee.
-      operationId: CreateEmployeeMaxWeeklyHours
+      operationId: postApiV1EmployeesByEmployeeIdMaxWeeklyHours
       parameters:
       - name: employeeId
         in: path
@@ -577,13 +577,15 @@ paths:
       security:
       - oAuth2ClientCredentials:
         - ''
+      x-operation-id-source: normalized
+      x-operation-id-original: CreateEmployeeMaxWeeklyHours
   /api/v1/employees/{employeeId}/max_weekly_hours/{max_weekly_hours_id}:
     put:
       tags:
       - MaxWeeklyHours
       summary: Update employee max weekly hours
       description: Update a max weekly hours configuration for the employee.
-      operationId: UpdateEmployeeMaxWeeklyHours
+      operationId: putApiV1EmployeesByEmployeeIdMaxWeeklyHoursByMaxWeeklyHoursId
       parameters:
       - name: employeeId
         in: path
@@ -661,12 +663,14 @@ paths:
       security:
       - oAuth2ClientCredentials:
         - ''
+      x-operation-id-source: normalized
+      x-operation-id-original: UpdateEmployeeMaxWeeklyHours
     delete:
       tags:
       - MaxWeeklyHours
       summary: Delete employee max weekly hours
       description: Delete a max weekly hours configuration for the employee.
-      operationId: DeleteEmployeeMaxWeeklyHours
+      operationId: deleteApiV1EmployeesByEmployeeIdMaxWeeklyHoursByMaxWeeklyHoursId
       parameters:
       - name: employeeId
         in: path
@@ -693,38 +697,10 @@ paths:
       security:
       - oAuth2ClientCredentials:
         - ''
+      x-operation-id-source: normalized
+      x-operation-id-original: DeleteEmployeeMaxWeeklyHours
 components:
   schemas:
-    MaxWeeklyHoursV2:
-      type: object
-      properties:
-        id:
-          type: number
-        start_date:
-          type: string
-          format: date
-        average_weekly_hours:
-          type: number
-        working_patterns:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkingPatternV2'
-    MaxWeeklyHours:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        working_pattern:
-          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
-
-            '
-          allOf:
-          - $ref: '#/components/schemas/WorkingPattern'
     WorkingPatternDays:
       type: object
       properties:
@@ -754,25 +730,6 @@ components:
         id: 1
         day: SUN
         hours_count: 8
-    WorkingPatternDaysV2:
-      type: object
-      properties:
-        id:
-          type: number
-        day:
-          type: string
-          enum:
-          - MON
-          - TUE
-          - WED
-          - THU
-          - FRI
-          - SAT
-          - SUN
-        hours_count:
-          type:
-          - number
-          - 'null'
     WorkingPatternV2:
       type: object
       properties:
@@ -798,6 +755,55 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WorkingPatternDaysV2'
+    MaxWeeklyHours:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        working_pattern:
+          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
+
+            '
+          allOf:
+          - $ref: '#/components/schemas/WorkingPattern'
+    WorkingPatternDaysV2:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+        hours_count:
+          type:
+          - number
+          - 'null'
+    MaxWeeklyHoursV2:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+        average_weekly_hours:
+          type: number
+        working_patterns:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternV2'
     WorkingPattern:
       type: object
       properties:

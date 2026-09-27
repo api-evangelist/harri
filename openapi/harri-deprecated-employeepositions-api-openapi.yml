@@ -490,119 +490,6 @@ components:
           type: number
         tronc_rate:
           type: number
-    DeprecatedPayRateV2:
-      type: object
-      properties:
-        id:
-          type: number
-        rate:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc:
-          type: number
-    DeprecatedHourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc:
-          type: number
-    TippedStatus:
-      type: object
-      properties:
-        id:
-          type: number
-        is_tipped:
-          type: boolean
-        start_date:
-          type: string
-          format: date
-    DeprecatedEmployeePositionRelatedInfoV2:
-      allOf:
-      - $ref: '#/components/schemas/Position'
-      - type: object
-        properties:
-          id:
-            type: number
-          location_id:
-            type: string
-          is_primary:
-            type: boolean
-            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
-          hourly_rate:
-            $ref: '#/components/schemas/HourlyRate'
-          tipped_status:
-            $ref: '#/components/schemas/TippedStatus'
-          cost_centers:
-            type: array
-            items:
-              $ref: '#/components/schemas/CostCenter'
-    DeprecatedEmployeePositionV2:
-      allOf:
-      - $ref: '#/components/schemas/Position'
-      - type: object
-        properties:
-          id:
-            type: number
-          location_id:
-            type:
-            - integer
-            - 'null'
-            description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY and cross location mode is FLEXIBLE
-          pay_rates:
-            type: array
-            items:
-              $ref: '#/components/schemas/DeprecatedPayRateV2'
-          is_tipped:
-            type: boolean
-            description: this field is nullable, it depends on pay type. this will have value only if pay type is HOURLY
-          cost_centers:
-            type: array
-            items:
-              $ref: '#/components/schemas/CostCenter'
-    DeprecatedEmployeePositionRelatedInfo:
-      allOf:
-      - $ref: '#/components/schemas/Position'
-      - type: object
-        properties:
-          id:
-            type: number
-          location_id:
-            type: integer
-          is_primary:
-            type: boolean
-            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
-          hourly_rate:
-            $ref: '#/components/schemas/DeprecatedHourlyRate'
-          tipped_status:
-            $ref: '#/components/schemas/TippedStatus'
-          cost_centers:
-            type: array
-            items:
-              $ref: '#/components/schemas/CostCenter'
-    Position:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
-        category:
-          type: object
-          properties:
-            id:
-              type: number
-            code:
-              type: string
-            name:
-              type: string
     CostCenter:
       type: object
       properties:
@@ -647,6 +534,79 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/CostCenter'
+    DeprecatedPayRateV2:
+      type: object
+      properties:
+        id:
+          type: number
+        rate:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
+    DeprecatedEmployeePositionV2:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type:
+            - integer
+            - 'null'
+            description: this field is nullable, it depends on pay type. this will be defined only if pay type is HOURLY and cross location mode is FLEXIBLE
+          pay_rates:
+            type: array
+            items:
+              $ref: '#/components/schemas/DeprecatedPayRateV2'
+          is_tipped:
+            type: boolean
+            description: this field is nullable, it depends on pay type. this will have value only if pay type is HOURLY
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    Position:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
+    DeprecatedHourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
     DeprecatedPayRate:
       type: object
       properties:
@@ -656,6 +616,46 @@ components:
           type: number
         tronc:
           type: number
+    DeprecatedEmployeePositionRelatedInfo:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: integer
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          hourly_rate:
+            $ref: '#/components/schemas/DeprecatedHourlyRate'
+          tipped_status:
+            $ref: '#/components/schemas/TippedStatus'
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
+    DeprecatedEmployeePositionRelatedInfoV2:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: string
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          hourly_rate:
+            $ref: '#/components/schemas/HourlyRate'
+          tipped_status:
+            $ref: '#/components/schemas/TippedStatus'
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2
