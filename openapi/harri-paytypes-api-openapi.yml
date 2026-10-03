@@ -224,7 +224,7 @@ paths:
                 $ref: '#/components/schemas/PostEmployeePayTypeResponseV3'
 components:
   schemas:
-    HourlyRate:
+    TroncPoint:
       type: object
       properties:
         id:
@@ -234,13 +234,7 @@ components:
         start_date:
           type: string
           format: date
-        tronc_point:
-          type: number
-        tronc_amount:
-          type: number
-        tronc_rate:
-          type: number
-    TroncPoint:
+    AnnualRate:
       type: object
       properties:
         id:
@@ -257,16 +251,6 @@ components:
           type: number
         is_tipped:
           type: boolean
-        start_date:
-          type: string
-          format: date
-    TroncAmount:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
         start_date:
           type: string
           format: date
@@ -313,7 +297,7 @@ components:
                 $ref: '#/components/schemas/HourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
-    AnnualRate:
+    TroncAmount:
       type: object
       properties:
         id:
@@ -323,6 +307,22 @@ components:
         start_date:
           type: string
           format: date
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

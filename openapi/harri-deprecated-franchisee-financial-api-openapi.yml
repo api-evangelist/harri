@@ -281,6 +281,15 @@ components:
           $ref: '#/components/schemas/DeprecatedAnnualPayRate'
         max_weekly_hours:
           type: number
+    DeprecatedAnnualPayRate:
+      type: object
+      properties:
+        id:
+          type: number
+        rate:
+          type: number
+        tronc:
+          type: number
     DeprecatedAnnualPayRateV2:
       type: object
       properties:
@@ -321,15 +330,6 @@ components:
         tronc:
           type: number
         max_weekly_hours:
-          type: number
-    DeprecatedAnnualPayRate:
-      type: object
-      properties:
-        id:
-          type: number
-        rate:
-          type: number
-        tronc:
           type: number
   securitySchemes:
     oAuth2ClientCredentials:

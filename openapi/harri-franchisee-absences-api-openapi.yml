@@ -671,6 +671,61 @@ components:
           description: List of days included in the absence
           items:
             $ref: '#/components/schemas/AbsenceRequestDay'
+    AbsenceRequestFull:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          employee_id:
+            type:
+            - number
+            - 'null'
+            description: 'External employee id mapped from the internal `user_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
+
+              '
+          location_id:
+            type:
+            - number
+            - 'null'
+            description: 'External location id mapped from the internal `brand_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
+
+              '
+      - $ref: '#/components/schemas/AbsenceRequest'
+    AbsenceRequestList:
+      type: object
+      properties:
+        requests:
+          type: array
+          description: array of absence requests
+          items:
+            $ref: '#/components/schemas/AbsenceRequest'
+    AbsenceRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: number
+            description: id of the absence request
+      - $ref: '#/components/schemas/AbsenceRequestNoId'
+    Pagination:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            page:
+              type: integer
+              description: current page number that starts with 1
+            per_page:
+              type: integer
+              description: amount of records per page
+            total:
+              type: integer
+              description: total number of records
+            total_pages:
+              type: integer
+              description: total number of pages
     AbsenceRequestUpdate:
       type: object
       properties:
@@ -729,41 +784,6 @@ components:
               - date
               - weight
               - is_all_day
-    Pagination:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            page:
-              type: integer
-              description: current page number that starts with 1
-            per_page:
-              type: integer
-              description: amount of records per page
-            total:
-              type: integer
-              description: total number of records
-            total_pages:
-              type: integer
-              description: total number of pages
-    AbsenceRequest:
-      type: object
-      allOf:
-      - type: object
-        properties:
-          id:
-            type: number
-            description: id of the absence request
-      - $ref: '#/components/schemas/AbsenceRequestNoId'
-    AbsenceRequestList:
-      type: object
-      properties:
-        requests:
-          type: array
-          description: array of absence requests
-          items:
-            $ref: '#/components/schemas/AbsenceRequest'
     AbsenceRequestDay:
       type: object
       properties:
@@ -790,26 +810,6 @@ components:
         is_all_day:
           type: boolean
           description: Indicates if the absence covers the entire day
-    AbsenceRequestFull:
-      type: object
-      allOf:
-      - type: object
-        properties:
-          employee_id:
-            type:
-            - number
-            - 'null'
-            description: 'External employee id mapped from the internal `user_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
-
-              '
-          location_id:
-            type:
-            - number
-            - 'null'
-            description: 'External location id mapped from the internal `brand_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
-
-              '
-      - $ref: '#/components/schemas/AbsenceRequest'
     AbsenceReasonOptionsList:
       type: object
       properties:

@@ -426,22 +426,6 @@ paths:
                 $ref: '#/components/schemas/PostEmployeePayTypeResponseV2'
 components:
   schemas:
-    HourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc_point:
-          type: number
-        tronc_amount:
-          type: number
-        tronc_rate:
-          type: number
     PostEmployeePayTypeResponseV1:
       type: object
       properties:
@@ -485,16 +469,6 @@ components:
                 $ref: '#/components/schemas/DeprecatedHourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
-    TroncPoint:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
     WorkingPatternDays:
       type: object
       properties:
@@ -524,6 +498,26 @@ components:
         id: 1
         day: SUN
         hours_count: 8
+    TroncPoint:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    AnnualRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
     TippedStatus:
       type: object
       properties:
@@ -534,18 +528,6 @@ components:
         start_date:
           type: string
           format: date
-    DeprecatedHourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc:
-          type: number
     PostEmployeePayTypeResponseV2:
       type: object
       properties:
@@ -591,32 +573,6 @@ components:
                 $ref: '#/components/schemas/HourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
-    DeprecatedTronc:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    DeprecatedMaxWeeklyHours:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        working_pattern:
-          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
-
-            '
-          allOf:
-          - $ref: '#/components/schemas/WorkingPattern'
     TroncAmount:
       type: object
       properties:
@@ -627,6 +583,18 @@ components:
         start_date:
           type: string
           format: date
+    DeprecatedHourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
     WorkingPattern:
       type: object
       properties:
@@ -664,7 +632,39 @@ components:
           hours_count: 6
         - day: FRI
           hours_count: 4
-    AnnualRate:
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+    DeprecatedMaxWeeklyHours:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        working_pattern:
+          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
+
+            '
+          allOf:
+          - $ref: '#/components/schemas/WorkingPattern'
+    DeprecatedTronc:
       type: object
       properties:
         id:
