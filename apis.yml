@@ -47,6 +47,10 @@ x-source: harvest:secondary-market
 specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
+x-docs-platform: swagger-ui
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-10-03
+x-docs-hosting: fastly
 tags:
 - Human Resources
 - Workforce Management
@@ -1185,6 +1189,8 @@ apis:
   humanURL: https://developer.harri.com/employees/
   baseURL: https://gateway.harri.com/open-api-hub
   tags:
+  - JobTitle
+  tags_raw:
   - Job Title
   properties:
   - type: OpenAPI
