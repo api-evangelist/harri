@@ -306,6 +306,15 @@ paths:
           description: successful operation
 components:
   schemas:
+    DeprecatedAnnualPayRate:
+      type: object
+      properties:
+        id:
+          type: number
+        rate:
+          type: number
+        tronc:
+          type: number
     DeprecatedPayType:
       type: object
       properties:
@@ -332,15 +341,6 @@ components:
         annual_pay_rate:
           $ref: '#/components/schemas/DeprecatedAnnualPayRate'
         max_weekly_hours:
-          type: number
-    DeprecatedAnnualPayRate:
-      type: object
-      properties:
-        id:
-          type: number
-        rate:
-          type: number
-        tronc:
           type: number
     DeprecatedAnnualPayRateV2:
       type: object

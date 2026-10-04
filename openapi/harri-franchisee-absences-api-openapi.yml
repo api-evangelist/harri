@@ -621,111 +621,20 @@ paths:
       - Franchisee Absences
 components:
   schemas:
-    AbsenceRequestNoId:
+    AbsenceReasonOptionsList:
       type: object
       properties:
-        absence_type:
-          type: string
-          description: Type of absence (e.g., TIME_OFF, LOA)
-        start_date:
-          type: string
-          format: date
-          description: Start date of the absence request
-        end_date:
-          type: string
-          format: date
-          description: End date of the absence
-        projected_end_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          description: Projected end date of the absence
-        status:
-          type: string
-          description: Status of the absence
-          enum:
-          - APPROVED
-          - PENDING_APPROVAL
-          - DELETED
-          - REJECTED
-          - WITHDRAWN
-        reason_option:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Reason code
-            name:
-              type: string
-              description: Reason name
-        reason_description:
-          type: string
-          description: Detailed description of the reason for absence from the employee
-        submitted_on:
-          type: string
-          format: date-time
-          description: Timestamp when the absence was submitted
-        days:
+        reason_options:
           type: array
-          description: List of days included in the absence
           items:
-            $ref: '#/components/schemas/AbsenceRequestDay'
-    AbsenceRequestFull:
-      type: object
-      allOf:
-      - type: object
-        properties:
-          employee_id:
-            type:
-            - number
-            - 'null'
-            description: 'External employee id mapped from the internal `user_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
-
-              '
-          location_id:
-            type:
-            - number
-            - 'null'
-            description: 'External location id mapped from the internal `brand_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
-
-              '
-      - $ref: '#/components/schemas/AbsenceRequest'
-    AbsenceRequestList:
-      type: object
-      properties:
-        requests:
-          type: array
-          description: array of absence requests
-          items:
-            $ref: '#/components/schemas/AbsenceRequest'
-    AbsenceRequest:
-      type: object
-      allOf:
-      - type: object
-        properties:
-          id:
-            type: number
-            description: id of the absence request
-      - $ref: '#/components/schemas/AbsenceRequestNoId'
-    Pagination:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            page:
-              type: integer
-              description: current page number that starts with 1
-            per_page:
-              type: integer
-              description: amount of records per page
-            total:
-              type: integer
-              description: total number of records
-            total_pages:
-              type: integer
-              description: total number of pages
+            type: object
+            properties:
+              code:
+                type: string
+                description: code of the reason option
+              name:
+                type: string
+                description: name/label for the reason option
     AbsenceRequestUpdate:
       type: object
       properties:
@@ -784,6 +693,41 @@ components:
               - date
               - weight
               - is_all_day
+    Pagination:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            page:
+              type: integer
+              description: current page number that starts with 1
+            per_page:
+              type: integer
+              description: amount of records per page
+            total:
+              type: integer
+              description: total number of records
+            total_pages:
+              type: integer
+              description: total number of pages
+    AbsenceRequestList:
+      type: object
+      properties:
+        requests:
+          type: array
+          description: array of absence requests
+          items:
+            $ref: '#/components/schemas/AbsenceRequest'
+    AbsenceRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: number
+            description: id of the absence request
+      - $ref: '#/components/schemas/AbsenceRequestNoId'
     AbsenceRequestDay:
       type: object
       properties:
@@ -810,20 +754,76 @@ components:
         is_all_day:
           type: boolean
           description: Indicates if the absence covers the entire day
-    AbsenceReasonOptionsList:
+    AbsenceRequestFull:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          employee_id:
+            type:
+            - number
+            - 'null'
+            description: 'External employee id mapped from the internal `user_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
+
+              '
+          location_id:
+            type:
+            - number
+            - 'null'
+            description: 'External location id mapped from the internal `brand_id` returned by the Team Attendance service. `null` when the mapping cannot be resolved.
+
+              '
+      - $ref: '#/components/schemas/AbsenceRequest'
+    AbsenceRequestNoId:
       type: object
       properties:
-        reason_options:
+        absence_type:
+          type: string
+          description: Type of absence (e.g., TIME_OFF, LOA)
+        start_date:
+          type: string
+          format: date
+          description: Start date of the absence request
+        end_date:
+          type: string
+          format: date
+          description: End date of the absence
+        projected_end_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: Projected end date of the absence
+        status:
+          type: string
+          description: Status of the absence
+          enum:
+          - APPROVED
+          - PENDING_APPROVAL
+          - DELETED
+          - REJECTED
+          - WITHDRAWN
+        reason_option:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Reason code
+            name:
+              type: string
+              description: Reason name
+        reason_description:
+          type: string
+          description: Detailed description of the reason for absence from the employee
+        submitted_on:
+          type: string
+          format: date-time
+          description: Timestamp when the absence was submitted
+        days:
           type: array
+          description: List of days included in the absence
           items:
-            type: object
-            properties:
-              code:
-                type: string
-                description: code of the reason option
-              name:
-                type: string
-                description: name/label for the reason option
+            $ref: '#/components/schemas/AbsenceRequestDay'
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

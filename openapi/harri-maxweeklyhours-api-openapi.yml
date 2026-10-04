@@ -701,6 +701,61 @@ paths:
       x-operation-id-original: DeleteEmployeeMaxWeeklyHours
 components:
   schemas:
+    MaxWeeklyHoursV2:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+        average_weekly_hours:
+          type: number
+        working_patterns:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternV2'
+    WorkingPatternV2:
+      type: object
+      properties:
+        id:
+          type: number
+        days_count:
+          type:
+          - number
+          - 'null'
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+        total_hours:
+          type: number
+        order:
+          type: integer
+        working_pattern_days:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternDaysV2'
+    MaxWeeklyHours:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        working_pattern:
+          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
+
+            '
+          allOf:
+          - $ref: '#/components/schemas/WorkingPattern'
     WorkingPatternDays:
       type: object
       properties:
@@ -786,61 +841,6 @@ components:
           hours_count: 6
         - day: FRI
           hours_count: 4
-    MaxWeeklyHoursV2:
-      type: object
-      properties:
-        id:
-          type: number
-        start_date:
-          type: string
-          format: date
-        average_weekly_hours:
-          type: number
-        working_patterns:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkingPatternV2'
-    WorkingPatternV2:
-      type: object
-      properties:
-        id:
-          type: number
-        days_count:
-          type:
-          - number
-          - 'null'
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-        total_hours:
-          type: number
-        order:
-          type: integer
-        working_pattern_days:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkingPatternDaysV2'
-    MaxWeeklyHours:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        working_pattern:
-          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
-
-            '
-          allOf:
-          - $ref: '#/components/schemas/WorkingPattern'
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2
