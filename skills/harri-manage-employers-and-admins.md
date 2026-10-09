@@ -2,7 +2,7 @@
 name: Manage Harri employers, brands and above-store admin users
 description: Create and maintain employer/brand records and the above-store admin users attached to them, and reconcile employer identifiers with an external system.
 api: openapi/harri-employer-openapi.json
-operations: [listEmployersV2, getEmployerV2, createEmployerV2, updateEmployerV2, deleteEmployerV2, createUser, retrieveUsersByBusinessId, retrieveUser, updateUser, deleteUser, api_v1_employers_mappings_list, ListCorporateUsers, CreateCorporateUser]
+operations: [listEmployersV2, getEmployerV2, createEmployerV2, updateEmployerV2, deleteEmployerV2, createUser, retrieveUsersByBusinessId, retrieveUser, updateUser, deleteUser, getV1EmployersMappings, ListCorporateUsers, CreateCorporateUser]
 ---
 
 # Manage Harri employers, brands and above-store admin users
