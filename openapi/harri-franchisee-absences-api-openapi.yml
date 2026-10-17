@@ -621,20 +621,40 @@ paths:
       - Franchisee Absences
 components:
   schemas:
-    AbsenceReasonOptionsList:
+    AbsenceRequestDay:
       type: object
       properties:
-        reason_options:
+        id:
+          type: integer
+          description: Day ID
+        date:
+          type: string
+          format: date
+          description: Date of the absence
+        weight:
+          type: number
+          description: Weight of the absence for the day
+        from_time:
+          type:
+          - integer
+          - 'null'
+          description: Start time in seconds since midnight if is_all_day is false
+        to_time:
+          type:
+          - integer
+          - 'null'
+          description: End time in seconds since midnight if is_all_day is false
+        is_all_day:
+          type: boolean
+          description: Indicates if the absence covers the entire day
+    AbsenceRequestList:
+      type: object
+      properties:
+        requests:
           type: array
+          description: array of absence requests
           items:
-            type: object
-            properties:
-              code:
-                type: string
-                description: code of the reason option
-              name:
-                type: string
-                description: name/label for the reason option
+            $ref: '#/components/schemas/AbsenceRequest'
     AbsenceRequestUpdate:
       type: object
       properties:
@@ -711,49 +731,6 @@ components:
             total_pages:
               type: integer
               description: total number of pages
-    AbsenceRequestList:
-      type: object
-      properties:
-        requests:
-          type: array
-          description: array of absence requests
-          items:
-            $ref: '#/components/schemas/AbsenceRequest'
-    AbsenceRequest:
-      type: object
-      allOf:
-      - type: object
-        properties:
-          id:
-            type: number
-            description: id of the absence request
-      - $ref: '#/components/schemas/AbsenceRequestNoId'
-    AbsenceRequestDay:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Day ID
-        date:
-          type: string
-          format: date
-          description: Date of the absence
-        weight:
-          type: number
-          description: Weight of the absence for the day
-        from_time:
-          type:
-          - integer
-          - 'null'
-          description: Start time in seconds since midnight if is_all_day is false
-        to_time:
-          type:
-          - integer
-          - 'null'
-          description: End time in seconds since midnight if is_all_day is false
-        is_all_day:
-          type: boolean
-          description: Indicates if the absence covers the entire day
     AbsenceRequestFull:
       type: object
       allOf:
@@ -774,6 +751,15 @@ components:
 
               '
       - $ref: '#/components/schemas/AbsenceRequest'
+    AbsenceRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: number
+            description: id of the absence request
+      - $ref: '#/components/schemas/AbsenceRequestNoId'
     AbsenceRequestNoId:
       type: object
       properties:
@@ -824,6 +810,20 @@ components:
           description: List of days included in the absence
           items:
             $ref: '#/components/schemas/AbsenceRequestDay'
+    AbsenceReasonOptionsList:
+      type: object
+      properties:
+        reason_options:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: code of the reason option
+              name:
+                type: string
+                description: name/label for the reason option
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

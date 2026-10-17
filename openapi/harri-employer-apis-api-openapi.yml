@@ -288,58 +288,6 @@ paths:
       - Employer APIs
 components:
   schemas:
-    UserOperationFailed_400:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              code:
-                type: string
-                description: Error code
-                example: USER_ALREADY_ADDED
-                enum:
-                - MISSING_DATA
-                - USER_ALREADY_ADDED
-                - USER_EXISTS_ON_ANOTHER_TREE
-                - INVALID_EMAIL_ADDRESS
-                - INVALID_BRAND_EXTERNAL_IDS
-              details:
-                type: string
-                description: Error details
-                example: User already added
-    UserOperationFailed_404:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Error message
-          example: User not found
-        details:
-          type: string
-          description: Error details
-          example: User not found
-    UserOperationFailed_403:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 403
-              code:
-                type: string
-                description: Error code
-                example: NOT_AUTHORIZED_EXCEPTION
-              details:
-                type: string
-                description: Error details
-                example: You are not authorized
     UserRetrievedSuccessful:
       type: object
       properties:
@@ -389,6 +337,58 @@ components:
         - brands:
           - external_id: 1
             role: SUPER_ADMIN
+    UserOperationFailed_404:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: User not found
+        details:
+          type: string
+          description: Error details
+          example: User not found
+    UserOperationFailed_400:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: Error code
+                example: USER_ALREADY_ADDED
+                enum:
+                - MISSING_DATA
+                - USER_ALREADY_ADDED
+                - USER_EXISTS_ON_ANOTHER_TREE
+                - INVALID_EMAIL_ADDRESS
+                - INVALID_BRAND_EXTERNAL_IDS
+              details:
+                type: string
+                description: Error details
+                example: User already added
+    UserOperationFailed_403:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 403
+              code:
+                type: string
+                description: Error code
+                example: NOT_AUTHORIZED_EXCEPTION
+              details:
+                type: string
+                description: Error details
+                example: You are not authorized
     UserOperationSuccessful:
       type: object
       properties:

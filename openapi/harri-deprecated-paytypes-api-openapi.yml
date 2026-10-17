@@ -471,119 +471,6 @@ paths:
                 $ref: '#/components/schemas/PostEmployeePayTypeResponseV2'
 components:
   schemas:
-    DeprecatedMaxWeeklyHours:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        working_pattern:
-          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
-
-            '
-          allOf:
-          - $ref: '#/components/schemas/WorkingPattern'
-    DeprecatedTronc:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    AnnualRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    TippedStatus:
-      type: object
-      properties:
-        id:
-          type: number
-        is_tipped:
-          type: boolean
-        start_date:
-          type: string
-          format: date
-    HourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc_point:
-          type: number
-        tronc_amount:
-          type: number
-        tronc_rate:
-          type: number
-    TroncPoint:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-    DeprecatedHourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc:
-          type: number
-    WorkingPatternDays:
-      type: object
-      properties:
-        id:
-          type: number
-        day:
-          type: string
-          enum:
-          - MON
-          - TUE
-          - WED
-          - THU
-          - FRI
-          - SAT
-          - SUN
-          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
-
-            '
-        hours_count:
-          type:
-          - number
-          - 'null'
-          description: 'Number of working hours on this day. Can be `null` if not specified.
-
-            '
-      example:
-        id: 1
-        day: SUN
-        hours_count: 8
     PostEmployeePayTypeResponseV1:
       type: object
       properties:
@@ -627,7 +514,82 @@ components:
                 $ref: '#/components/schemas/DeprecatedHourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
-    TroncAmount:
+    DeprecatedMaxWeeklyHours:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        working_pattern:
+          description: 'Present only when the underlying Team service version returns a working pattern (i.e., for endpoints whose request validation accepts `working_pattern`). May be omitted or `null` otherwise.
+
+            '
+          allOf:
+          - $ref: '#/components/schemas/WorkingPattern'
+    WorkingPattern:
+      type: object
+      properties:
+        id:
+          type: number
+        days_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
+
+            '
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+        working_pattern_days:
+          type: array
+          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+            '
+          items:
+            $ref: '#/components/schemas/WorkingPatternDays'
+      example:
+        id: 101
+        days_count: null
+        working_pattern_days:
+        - day: MON
+          hours_count: 8
+        - day: WED
+          hours_count: 6
+        - day: FRI
+          hours_count: 4
+    DeprecatedHourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
+    TippedStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        is_tipped:
+          type: boolean
+        start_date:
+          type: string
+          format: date
+    AnnualRate:
       type: object
       properties:
         id:
@@ -682,43 +644,81 @@ components:
                 $ref: '#/components/schemas/HourlyRate'
               tipped_status:
                 $ref: '#/components/schemas/TippedStatus'
-    WorkingPattern:
+    WorkingPatternDays:
       type: object
       properties:
         id:
           type: number
-        days_count:
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
+
+            '
+        hours_count:
           type:
           - number
           - 'null'
-          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
+          description: 'Number of working hours on this day. Can be `null` if not specified.
 
             '
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-        working_pattern_days:
-          type: array
-          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
-
-            '
-          items:
-            $ref: '#/components/schemas/WorkingPatternDays'
       example:
-        id: 101
-        days_count: null
-        working_pattern_days:
-        - day: MON
-          hours_count: 8
-        - day: WED
-          hours_count: 6
-        - day: FRI
-          hours_count: 4
+        id: 1
+        day: SUN
+        hours_count: 8
+    DeprecatedTronc:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    TroncPoint:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+    HourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc_point:
+          type: number
+        tronc_amount:
+          type: number
+        tronc_rate:
+          type: number
+    TroncAmount:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

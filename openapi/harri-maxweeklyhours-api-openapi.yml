@@ -701,45 +701,6 @@ paths:
       x-operation-id-original: DeleteEmployeeMaxWeeklyHours
 components:
   schemas:
-    MaxWeeklyHoursV2:
-      type: object
-      properties:
-        id:
-          type: number
-        start_date:
-          type: string
-          format: date
-        average_weekly_hours:
-          type: number
-        working_patterns:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkingPatternV2'
-    WorkingPatternV2:
-      type: object
-      properties:
-        id:
-          type: number
-        days_count:
-          type:
-          - number
-          - 'null'
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-        total_hours:
-          type: number
-        order:
-          type: integer
-        working_pattern_days:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkingPatternDaysV2'
     MaxWeeklyHours:
       type: object
       properties:
@@ -756,6 +717,57 @@ components:
             '
           allOf:
           - $ref: '#/components/schemas/WorkingPattern'
+    WorkingPattern:
+      type: object
+      properties:
+        id:
+          type: number
+        days_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
+
+            '
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+        working_pattern_days:
+          type: array
+          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
+
+            '
+          items:
+            $ref: '#/components/schemas/WorkingPatternDays'
+      example:
+        id: 101
+        days_count: null
+        working_pattern_days:
+        - day: MON
+          hours_count: 8
+        - day: WED
+          hours_count: 6
+        - day: FRI
+          hours_count: 4
+    MaxWeeklyHoursV2:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+        average_weekly_hours:
+          type: number
+        working_patterns:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternV2'
     WorkingPatternDays:
       type: object
       properties:
@@ -804,7 +816,7 @@ components:
           type:
           - number
           - 'null'
-    WorkingPattern:
+    WorkingPatternV2:
       type: object
       properties:
         id:
@@ -813,9 +825,6 @@ components:
           type:
           - number
           - 'null'
-          description: 'Number of working days per week. Allowed values: 1 to 7. Can be `null` when working days are defined explicitly in `working_pattern_days`.
-
-            '
           enum:
           - 1
           - 2
@@ -824,23 +833,14 @@ components:
           - 5
           - 6
           - 7
+        total_hours:
+          type: number
+        order:
+          type: integer
         working_pattern_days:
           type: array
-          description: 'The distribution of working days. Can be an empty list if not specifying specific days. Each item defines the day and optionally the number of hours worked.
-
-            '
           items:
-            $ref: '#/components/schemas/WorkingPatternDays'
-      example:
-        id: 101
-        days_count: null
-        working_pattern_days:
-        - day: MON
-          hours_count: 8
-        - day: WED
-          hours_count: 6
-        - day: FRI
-          hours_count: 4
+            $ref: '#/components/schemas/WorkingPatternDaysV2'
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

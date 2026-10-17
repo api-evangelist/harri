@@ -474,26 +474,18 @@ paths:
                   $ref: '#/components/schemas/DeprecatedEmployeePosition'
 components:
   schemas:
-    DeprecatedEmployeePositionRelatedInfo:
-      allOf:
-      - $ref: '#/components/schemas/Position'
-      - type: object
-        properties:
-          id:
-            type: number
-          location_id:
-            type: integer
-          is_primary:
-            type: boolean
-            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
-          hourly_rate:
-            $ref: '#/components/schemas/DeprecatedHourlyRate'
-          tipped_status:
-            $ref: '#/components/schemas/TippedStatus'
-          cost_centers:
-            type: array
-            items:
-              $ref: '#/components/schemas/CostCenter'
+    DeprecatedPayRateV2:
+      type: object
+      properties:
+        id:
+          type: number
+        rate:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
     CostCenter:
       type: object
       properties:
@@ -512,6 +504,18 @@ components:
               type: string
             name:
               type: string
+    DeprecatedHourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
     Position:
       type: object
       properties:
@@ -528,15 +532,6 @@ components:
               type: string
             name:
               type: string
-    DeprecatedPayRate:
-      type: object
-      properties:
-        id:
-          type: number
-        rate:
-          type: number
-        tronc:
-          type: number
     TippedStatus:
       type: object
       properties:
@@ -547,6 +542,26 @@ components:
         start_date:
           type: string
           format: date
+    DeprecatedEmployeePositionRelatedInfoV2:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: string
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          hourly_rate:
+            $ref: '#/components/schemas/HourlyRate'
+          tipped_status:
+            $ref: '#/components/schemas/TippedStatus'
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
     HourlyRate:
       type: object
       properties:
@@ -586,6 +601,26 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/CostCenter'
+    DeprecatedEmployeePositionRelatedInfo:
+      allOf:
+      - $ref: '#/components/schemas/Position'
+      - type: object
+        properties:
+          id:
+            type: number
+          location_id:
+            type: integer
+          is_primary:
+            type: boolean
+            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
+          hourly_rate:
+            $ref: '#/components/schemas/DeprecatedHourlyRate'
+          tipped_status:
+            $ref: '#/components/schemas/TippedStatus'
+          cost_centers:
+            type: array
+            items:
+              $ref: '#/components/schemas/CostCenter'
     DeprecatedEmployeePosition:
       allOf:
       - $ref: '#/components/schemas/Position'
@@ -612,50 +647,15 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/CostCenter'
-    DeprecatedHourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc:
-          type: number
-    DeprecatedPayRateV2:
+    DeprecatedPayRate:
       type: object
       properties:
         id:
           type: number
         rate:
           type: number
-        start_date:
-          type: string
-          format: date
         tronc:
           type: number
-    DeprecatedEmployeePositionRelatedInfoV2:
-      allOf:
-      - $ref: '#/components/schemas/Position'
-      - type: object
-        properties:
-          id:
-            type: number
-          location_id:
-            type: string
-          is_primary:
-            type: boolean
-            description: Indicates whether this position is the primary role for a user. This value is determined based on the existence of a PRIMARY_POSITION service.
-          hourly_rate:
-            $ref: '#/components/schemas/HourlyRate'
-          tipped_status:
-            $ref: '#/components/schemas/TippedStatus'
-          cost_centers:
-            type: array
-            items:
-              $ref: '#/components/schemas/CostCenter'
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

@@ -437,6 +437,18 @@ paths:
           description: successful operation
 components:
   schemas:
+    DeprecatedHourlyRate:
+      type: object
+      properties:
+        id:
+          type: number
+        value:
+          type: number
+        start_date:
+          type: string
+          format: date
+        tronc:
+          type: number
     DeprecatedHourlyRateV2:
       type: object
       properties:
@@ -452,18 +464,6 @@ components:
         tronc_amount:
           type: number
         tronc_rate:
-          type: number
-    DeprecatedHourlyRate:
-      type: object
-      properties:
-        id:
-          type: number
-        value:
-          type: number
-        start_date:
-          type: string
-          format: date
-        tronc:
           type: number
   securitySchemes:
     oAuth2ClientCredentials:

@@ -245,35 +245,6 @@ paths:
           description: successful operation
 components:
   schemas:
-    WorkingPatternDays:
-      type: object
-      properties:
-        id:
-          type: number
-        day:
-          type: string
-          enum:
-          - MON
-          - TUE
-          - WED
-          - THU
-          - FRI
-          - SAT
-          - SUN
-          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
-
-            '
-        hours_count:
-          type:
-          - number
-          - 'null'
-          description: 'Number of working hours on this day. Can be `null` if not specified.
-
-            '
-      example:
-        id: 1
-        day: SUN
-        hours_count: 8
     DeprecatedMaxWeeklyHoursV2:
       type: object
       properties:
@@ -327,6 +298,35 @@ components:
           hours_count: 6
         - day: FRI
           hours_count: 4
+    WorkingPatternDays:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          description: 'Day of the week. Must be one of: MON, TUE, WED, THU, FRI, SAT, SUN.
+
+            '
+        hours_count:
+          type:
+          - number
+          - 'null'
+          description: 'Number of working hours on this day. Can be `null` if not specified.
+
+            '
+      example:
+        id: 1
+        day: SUN
+        hours_count: 8
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2

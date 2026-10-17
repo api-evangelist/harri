@@ -708,13 +708,6 @@ paths:
     - url: https://gateway.harri.com/open-api-hub
 components:
   schemas:
-    Mapping:
-      type: object
-      properties:
-        internal_value:
-          type: string
-        external_value:
-          type: string
     MapperData:
       type: object
       properties:
@@ -731,6 +724,13 @@ components:
               external_value:
                 type: string
                 description: Mapper external code
+    Mapping:
+      type: object
+      properties:
+        internal_value:
+          type: string
+        external_value:
+          type: string
     UpdateMapper:
       type: object
       properties:

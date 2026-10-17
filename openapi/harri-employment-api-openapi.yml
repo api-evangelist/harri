@@ -446,79 +446,6 @@ paths:
                 $ref: '#/components/schemas/RehireEmployeeV5Response'
 components:
   schemas:
-    Address:
-      type: object
-      properties:
-        country_code:
-          type: string
-          example: US
-        state_code:
-          type: string
-          example: NY
-        city:
-          type: string
-        address_line_1:
-          type: string
-        address_line_2:
-          type: string
-        postal_code:
-          type: string
-    MaxWeeklyHoursV2:
-      type: object
-      properties:
-        id:
-          type: number
-        start_date:
-          type: string
-          format: date
-        average_weekly_hours:
-          type: number
-        working_patterns:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkingPatternV2'
-    EmploymentPeriod:
-      type: object
-      properties:
-        id:
-          type: number
-        hire_date:
-          type: string
-          format: date
-          description: employee hire date
-        leave_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          description: employee leave date
-        termination_reason:
-          type:
-          - object
-          - 'null'
-          properties:
-            code:
-              type: string
-            name:
-              type: string
-    CostCenter:
-      type: object
-      properties:
-        id:
-          type: number
-        code:
-          type: string
-        name:
-          type: string
-        value:
-          type: object
-          properties:
-            id:
-              type: number
-            code:
-              type: string
-            name:
-              type: string
     WorkingPatternV2:
       type: object
       properties:
@@ -544,17 +471,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WorkingPatternDaysV2'
-    TerminationReasonGroup:
+    CostCenter:
       type: object
       properties:
         id:
           type: number
+        code:
+          type: string
         name:
           type: string
-        termination_reasons:
-          type: array
-          items:
-            $ref: '#/components/schemas/TerminationReasonV2'
+        value:
+          type: object
+          properties:
+            id:
+              type: number
+            code:
+              type: string
+            name:
+              type: string
     Position:
       type: object
       properties:
@@ -571,25 +505,44 @@ components:
               type: string
             name:
               type: string
-    WorkingPatternDaysV2:
+    Location:
       type: object
       properties:
         id:
           type: number
-        day:
+        name:
           type: string
-          enum:
-          - MON
-          - TUE
-          - WED
-          - THU
-          - FRI
-          - SAT
-          - SUN
-        hours_count:
-          type:
-          - number
-          - 'null'
+        country_code:
+          type: string
+        state_code:
+          type: string
+        city:
+          type: string
+    JobTitle:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        name:
+          type: string
+        skill_needed:
+          type: boolean
+    MaxWeeklyHoursV2:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+        average_weekly_hours:
+          type: number
+        working_patterns:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkingPatternV2'
     RehireEmployeeV5Response:
       allOf:
       - $ref: '#/components/schemas/EmployeeBasicInfo'
@@ -794,26 +747,6 @@ components:
                 type: string
               sort_code:
                 type: string
-    Location:
-      type: object
-      properties:
-        id:
-          type: number
-        name:
-          type: string
-        country_code:
-          type: string
-        state_code:
-          type: string
-        city:
-          type: string
-    TerminationReasonV2:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
     EmployeeBasicInfo:
       type: object
       properties:
@@ -852,46 +785,30 @@ components:
           type: boolean
         known_as:
           type: string
-    JobTitle:
+    Address:
       type: object
       properties:
-        id:
-          type: number
+        country_code:
+          type: string
+          example: US
+        state_code:
+          type: string
+          example: NY
+        city:
+          type: string
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        postal_code:
+          type: string
+    TerminationReasonV2:
+      type: object
+      properties:
         code:
           type: string
         name:
           type: string
-        skill_needed:
-          type: boolean
-    EmployeeJobTitle:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/JobTitle'
-      - type: object
-        properties:
-          level:
-            type: string
-            description: number with quotations like "5"
-    LocationPeriod:
-      type: object
-      properties:
-        id:
-          type: number
-        start_date:
-          type: string
-          format: date
-          description: employee start date on specific location
-        end_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          description: employee end date on specific location
-        type:
-          type: string
-          enum:
-          - PRIMARY
-          - SECONDARY
     PayType:
       type: object
       properties:
@@ -914,6 +831,89 @@ components:
           - FIXED
           - FLEXIBLE
           description: This field is nullable and depends on the pay type. It will only be defined if the pay type is set to HOURLY.
+    EmployeeJobTitle:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/JobTitle'
+      - type: object
+        properties:
+          level:
+            type: string
+            description: number with quotations like "5"
+    TerminationReasonGroup:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        termination_reasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/TerminationReasonV2'
+    WorkingPatternDaysV2:
+      type: object
+      properties:
+        id:
+          type: number
+        day:
+          type: string
+          enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+        hours_count:
+          type:
+          - number
+          - 'null'
+    LocationPeriod:
+      type: object
+      properties:
+        id:
+          type: number
+        start_date:
+          type: string
+          format: date
+          description: employee start date on specific location
+        end_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: employee end date on specific location
+        type:
+          type: string
+          enum:
+          - PRIMARY
+          - SECONDARY
+    EmploymentPeriod:
+      type: object
+      properties:
+        id:
+          type: number
+        hire_date:
+          type: string
+          format: date
+          description: employee hire date
+        leave_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          description: employee leave date
+        termination_reason:
+          type:
+          - object
+          - 'null'
+          properties:
+            code:
+              type: string
+            name:
+              type: string
   securitySchemes:
     oAuth2ClientCredentials:
       type: oauth2
